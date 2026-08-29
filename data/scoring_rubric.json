@@ -1,0 +1,40 @@
+{
+  "rubric_version": "1.0.0",
+  "evaluation_mode": "double_blind",
+  "scale": "1-5 integer",
+  "dimensions": {
+    "correctness": {
+      "weight": 0.4,
+      "description": "Factual truth, mathematical correctness, code execution validity, and absence of logical hallucinations.",
+      "levels": {
+        "5": "Completely accurate, mathematically sound, code is syntactically and semantically valid with no flaws.",
+        "4": "Largely accurate, minor non-critical notation or syntax discrepancy.",
+        "3": "Moderate accuracy, correct core concept but contains a notable derivation error or unhandled edge case.",
+        "2": "Substantial inaccuracies, faulty mathematical derivation, or broken code logic.",
+        "1": "Fundamentally wrong, major hallucinations, or completely invalid code/math."
+      }
+    },
+    "completeness": {
+      "weight": 0.35,
+      "description": "Exhaustive coverage of all explicit and implicit sub-goals in complex compound prompts.",
+      "levels": {
+        "5": "All multi-domain facets and instructions fully addressed with thorough depth.",
+        "4": "All primary facets addressed; one minor sub-question covered with slight brevity.",
+        "3": "Core domain addressed well, but secondary cross-domain requirement partially omitted.",
+        "2": "Multiple explicit sub-tasks omitted; shallow superficial answers.",
+        "1": "Fails to address the vast majority of the prompt's requirements."
+      }
+    },
+    "coherence_synthesis": {
+      "weight": 0.25,
+      "description": "Logical structural flow, cross-subtask synthesis, resolution of contradictions, and readability.",
+      "levels": {
+        "5": "Masterful synthesis; unified explanation where multi-domain parts reinforce each other seamlessly.",
+        "4": "Well-structured, clear transitions, minimal redundancy.",
+        "3": "Understandable, but reads like distinct concatenated sections with abrupt transitions.",
+        "2": "Disjointed, contradictory statements between sections, or repetitive text.",
+        "1": "Incoherent, internally contradictory, or unstructured rambling."
+      }
+    }
+  }
+}

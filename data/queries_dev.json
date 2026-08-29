@@ -1,0 +1,666 @@
+[
+  {
+    "id": "SD_CODE_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement an LRU cache in Python with O(1) get and put operations using OrderedDict or a doubly linked list with a hash map, including type hints and unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Write a Python implementation of an asynchronous token-bucket rate limiter supporting concurrent asyncio coroutines with burst limits.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement the Dijkstra shortest path algorithm in Python for an adjacency-list weighted graph using a min-heap priority queue.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Write a thread-safe singleton pattern in Python using a metaclass with double-checked locking.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_05",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement an efficient Trie data structure in Python supporting prefix search, wildcard match ('.'), and word frequency counting.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_06",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Write a Python script to parse and stream a large gzip-compressed JSONL file line-by-line using minimal memory and generator pipelines.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_07",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement the merge sort algorithm iteratively in Python without recursion, tracking comparison counts.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_08",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Create a Python custom context manager that measures and logs peak memory consumption of a code block using tracemalloc.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_09",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement a circular buffer (ring buffer) in Python with overwrite semantics on overflow and thread-safe lock mechanisms.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_10",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Write a Python decorator that implements exponential backoff retry with jitter for transient network exceptions.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_11",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement an immutable Red-Black Tree insertion algorithm in Python with structural sharing.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_12",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Write a Python parser for basic arithmetic expressions supporting +, -, *, /, and parentheses using a Recursive Descent parser.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_13",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement a Bloom filter in Python using MurmurHash3 and a bitarray with configurable false positive probability.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_14",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Write a Python function to solve the Longest Common Subsequence (LCS) problem using space-optimized dynamic programming.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_CODE_15",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "query": "Implement an asynchronous connection pool manager in Python with health checks and max-idle timeout recycling.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "query": "Derive the closed-form posterior distribution for a normal likelihood with known variance and a conjugate normal prior, showing all intermediate algebra.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_01",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the mathematical formulation of the Kalman Filter (prediction and update steps for state covariance), and provide a vectorized Python implementation using NumPy that tracks a 2D moving object with noisy velocity measurements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_02",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the gradient updates for logistic regression with L2 regularization from first principles, and implement the optimizer in Python from scratch with gradient checking against finite differences.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_03",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the Black-Scholes PDE for European call option pricing, derive the closed-form analytical solution ($d_1$, $d_2$), and implement a Python class calculating Greeks ($\\Delta, \\Gamma, \\Theta, \\mathcal{V}, \rho$).",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_04",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the Expectation-Maximization (EM) algorithm update equations for a Gaussian Mixture Model (GMM), and write a Python implementation with log-likelihood convergence monitoring.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_05",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the PageRank random walk transition matrix with teleportation parameter $\u0007lpha$, and implement power iteration in Python with sparse matrix representations.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_06",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the fast Fourier transform (FFT) Cooley-Tukey radix-2 recurrence relations and implement the recursive and iterative FFT algorithms in Python without scipy.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_07",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the dual problem of a Support Vector Machine (SVM) using Lagrange multipliers, and implement the Sequential Minimal Optimization (SMO) algorithm in Python.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_08",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the analytical solution of the 1D heat equation $\\partial u/\\partial t = \u0007lpha \\partial^2 u/\\partial x^2$ using separation of variables, and implement the Crank-Nicolson numerical solver in Python.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_09",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Explain the mathematical formulation of Singular Value Decomposition (SVD) and implement truncated SVD image compression in Python with energy preservation ratio calculation.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_10",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the closed-form ridge regression estimator $(X^T X + \\lambda I)^{-1} X^T y$ and write an efficient Python implementation using Cholesky decomposition instead of matrix inversion.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_11",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the multi-armed bandit Upper Confidence Bound (UCB1) regret bound theorem and implement a Python simulation benchmarking UCB1 against $\\epsilon$-greedy.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_12",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the Runge-Kutta 4th order (RK4) method for initial value ODEs and implement a Python simulation of the chaotic Lorenz system with 3D phase space plotting.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_13",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the Metropolis-Hastings Markov Chain Monte Carlo (MCMC) acceptance probability rule and write a Python sampler drawing from an unnormalized bivariate multimodal distribution.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_14",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the Principal Component Analysis (PCA) optimization problem as maximum variance projection and implement an end-to-end PCA transformer class in Python.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_15",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the Levenberg-Marquardt non-linear least squares update formula and implement a Python solver for curve fitting on exponential decay data.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_16",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the Simplex method for linear programming in tableau form and write a Python function that solves standard-form maximization LP problems.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_17",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the backpropagation gradient equations for a 2-layer MLP with softmax cross-entropy loss, and implement vectorized forward/backward passes in Python.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_18",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the Hidden Markov Model (HMM) Viterbi decoding algorithm dynamic programming equations and implement the decoder in Python.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_19",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Derive the gradient formulas for Adam optimizer (first/second moment bias correction) and implement the optimizer in Python.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CM_20",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "query": "Formulate the Bellman Optimality Equation for Markov Decision Processes (MDP) and implement Value Iteration and Policy Iteration in Python for a GridWorld environment.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CR_01",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "query": "Analyze the concurrency race conditions and memory visibility hazards in a naive double-checked locking singleton implementation in Java/Python, and provide a verified deadlock-free, lock-free alternative using atomic CAS operations.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CR_02",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "query": "Evaluate the theoretical time and space complexity trade-offs of using an LSM-Tree (Log-Structured Merge-Tree) versus a B+ Tree for high-write database workloads, and implement a mini in-memory MemTable and SSTable flush simulator in Python.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CR_03",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "query": "Perform formal verification analysis of the Peterson's mutual exclusion algorithm for two processes, identify why it fails on out-of-order execution architectures, and implement a memory-barrier-safe Python model.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "TD_CR_04",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "query": "Analyze the Byzantine Generals Problem under synchronous message passing, prove why $3m+1$ nodes are required to tolerate $m$ traitors, and write a Python simulator demonstrating consensus failure with $3m$ nodes.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_01",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical proof of the A* search algorithm's optimality and admissibility on directed graphs with non-negative edge weights; logically analyze the consistency/monotonicity property of heuristic functions; and write an end-to-end Python implementation with a visual test grid solving a navigation problem with dynamic obstacles.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_02",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Formulate the mathematical foundation of Singular Value Decomposition (SVD) and Eckart-Young-Mirsky theorem for low-rank matrix approximation; logically analyze why truncated SVD provides optimal rank-k reconstruction under Frobenius norm; and implement an end-to-end Python collaborative filtering recommendation engine with cross-validation.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_03",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical loss function of the Cross-Entropy Loss combined with Label Smoothing in multi-class classification; prove why label smoothing prevents the network from becoming overconfident in its logits; and implement a PyTorch/NumPy training loop from scratch verifying logit distribution shrinkage.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_04",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical equations for the Extended Kalman Filter (EKF) linearization via Jacobian matrices for non-linear state transitions; analyze stability risks when linearization errors accumulate; and implement a complete Python simulation tracking an aircraft executing a coordinated turn.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_05",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Formulate the convex optimization problem for portfolio optimization with quadratic transaction costs and cardinality constraints; analyze why L1 regularization induces sparsity whereas L2 induces shrinkage; and implement a Python solver using cvxpy or custom projected gradient descent.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_06",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #6, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_07",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #7, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_08",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #8, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_09",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #9, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_10",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #10, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_11",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #11, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_12",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #12, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_13",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #13, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_14",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #14, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_15",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #15, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_16",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #16, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_17",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #17, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_18",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #18, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_19",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #19, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "CD_CMR_20",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "query": "Derive the mathematical formulation for advanced machine learning algorithm #20, prove its convergence bounds and stability conditions, and implement an end-to-end Python benchmark.",
+    "gold_dag_available": false,
+    "split": "dev"
+  }
+]

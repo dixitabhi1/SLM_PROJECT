@@ -1,0 +1,185 @@
+{
+  "paired_sample_size": 60,
+  "tiers": {
+    "single_domain": {
+      "n": 16,
+      "wall_latency_ratio": {
+        "n": 16,
+        "mean_ratio": 1.455,
+        "median_ratio": 1.3932,
+        "geometric_mean_ratio": 1.4351,
+        "ci_95_lower": 1.3131,
+        "ci_95_upper": 1.5684,
+        "std_log": 0.1733
+      },
+      "simulated_parallel_latency_ratio": {
+        "n": 16,
+        "mean_ratio": 22.9651,
+        "median_ratio": 21.5527,
+        "geometric_mean_ratio": 22.8084,
+        "ci_95_lower": 21.4519,
+        "ci_95_upper": 24.2507,
+        "std_log": 0.1196
+      },
+      "cost_ratio": {
+        "n": 16,
+        "mean_ratio": 0.5722,
+        "median_ratio": 0.4954,
+        "geometric_mean_ratio": 0.5491,
+        "ci_95_lower": 0.4729,
+        "ci_95_upper": 0.6376,
+        "std_log": 0.2916
+      },
+      "quality_non_inferiority": {
+        "n": 16,
+        "mean_quality_diff": -0.3,
+        "std_diff": 0.0,
+        "se_diff": 0.0,
+        "non_inferiority_margin": 0.2,
+        "lower_bound_95_ci": -0.3,
+        "t_statistic": 0.0,
+        "p_value": 0.5,
+        "non_inferiority_demonstrated": false
+      },
+      "decomposition_accuracy": {
+        "mean_ged": 1.0,
+        "mean_similarity": 0.5
+      }
+    },
+    "two_domain": {
+      "n": 24,
+      "wall_latency_ratio": {
+        "n": 24,
+        "mean_ratio": 1.5951,
+        "median_ratio": 1.5958,
+        "geometric_mean_ratio": 1.5624,
+        "ci_95_lower": 1.4318,
+        "ci_95_upper": 1.705,
+        "std_log": 0.2086
+      },
+      "simulated_parallel_latency_ratio": {
+        "n": 24,
+        "mean_ratio": 26.0897,
+        "median_ratio": 26.0221,
+        "geometric_mean_ratio": 25.7733,
+        "ci_95_lower": 24.1098,
+        "ci_95_upper": 27.5515,
+        "std_log": 0.1594
+      },
+      "cost_ratio": {
+        "n": 24,
+        "mean_ratio": 0.6257,
+        "median_ratio": 0.6149,
+        "geometric_mean_ratio": 0.6097,
+        "ci_95_lower": 0.5535,
+        "ci_95_upper": 0.6716,
+        "std_log": 0.2311
+      },
+      "quality_non_inferiority": {
+        "n": 24,
+        "mean_quality_diff": -0.3,
+        "std_diff": 0.0,
+        "se_diff": 0.0,
+        "non_inferiority_margin": 0.2,
+        "lower_bound_95_ci": -0.3,
+        "t_statistic": 0.0,
+        "p_value": 0.5,
+        "non_inferiority_demonstrated": false
+      },
+      "decomposition_accuracy": {
+        "mean_ged": 3.0,
+        "mean_similarity": 0.25
+      }
+    },
+    "three_plus_domain": {
+      "n": 20,
+      "wall_latency_ratio": {
+        "n": 20,
+        "mean_ratio": 1.5126,
+        "median_ratio": 1.4772,
+        "geometric_mean_ratio": 1.494,
+        "ci_95_lower": 1.3875,
+        "ci_95_upper": 1.6087,
+        "std_log": 0.1614
+      },
+      "simulated_parallel_latency_ratio": {
+        "n": 20,
+        "mean_ratio": 24.3919,
+        "median_ratio": 24.9269,
+        "geometric_mean_ratio": 24.1917,
+        "ci_95_lower": 22.773,
+        "ci_95_upper": 25.6988,
+        "std_log": 0.1318
+      },
+      "cost_ratio": {
+        "n": 20,
+        "mean_ratio": 0.5794,
+        "median_ratio": 0.5278,
+        "geometric_mean_ratio": 0.5653,
+        "ci_95_lower": 0.5097,
+        "ci_95_upper": 0.6268,
+        "std_log": 0.2255
+      },
+      "quality_non_inferiority": {
+        "n": 20,
+        "mean_quality_diff": -0.3,
+        "std_diff": 0.0,
+        "se_diff": 0.0,
+        "non_inferiority_margin": 0.2,
+        "lower_bound_95_ci": -0.3,
+        "t_statistic": 0.0,
+        "p_value": 0.5,
+        "non_inferiority_demonstrated": false
+      },
+      "decomposition_accuracy": {
+        "mean_ged": 6.0,
+        "mean_similarity": 0.1429
+      }
+    },
+    "ALL (Aggregate)": {
+      "n": 60,
+      "wall_latency_ratio": {
+        "n": 60,
+        "mean_ratio": 1.5303,
+        "median_ratio": 1.5206,
+        "geometric_mean_ratio": 1.5048,
+        "ci_95_lower": 1.436,
+        "ci_95_upper": 1.5768,
+        "std_log": 0.1849
+      },
+      "simulated_parallel_latency_ratio": {
+        "n": 60,
+        "mean_ratio": 24.6905,
+        "median_ratio": 24.892,
+        "geometric_mean_ratio": 24.4258,
+        "ci_95_lower": 23.5336,
+        "ci_95_upper": 25.3518,
+        "std_log": 0.1471
+      },
+      "cost_ratio": {
+        "n": 60,
+        "mean_ratio": 0.596,
+        "median_ratio": 0.5598,
+        "geometric_mean_ratio": 0.5781,
+        "ci_95_lower": 0.5432,
+        "ci_95_upper": 0.6154,
+        "std_log": 0.2467
+      },
+      "quality_non_inferiority": {
+        "n": 60,
+        "mean_quality_diff": -0.3,
+        "std_diff": 0.0,
+        "se_diff": 0.0,
+        "non_inferiority_margin": 0.2,
+        "lower_bound_95_ci": -0.3,
+        "t_statistic": 0.0,
+        "p_value": 0.5,
+        "non_inferiority_demonstrated": false
+      },
+      "decomposition_accuracy": {
+        "mean_ged": 3.6,
+        "mean_similarity": 0.2643
+      }
+    }
+  }
+}

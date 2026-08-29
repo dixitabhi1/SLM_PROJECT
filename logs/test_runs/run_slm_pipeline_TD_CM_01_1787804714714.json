@@ -1,0 +1,113 @@
+{
+  "run_id": "slm_pipe_TD_CM_01_42",
+  "system_type": "slm_pipeline",
+  "query_id": "TD_CM_01",
+  "query_text": "Derive the Kalman Filter state update equations and implement a vectorized Python class.",
+  "complexity_tier": "two_domain",
+  "seed": 42,
+  "git_commit": "uncommitted_or_no_git",
+  "timestamp_start_utc": "2026-08-27T04:25:14.619556+00:00",
+  "timestamp_end_utc": "2026-08-27T04:25:14.714237+00:00",
+  "total_wall_clock_latency_ms": 94.80509997229092,
+  "simulated_parallel_latency_ms": 1455.0,
+  "total_prompt_tokens": 196,
+  "total_completion_tokens": 1320,
+  "total_tokens": 1516,
+  "total_cost_usd": 0.0002572,
+  "stages": {
+    "decomposition_slm": [
+      {
+        "stage_name": "decomposition_slm",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256062.9574425,
+        "end_time_rel_s": 256062.9746971,
+        "latency_ms": 17.25460001034662,
+        "prompt_tokens": 122,
+        "completion_tokens": 200,
+        "total_tokens": 322,
+        "cost_usd": 2.2100000000000002e-05,
+        "confidence_score": null,
+        "input": "Derive the Kalman Filter state update equations and implement a vectorized Python class.",
+        "output": {
+          "subtasks": [
+            {
+              "id": "node_1",
+              "text": "Execute domain-specific analysis and implementation directly.",
+              "capability": "general",
+              "dependencies": []
+            }
+          ]
+        },
+        "extra_metadata": {
+          "is_schema_valid": true,
+          "parse_error": null
+        }
+      }
+    ],
+    "pool_general_node_1": [
+      {
+        "stage_name": "pool_general_node_1",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256062.975191,
+        "end_time_rel_s": 256063.0060521,
+        "latency_ms": 30.861100007314235,
+        "prompt_tokens": 10,
+        "completion_tokens": 534,
+        "total_tokens": 544,
+        "cost_usd": 0.0001083,
+        "confidence_score": 0.7528,
+        "input": "Task: Execute domain-specific analysis and implementation directly.",
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05.",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "capability": "general",
+          "replicated": false
+        }
+      }
+    ],
+    "aggregator_synthesis": [
+      {
+        "stage_name": "aggregator_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256063.0061812,
+        "end_time_rel_s": 256063.0522134,
+        "latency_ms": 46.03219998534769,
+        "prompt_tokens": 64,
+        "completion_tokens": 586,
+        "total_tokens": 650,
+        "cost_usd": 0.00012680000000000002,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Derive the Kalman Filter state update equations and implement a vectorized Python class.",
+          "subtask_results": {
+            "node_1": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05."
+          }
+        },
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash d1da77.",
+        "extra_metadata": {
+          "node_count": 1
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "capability": "general",
+      "confidence": 0.7528,
+      "replicated": false,
+      "secondary_capability": null,
+      "dependencies": [],
+      "prompt_tokens": 10,
+      "completion_tokens": 534,
+      "latency_ms": 30.837700003758073
+    }
+  ],
+  "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash d1da77.",
+  "config_snapshot": {
+    "test": true
+  }
+}

@@ -1,0 +1,134 @@
+Contents
+AI Search Framework                                                                             1
+   Product Requirements Document (PRD) . . . . . . . . . . . . . . . . . . . . . . . .          1
+
+
+AI Search Framework
+Product Requirements Document (PRD)
+
+
+
+0. Correction Note (from prior draft)
+
+Two constraints, not one, and they apply to different parts of the system:
+    • The proposed architecture contains zero LLMs. The decomposer, router, every
+      model in the capability pool, and the aggregator are all SLMs, capped at roughly ≤8B
+      parameters. Nothing in the system that ships or gets deployed calls a large model.
+    • The comparison baseline is a large LLM (a single frontier-class or large open-weight
+      model, e.g. 70B+), answering the query directly with no decomposition.
+So the actual research claim is sharper than “many small models vs. one small model”: it’s
+“can an entirely SLM-based, decomposed system match or beat a single large LLM
+on latency, cost, and quality?” This is a harder claim than the SLM-vs-SLM version — a
+single strong LLM is a genuinely tough bar on quality — but it’s also the more valuable result if
+it holds, since it directly supports the practical pitch (self-hostable, cheap, no LLM dependency)
+against the thing people actually compare it to in practice.
+
+
+
+1. Problem Statement
+
+Modern AI search systems typically route every query to one large, general-purpose LLM. This
+is simple and usually high-quality, but expensive and slow, especially for compound, multi-
+domain queries that don’t need the full weight of a frontier model applied to every sub-part.
+The open question: can a fully SLM-based system — decomposing the query and routing sub-
+parts to specialized small models running in parallel — match a large LLM’s quality while cutting
+latency and cost, or does it fall short on quality in ways that make the savings not worth it?
+
+2. Research Questions
+
+#                                                   Question
+RQ1                                                 Does the all-SLM decomposed pipeline
+                                                    reduce end-to-end latency vs. a single
+                                                    large-LLM baseline, and by how much, across
+                                                    query complexity levels?
+RQ2                                                 Does the all-SLM pipeline reduce
+                                                    compute/token cost vs. the LLM baseline?
+RQ3                                                 Does the all-SLM pipeline’s answer quality
+                                                    match the LLM baseline (non-inferiority), or
+                                                    does the quality gap between SLMs and an
+                                                    LLM outweigh the latency/cost savings?
+
+
+
+                                                1
+#                                                   Question
+RQ4                                                 At what query complexity does the pipeline’s
+                                                    coordination overhead stop paying for itself
+                                                    relative to the LLM baseline?
+RQ5                                                 How much does decomposition accuracy
+                                                    alone explain end-to-end quality gaps vs. the
+                                                    LLM baseline?
+
+
+RQ3 is the one to take most seriously — it’s entirely plausible that a well-orchestrated SLM
+network still loses to a strong LLM on harder reasoning subtasks. That result would still be a
+valid, useful finding (it would tell you exactly where specialization can and can’t substitute for
+scale); it just needs to be reported honestly rather than reframed as a win.
+
+3. Goals
+
+    • Produce a benchmarked, paired comparison (latency, cost, quality) between the all-SLM
+      pipeline and a single large-LLM baseline, with confidence intervals, not point estimates.
+    • Produce a labeled dataset of decomposable queries with gold-standard task graphs.
+    • Identify the complexity threshold where the SLM pipeline’s advantage (or disadvantage)
+      crosses over.
+    • Demonstrate the proposed system runs with zero LLM dependency — self-hostable on
+      SLM-scale compute — while quantifying exactly what quality trade-off (if any) that entails
+      against an LLM.
+
+4. Non-Goals
+
+    • Not building a production-grade, user-facing search product.
+    • Not training new foundation models — only prompting/fine-tuning existing open-weight
+      SLMs (≤8B) for the architecture; the LLM baseline is used as-is, not modified.
+    • Not claiming architectural novelty for the decompose-route-parallelize-aggregate pattern
+      itself — the contribution is the empirical result for an all-SLM system benchmarked directly
+      against an LLM.
+
+5. Success Metrics
+
+Metric                                              Definition
+Latency ratio                                       Measured wall-clock ratio, all-SLM pipeline
+                                                    vs. LLM baseline, 95% CI, per complexity
+                                                    bucket
+Cost ratio                                          Measured token/compute-cost ratio, same
+                                                    structure
+Quality delta                                       Pipeline vs. LLM baseline on the blind rubric
+                                                    — non-inferiority is the target, not necessarily
+                                                    superiority
+Decomposition accuracy                              % of queries where the produced DAG
+                                                    matches hand-labeled gold structure
+Reproducibility                                     Full run reproducible from a fixed seed/config
+                                                    within stated variance
+
+
+Expectation-setting: with an LLM baseline restored, the original latency/cost estimates (~3–
+6x latency reduction, ~5–10x cost reduction) are back in play as the planning target — but
+
+
+                                                2
+quality parity is now the harder, less certain claim, since a single strong LLM is a genuinely
+capable opponent on complex reasoning. Report actual measured numbers on all three axes;
+a result where latency/cost win clearly but quality trails on hard subtasks is a realistic and
+still-valid outcome.
+
+6. Stakeholders / Audience
+
+Primarily: yourself as researcher, a potential academic advisor/reviewer, and a technical audi-
+ence assessing the claims for correctness. Every artifact should survive an adversarial techni-
+cal read, not just a demo.
+
+7. Scope
+
+In scope: eval dataset construction, LLM baseline, 3–5 SLM pool (all ≤8B, zero LLMs in the
+proposed system), decomposition + routing + orchestration + aggregation pipeline, controlled
+experiments, statistical analysis, written report.
+Out of scope (this phase): production hosting/scaling, user-facing UI, fine-tuned decom-
+poser/router (candidates for a follow-up phase), any LLM component inside the proposed ar-
+chitecture itself.
+
+
+
+
+                                              3
+

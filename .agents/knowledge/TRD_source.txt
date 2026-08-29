@@ -1,0 +1,230 @@
+Contents
+AI Search Framework                                                                          1
+   Technical Requirements Document (TRD)     . . . . . . . . . . . . . . . . . . . . . . .   1
+
+
+AI Search Framework
+Technical Requirements Document (TRD)
+
+
+
+0. Correction Note
+
+The proposed architecture — decomposer, router, every pool model, and the aggregator
+— is entirely SLMs, ≤8B parameters, with zero LLMs. The comparison baseline is a single
+large LLM (frontier-class API model, or a large open-weight model such as Llama-3.1-70B/405B
+or Qwen2.5-72B, held fixed for the whole experiment) answering the query directly with no
+decomposition. The baseline is not part of the proposed system — it exists purely to measure
+what the all-SLM architecture gives up or gains relative to it.
+
+
+
+1. System Architecture
+
+   [Proposed architecture — every component is an SLM, <=8B, no LLM anywhere:]
+
+                             User Query
+                                  |
+                                  v
+                Decomposition SLM (<=3B, prompted)
+                query -> task graph (DAG with dependencies)
+                                  |
+                                  v
+            Capability Router (rule-based / embedding match)
+                                  |
+        +----------+-----------+-----------+-----------+
+        v          v            v           v          v
+    Coding SLM   Math SLM    Reasoning   Retrieval    General
+      Pool         Pool      /Logic Pool Aug. SLM      SLM
+     (<=8B)       (<=8B)       (<=8B)     (<=8B)       (<=8B)
+        +----------+-----------+-----------+-----------+
+                                  |
+                                  v
+                Orchestrator Sub-Agent
+        (dependency-aware dispatch, confidence-based replication)
+                                  |
+                                  v
+                Aggregator Sub-Agent (<=8B)
+            (fusion, contradiction resolution)
+                                  |
+                                  v
+                         Final Response
+
+
+
+                                             1
+   [Baseline path — NOT part of the proposed architecture, run on the
+    same queries purely for comparison:]
+
+                                User Query
+                                    |
+                                    v
+                    Single Large LLM (frontier-class or 70B+,
+                    fixed model/checkpoint for the whole experiment)
+                    answers the full query directly, no decomposition
+                                    |
+                                    v
+                            Final Response
+
+           [Instrumentation layer taps every stage of both paths:
+            latency, token counts, confidence scores, and intermediate
+            outputs are logged for every run — required for RQ1-RQ5.]
+
+2. Component Requirements
+
+Component                     Functional requirement            Non-functional requirement
+Decomposition SLM             Emit schema-valid JSON task       ≤3B parameters;
+                              graph (subtask text,              deterministic given fixed
+                              capability tag, dependency        seed for reproducibility runs
+                              edges) for ≥90% of eval
+                              queries
+Capability Router             Map each subtask to one or        Rule-based or
+                              more pool SLMs with a             embedding-similarity — not
+                              confidence score                  itself a generative model call,
+                                                                to keep routing overhead
+                                                                near-zero
+SLM Pool                      3–5 models covering coding,       Each model’s
+                              math, reasoning, general —        version/checkpoint pinned
+                              all ≤8B                           and logged per experiment
+Orchestrator                  Execute independent               Full trace of dispatch order
+                              subtasks in parallel; respect     and replication decisions
+                              DAG dependencies; replicate       logged
+                              subtasks below confidence
+                              threshold
+Aggregator                    Fuse subtask outputs into         ≤8B; aggregation
+                              one answer; explicitly resolve    input/output logged for
+                              contradictions rather than        post-hoc quality review
+                              concatenate
+LLM baseline (comparison      Answer the full query directly,   Not part of the proposed
+only)                         single fixed large model          system; fixed
+                                                                model/checkpoint for every
+                                                                run — must not vary across
+                                                                the experiment
+Instrumentation               Wall-clock latency per stage,     Every experimental run
+                              token counts per call, cost       reproducible from logged
+                              computed from a fixed             config + seed
+                              pricing/compute-cost table
+
+
+
+
+                                            2
+3. Candidate SLM Pool — Proposed Architecture (all ≤8B, no LLMs)
+
+Capability                       Candidates                       Size
+Coding                           DeepSeek-Coder, StarCoder2,      1.3B – 7B
+                                 Qwen2.5-Coder
+Math                             Qwen2.5-Math,                    1B – 7B
+                                 DeepScaleR-1.5B, InfiR-1B
+Reasoning / logic                Phi-3-mini/Phi-4-mini,           3B – 7B
+                                 Qwen2.5-Instruct (7B)
+General / lightweight            Ministral 3B/8B, Llama-3.2       1B – 8B
+Decomposition /                  Any of the above ≤3B,            1B – 3B
+router-adjacent                  prompted for structured JSON
+                                 output
+
+
+This is a starting point — final selection should come from your own per-capability eval, not
+published benchmarks alone.
+
+4. Baseline Model (Comparison Only — Not Part of the Architecture)
+
+Option                                            Notes
+Frontier-class API model (e.g. a current          Highest quality bar, but API latency is
+GPT/Claude/Gemini-class model)                    confounded by network/provider load —
+                                                  control for this by running many trials and
+                                                  reporting variance, or prefer the option below
+Large self-hosted open-weight model               Preferred for latency measurement — same
+(e.g. Llama-3.1-70B/405B, Qwen2.5-72B)            hardware class as the SLM pool’s hosting,
+                                                  removes the network confound, and keeps
+                                                  the whole experiment reproducible
+                                                  end-to-end
+
+
+Pick one and hold it fixed for the entire experiment — switching baseline models mid-study
+invalidates the paired comparison.
+
+5. Data Requirements
+
+  • Eval dataset: 150–250 queries, stratified by complexity: single-domain (control), 2-
+    domain compound, 3+-domain compound.
+  • Gold task graphs: hand-labeled DAGs for a subset (≥50 queries) to measure decompo-
+    sition accuracy directly (RQ5).
+  • Held-out split: separated before any decomposer prompt iteration begins, to avoid over-
+    fitting the prompt to the eval set.
+  • Quality rubric: pre-registered scoring criteria (correctness, completeness, coherence),
+    applied blind to which system produced the answer — blinding matters more here than
+    in the SLM-vs-SLM version, since output style differences between SLMs and a large LLM
+    could otherwise bias a human rater.
+
+6. Model & Infrastructure Requirements
+
+
+
+
+                                              3
+Layer                            Choice                            Rationale
+SLM hosting (proposed            Local (vLLM/Ollama), all          Fully self-hostable on modest
+architecture)                    models ≤8B                        compute; zero LLM
+                                                                   dependency in the shipped
+                                                                   system
+LLM baseline hosting             Local large open-weight           Removes network confound
+                                 model preferred over API          from latency measurement
+                                 (see §4)
+Orchestration                    Python (asyncio) or a DAG         Needs to log timestamps at
+                                 framework (e.g. LangGraph)        each stage boundary
+Experiment tracking              Structured run logs               Every claimed number must
+                                 (JSON/CSV) + a lightweight        trace to a logged run
+                                 tracking tool
+Compute                          GPU sufficient to host 3–5        Determines whether
+                                 SLMs (≤8B each)                   “parallel” is real parallelism
+                                 concurrently, or sequential       or simulated — state clearly
+                                 loading if constrained;           which it is
+                                 separately, enough to host or
+                                 access the large baseline
+                                 model
+
+
+7. Evaluation Methodology
+
+  • Design: within-subject, paired comparison — every query answered by both the LLM
+    baseline and the all-SLM pipeline, so differences are paired, not between separate sam-
+    ples.
+  • Latency (RQ1): wall-clock time per query, both systems, same hardware where possible,
+    same time window. Report mean, median, 95% CI per complexity bucket.
+  • Cost (RQ2): token counts × fixed pricing/compute-cost table, both systems, same
+    queries, same stratification.
+  • Quality (RQ3): blind rubric scoring, outputs shuffled and unlabeled before scoring. Use
+    a non-inferiority test as the primary claim — “the SLM pipeline doesn’t meaningfully lose
+    to the LLM” is the realistic bar, not “beats it.”
+  • Crossover point (RQ4): plot latency/cost ratio against complexity bucket; identify
+    where the SLM pipeline’s advantage shrinks or disappears.
+  • Decomposition accuracy (RQ5): compare produced DAGs against gold-labeled subset
+    via structural similarity (e.g. graph edit distance); correlate with quality gaps vs. the LLM
+    baseline.
+
+8. Threats to Validity
+
+Threat                                             Mitigation
+Eval set too small for statistical power           Pre-compute required sample size for target
+                                                   CI width before finalizing dataset size
+Prompt overfit to eval set during decomposer       Hold out a test split untouched until final
+iteration                                          evaluation
+Hardware/load confounds on latency                 Prefer a self-hosted large baseline; if using an
+(especially if baseline is an API model)           API, run many trials and report variance
+                                                   explicitly
+Judge bias in quality scoring (SLM vs. LLM         Blind scoring; report inter-rater agreement if
+output style differs)                              using more than one judge
+
+
+                                               4
+Threat                                     Mitigation
+LLM baseline wins decisively on hard       This is a real possible outcome, not a bug —
+reasoning subtasks                         report it per-complexity-bucket rather than
+                                           smoothing it into an aggregate
+
+
+
+
+                                       5
+

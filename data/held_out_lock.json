@@ -1,0 +1,12 @@
+{
+  "held_out_file": "data/queries_held_out.json",
+  "query_count": 120,
+  "strata_counts": {
+    "single_domain": 34,
+    "two_domain": 46,
+    "three_plus_domain": 40
+  },
+  "sha256": "c13e3c1eb4bcd7889a439cea3a64102234b1325d012ca1bfdc8a23fce030890a",
+  "locked_at_utc": "2026-08-27T04:19:28.010060+00:00",
+  "status": "LOCKED \u2014 Subject to AGENTS.md Rule 5 Held-out discipline"
+}

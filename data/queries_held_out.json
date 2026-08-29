@@ -1,0 +1,1358 @@
+[
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_MATH_02",
+    "query": "Calculate the eigenvalues, eigenvectors, and spectral decomposition of the 3x3 matrix [[4, 1, -1], [1, 2, 1], [-1, 1, 4]].",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_MATH_03",
+    "query": "Evaluate the definite improper integral \\int_0^\\infty \frac{x^2}{1 + x^4} dx using contour integration in the complex plane.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_MATH_04",
+    "query": "Prove that the sum of the series \\sum_{n=1}^\\infty \frac{1}{n^2} converges to \\pi^2 / 6 using Fourier series expansion of f(x) = x^2 on [-\\pi, \\pi].",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_MATH_05",
+    "query": "Solve the first-order non-linear differential equation dy/dx + 2xy = x * e^(-x^2) * y^3 with initial condition y(0) = 1.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_06",
+    "query": "Find the maximum likelihood estimator (MLE) for the parameters (\u0007lpha, \beta) of a Gamma distribution given an i.i.d. sample x_1, ..., x_n.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_07",
+    "query": "Calculate the stationary distribution of a 4-state Markov chain with transition matrix P = [[0.2, 0.8, 0, 0], [0.3, 0.4, 0.3, 0], [0, 0.5, 0.3, 0.2], [0, 0, 0.6, 0.4]].",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_08",
+    "query": "Compute the Taylor series expansion of f(x) = ln(1 + e^x) around x = 0 up to the 4th order term.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_09",
+    "query": "Derive the gradient and Hessian matrix of the loss function L(w) = \frac{1}{2} ||Xw - y||_2^2 + \frac{\\lambda}{2} ||w||_2^2 with respect to w.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_10",
+    "query": "Prove using mathematical induction that 2^(2n) - 1 is divisible by 3 for all positive integers n \\ge 1.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_11",
+    "query": "Calculate the conditional expectation E[X | X + Y = z] where X and Y are independent standard normal variables N(0, 1).",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_12",
+    "query": "Determine whether the vector space of 2x2 symmetric matrices is isomorphic to R^3 and construct the explicit linear isomorphism.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_13",
+    "query": "Solve the boundary value problem y''(x) + 4y(x) = \\sin(x) on [0, \\pi] with y(0) = 0 and y(\\pi) = 0.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_14",
+    "query": "Compute the volume of the 4-dimensional hypersphere of radius R using multivariable spherical coordinates integration.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_MATH_15",
+    "query": "Determine the radius and interval of convergence of the power series \\sum_{n=1}^\\infty \frac{(-1)^n (x-2)^n}{n 3^n}.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_REAS_01",
+    "query": "Analyze the validity of the syllogism: 'All quantum algorithms that exhibit speedup require entanglement. Some quantum algorithms do not use Shor's period finding. Therefore, some algorithms requiring entanglement do not use Shor's period finding.' State mood, figure, and formal validity.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_REAS_02",
+    "query": "Evaluate whether the statement 'If P -> (Q v R), then (P -> Q) v (P -> R)' is a logical tautology using truth tables and formal semantic deduction.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_REAS_03",
+    "query": "Resolve the Newcomb's Paradox from both Causal Decision Theory (CDT) and Evidential Decision Theory (EDT) perspectives.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_REAS_04",
+    "query": "Identify and analyze the informal fallacies in this argument: 'Experts haven't proven that AI alignment is unsolvable; therefore, superintelligence will naturally align with human values once it achieves high cognitive capacity.'",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_REAS_05",
+    "query": "Construct a formal modal logic proof in system S5 showing that \\Box P -> \\Box \\Box P.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_REAS_06",
+    "query": "Analyze the resolution of the Grandfather Paradox in closed timelike curves under the Novikov Self-Consistency Principle vs. Many-Worlds Interpretation.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_REAS_07",
+    "query": "Evaluate the epistemic justification of inductive reasoning under Nelson Goodman's New Riddle of Induction ('grue' vs 'green').",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_REAS_08",
+    "query": "Solve the classic Zebra/Einstein logic puzzle constraint satisfiability step-by-step with 5 houses, distinct colors, nationalities, pets, drinks, and cigarettes.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_REAS_09",
+    "query": "Analyze the game-theoretic subgame perfect equilibrium of a 3-player Ultimatum game with sequential alternating offers.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_REAS_10",
+    "query": "Deduce the truth values of statements made by Knights and Knaves in a 3-person island scenario where A says 'B is a knave', B says 'A and C are of same type', and C says 'A is a knight'.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_GEN_01",
+    "query": "Summarize the architectural differences between Transformer Multi-Head Attention (MHA), Multi-Query Attention (MQA), and Grouped-Query Attention (GQA) with respect to KV-cache memory bandwidth.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_GEN_02",
+    "query": "Explain the consensus mechanism of the Raft distributed algorithm, detailing leader election, log replication, and safety guarantees.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_GEN_03",
+    "query": "Provide a comprehensive breakdown of the EU AI Act classification tiers (Prohibited, High Risk, Limited Risk, Minimal Risk) and compliance requirements for Foundation Models.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_GEN_04",
+    "query": "Explain the difference between Optimistic Concurrency Control (OCC) and Two-Phase Locking (2PL) in relational databases, focusing on write-skew anomalies.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "SD_GEN_05",
+    "query": "Explain the mechanism of CRISPR-Cas9 genome editing, specifically the role of the guide RNA, Cas9 endonuclease cleavage, and Non-Homologous End Joining vs Homology-Directed Repair.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_GEN_06",
+    "query": "Describe the key distinctions between microkernel architectures (e.g. seL4) and monolithic kernels (e.g. Linux) regarding IPC latency and fault isolation.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_GEN_07",
+    "query": "Summarize the primary mechanisms of action of GLP-1 receptor agonists (e.g., Semaglutide) in metabolic regulation and appetite control.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_GEN_08",
+    "query": "Explain the CAP theorem and PACELC theorem trade-offs in distributed database design with examples (Cassandra vs Spanner).",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_GEN_09",
+    "query": "Detail the cryptographic primitives and key exchange flow in TLS 1.3 compared to TLS 1.2, highlighting 0-RTT and handshake latency reduction.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "SD_GEN_10",
+    "query": "Explain the concept of zero-knowledge SNARKs (zk-SNARKs), focusing on arithmetic circuits, QAPs, and elliptic curve pairings.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_CR_05",
+    "query": "Analyze the consistency and partition-tolerance trade-offs of the Dynamo distributed key-value architecture (vector clocks, sloppy quorums), and implement a Python vector-clock causality resolution module.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_06",
+    "query": "Evaluate why naive recursive backtracking for 3-SAT suffers exponential explosion, and implement the DPLL (Davis-Putnam-Logemann-Loveland) SAT solver algorithm in Python with unit propagation and pure literal elimination.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_07",
+    "query": "Analyze the memory safety guarantees of Rust's borrow checker (affine types and lifetime tracking) vs C++ smart pointers, and implement a reference-counted cycle detection algorithm in Python.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_08",
+    "query": "Evaluate the deadlock conditions (Coffman conditions) in resource allocation graphs, and implement the Banker's Safety Algorithm in Python with state validation.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_09",
+    "query": "Analyze the correctness and loop invariants of the Tarjan's strongly connected components algorithm, and write a clean Python implementation with DFS stack unwinding.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_10",
+    "query": "Analyze why distributed two-phase commit (2PC) is a blocking protocol during coordinator crashes, and implement a simulated Three-Phase Commit (3PC) state machine in Python.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_11",
+    "query": "Perform formal analysis of consistency model #11 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_12",
+    "query": "Perform formal analysis of consistency model #12 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_13",
+    "query": "Perform formal analysis of consistency model #13 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_14",
+    "query": "Perform formal analysis of consistency model #14 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_15",
+    "query": "Perform formal analysis of consistency model #15 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_16",
+    "query": "Perform formal analysis of consistency model #16 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_17",
+    "query": "Perform formal analysis of consistency model #17 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_18",
+    "query": "Perform formal analysis of consistency model #18 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_19",
+    "query": "Perform formal analysis of consistency model #19 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_CR_20",
+    "query": "Perform formal analysis of consistency model #20 in distributed systems, prove its safety invariant properties, and implement a Python concurrent verification testbed.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_RR_01",
+    "query": "Retrieve the key architectural milestones from Transformer to Modern LLMs (Attention Is All You Need, GPT-3, LLaMA, DeepSeek-V3), and logically analyze the evolution of architectural choices (MQA/GQA, SwiGLU, RoPE, MoE routing) in terms of compute efficiency vs expressivity.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_RR_02",
+    "query": "Synthesize the regulatory requirements of HIPAA Security Rule vs GDPR Article 32 regarding data anonymization and encryption at rest, and formulate a compliance decision framework for a cross-border healthcare AI deployment.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_RR_03",
+    "query": "Retrieve the historical mechanisms of the 2008 Global Financial Crisis (MBS, CDOs, CDS, liquidity freeze) and construct a causal graph reasoning about systemic contagion propagation.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_RR_04",
+    "query": "Analyze the core differences between Zero-Knowledge Rollups and Optimistic Rollups in Ethereum scaling, logically evaluating security finality vs capital efficiency trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_RR_05",
+    "query": "Retrieve the clinical trial design protocols for oncology therapeutics (Phase I dose escalation $3+3$ design vs Bayesian CRM) and evaluate the ethical and statistical trade-offs in patient safety.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_06",
+    "query": "Synthesize domain literature regarding technological transition #6, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_07",
+    "query": "Synthesize domain literature regarding technological transition #7, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_08",
+    "query": "Synthesize domain literature regarding technological transition #8, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_09",
+    "query": "Synthesize domain literature regarding technological transition #9, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_10",
+    "query": "Synthesize domain literature regarding technological transition #10, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_11",
+    "query": "Synthesize domain literature regarding technological transition #11, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_12",
+    "query": "Synthesize domain literature regarding technological transition #12, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_13",
+    "query": "Synthesize domain literature regarding technological transition #13, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_14",
+    "query": "Synthesize domain literature regarding technological transition #14, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_RR_15",
+    "query": "Synthesize domain literature regarding technological transition #15, and construct a formal comparative analysis evaluating causal drivers and trade-offs.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_MG_01",
+    "query": "Explain the macroeconomic theory of the Phillips Curve (inflation vs unemployment trade-off), formulate the Expectations-Augmented Phillips Curve mathematically, and analyze the stagflation phenomenon of the 1970s.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_MG_02",
+    "query": "Derive the Capital Asset Pricing Model (CAPM) beta and Security Market Line equation from Markowitz Modern Portfolio Theory (Mean-Variance frontier and Tangency Portfolio), explaining systematic vs idiosyncratic risk.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_MG_03",
+    "query": "Formulate the Value at Risk (VaR) and Conditional Value at Risk (CVaR/Expected Shortfall) mathematical definitions, and explain their regulatory importance under Basel III banking frameworks.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_MG_04",
+    "query": "Formulate the Solow-Swan Neoclassical Growth Model differential equations for capital accumulation, derive the steady-state capital per effective worker, and explain the Golden Rule level of capital.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": true,
+    "id": "TD_MG_05",
+    "query": "Derive the yield-to-maturity (YTM) bond pricing equation, define Macaulay Duration and Modified Duration, and evaluate how convexity protects fixed-income portfolios against large interest rate shocks.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_06",
+    "query": "Explain the quantitative financial economics principle #6, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_07",
+    "query": "Explain the quantitative financial economics principle #7, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_08",
+    "query": "Explain the quantitative financial economics principle #8, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_09",
+    "query": "Explain the quantitative financial economics principle #9, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_10",
+    "query": "Explain the quantitative financial economics principle #10, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_11",
+    "query": "Explain the quantitative financial economics principle #11, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_12",
+    "query": "Explain the quantitative financial economics principle #12, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_13",
+    "query": "Explain the quantitative financial economics principle #13, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_14",
+    "query": "Explain the quantitative financial economics principle #14, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "two_domain",
+    "domains": [
+      "math",
+      "general"
+    ],
+    "gold_dag_available": false,
+    "id": "TD_MG_15",
+    "query": "Explain the quantitative financial economics principle #15, derive its mathematical formulation, and discuss its empirical implications in modern capital markets.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RCR_01",
+    "query": "Retrieve the OWASP Top 10 API Security Risks (focusing on Broken Object Level Authorization - BOLA and Server-Side Request Forgery - SSRF); analyze how microservice architectures amplify these vulnerabilities; and implement a secure Python FastAPI middleware suite with token-based tenant isolation and URL validation.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RCR_02",
+    "query": "Retrieve the specifications of the OAuth 2.1 Authorization Framework (PKCE, deprecation of Implicit Grant); logically analyze the attack vectors mitigated by Proof Key for Code Exchange against authorization code interception; and implement a Python mock authorization server and client demonstrating PKCE verification.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RCR_03",
+    "query": "Retrieve the architectural specifications of Apache Kafka's distributed commit log (partitioning, consumer groups, ISR replication); analyze the trade-offs between exact-once semantics (EOS) and at-least-once processing; and implement a Python simulation of idempotent producer and transactional consumer state recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RCR_04",
+    "query": "Retrieve the WebAssembly (Wasm) core specification and Component Model; evaluate the security isolation guarantees of Wasm sandboxing compared to Docker containers; and implement a Python host runtime runner executing isolated sandboxed untrusted modules.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RCR_05",
+    "query": "Retrieve the core design principles of the Raft consensus algorithm (log matching property, election safety); prove why leader completeness guarantees state machine safety; and implement an asyncio Python distributed node cluster demonstrating log replication and split-brain prevention.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_06",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #6, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_07",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #7, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_08",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #8, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_09",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #9, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_10",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #10, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_11",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #11, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_12",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #12, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_13",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #13, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_14",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #14, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_15",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #15, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_16",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #16, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_17",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #17, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_18",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #18, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_19",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #19, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RCR_20",
+    "query": "Retrieve standard specifications for cloud distributed system architecture #20, evaluate safety and fault tolerance trade-offs, and implement a Python simulation demonstrating disaster recovery.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RMP_01",
+    "query": "Retrieve international carbon emission regulatory standards (EU ETS Cap-and-Trade vs CORSIA); derive the mathematical formula for marginal abatement cost curves and carbon tax incidence across inelastic consumer markets; and synthesize a comprehensive policy recommendation for corporate ESG compliance.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RMP_02",
+    "query": "Retrieve the Basel III and Basel IV banking regulatory capital framework standards (Common Equity Tier 1, Risk-Weighted Assets); formulate the mathematical calculation of Credit Value Adjustment (CVA) and Liquidity Coverage Ratio (LCR); and analyze the systemic economic impacts of tightening bank reserve requirements.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RMP_03",
+    "query": "Retrieve the epidemiological transmission dynamics of respiratory pathogens (SEIR compartmental model); derive the mathematical formula for the basic reproduction number $R_0$ using the next-generation matrix method; and evaluate the socio-economic cost-benefit trade-offs of non-pharmaceutical interventions.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RMP_04",
+    "query": "Retrieve the Paris Agreement NDC (Nationally Determined Contributions) framework; formulate the mathematical integrated assessment model (DICE-style climate-economy damage function); and synthesize an executive analysis of carbon pricing pathways required to limit warming to 1.5C.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": true,
+    "id": "CD_RMP_05",
+    "query": "Retrieve FDA guidelines on bioequivalence testing for generic pharmaceuticals (two one-sided tests TOST); derive the mathematical power and confidence interval calculation for 90% geometric mean ratios within [80%, 125%]; and synthesize an audit protocol for clinical submission.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_06",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #6, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_07",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #7, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_08",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #8, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_09",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #9, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_10",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #10, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_11",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #11, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_12",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #12, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_13",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #13, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_14",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #14, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_15",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #15, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_16",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #16, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_17",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #17, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_18",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #18, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_19",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #19, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  },
+  {
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "gold_dag_available": false,
+    "id": "CD_RMP_20",
+    "query": "Retrieve global standard regulations for critical infrastructure domain #20, derive the associated quantitative risk assessment formulas, and synthesize an executive compliance roadmap.",
+    "split": "held_out"
+  }
+]

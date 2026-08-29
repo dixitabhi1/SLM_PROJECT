@@ -1,0 +1,214 @@
+{
+  "run_id": "slm_pipe_SD_CODE_15_42",
+  "system_type": "slm_pipeline",
+  "query_id": "SD_CODE_15",
+  "query_text": "Implement an asynchronous connection pool manager in Python with health checks and max-idle timeout recycling.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "uncommitted_or_no_git",
+  "timestamp_start_utc": "2026-08-27T04:28:41.499141+00:00",
+  "timestamp_end_utc": "2026-08-27T04:28:41.587839+00:00",
+  "total_wall_clock_latency_ms": 89.16189998853952,
+  "simulated_parallel_latency_ms": 1455.0,
+  "total_prompt_tokens": 201,
+  "total_completion_tokens": 1156,
+  "total_tokens": 1357,
+  "total_cost_usd": 0.00022197000000000002,
+  "stages": {
+    "decomposition_slm": [
+      {
+        "stage_name": "decomposition_slm",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256269.8371474,
+        "end_time_rel_s": 256269.8652095,
+        "latency_ms": 28.062100027455017,
+        "prompt_tokens": 125,
+        "completion_tokens": 224,
+        "total_tokens": 349,
+        "cost_usd": 2.417e-05,
+        "confidence_score": null,
+        "input": "Implement an asynchronous connection pool manager in Python with health checks and max-idle timeout recycling.",
+        "output": {
+          "subtasks": [
+            {
+              "id": "node_1",
+              "text": "Execute domain-specific analysis and implementation directly.",
+              "capability": "general",
+              "dependencies": []
+            }
+          ]
+        },
+        "extra_metadata": {
+          "is_schema_valid": true,
+          "parse_error": null
+        }
+      }
+    ],
+    "pool_general_node_1": [
+      {
+        "stage_name": "pool_general_node_1",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256269.8656959,
+        "end_time_rel_s": 256269.8957156,
+        "latency_ms": 30.019700003322214,
+        "prompt_tokens": 10,
+        "completion_tokens": 534,
+        "total_tokens": 544,
+        "cost_usd": 0.0001083,
+        "confidence_score": 0.7528,
+        "input": "Task: Execute domain-specific analysis and implementation directly.",
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05.",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "capability": "general",
+          "replicated": false
+        }
+      }
+    ],
+    "aggregator_synthesis": [
+      {
+        "stage_name": "aggregator_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256269.8957914,
+        "end_time_rel_s": 256269.9262905,
+        "latency_ms": 30.49910001573153,
+        "prompt_tokens": 66,
+        "completion_tokens": 398,
+        "total_tokens": 464,
+        "cost_usd": 8.950000000000001e-05,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an asynchronous connection pool manager in Python with health checks and max-idle timeout recycling.",
+          "subtask_results": {
+            "node_1": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05."
+          }
+        },
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 37a072.",
+        "extra_metadata": {
+          "node_count": 1
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "capability": "general",
+      "confidence": 0.7528,
+      "replicated": false,
+      "secondary_capability": null,
+      "dependencies": [],
+      "prompt_tokens": 10,
+      "completion_tokens": 534,
+      "latency_ms": 30.00550001161173
+    }
+  ],
+  "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 37a072.",
+  "config_snapshot": {
+    "experiment_id": "ai_search_framework_v1",
+    "seed": 42,
+    "hardware": {
+      "device": "auto",
+      "parallelism": "simulated",
+      "max_concurrent_slms": 4
+    },
+    "models": {
+      "baseline": {
+        "name": "meta-llama/Llama-3.1-70B-Instruct",
+        "revision": "main",
+        "type": "llm",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8000/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      },
+      "decomposer": {
+        "name": "meta-llama/Llama-3.2-3B-Instruct",
+        "revision": "main",
+        "size_params": "3.2B",
+        "type": "slm_decomposer",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8001/v1",
+        "max_tokens": 1024,
+        "temperature": 0.0
+      },
+      "pool": {
+        "coding": {
+          "name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "coding",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8002/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "math": {
+          "name": "Qwen/Qwen2.5-Math-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "math",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8003/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "reasoning": {
+          "name": "microsoft/Phi-3.5-mini-instruct",
+          "revision": "main",
+          "size_params": "3.8B",
+          "capability": "reasoning",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8004/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "retrieval": {
+          "name": "meta-llama/Llama-3.2-3B-Instruct",
+          "revision": "main",
+          "size_params": "3.2B",
+          "capability": "retrieval",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8005/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "general": {
+          "name": "meta-llama/Llama-3.1-8B-Instruct",
+          "revision": "main",
+          "size_params": "8.0B",
+          "capability": "general",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8006/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        }
+      },
+      "aggregator": {
+        "name": "meta-llama/Llama-3.1-8B-Instruct",
+        "revision": "main",
+        "size_params": "8.0B",
+        "type": "slm_aggregator",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8006/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      }
+    },
+    "router": {
+      "type": "rule_and_embedding_hybrid",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "confidence_threshold": 0.7,
+      "allow_replication": true,
+      "replication_confidence_cutoff": 0.65
+    },
+    "evaluation": {
+      "non_inferiority_margin": 0.2,
+      "alpha": 0.025,
+      "ci_confidence": 0.95
+    }
+  }
+}

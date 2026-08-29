@@ -1,0 +1,214 @@
+{
+  "run_id": "slm_pipe_SD_CODE_14_42",
+  "system_type": "slm_pipeline",
+  "query_id": "SD_CODE_14",
+  "query_text": "Write a Python function to solve the Longest Common Subsequence (LCS) problem using space-optimized dynamic programming.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "uncommitted_or_no_git",
+  "timestamp_start_utc": "2026-08-27T04:28:41.241439+00:00",
+  "timestamp_end_utc": "2026-08-27T04:28:41.328349+00:00",
+  "total_wall_clock_latency_ms": 86.7230000148993,
+  "simulated_parallel_latency_ms": 1455.0,
+  "total_prompt_tokens": 204,
+  "total_completion_tokens": 1078,
+  "total_tokens": 1282,
+  "total_cost_usd": 0.00020240000000000001,
+  "stages": {
+    "decomposition_slm": [
+      {
+        "stage_name": "decomposition_slm",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256269.5793176,
+        "end_time_rel_s": 256269.6011167,
+        "latency_ms": 21.79910000995733,
+        "prompt_tokens": 126,
+        "completion_tokens": 260,
+        "total_tokens": 386,
+        "cost_usd": 2.71e-05,
+        "confidence_score": null,
+        "input": "Write a Python function to solve the Longest Common Subsequence (LCS) problem using space-optimized dynamic programming.",
+        "output": {
+          "subtasks": [
+            {
+              "id": "node_1",
+              "text": "Execute domain-specific analysis and implementation directly.",
+              "capability": "general",
+              "dependencies": []
+            }
+          ]
+        },
+        "extra_metadata": {
+          "is_schema_valid": true,
+          "parse_error": null
+        }
+      }
+    ],
+    "pool_general_node_1": [
+      {
+        "stage_name": "pool_general_node_1",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256269.6014756,
+        "end_time_rel_s": 256269.6329389,
+        "latency_ms": 31.46329999435693,
+        "prompt_tokens": 10,
+        "completion_tokens": 534,
+        "total_tokens": 544,
+        "cost_usd": 0.0001083,
+        "confidence_score": 0.7528,
+        "input": "Task: Execute domain-specific analysis and implementation directly.",
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05.",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "capability": "general",
+          "replicated": false
+        }
+      }
+    ],
+    "aggregator_synthesis": [
+      {
+        "stage_name": "aggregator_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 256269.6330169,
+        "end_time_rel_s": 256269.6660205,
+        "latency_ms": 33.003599994117394,
+        "prompt_tokens": 68,
+        "completion_tokens": 284,
+        "total_tokens": 352,
+        "cost_usd": 6.7e-05,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Write a Python function to solve the Longest Common Subsequence (LCS) problem using space-optimized dynamic programming.",
+          "subtask_results": {
+            "node_1": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05."
+          }
+        },
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 361ccd.",
+        "extra_metadata": {
+          "node_count": 1
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "capability": "general",
+      "confidence": 0.7528,
+      "replicated": false,
+      "secondary_capability": null,
+      "dependencies": [],
+      "prompt_tokens": 10,
+      "completion_tokens": 534,
+      "latency_ms": 31.448800000362098
+    }
+  ],
+  "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 361ccd.",
+  "config_snapshot": {
+    "experiment_id": "ai_search_framework_v1",
+    "seed": 42,
+    "hardware": {
+      "device": "auto",
+      "parallelism": "simulated",
+      "max_concurrent_slms": 4
+    },
+    "models": {
+      "baseline": {
+        "name": "meta-llama/Llama-3.1-70B-Instruct",
+        "revision": "main",
+        "type": "llm",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8000/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      },
+      "decomposer": {
+        "name": "meta-llama/Llama-3.2-3B-Instruct",
+        "revision": "main",
+        "size_params": "3.2B",
+        "type": "slm_decomposer",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8001/v1",
+        "max_tokens": 1024,
+        "temperature": 0.0
+      },
+      "pool": {
+        "coding": {
+          "name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "coding",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8002/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "math": {
+          "name": "Qwen/Qwen2.5-Math-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "math",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8003/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "reasoning": {
+          "name": "microsoft/Phi-3.5-mini-instruct",
+          "revision": "main",
+          "size_params": "3.8B",
+          "capability": "reasoning",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8004/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "retrieval": {
+          "name": "meta-llama/Llama-3.2-3B-Instruct",
+          "revision": "main",
+          "size_params": "3.2B",
+          "capability": "retrieval",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8005/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "general": {
+          "name": "meta-llama/Llama-3.1-8B-Instruct",
+          "revision": "main",
+          "size_params": "8.0B",
+          "capability": "general",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8006/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        }
+      },
+      "aggregator": {
+        "name": "meta-llama/Llama-3.1-8B-Instruct",
+        "revision": "main",
+        "size_params": "8.0B",
+        "type": "slm_aggregator",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8006/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      }
+    },
+    "router": {
+      "type": "rule_and_embedding_hybrid",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "confidence_threshold": 0.7,
+      "allow_replication": true,
+      "replication_confidence_cutoff": 0.65
+    },
+    "evaluation": {
+      "non_inferiority_margin": 0.2,
+      "alpha": 0.025,
+      "ci_confidence": 0.95
+    }
+  }
+}

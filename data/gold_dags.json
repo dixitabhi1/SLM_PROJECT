@@ -1,0 +1,1312 @@
+{
+  "SD_CODE_01": {
+    "query_id": "SD_CODE_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an LRU cache in Python with O(1) get and put operations using OrderedDict or a doubly linked list with a hash map, including type hints and unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_CODE_02": {
+    "query_id": "SD_CODE_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Write a Python implementation of an asynchronous token-bucket rate limiter supporting concurrent asyncio coroutines with burst limits.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_CODE_03": {
+    "query_id": "SD_CODE_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement the Dijkstra shortest path algorithm in Python for an adjacency-list weighted graph using a min-heap priority queue.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_CODE_04": {
+    "query_id": "SD_CODE_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Write a thread-safe singleton pattern in Python using a metaclass with double-checked locking.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_CODE_05": {
+    "query_id": "SD_CODE_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an efficient Trie data structure in Python supporting prefix search, wildcard match ('.'), and word frequency counting.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_MATH_01": {
+    "query_id": "SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form posterior distribution for a normal likelihood with known variance and a conjugate normal prior, showing all intermediate algebra.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_MATH_02": {
+    "query_id": "SD_MATH_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Calculate the eigenvalues, eigenvectors, and spectral decomposition of the 3x3 matrix [[4, 1, -1], [1, 2, 1], [-1, 1, 4]].",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_MATH_03": {
+    "query_id": "SD_MATH_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Evaluate the definite improper integral \\int_0^\\infty \frac{x^2}{1 + x^4} dx using contour integration in the complex plane.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_MATH_04": {
+    "query_id": "SD_MATH_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Prove that the sum of the series \\sum_{n=1}^\\infty \frac{1}{n^2} converges to \\pi^2 / 6 using Fourier series expansion of f(x) = x^2 on [-\\pi, \\pi].",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_MATH_05": {
+    "query_id": "SD_MATH_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Solve the first-order non-linear differential equation dy/dx + 2xy = x * e^(-x^2) * y^3 with initial condition y(0) = 1.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_REAS_01": {
+    "query_id": "SD_REAS_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Analyze the validity of the syllogism: 'All quantum algorithms that exhibit speedup require entanglement. Some quantum algorithms do not use Shor's period finding. Therefore, some algorithms requiring entanglement do not use Shor's period finding.' State mood, figure, and formal validity.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_REAS_02": {
+    "query_id": "SD_REAS_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Evaluate whether the statement 'If P -> (Q v R), then (P -> Q) v (P -> R)' is a logical tautology using truth tables and formal semantic deduction.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_REAS_03": {
+    "query_id": "SD_REAS_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Resolve the Newcomb's Paradox from both Causal Decision Theory (CDT) and Evidential Decision Theory (EDT) perspectives.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_REAS_04": {
+    "query_id": "SD_REAS_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Identify and analyze the informal fallacies in this argument: 'Experts haven't proven that AI alignment is unsolvable; therefore, superintelligence will naturally align with human values once it achieves high cognitive capacity.'",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_REAS_05": {
+    "query_id": "SD_REAS_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Construct a formal modal logic proof in system S5 showing that \\Box P -> \\Box \\Box P.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_GEN_01": {
+    "query_id": "SD_GEN_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Summarize the architectural differences between Transformer Multi-Head Attention (MHA), Multi-Query Attention (MQA), and Grouped-Query Attention (GQA) with respect to KV-cache memory bandwidth.",
+        "capability": "general",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_GEN_02": {
+    "query_id": "SD_GEN_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Explain the consensus mechanism of the Raft distributed algorithm, detailing leader election, log replication, and safety guarantees.",
+        "capability": "general",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_GEN_03": {
+    "query_id": "SD_GEN_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Provide a comprehensive breakdown of the EU AI Act classification tiers (Prohibited, High Risk, Limited Risk, Minimal Risk) and compliance requirements for Foundation Models.",
+        "capability": "general",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_GEN_04": {
+    "query_id": "SD_GEN_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Explain the difference between Optimistic Concurrency Control (OCC) and Two-Phase Locking (2PL) in relational databases, focusing on write-skew anomalies.",
+        "capability": "general",
+        "dependencies": []
+      }
+    ]
+  },
+  "SD_GEN_05": {
+    "query_id": "SD_GEN_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Explain the mechanism of CRISPR-Cas9 genome editing, specifically the role of the guide RNA, Cas9 endonuclease cleavage, and Non-Homologous End Joining vs Homology-Directed Repair.",
+        "capability": "general",
+        "dependencies": []
+      }
+    ]
+  },
+  "TD_CM_01": {
+    "query_id": "TD_CM_01",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_01.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_01.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_02": {
+    "query_id": "TD_CM_02",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_02.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_02.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_03": {
+    "query_id": "TD_CM_03",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_03.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_03.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_04": {
+    "query_id": "TD_CM_04",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_04.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_04.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_05": {
+    "query_id": "TD_CM_05",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_05.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_05.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_06": {
+    "query_id": "TD_CM_06",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_06.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_06.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_07": {
+    "query_id": "TD_CM_07",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_07.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_07.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_08": {
+    "query_id": "TD_CM_08",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_08.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_08.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_09": {
+    "query_id": "TD_CM_09",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_09.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_09.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CM_10": {
+    "query_id": "TD_CM_10",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulas, equations, and theoretical framework for TD_CM_10.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement clean, vectorized, tested Python code based on the derived mathematical formulas for TD_CM_10.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CR_01": {
+    "query_id": "TD_CR_01",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal theoretical analysis, proof of invariants, and edge case reasoning for TD_CR_01.",
+        "capability": "reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement the verified, bug-free Python code satisfying the analytical constraints for TD_CR_01.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CR_02": {
+    "query_id": "TD_CR_02",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal theoretical analysis, proof of invariants, and edge case reasoning for TD_CR_02.",
+        "capability": "reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement the verified, bug-free Python code satisfying the analytical constraints for TD_CR_02.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CR_03": {
+    "query_id": "TD_CR_03",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal theoretical analysis, proof of invariants, and edge case reasoning for TD_CR_03.",
+        "capability": "reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement the verified, bug-free Python code satisfying the analytical constraints for TD_CR_03.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CR_04": {
+    "query_id": "TD_CR_04",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal theoretical analysis, proof of invariants, and edge case reasoning for TD_CR_04.",
+        "capability": "reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement the verified, bug-free Python code satisfying the analytical constraints for TD_CR_04.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_CR_05": {
+    "query_id": "TD_CR_05",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal theoretical analysis, proof of invariants, and edge case reasoning for TD_CR_05.",
+        "capability": "reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Implement the verified, bug-free Python code satisfying the analytical constraints for TD_CR_05.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_RR_01": {
+    "query_id": "TD_RR_01",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core factual specifications, standards, and historical data for TD_RR_01.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze trade-offs, causal mechanisms, and synthesize comparative reasoning for TD_RR_01.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_RR_02": {
+    "query_id": "TD_RR_02",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core factual specifications, standards, and historical data for TD_RR_02.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze trade-offs, causal mechanisms, and synthesize comparative reasoning for TD_RR_02.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_RR_03": {
+    "query_id": "TD_RR_03",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core factual specifications, standards, and historical data for TD_RR_03.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze trade-offs, causal mechanisms, and synthesize comparative reasoning for TD_RR_03.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_RR_04": {
+    "query_id": "TD_RR_04",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core factual specifications, standards, and historical data for TD_RR_04.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze trade-offs, causal mechanisms, and synthesize comparative reasoning for TD_RR_04.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_RR_05": {
+    "query_id": "TD_RR_05",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core factual specifications, standards, and historical data for TD_RR_05.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze trade-offs, causal mechanisms, and synthesize comparative reasoning for TD_RR_05.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_MG_01": {
+    "query_id": "TD_MG_01",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulation and quantitative equations for TD_MG_01.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Explain real-world economic context, policy implications, and qualitative interpretation for TD_MG_01.",
+        "capability": "general",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_MG_02": {
+    "query_id": "TD_MG_02",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulation and quantitative equations for TD_MG_02.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Explain real-world economic context, policy implications, and qualitative interpretation for TD_MG_02.",
+        "capability": "general",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_MG_03": {
+    "query_id": "TD_MG_03",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulation and quantitative equations for TD_MG_03.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Explain real-world economic context, policy implications, and qualitative interpretation for TD_MG_03.",
+        "capability": "general",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_MG_04": {
+    "query_id": "TD_MG_04",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulation and quantitative equations for TD_MG_04.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Explain real-world economic context, policy implications, and qualitative interpretation for TD_MG_04.",
+        "capability": "general",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "TD_MG_05": {
+    "query_id": "TD_MG_05",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the mathematical formulation and quantitative equations for TD_MG_05.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Explain real-world economic context, policy implications, and qualitative interpretation for TD_MG_05.",
+        "capability": "general",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_01": {
+    "query_id": "CD_CMR_01",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_01.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_01.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_01.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_02": {
+    "query_id": "CD_CMR_02",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_02.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_02.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_02.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_03": {
+    "query_id": "CD_CMR_03",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_03.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_03.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_03.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_04": {
+    "query_id": "CD_CMR_04",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_04.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_04.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_04.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_05": {
+    "query_id": "CD_CMR_05",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_05.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_05.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_05.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_06": {
+    "query_id": "CD_CMR_06",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_06.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_06.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_06.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_07": {
+    "query_id": "CD_CMR_07",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_07.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_07.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_07.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_08": {
+    "query_id": "CD_CMR_08",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_08.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_08.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_08.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_09": {
+    "query_id": "CD_CMR_09",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_09.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_09.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_09.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_CMR_10": {
+    "query_id": "CD_CMR_10",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive formal mathematical formulas, objective functions, and loss equations for CD_CMR_10.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Prove theoretical properties, convergence bounds, optimality, and error guarantees for CD_CMR_10.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement full end-to-end Python implementation verifying the mathematical derivation and theoretical bounds for CD_CMR_10.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RCR_01": {
+    "query_id": "CD_RCR_01",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core specifications, RFCs, and security standards for CD_RCR_01.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze threat vectors, architectural invariants, and security trade-offs for CD_RCR_01.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement secure, sandboxed, compliant Python middleware/runtime satisfying the specifications for CD_RCR_01.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RCR_02": {
+    "query_id": "CD_RCR_02",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core specifications, RFCs, and security standards for CD_RCR_02.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze threat vectors, architectural invariants, and security trade-offs for CD_RCR_02.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement secure, sandboxed, compliant Python middleware/runtime satisfying the specifications for CD_RCR_02.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RCR_03": {
+    "query_id": "CD_RCR_03",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core specifications, RFCs, and security standards for CD_RCR_03.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze threat vectors, architectural invariants, and security trade-offs for CD_RCR_03.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement secure, sandboxed, compliant Python middleware/runtime satisfying the specifications for CD_RCR_03.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RCR_04": {
+    "query_id": "CD_RCR_04",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core specifications, RFCs, and security standards for CD_RCR_04.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze threat vectors, architectural invariants, and security trade-offs for CD_RCR_04.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement secure, sandboxed, compliant Python middleware/runtime satisfying the specifications for CD_RCR_04.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RCR_05": {
+    "query_id": "CD_RCR_05",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and extract core specifications, RFCs, and security standards for CD_RCR_05.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Analyze threat vectors, architectural invariants, and security trade-offs for CD_RCR_05.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Implement secure, sandboxed, compliant Python middleware/runtime satisfying the specifications for CD_RCR_05.",
+        "capability": "coding",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RMP_01": {
+    "query_id": "CD_RMP_01",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve regulatory guidelines, statutory frameworks, and standard protocols for CD_RMP_01.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Derive the quantitative risk assessment, statistical power, and financial formulas for CD_RMP_01.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_3",
+        "text": "Synthesize an executive compliance roadmap and socio-economic policy recommendations integrating quantitative and regulatory findings for CD_RMP_01.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RMP_02": {
+    "query_id": "CD_RMP_02",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve regulatory guidelines, statutory frameworks, and standard protocols for CD_RMP_02.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Derive the quantitative risk assessment, statistical power, and financial formulas for CD_RMP_02.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_3",
+        "text": "Synthesize an executive compliance roadmap and socio-economic policy recommendations integrating quantitative and regulatory findings for CD_RMP_02.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RMP_03": {
+    "query_id": "CD_RMP_03",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve regulatory guidelines, statutory frameworks, and standard protocols for CD_RMP_03.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Derive the quantitative risk assessment, statistical power, and financial formulas for CD_RMP_03.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_3",
+        "text": "Synthesize an executive compliance roadmap and socio-economic policy recommendations integrating quantitative and regulatory findings for CD_RMP_03.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RMP_04": {
+    "query_id": "CD_RMP_04",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve regulatory guidelines, statutory frameworks, and standard protocols for CD_RMP_04.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Derive the quantitative risk assessment, statistical power, and financial formulas for CD_RMP_04.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_3",
+        "text": "Synthesize an executive compliance roadmap and socio-economic policy recommendations integrating quantitative and regulatory findings for CD_RMP_04.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "CD_RMP_05": {
+    "query_id": "CD_RMP_05",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve regulatory guidelines, statutory frameworks, and standard protocols for CD_RMP_05.",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Derive the quantitative risk assessment, statistical power, and financial formulas for CD_RMP_05.",
+        "capability": "math",
+        "dependencies": []
+      },
+      {
+        "id": "node_3",
+        "text": "Synthesize an executive compliance roadmap and socio-economic policy recommendations integrating quantitative and regulatory findings for CD_RMP_05.",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  }
+}

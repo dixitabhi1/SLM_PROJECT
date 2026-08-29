@@ -1,0 +1,37 @@
+{
+  "ablation_1_replication": [
+    {
+      "condition": "no_replication",
+      "mean_wall_latency_ms": 87.45,
+      "mean_cost_usd": 0.000219,
+      "mean_tokens": 1361.7,
+      "total_replications": 0
+    },
+    {
+      "condition": "confidence_gated_0.65",
+      "mean_wall_latency_ms": 89.04,
+      "mean_cost_usd": 0.000219,
+      "mean_tokens": 1361.7,
+      "total_replications": 0
+    },
+    {
+      "condition": "aggressive_replication_0.95",
+      "mean_wall_latency_ms": 87.63,
+      "mean_cost_usd": 0.000219,
+      "mean_tokens": 1361.7,
+      "total_replications": 0
+    }
+  ],
+  "ablation_2_specialization": [
+    {
+      "pool_architecture": "Specialized_Pool",
+      "mean_latency_ms": 88.87,
+      "mean_cost_usd": 0.000219
+    },
+    {
+      "pool_architecture": "Homogeneous_General_SLM_Pool",
+      "mean_latency_ms": 90.81,
+      "mean_cost_usd": 0.000219
+    }
+  ]
+}

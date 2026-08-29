@@ -1,0 +1,5 @@
+Complexity Tier,N,Wall Latency Ratio (Mean),Sim Parallel Latency Ratio (Mean),Latency 95% CI,Cost Ratio (Mean),Cost 95% CI,Quality Delta (S - B),Non-Inferiority p-val,Mean GED,DAG Similarity
+single_domain,16,1.455x,22.965x,"[1.313, 1.568]",0.572x,"[0.473, 0.638]",-0.300,0.5000,1.0,0.5
+two_domain,24,1.595x,26.090x,"[1.432, 1.705]",0.626x,"[0.553, 0.672]",-0.300,0.5000,3.0,0.25
+three_plus_domain,20,1.513x,24.392x,"[1.387, 1.609]",0.579x,"[0.510, 0.627]",-0.300,0.5000,6.0,0.1429
+ALL (Aggregate),60,1.530x,24.691x,"[1.436, 1.577]",0.596x,"[0.543, 0.615]",-0.300,0.5000,3.6,0.2643

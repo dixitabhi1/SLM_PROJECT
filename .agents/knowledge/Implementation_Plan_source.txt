@@ -1,0 +1,141 @@
+Contents
+AI Search Framework                                                                          1
+   Implementation Plan (Research Project) . . . . . . . . . . . . . . . . . . . . . . . .    1
+
+
+AI Search Framework
+Implementation Plan (Research Project)
+
+
+
+0. Correction Note
+
+The proposed architecture is entirely SLM-based (≤8B, no LLMs); the comparison
+baseline is a large LLM, held fixed for the whole study. Phase 5 below builds that LLM
+baseline, not an SLM baseline. The original latency/cost estimates (~3–6x latency, ~5–10x
+cost) are back in play as planning targets, but quality parity against the LLM is the harder,
+less certain claim — the write-up phase is asked to report all three axes honestly, including a
+possible quality gap on hard subtasks.
+
+
+
+1. Phased Timeline
+
+Phase                           Duration                        Deliverable
+1. Literature grounding         Week 1                          Short lit review confirming
+                                                                what’s already published
+                                                                (MoA, MoMA, RouterLLM/DC,
+                                                                S-DAG, and small-model-
+                                                                network-vs-large-model
+                                                                papers like “Avengers”) so
+                                                                the report correctly scopes
+                                                                its contribution — specifically
+                                                                noting where prior work
+                                                                already benchmarks
+                                                                small-model networks
+                                                                against large proprietary
+                                                                models, and how this
+                                                                project’s all-SLM constraint
+                                                                (zero LLMs anywhere in the
+                                                                architecture) differs
+2. Hypotheses & eval design     Week 1–2                        RQ1–RQ5 finalized; eval
+                                                                dataset design + rubric
+                                                                drafted; sample size justified
+3. Dataset construction         Week 2–3                        150–250 stratified queries
+                                                                collected; gold DAGs
+                                                                hand-labeled for ≥50;
+                                                                held-out split separated
+
+
+
+
+                                              1
+Phase                              Duration                           Deliverable
+4. Infrastructure setup            Week 2–3 (parallel with            SLM pool (all ≤8B, proposed
+                                   Phase 3)                           architecture) hosted locally;
+                                                                      LLM baseline hosted or
+                                                                      API-accessible;
+                                                                      instrumentation logging
+                                                                      wired at every pipeline stage
+                                                                      on both paths
+5. LLM baseline run                Week 4                             Baseline latency/cost/quality
+                                                                      collected on full eval set,
+                                                                      using one fixed large LLM
+                                                                      answering queries directly
+6. Pipeline build                  Week 4–6                           Working end-to-end pipeline,
+(decomposer, router,                                                  prompted (not fine-tuned)
+orchestrator, aggregator)                                             decomposer, every
+                                                                      component ≤8B, zero LLMs
+7. Pipeline runs on eval set       Week 6–7                           Paired latency/cost/quality
+                                                                      data collected, same
+                                                                      conditions as baseline
+8. Statistical analysis            Week 7–8                           CIs, non-inferiority test on
+                                                                      quality, crossover-point plot,
+                                                                      decomposition-accuracy
+                                                                      correlation with quality gaps
+9. Ablations                       Week 8–9                           Vary replication factor, pool
+                                                                      size, and complexity bucket
+                                                                      to test robustness of the
+                                                                      results, especially on the
+                                                                      queries where the LLM
+                                                                      baseline is expected to be
+                                                                      strongest
+10. Write-up                       Week 9–10                          Report draft: methodology,
+                                                                      results on all three axes
+                                                                      (latency, cost, quality),
+                                                                      threats to validity, honest
+                                                                      discussion of where the SLM
+                                                                      pipeline matches, beats, or
+                                                                      loses to the LLM baseline
+
+
+Total: ~10 weeks, one researcher working consistently.
+
+2. Deliverables
+
+   • Stratified eval dataset with gold task graphs (reusable artifact).
+   • Instrumented pipeline codebase with full experiment logs — proposed architecture en-
+     tirely SLM-based, zero LLM dependency in the shipped system.
+   • Statistical results: latency ratio, cost ratio, quality non-inferiority test vs. the LLM baseline,
+     crossover point — each with confidence intervals.
+   • Written report scoping the contribution honestly: known architecture pattern, new empir-
+     ical measurement for an all-SLM system benchmarked directly against a large LLM.
+
+3. Key Risks
+
+
+
+                                                  2
+Risk                           Impact                        Mitigation
+SLM pipeline loses             Weakens the “matches LLM      Report
+meaningfully on quality        quality” claim                per-complexity-bucket, not
+vs. the LLM baseline on hard                                 aggregate — a partial win
+reasoning subtasks                                           (matches on
+                                                             simple/compound-but-
+                                                             decomposable queries, loses
+                                                             on deep single-domain
+                                                             reasoning) is a legitimate,
+                                                             reportable finding
+LLM baseline via API           Latency comparison            Prefer a self-hosted large
+introduces latency confounds   becomes noisy or unfair       open-weight model for the
+                                                             baseline; if API is
+                                                             unavoidable, run many trials
+                                                             and report variance explicitly
+Local hosting can’t run 3–5    Parallelism becomes           Fall back to sequential-with-
+SLMs concurrently              simulated, not real           logged-timestamps and
+                                                             clearly label simulated
+                                                             parallel time as an estimate
+Eval set too small to reach    Can’t support strong claims   Pre-register a minimum
+significance                                                 detectable effect size and
+                                                             required sample size before
+                                                             the final run
+Decomposition accuracy is      Pipeline underperforms        Treat this as a finding, not a
+the dominant driver of         broadly, not just on hard     bug to hide — RQ5 exists
+quality gaps vs. the LLM       subtasks                      specifically to surface and
+                                                             report it
+
+
+
+
+                                             3
+
