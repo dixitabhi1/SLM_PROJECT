@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_72b_V2_TD_02_63",
+  "system_type": "baseline_qwen_72b",
+  "query_id": "V2_TD_02",
+  "query_text": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #2, thoroughly addressing both domain constraints.",
+  "complexity_tier": "two_domain",
+  "seed": 63,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:08.418458+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:08.441704+00:00",
+  "total_wall_clock_latency_ms": 23.13389998744242,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 33,
+  "total_completion_tokens": 335,
+  "total_tokens": 368,
+  "total_cost_usd": 0.0003279,
+  "stages": {
+    "monolithic_inference_qwen_72b": [
+      {
+        "stage_name": "monolithic_inference_qwen_72b",
+        "model_name": "Qwen/Qwen2.5-72B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110400.6595837,
+        "end_time_rel_s": 110400.6827176,
+        "latency_ms": 23.13389998744242,
+        "prompt_tokens": 33,
+        "completion_tokens": 335,
+        "total_tokens": 368,
+        "cost_usd": 0.0003279,
+        "confidence_score": null,
+        "input": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #2, thoroughly addressing both domain constraints.",
+        "output": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 385335.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_72b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 385335.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_72b"
+  }
+}

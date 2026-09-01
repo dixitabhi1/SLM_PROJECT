@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_gemini_frontier_V2_SD_CODE_05_46",
+  "system_type": "baseline_gemini_frontier",
+  "query_id": "V2_SD_CODE_05",
+  "query_text": "Implement an advanced algorithmic module #5 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 46,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:09:56.004681+00:00",
+  "timestamp_end_utc": "2026-09-01T10:09:56.040670+00:00",
+  "total_wall_clock_latency_ms": 36.21359998942353,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 37,
+  "total_completion_tokens": 472,
+  "total_tokens": 509,
+  "total_cost_usd": 0.00240625,
+  "stages": {
+    "monolithic_inference_gemini_frontier": [
+      {
+        "stage_name": "monolithic_inference_gemini_frontier",
+        "model_name": "gemini-1.5-pro",
+        "model_revision": "main",
+        "start_time_rel_s": 110388.2454675,
+        "end_time_rel_s": 110388.2816811,
+        "latency_ms": 36.21359998942353,
+        "prompt_tokens": 37,
+        "completion_tokens": 472,
+        "total_tokens": 509,
+        "cost_usd": 0.00240625,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #5 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "[gemini-1.5-pro] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 444104.",
+        "extra_metadata": {
+          "baseline_model_id": "gemini_frontier"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[gemini-1.5-pro] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 444104.",
+  "config_snapshot": {
+    "baseline_model_id": "gemini_frontier"
+  }
+}

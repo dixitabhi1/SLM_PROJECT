@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_72b_V2_SD_MATH_02_61",
+  "system_type": "baseline_qwen_72b",
+  "query_id": "V2_SD_MATH_02",
+  "query_text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+  "complexity_tier": "single_domain",
+  "seed": 61,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:06.859551+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:06.887237+00:00",
+  "total_wall_clock_latency_ms": 27.821200012112968,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 33,
+  "total_completion_tokens": 470,
+  "total_tokens": 503,
+  "total_cost_usd": 0.00044940000000000003,
+  "stages": {
+    "monolithic_inference_qwen_72b": [
+      {
+        "stage_name": "monolithic_inference_qwen_72b",
+        "model_name": "Qwen/Qwen2.5-72B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110399.1004284,
+        "end_time_rel_s": 110399.1282496,
+        "latency_ms": 27.821200012112968,
+        "prompt_tokens": 33,
+        "completion_tokens": 470,
+        "total_tokens": 503,
+        "cost_usd": 0.00044940000000000003,
+        "confidence_score": null,
+        "input": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+        "output": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 02dd95.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_72b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 02dd95.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_72b"
+  }
+}

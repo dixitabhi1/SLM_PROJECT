@@ -1,0 +1,127 @@
+[STATUS: v2 TARGET ARCHITECTURE — supersedes the v1 decomposer/router
+described in Research_Report_v1_source.txt for the PROPOSED PIPELINE
+ONLY. The v1 LLM baseline description is superseded by the multi-LLM
+baseline pool — see multi-llm-baseline-pool skill.]
+
+This is a literal transcription of the user-provided "Proposed
+Workflow" diagram (proposed_architechture.pdf). Transcribed exactly as
+drawn — do not add stages, rename boxes, or infer behavior not shown.
+If an implementation detail isn't visible in the diagram, it is
+UNSPECIFIED and must be designed explicitly (flagged, not assumed).
+
+=== Proposed Workflow (v2) ===
+
+Two parallel branches feed into a shared "Matching SLM" stage:
+
+BRANCH A — Task side:
+  Decomposer SLM
+    "Decomposes prompt into tasks"
+    |
+    v
+  SLM-2: task analyser
+    "Skill vector of each task"
+    |
+    v
+  SLM-3: task colorer
+    "Colors tasks by similarity"
+    |
+    v
+  (feeds into Matching SLM)
+
+BRANCH B — Agent side:
+  SLM agent pool
+    |
+    v
+  Agent analyser SLM
+    "Skill vector, once per agent"
+    |
+    v
+  Agent colorer SLM
+    "Multi-skill = bridges colors"
+    |
+    v
+  (feeds into Matching SLM)
+
+CONVERGENCE:
+  Matching SLM
+    "Within each color, matches which agent fits which task"
+    "Marks whether matched tasks can run in parallel or must run in series"
+    "Checks whether a task's required skills span more than one color"
+    |
+    v (only "depth limit reached")
+  Scheduling SLM
+    "Builds execution graph from assignments and parallel/series marks"
+    "Arranges parallel vs. series based on availability and cost"
+    "Multi-color tasks get multi-agent collaboration instead of one match"
+
+FEEDBACK LOOP (the gap identified by the user):
+  A dashed arrow runs from the Matching SLM stage back to the top of
+  Branch A (Decomposer SLM), labeled:
+    "multi-color and depth limit not reached"
+
+  Read literally, the loop-back condition is a conjunction of two
+  checks the Matching SLM performs on a task:
+    (a) the task's required skills span MORE THAN ONE COLOR
+        ("Checks whether a task's required skills span more than one
+        color" — explicit Matching SLM responsibility in the diagram)
+    (b) the recursion/re-decomposition depth limit has NOT yet been
+        reached (there is a depth limit — the forward edge to
+        Scheduling SLM is explicitly labeled "depth limit reached",
+        i.e. the terminal condition)
+
+  When both hold, the task is NOT matched to a single agent and NOT
+  passed to Scheduling — it is sent back through Decomposer SLM for
+  further decomposition into finer-grained, single-color subtasks.
+  When the task is single-color (a clean match is possible) OR the
+  depth limit has been reached (must stop recursing regardless), the
+  flow proceeds forward to Scheduling SLM instead.
+
+  This is a bounded loop, not an open-ended "retry until confident"
+  mechanism — it has an explicit depth limit as its escape hatch, which
+  must be an actual configured integer (max recursion depth), not left
+  implicit. If the depth limit is reached while a task is still
+  multi-color, Scheduling SLM's job is explicitly to give it
+  "multi-agent collaboration instead of one match" (per the diagram) —
+  i.e. multi-color-at-depth-limit is a valid terminal state handled by
+  multi-agent assignment, not an error state.
+
+=== Component roles, v2 (six new/changed SLM roles vs. v1's Router) ===
+
+| Component | Role (verbatim from diagram) |
+|---|---|
+| Decomposer SLM | Decomposes prompt into tasks |
+| SLM-2: task analyser | Skill vector of each task |
+| SLM-3: task colorer | Colors tasks by similarity |
+| SLM agent pool | (the existing pool of specialist SLMs, e.g. coding/math/logic/retrieval/general from v1) |
+| Agent analyser SLM | Skill vector, once per agent |
+| Agent colorer SLM | Multi-skill = bridges colors |
+| Matching SLM | Within-color agent-task matching; parallel/series marking; multi-color detection |
+| Scheduling SLM | Execution graph construction; parallel/series arrangement by availability and cost; multi-agent collaboration for multi-color tasks |
+
+Note: this replaces v1's single non-generative "Capability Router"
+with a multi-stage analyse -> color -> match -> schedule pipeline on
+BOTH the task side and the agent side. Whether SLM-2/SLM-3/Matching/
+Scheduling are generative (prompted SLM calls) or rule-based is not
+specified in the diagram — the labels ("SLM-2", "SLM-3", "Matching
+SLM", "Scheduling SLM") suggest they are model calls, not pure
+rule-based components like v1's router. If overhead/latency
+non-functional requirements need this to stay near-zero-cost like v1's
+router, that trade-off must be raised explicitly, not assumed silently
+either way.
+
+The Aggregator Sub-Agent SLM from v1 (synthesis & contradiction
+resolution) is not shown in this diagram but presumably still sits
+after Scheduling SLM's execution graph is run — this must be confirmed
+with the user, not assumed to be dropped.
+
+=== Open questions this diagram does NOT answer (flag, don't invent) ===
+1. What exact "color" taxonomy is used (how many colors, what do they
+   represent — capability domains like v1's coding/math/logic/
+   retrieval/general, or something else)?
+2. What is the configured depth limit (max re-decomposition recursions)?
+3. Does re-decomposition on loop-back reuse the SAME task ID (versioned)
+   or create new child tasks? This matters for the run-log schema.
+4. Is "cost" in Scheduling SLM's "parallel vs series... availability
+   and cost" the same fixed pricing_table.json from v1, or a new
+   scheduling-specific cost model?
+5. Where does the Aggregator (v1) fit after Scheduling SLM?

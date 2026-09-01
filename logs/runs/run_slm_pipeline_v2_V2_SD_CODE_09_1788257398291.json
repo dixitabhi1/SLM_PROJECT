@@ -1,0 +1,289 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_09_50",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_09",
+  "query_text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 50,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:09:58.203847+00:00",
+  "timestamp_end_utc": "2026-09-01T10:09:58.291172+00:00",
+  "total_wall_clock_latency_ms": 87.23309999913909,
+  "simulated_parallel_latency_ms": 1455.0,
+  "total_prompt_tokens": 119,
+  "total_completion_tokens": 1042,
+  "total_tokens": 1161,
+  "total_cost_usd": 0.00019637000000000002,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110390.4449186,
+        "end_time_rel_s": 110390.4710831,
+        "latency_ms": 26.16449999914039,
+        "prompt_tokens": 36,
+        "completion_tokens": 219,
+        "total_tokens": 255,
+        "cost_usd": 1.932e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Execute domain-specific analysis and implementation directly.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_general_node_1": [
+      {
+        "stage_name": "pool_general_node_1",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110390.4716211,
+        "end_time_rel_s": 110390.502213,
+        "latency_ms": 30.59189999476075,
+        "prompt_tokens": 10,
+        "completion_tokens": 534,
+        "total_tokens": 544,
+        "cost_usd": 0.0001083,
+        "confidence_score": null,
+        "input": "Task: Execute domain-specific analysis and implementation directly.",
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05.",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_synthesis": [
+      {
+        "stage_name": "global_aggregator_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110390.5022962,
+        "end_time_rel_s": 110390.5321329,
+        "latency_ms": 29.83670000685379,
+        "prompt_tokens": 73,
+        "completion_tokens": 289,
+        "total_tokens": 362,
+        "cost_usd": 6.875e-05,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05."
+          }
+        },
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 091036.",
+        "extra_metadata": {
+          "node_count": 1,
+          "stage": "global_terminal_aggregation"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "general"
+      ],
+      "dependencies": [],
+      "latency_ms": 30.614799994509667
+    }
+  ],
+  "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 091036.",
+  "config_snapshot": {
+    "experiment_id": "ai_search_framework_v2",
+    "version": "2.0.0",
+    "seed": 42,
+    "hardware": {
+      "device": "auto",
+      "parallelism": "simulated",
+      "max_concurrent_slms": 4,
+      "max_recursion_depth": 3
+    },
+    "models": {
+      "decomposer": {
+        "name": "meta-llama/Llama-3.2-3B-Instruct",
+        "revision": "main",
+        "size_params": "3.2B",
+        "type": "slm_decomposer",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8001/v1",
+        "max_tokens": 1024,
+        "temperature": 0.0
+      },
+      "pool": {
+        "coding": {
+          "name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "coding",
+          "color": "blue",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8002/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "math": {
+          "name": "Qwen/Qwen2.5-Math-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "math",
+          "color": "green",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8003/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "reasoning": {
+          "name": "microsoft/Phi-3.5-mini-instruct",
+          "revision": "main",
+          "size_params": "3.8B",
+          "capability": "reasoning",
+          "color": "purple",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8004/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "retrieval": {
+          "name": "meta-llama/Llama-3.2-3B-Instruct",
+          "revision": "main",
+          "size_params": "3.2B",
+          "capability": "retrieval",
+          "color": "amber",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8005/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "general": {
+          "name": "meta-llama/Llama-3.1-8B-Instruct",
+          "revision": "main",
+          "size_params": "8.0B",
+          "capability": "general",
+          "color": "slate",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8006/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        }
+      },
+      "aggregator_global": {
+        "name": "meta-llama/Llama-3.1-8B-Instruct",
+        "revision": "main",
+        "size_params": "8.0B",
+        "type": "slm_aggregator",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8006/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      },
+      "multi_llm_baseline_roster": {
+        "llama_8b": {
+          "name": "meta-llama/Llama-3.1-8B-Instruct",
+          "revision": "main",
+          "tier": "small_baseline_8B",
+          "size_params": "8.0B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8010/v1"
+        },
+        "qwen_32b": {
+          "name": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "main",
+          "tier": "mid_baseline_32B",
+          "size_params": "32.5B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8011/v1"
+        },
+        "llama_70b": {
+          "name": "meta-llama/Llama-3.1-70B-Instruct",
+          "revision": "main",
+          "tier": "large_baseline_70B_v1_match",
+          "size_params": "70.6B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8000/v1"
+        },
+        "qwen_72b": {
+          "name": "Qwen/Qwen2.5-72B-Instruct",
+          "revision": "main",
+          "tier": "large_baseline_72B_open",
+          "size_params": "72.7B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8012/v1"
+        },
+        "gemini_frontier": {
+          "name": "gemini-1.5-pro",
+          "revision": "latest",
+          "tier": "frontier_api",
+          "size_params": "Frontier",
+          "provider": "google_api",
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta"
+        }
+      },
+      "judge": {
+        "name": "claude-3-5-sonnet-20241022",
+        "revision": "2024-10-22",
+        "tier": "independent_judge",
+        "provider": "anthropic_api",
+        "notes": "Strictly independent: not in SLM candidate pool and not in baseline roster"
+      }
+    },
+    "feedback_loop": {
+      "max_depth": 3,
+      "multi_color_threshold": 0.22,
+      "color_taxonomy": {
+        "coding": "blue",
+        "math": "green",
+        "reasoning": "purple",
+        "retrieval": "amber",
+        "general": "slate"
+      }
+    },
+    "evaluation": {
+      "non_inferiority_margin": 0.2,
+      "alpha": 0.025,
+      "ci_confidence": 0.95
+    }
+  },
+  "loop_events": [],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.0269,
+      "math": 0.0269,
+      "reasoning": 0.0269,
+      "retrieval": 0.0269,
+      "general": 0.8922
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "slate",
+      "dominant_domain": "general",
+      "active_colors": [
+        "slate"
+      ],
+      "active_domains": [
+        "general"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

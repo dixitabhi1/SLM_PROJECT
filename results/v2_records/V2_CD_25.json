@@ -1,0 +1,100 @@
+{
+  "query_id": "V2_CD_25",
+  "query_text": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #25.",
+  "complexity_tier": "three_plus_domain",
+  "triggers_feedback_loop": true,
+  "gold_dag": {
+    "query_id": "V2_CD_25",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_25",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_25",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_25",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "slm_pipeline_response": {
+    "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash efbd11.",
+    "run_id": "slm_pipe_v2_V2_CD_25_116",
+    "log_path": "logs/runs\\run_slm_pipeline_v2_V2_CD_25_1788257445087.json",
+    "wall_clock_latency_ms": 81.36949999607168,
+    "simulated_parallel_latency_ms": 1474.088200002443,
+    "cost_usd": 0.00020708,
+    "feedback_loop_fired": false,
+    "loop_events_count": 0
+  },
+  "baseline_responses": {
+    "llama_8b": {
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 5d7cbb.",
+      "run_id": "baseline_llama_8b_V2_CD_25_116",
+      "log_path": "logs/runs\\run_baseline_llama_8b_V2_CD_25_1788257445179.json",
+      "latency_ms": 45.0313999899663,
+      "cost_usd": 0.0001178
+    },
+    "qwen_32b": {
+      "model_name": "Qwen/Qwen2.5-32B-Instruct",
+      "response": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 5d7cbb.",
+      "run_id": "baseline_qwen_32b_V2_CD_25_116",
+      "log_path": "logs/runs\\run_baseline_qwen_32b_V2_CD_25_1788257445272.json",
+      "latency_ms": 42.68739999679383,
+      "cost_usd": 0.00026545000000000003
+    },
+    "llama_70b": {
+      "model_name": "meta-llama/Llama-3.1-70B-Instruct",
+      "response": "[meta-llama/Llama-3.1-70B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 5d7cbb.",
+      "run_id": "baseline_llama_70b_V2_CD_25_116",
+      "log_path": "logs/runs\\run_baseline_llama_70b_V2_CD_25_1788257445364.json",
+      "latency_ms": 34.39050000451971,
+      "cost_usd": 0.0005341
+    },
+    "qwen_72b": {
+      "model_name": "Qwen/Qwen2.5-72B-Instruct",
+      "response": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 5d7cbb.",
+      "run_id": "baseline_qwen_72b_V2_CD_25_116",
+      "log_path": "logs/runs\\run_baseline_qwen_72b_V2_CD_25_1788257445457.json",
+      "latency_ms": 44.33079999580514,
+      "cost_usd": 0.0005341
+    },
+    "gemini_frontier": {
+      "model_name": "gemini-1.5-pro",
+      "response": "[gemini-1.5-pro] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 5d7cbb.",
+      "run_id": "baseline_gemini_frontier_V2_CD_25_116",
+      "log_path": "logs/runs\\run_baseline_gemini_frontier_V2_CD_25_1788257445536.json",
+      "latency_ms": 32.374599992181174,
+      "cost_usd": 0.0028650000000000004
+    }
+  },
+  "comparison": {
+    "cost_ratio_vs_70b": 0.3877176558696873,
+    "speedup_ratio_parallel_vs_70b": 0.02333001512695286
+  },
+  "judge_result": {
+    "judge_model_id": "claude-3-5-sonnet-20241022",
+    "selected_system": "llama_8b",
+    "selected_alias": "Candidate A",
+    "criteria_scores": {},
+    "primary_differentiator": "correctness",
+    "reasoning": "Fallback selection due to unparseable judge output.",
+    "shuffle_seed": 116
+  }
+}

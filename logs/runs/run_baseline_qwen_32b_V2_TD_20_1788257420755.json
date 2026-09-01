@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_32b_V2_TD_20_81",
+  "system_type": "baseline_qwen_32b",
+  "query_id": "V2_TD_20",
+  "query_text": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #20, thoroughly addressing both domain constraints.",
+  "complexity_tier": "two_domain",
+  "seed": 81,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:20.717894+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:20.755457+00:00",
+  "total_wall_clock_latency_ms": 36.76569998788182,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 33,
+  "total_completion_tokens": 527,
+  "total_tokens": 560,
+  "total_cost_usd": 0.00024870000000000003,
+  "stages": {
+    "monolithic_inference_qwen_32b": [
+      {
+        "stage_name": "monolithic_inference_qwen_32b",
+        "model_name": "Qwen/Qwen2.5-32B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110412.9596846,
+        "end_time_rel_s": 110412.9964503,
+        "latency_ms": 36.76569998788182,
+        "prompt_tokens": 33,
+        "completion_tokens": 527,
+        "total_tokens": 560,
+        "cost_usd": 0.00024870000000000003,
+        "confidence_score": null,
+        "input": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #20, thoroughly addressing both domain constraints.",
+        "output": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 6082d6.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_32b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 6082d6.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_32b"
+  }
+}

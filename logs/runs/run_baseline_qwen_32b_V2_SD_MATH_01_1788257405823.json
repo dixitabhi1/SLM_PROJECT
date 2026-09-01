@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_32b_V2_SD_MATH_01_60",
+  "system_type": "baseline_qwen_32b",
+  "query_id": "V2_SD_MATH_01",
+  "query_text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+  "complexity_tier": "single_domain",
+  "seed": 60,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:05.797947+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:05.823477+00:00",
+  "total_wall_clock_latency_ms": 25.73619999748189,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 33,
+  "total_completion_tokens": 267,
+  "total_tokens": 300,
+  "total_cost_usd": 0.0001317,
+  "stages": {
+    "monolithic_inference_qwen_32b": [
+      {
+        "stage_name": "monolithic_inference_qwen_32b",
+        "model_name": "Qwen/Qwen2.5-32B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110398.0387606,
+        "end_time_rel_s": 110398.0644968,
+        "latency_ms": 25.73619999748189,
+        "prompt_tokens": 33,
+        "completion_tokens": 267,
+        "total_tokens": 300,
+        "cost_usd": 0.0001317,
+        "confidence_score": null,
+        "input": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+        "output": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 10fbed.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_32b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 10fbed.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_32b"
+  }
+}

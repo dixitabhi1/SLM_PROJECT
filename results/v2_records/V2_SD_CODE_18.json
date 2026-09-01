@@ -1,0 +1,72 @@
+{
+  "query_id": "V2_SD_CODE_18",
+  "query_text": "Implement an advanced algorithmic module #18 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "triggers_feedback_loop": false,
+  "gold_dag": null,
+  "slm_pipeline_response": {
+    "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 302684.",
+    "run_id": "slm_pipe_v2_V2_SD_CODE_18_59",
+    "log_path": "logs/runs\\run_slm_pipeline_v2_V2_SD_CODE_18_1788257404784.json",
+    "wall_clock_latency_ms": 106.59500000474509,
+    "simulated_parallel_latency_ms": 1479.1965999884997,
+    "cost_usd": 0.00024229,
+    "feedback_loop_fired": false,
+    "loop_events_count": 0
+  },
+  "baseline_responses": {
+    "llama_8b": {
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash f1f4ad.",
+      "run_id": "baseline_llama_8b_V2_SD_CODE_18_59",
+      "log_path": "logs/runs\\run_baseline_llama_8b_V2_SD_CODE_18_1788257404899.json",
+      "latency_ms": 23.249999998370185,
+      "cost_usd": 8.215e-05
+    },
+    "qwen_32b": {
+      "model_name": "Qwen/Qwen2.5-32B-Instruct",
+      "response": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash f1f4ad.",
+      "run_id": "baseline_qwen_32b_V2_SD_CODE_18_59",
+      "log_path": "logs/runs\\run_baseline_qwen_32b_V2_SD_CODE_18_1788257405022.json",
+      "latency_ms": 26.70390000275802,
+      "cost_usd": 0.0001853
+    },
+    "llama_70b": {
+      "model_name": "meta-llama/Llama-3.1-70B-Instruct",
+      "response": "[meta-llama/Llama-3.1-70B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash f1f4ad.",
+      "run_id": "baseline_llama_70b_V2_SD_CODE_18_59",
+      "log_path": "logs/runs\\run_baseline_llama_70b_V2_SD_CODE_18_1788257405160.json",
+      "latency_ms": 26.061699987621978,
+      "cost_usd": 0.00037430000000000005
+    },
+    "qwen_72b": {
+      "model_name": "Qwen/Qwen2.5-72B-Instruct",
+      "response": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash f1f4ad.",
+      "run_id": "baseline_qwen_72b_V2_SD_CODE_18_59",
+      "log_path": "logs/runs\\run_baseline_qwen_72b_V2_SD_CODE_18_1788257405253.json",
+      "latency_ms": 36.57970001222566,
+      "cost_usd": 0.00037430000000000005
+    },
+    "gemini_frontier": {
+      "model_name": "gemini-1.5-pro",
+      "response": "[gemini-1.5-pro] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash f1f4ad.",
+      "run_id": "baseline_gemini_frontier_V2_SD_CODE_18_59",
+      "log_path": "logs/runs\\run_baseline_gemini_frontier_V2_SD_CODE_18_1788257405375.json",
+      "latency_ms": 36.98199999053031,
+      "cost_usd": 0.0019612500000000003
+    }
+  },
+  "comparison": {
+    "cost_ratio_vs_70b": 0.647314987977558,
+    "speedup_ratio_parallel_vs_70b": 0.017618820911178813
+  },
+  "judge_result": {
+    "judge_model_id": "claude-3-5-sonnet-20241022",
+    "selected_system": "gemini_frontier",
+    "selected_alias": "Candidate A",
+    "criteria_scores": {},
+    "primary_differentiator": "correctness",
+    "reasoning": "Fallback selection due to unparseable judge output.",
+    "shuffle_seed": 59
+  }
+}

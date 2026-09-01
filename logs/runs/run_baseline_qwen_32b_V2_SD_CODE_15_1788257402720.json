@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_32b_V2_SD_CODE_15_56",
+  "system_type": "baseline_qwen_32b",
+  "query_id": "V2_SD_CODE_15",
+  "query_text": "Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 56,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:02.693293+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:02.720823+00:00",
+  "total_wall_clock_latency_ms": 26.406899996800348,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 37,
+  "total_completion_tokens": 446,
+  "total_tokens": 483,
+  "total_cost_usd": 0.00021365000000000002,
+  "stages": {
+    "monolithic_inference_qwen_32b": [
+      {
+        "stage_name": "monolithic_inference_qwen_32b",
+        "model_name": "Qwen/Qwen2.5-32B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110394.9353967,
+        "end_time_rel_s": 110394.9618036,
+        "latency_ms": 26.406899996800348,
+        "prompt_tokens": 37,
+        "completion_tokens": 446,
+        "total_tokens": 483,
+        "cost_usd": 0.00021365000000000002,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash ea66b0.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_32b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash ea66b0.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_32b"
+  }
+}

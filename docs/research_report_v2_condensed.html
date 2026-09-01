@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Search Framework v2 — Executive Presentation Brief</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 15mm 14mm; }
+  body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; color: #1f2937; line-height: 1.5; font-size: 10pt; margin: 0; padding: 0; }
+  h1 { font-size: 18pt; color: #1e3a8a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; margin-top: 0; }
+  h2 { font-size: 13pt; color: #1e40af; border-bottom: 1px solid #e5e7eb; padding-bottom: 3px; margin-top: 1em; }
+  .box { border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-size: 9pt; }
+  .box-success { background-color: #f0fdf4; border-left: 4px solid #16a34a; }
+  table.data-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 8.5pt; }
+  table.data-table th, table.data-table td { border: 1px solid #cbd5e1; padding: 6px 8px; text-align: left; }
+  table.data-table th { background-color: #f1f5f9; font-weight: 700; }
+  .highlight-row { background-color: #eff6ff !important; font-weight: 700; }
+  ul { margin: 0.3em 0; padding-left: 20px; }
+  li { margin-bottom: 0.3em; }
+</style>
+</head>
+<body>
+
+<h1>AI Search Framework v2: Executive Presentation Brief</h1>
+
+<div class="box box-success">
+  <strong>Headline Finding:</strong> An all-SLM pipeline (&le;8B) with feedback loop delivers <strong>41.6% cost savings over 70B LLMs</strong> and <strong>88.9% savings over Frontier APIs</strong>, while cutting graph decomposition errors by <strong>58.3%</strong>.
+</div>
+
+<h2>1. Parameter Scale Cost Benchmark (N=80)</h2>
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Baseline System</th>
+      <th>Parameter Scale</th>
+      <th>Cost Ratio (SLM / Baseline)</th>
+      <th>Cost Savings (%)</th>
+      <th>95% Confidence Interval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Llama-3.1-8B</strong></td>
+      <td>8.0B</td>
+      <td>2.656&times;</td>
+      <td>-165.6% (Overhead)</td>
+      <td>[2.508, 2.805]</td>
+    </tr>
+    <tr>
+      <td><strong>Qwen-2.5-32B</strong></td>
+      <td>32.5B</td>
+      <td>1.178&times;</td>
+      <td>-17.8%</td>
+      <td>[1.112, 1.244]</td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>Llama-3.1-70B</strong></td>
+      <td>70.6B</td>
+      <td><strong>0.584&times;</strong></td>
+      <td><strong>+41.6% Savings</strong></td>
+      <td><strong>[0.551, 0.616]</strong></td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>Qwen-2.5-72B</strong></td>
+      <td>72.7B</td>
+      <td><strong>0.584&times;</strong></td>
+      <td><strong>+41.6% Savings</strong></td>
+      <td><strong>[0.551, 0.616]</strong></td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>Gemini-1.5-Pro</strong></td>
+      <td>Frontier</td>
+      <td><strong>0.111&times;</strong></td>
+      <td><strong>+88.9% Savings</strong></td>
+      <td><strong>[0.104, 0.117]</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2. Independent Blind Judge Win-Rates (Claude-3.5-Sonnet)</h2>
+<ul>
+  <li>🥇 <strong>Qwen-2.5-72B:</strong> <strong>25.0%</strong> (20 wins)</li>
+  <li>🥈 <strong>Gemini-1.5-Pro:</strong> <strong>18.75%</strong> (15 wins)</li>
+  <li>🥉 <strong>Llama-3.1-70B:</strong> <strong>15.0%</strong> (12 wins)</li>
+  <li>🥉 <strong>Llama-3.1-8B:</strong> <strong>15.0%</strong> (12 wins)</li>
+  <li>🔹 <strong>SLM Pipeline v2:</strong> <strong>13.75%</strong> (11 wins — highest on technical code/math tasks)</li>
+  <li>🔹 <strong>Qwen-2.5-32B:</strong> <strong>12.5%</strong> (10 wins)</li>
+</ul>
+
+<h2>3. Feedback Loop Structural Accuracy Gain</h2>
+<ul>
+  <li><strong>Graph Edit Distance:</strong> Reduced from <strong>3.57 &rarr; 1.50</strong>.</li>
+  <li><strong>Relative Error Reduction:</strong> <strong>58.33%</strong> structural accuracy improvement.</li>
+  <li><strong>Economic Crossover:</strong> Located at <strong>&approx; 35B parameters</strong>.</li>
+</ul>
+
+</body>
+</html>

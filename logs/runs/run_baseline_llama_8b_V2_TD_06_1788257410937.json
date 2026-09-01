@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_llama_8b_V2_TD_06_67",
+  "system_type": "baseline_llama_8b",
+  "query_id": "V2_TD_06",
+  "query_text": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #6, thoroughly addressing both domain constraints.",
+  "complexity_tier": "two_domain",
+  "seed": 67,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:10.917523+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:10.937988+00:00",
+  "total_wall_clock_latency_ms": 20.476300007430837,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 33,
+  "total_completion_tokens": 315,
+  "total_tokens": 348,
+  "total_cost_usd": 6.795e-05,
+  "stages": {
+    "monolithic_inference_llama_8b": [
+      {
+        "stage_name": "monolithic_inference_llama_8b",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110403.158707,
+        "end_time_rel_s": 110403.1791833,
+        "latency_ms": 20.476300007430837,
+        "prompt_tokens": 33,
+        "completion_tokens": 315,
+        "total_tokens": 348,
+        "cost_usd": 6.795e-05,
+        "confidence_score": null,
+        "input": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #6, thoroughly addressing both domain constraints.",
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash d34080.",
+        "extra_metadata": {
+          "baseline_model_id": "llama_8b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash d34080.",
+  "config_snapshot": {
+    "baseline_model_id": "llama_8b"
+  }
+}

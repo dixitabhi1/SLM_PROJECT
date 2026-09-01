@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_32b_V2_TD_01_62",
+  "system_type": "baseline_qwen_32b",
+  "query_id": "V2_TD_01",
+  "query_text": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #1, thoroughly addressing both domain constraints.",
+  "complexity_tier": "two_domain",
+  "seed": 62,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:07.411459+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:07.439839+00:00",
+  "total_wall_clock_latency_ms": 27.74459999636747,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 33,
+  "total_completion_tokens": 401,
+  "total_tokens": 434,
+  "total_cost_usd": 0.00019200000000000003,
+  "stages": {
+    "monolithic_inference_qwen_32b": [
+      {
+        "stage_name": "monolithic_inference_qwen_32b",
+        "model_name": "Qwen/Qwen2.5-32B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110399.6530492,
+        "end_time_rel_s": 110399.6807938,
+        "latency_ms": 27.74459999636747,
+        "prompt_tokens": 33,
+        "completion_tokens": 401,
+        "total_tokens": 434,
+        "cost_usd": 0.00019200000000000003,
+        "confidence_score": null,
+        "input": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #1, thoroughly addressing both domain constraints.",
+        "output": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 9c303e.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_32b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 9c303e.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_32b"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_72b_V2_SD_CODE_16_57",
+  "system_type": "baseline_qwen_72b",
+  "query_id": "V2_SD_CODE_16",
+  "query_text": "Implement an advanced algorithmic module #16 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 57,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:03.698747+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:03.734756+00:00",
+  "total_wall_clock_latency_ms": 36.14170000946615,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 37,
+  "total_completion_tokens": 474,
+  "total_tokens": 511,
+  "total_cost_usd": 0.00045620000000000003,
+  "stages": {
+    "monolithic_inference_qwen_72b": [
+      {
+        "stage_name": "monolithic_inference_qwen_72b",
+        "model_name": "Qwen/Qwen2.5-72B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110395.9395961,
+        "end_time_rel_s": 110395.9757378,
+        "latency_ms": 36.14170000946615,
+        "prompt_tokens": 37,
+        "completion_tokens": 474,
+        "total_tokens": 511,
+        "cost_usd": 0.00045620000000000003,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #16 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 2e52bd.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_72b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 2e52bd.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_72b"
+  }
+}

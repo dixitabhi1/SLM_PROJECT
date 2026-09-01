@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_gemini_frontier_V2_CD_16_107",
+  "system_type": "baseline_gemini_frontier",
+  "query_id": "V2_CD_16",
+  "query_text": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #16.",
+  "complexity_tier": "three_plus_domain",
+  "seed": 107,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:39.397299+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:39.415315+00:00",
+  "total_wall_clock_latency_ms": 17.9704999900423,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 32,
+  "total_completion_tokens": 303,
+  "total_tokens": 335,
+  "total_cost_usd": 0.0015550000000000002,
+  "stages": {
+    "monolithic_inference_gemini_frontier": [
+      {
+        "stage_name": "monolithic_inference_gemini_frontier",
+        "model_name": "gemini-1.5-pro",
+        "model_revision": "main",
+        "start_time_rel_s": 110431.6383952,
+        "end_time_rel_s": 110431.6563657,
+        "latency_ms": 17.9704999900423,
+        "prompt_tokens": 32,
+        "completion_tokens": 303,
+        "total_tokens": 335,
+        "cost_usd": 0.0015550000000000002,
+        "confidence_score": null,
+        "input": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #16.",
+        "output": "[gemini-1.5-pro] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 3eb78f.",
+        "extra_metadata": {
+          "baseline_model_id": "gemini_frontier"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[gemini-1.5-pro] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 3eb78f.",
+  "config_snapshot": {
+    "baseline_model_id": "gemini_frontier"
+  }
+}

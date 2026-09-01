@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_TD_CM_01_42",
+  "system_type": "llm_baseline",
+  "query_id": "TD_CM_01",
+  "query_text": "Derive the Kalman Filter state update equations and implement a vectorized Python class.",
+  "complexity_tier": "two_domain",
+  "seed": 42,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:06:11.164843+00:00",
+  "timestamp_end_utc": "2026-09-01T10:06:11.194793+00:00",
+  "total_wall_clock_latency_ms": 29.71590000379365,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 17,
+  "total_completion_tokens": 380,
+  "total_tokens": 397,
+  "total_cost_usd": 0.0003556,
+  "stages": {
+    "baseline_monolithic_generation": [
+      {
+        "stage_name": "baseline_monolithic_generation",
+        "model_name": "meta-llama/Llama-3.1-70B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110163.4061029,
+        "end_time_rel_s": 110163.435796,
+        "latency_ms": 29.693100004806183,
+        "prompt_tokens": 17,
+        "completion_tokens": 380,
+        "total_tokens": 397,
+        "cost_usd": 0.0003556,
+        "confidence_score": null,
+        "input": "Derive the Kalman Filter state update equations and implement a vectorized Python class.",
+        "output": "[meta-llama/Llama-3.1-70B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 2146ce.",
+        "extra_metadata": {
+          "system": "monolithic_baseline"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[meta-llama/Llama-3.1-70B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 2146ce.",
+  "config_snapshot": {
+    "test": true
+  }
+}

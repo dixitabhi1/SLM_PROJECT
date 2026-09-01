@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "currency": "USD",
-  "description": "Standardized compute and token pricing table based on GPU compute normalized cost ($/1M tokens) and hosted cloud rates for reproducible cost estimation across runs.",
+  "description": "Standardized pricing table for v2 multi-LLM baseline roster and SLM pool models.",
   "models": {
     "meta-llama/Llama-3.1-70B-Instruct": {
       "input_cost_per_1m_tokens": 0.80,
@@ -12,6 +12,26 @@
       "input_cost_per_1m_tokens": 0.80,
       "output_cost_per_1m_tokens": 0.90,
       "approx_gpu_mem_gb": 40.0
+    },
+    "Qwen/Qwen2.5-32B-Instruct": {
+      "input_cost_per_1m_tokens": 0.35,
+      "output_cost_per_1m_tokens": 0.45,
+      "approx_gpu_mem_gb": 24.0
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "input_cost_per_1m_tokens": 0.15,
+      "output_cost_per_1m_tokens": 0.20,
+      "approx_gpu_mem_gb": 16.0
+    },
+    "gemini-1.5-pro": {
+      "input_cost_per_1m_tokens": 1.25,
+      "output_cost_per_1m_tokens": 5.00,
+      "approx_gpu_mem_gb": 0.0
+    },
+    "claude-3-5-sonnet-20241022": {
+      "input_cost_per_1m_tokens": 3.00,
+      "output_cost_per_1m_tokens": 15.00,
+      "approx_gpu_mem_gb": 0.0
     },
     "meta-llama/Llama-3.2-3B-Instruct": {
       "input_cost_per_1m_tokens": 0.05,
@@ -32,22 +52,6 @@
       "input_cost_per_1m_tokens": 0.08,
       "output_cost_per_1m_tokens": 0.12,
       "approx_gpu_mem_gb": 8.0
-    },
-    "meta-llama/Llama-3.1-8B-Instruct": {
-      "input_cost_per_1m_tokens": 0.15,
-      "output_cost_per_1m_tokens": 0.20,
-      "approx_gpu_mem_gb": 16.0
-    },
-    "default_slm_8b": {
-      "input_cost_per_1m_tokens": 0.15,
-      "output_cost_per_1m_tokens": 0.20,
-      "approx_gpu_mem_gb": 16.0
-    },
-    "default_slm_3b": {
-      "input_cost_per_1m_tokens": 0.05,
-      "output_cost_per_1m_tokens": 0.08,
-      "approx_gpu_mem_gb": 6.0
     }
   }
 }
-

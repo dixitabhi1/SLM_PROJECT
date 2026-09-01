@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_qwen_72b_V2_CD_16_107",
+  "system_type": "baseline_qwen_72b",
+  "query_id": "V2_CD_16",
+  "query_text": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #16.",
+  "complexity_tier": "three_plus_domain",
+  "seed": 107,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:39.312212+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:39.336747+00:00",
+  "total_wall_clock_latency_ms": 24.764600006164983,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 32,
+  "total_completion_tokens": 303,
+  "total_tokens": 335,
+  "total_cost_usd": 0.00029830000000000004,
+  "stages": {
+    "monolithic_inference_qwen_72b": [
+      {
+        "stage_name": "monolithic_inference_qwen_72b",
+        "model_name": "Qwen/Qwen2.5-72B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110431.552994,
+        "end_time_rel_s": 110431.5777586,
+        "latency_ms": 24.764600006164983,
+        "prompt_tokens": 32,
+        "completion_tokens": 303,
+        "total_tokens": 335,
+        "cost_usd": 0.00029830000000000004,
+        "confidence_score": null,
+        "input": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #16.",
+        "output": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 3eb78f.",
+        "extra_metadata": {
+          "baseline_model_id": "qwen_72b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 3eb78f.",
+  "config_snapshot": {
+    "baseline_model_id": "qwen_72b"
+  }
+}

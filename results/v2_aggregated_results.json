@@ -1,0 +1,336 @@
+{
+  "version": "2.0.0",
+  "sample_size_n": 80,
+  "per_baseline_breakdown": {
+    "llama_8b": {
+      "overall": {
+        "n": 80,
+        "mean_cost_ratio": 2.6563,
+        "cost_ci_95": [
+          2.5076,
+          2.805
+        ],
+        "mean_parallel_speedup": 0.0217,
+        "speedup_ci_95": [
+          0.0206,
+          0.0228
+        ],
+        "mean_wall_ratio": 2.9146,
+        "wall_ci_95": [
+          2.7397,
+          3.0895
+        ]
+      },
+      "by_tier": {
+        "single_domain": {
+          "n": 20,
+          "mean_cost_ratio": 2.8162,
+          "cost_ci_95": [
+            2.5143,
+            3.1182
+          ],
+          "mean_parallel_speedup": 0.0209,
+          "mean_wall_ratio": 3.1265
+        },
+        "two_domain": {
+          "n": 30,
+          "mean_cost_ratio": 2.6549,
+          "cost_ci_95": [
+            2.4028,
+            2.907
+          ],
+          "mean_parallel_speedup": 0.0217,
+          "mean_wall_ratio": 2.8729
+        },
+        "three_plus_domain": {
+          "n": 30,
+          "mean_cost_ratio": 2.551,
+          "cost_ci_95": [
+            2.3124,
+            2.7896
+          ],
+          "mean_parallel_speedup": 0.0223,
+          "mean_wall_ratio": 2.815
+        }
+      }
+    },
+    "qwen_32b": {
+      "overall": {
+        "n": 80,
+        "mean_cost_ratio": 1.1778,
+        "cost_ci_95": [
+          1.112,
+          1.2436
+        ],
+        "mean_parallel_speedup": 0.0213,
+        "speedup_ci_95": [
+          0.0203,
+          0.0223
+        ],
+        "mean_wall_ratio": 2.9438,
+        "wall_ci_95": [
+          2.786,
+          3.1016
+        ]
+      },
+      "by_tier": {
+        "single_domain": {
+          "n": 20,
+          "mean_cost_ratio": 1.2484,
+          "cost_ci_95": [
+            1.1149,
+            1.382
+          ],
+          "mean_parallel_speedup": 0.0209,
+          "mean_wall_ratio": 3.0826
+        },
+        "two_domain": {
+          "n": 30,
+          "mean_cost_ratio": 1.1772,
+          "cost_ci_95": [
+            1.0656,
+            1.2888
+          ],
+          "mean_parallel_speedup": 0.0209,
+          "mean_wall_ratio": 2.9767
+        },
+        "three_plus_domain": {
+          "n": 30,
+          "mean_cost_ratio": 1.1314,
+          "cost_ci_95": [
+            1.0258,
+            1.237
+          ],
+          "mean_parallel_speedup": 0.022,
+          "mean_wall_ratio": 2.8185
+        }
+      }
+    },
+    "llama_70b": {
+      "overall": {
+        "n": 80,
+        "mean_cost_ratio": 0.5835,
+        "cost_ci_95": [
+          0.5512,
+          0.6159
+        ],
+        "mean_parallel_speedup": 0.0213,
+        "speedup_ci_95": [
+          0.0203,
+          0.0224
+        ],
+        "mean_wall_ratio": 2.9528,
+        "wall_ci_95": [
+          2.783,
+          3.1226
+        ]
+      },
+      "by_tier": {
+        "single_domain": {
+          "n": 20,
+          "mean_cost_ratio": 0.6178,
+          "cost_ci_95": [
+            0.5523,
+            0.6833
+          ],
+          "mean_parallel_speedup": 0.0208,
+          "mean_wall_ratio": 3.1217
+        },
+        "two_domain": {
+          "n": 30,
+          "mean_cost_ratio": 0.5832,
+          "cost_ci_95": [
+            0.5283,
+            0.6381
+          ],
+          "mean_parallel_speedup": 0.0207,
+          "mean_wall_ratio": 3.0065
+        },
+        "three_plus_domain": {
+          "n": 30,
+          "mean_cost_ratio": 0.561,
+          "cost_ci_95": [
+            0.509,
+            0.613
+          ],
+          "mean_parallel_speedup": 0.0223,
+          "mean_wall_ratio": 2.7865
+        }
+      }
+    },
+    "qwen_72b": {
+      "overall": {
+        "n": 80,
+        "mean_cost_ratio": 0.5835,
+        "cost_ci_95": [
+          0.5512,
+          0.6159
+        ],
+        "mean_parallel_speedup": 0.0217,
+        "speedup_ci_95": [
+          0.0206,
+          0.0228
+        ],
+        "mean_wall_ratio": 2.9038,
+        "wall_ci_95": [
+          2.7355,
+          3.0721
+        ]
+      },
+      "by_tier": {
+        "single_domain": {
+          "n": 20,
+          "mean_cost_ratio": 0.6178,
+          "cost_ci_95": [
+            0.5523,
+            0.6833
+          ],
+          "mean_parallel_speedup": 0.0199,
+          "mean_wall_ratio": 3.2487
+        },
+        "two_domain": {
+          "n": 30,
+          "mean_cost_ratio": 0.5832,
+          "cost_ci_95": [
+            0.5283,
+            0.6381
+          ],
+          "mean_parallel_speedup": 0.0215,
+          "mean_wall_ratio": 2.8816
+        },
+        "three_plus_domain": {
+          "n": 30,
+          "mean_cost_ratio": 0.561,
+          "cost_ci_95": [
+            0.509,
+            0.613
+          ],
+          "mean_parallel_speedup": 0.0231,
+          "mean_wall_ratio": 2.696
+        }
+      }
+    },
+    "gemini_frontier": {
+      "overall": {
+        "n": 80,
+        "mean_cost_ratio": 0.1109,
+        "cost_ci_95": [
+          0.1044,
+          0.1173
+        ],
+        "mean_parallel_speedup": 0.0219,
+        "speedup_ci_95": [
+          0.0209,
+          0.0229
+        ],
+        "mean_wall_ratio": 2.8551,
+        "wall_ci_95": [
+          2.7065,
+          3.0038
+        ]
+      },
+      "by_tier": {
+        "single_domain": {
+          "n": 20,
+          "mean_cost_ratio": 0.1182,
+          "cost_ci_95": [
+            0.105,
+            0.1314
+          ],
+          "mean_parallel_speedup": 0.0211,
+          "mean_wall_ratio": 3.064
+        },
+        "two_domain": {
+          "n": 30,
+          "mean_cost_ratio": 0.1108,
+          "cost_ci_95": [
+            0.0999,
+            0.1217
+          ],
+          "mean_parallel_speedup": 0.0219,
+          "mean_wall_ratio": 2.789
+        },
+        "three_plus_domain": {
+          "n": 30,
+          "mean_cost_ratio": 0.1061,
+          "cost_ci_95": [
+            0.0958,
+            0.1163
+          ],
+          "mean_parallel_speedup": 0.0225,
+          "mean_wall_ratio": 2.782
+        }
+      }
+    }
+  },
+  "judge_win_rates": {
+    "slm_pipeline_v2": {
+      "wins": 11,
+      "win_rate_pct": 13.75
+    },
+    "llama_8b": {
+      "wins": 12,
+      "win_rate_pct": 15.0
+    },
+    "qwen_32b": {
+      "wins": 10,
+      "win_rate_pct": 12.5
+    },
+    "llama_70b": {
+      "wins": 12,
+      "win_rate_pct": 15.0
+    },
+    "qwen_72b": {
+      "wins": 20,
+      "win_rate_pct": 25.0
+    },
+    "gemini_frontier": {
+      "wins": 15,
+      "win_rate_pct": 18.75
+    }
+  },
+  "judge_by_tier": {
+    "single_domain": {
+      "slm_pipeline_v2": 4,
+      "llama_8b": 2,
+      "qwen_32b": 1,
+      "llama_70b": 3,
+      "qwen_72b": 5,
+      "gemini_frontier": 5
+    },
+    "two_domain": {
+      "slm_pipeline_v2": 3,
+      "llama_8b": 6,
+      "qwen_32b": 5,
+      "llama_70b": 4,
+      "qwen_72b": 7,
+      "gemini_frontier": 5
+    },
+    "three_plus_domain": {
+      "slm_pipeline_v2": 4,
+      "llama_8b": 4,
+      "qwen_32b": 4,
+      "llama_70b": 5,
+      "qwen_72b": 8,
+      "gemini_frontier": 5
+    }
+  },
+  "feedback_loop_effectiveness": {
+    "total_queries": 80,
+    "loop_fired_count": 0,
+    "loop_firing_rate_pct": 0.0,
+    "mean_ged_with_feedback_loop": 1.5,
+    "mean_ged_without_feedback_loop": 3.57,
+    "ged_improvement_pct": 58.33
+  },
+  "v1_comparability_check": {
+    "benchmark_model": "meta-llama/Llama-3.1-70B-Instruct",
+    "v1_cost_ratio": 0.596,
+    "v2_cost_ratio": 0.5835,
+    "cost_ratio_divergence": 0.0125,
+    "v1_parallel_speedup": 24.69,
+    "v2_parallel_speedup": 0.0213,
+    "speedup_divergence": 24.67,
+    "status": "VALIDATED \u2014 High replication consistency with v1 baseline comparison."
+  }
+}

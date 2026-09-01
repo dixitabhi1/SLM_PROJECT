@@ -1,0 +1,495 @@
+{
+  "split": "dev",
+  "total_queries": 80,
+  "seed": 42,
+  "judge_model": "claude-3-5-sonnet-20241022",
+  "baseline_roster": [
+    "llama_8b",
+    "qwen_32b",
+    "llama_70b",
+    "qwen_72b",
+    "gemini_frontier"
+  ],
+  "judge_summaries": [
+    {
+      "query_id": "V2_SD_CODE_01",
+      "complexity_tier": "single_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_02",
+      "complexity_tier": "single_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_03",
+      "complexity_tier": "single_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_04",
+      "complexity_tier": "single_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_05",
+      "complexity_tier": "single_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_06",
+      "complexity_tier": "single_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_07",
+      "complexity_tier": "single_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_08",
+      "complexity_tier": "single_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_09",
+      "complexity_tier": "single_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_10",
+      "complexity_tier": "single_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_11",
+      "complexity_tier": "single_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_12",
+      "complexity_tier": "single_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_13",
+      "complexity_tier": "single_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_14",
+      "complexity_tier": "single_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_15",
+      "complexity_tier": "single_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_16",
+      "complexity_tier": "single_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_17",
+      "complexity_tier": "single_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_CODE_18",
+      "complexity_tier": "single_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_MATH_01",
+      "complexity_tier": "single_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_SD_MATH_02",
+      "complexity_tier": "single_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_01",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_02",
+      "complexity_tier": "two_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_03",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_04",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_05",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_06",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_07",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_08",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_09",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_10",
+      "complexity_tier": "two_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_11",
+      "complexity_tier": "two_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_12",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_13",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_14",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_15",
+      "complexity_tier": "two_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_16",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_17",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_18",
+      "complexity_tier": "two_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_19",
+      "complexity_tier": "two_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_20",
+      "complexity_tier": "two_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_21",
+      "complexity_tier": "two_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_22",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_23",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_24",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_25",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_26",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_27",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_28",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_29",
+      "complexity_tier": "two_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_TD_30",
+      "complexity_tier": "two_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_01",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_02",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_03",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_04",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_05",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_06",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_07",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_08",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_09",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_10",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_11",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_12",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_13",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_14",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_15",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_16",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_17",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_18",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "gemini_frontier",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_19",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_20",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_21",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_22",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_23",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_24",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_25",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_8b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_26",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_32b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_27",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "llama_70b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_28",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_29",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "slm_pipeline_v2",
+      "primary_differentiator": "correctness"
+    },
+    {
+      "query_id": "V2_CD_30",
+      "complexity_tier": "three_plus_domain",
+      "selected_system": "qwen_72b",
+      "primary_differentiator": "correctness"
+    }
+  ]
+}

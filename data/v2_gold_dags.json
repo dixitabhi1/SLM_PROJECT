@@ -1,0 +1,2029 @@
+{
+  "V2_SD_CODE_01": {
+    "query_id": "V2_SD_CODE_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_CODE_02": {
+    "query_id": "V2_SD_CODE_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_CODE_03": {
+    "query_id": "V2_SD_CODE_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_CODE_04": {
+    "query_id": "V2_SD_CODE_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_CODE_05": {
+    "query_id": "V2_SD_CODE_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #5 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_CODE_06": {
+    "query_id": "V2_SD_CODE_06",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #6 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_CODE_07": {
+    "query_id": "V2_SD_CODE_07",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #7 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_CODE_08": {
+    "query_id": "V2_SD_CODE_08",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #8 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_01": {
+    "query_id": "V2_SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_02": {
+    "query_id": "V2_SD_MATH_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_03": {
+    "query_id": "V2_SD_MATH_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #3, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_04": {
+    "query_id": "V2_SD_MATH_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #4, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_05": {
+    "query_id": "V2_SD_MATH_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #5, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_06": {
+    "query_id": "V2_SD_MATH_06",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #6, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_07": {
+    "query_id": "V2_SD_MATH_07",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #7, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_MATH_08": {
+    "query_id": "V2_SD_MATH_08",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #8, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_REAS_01": {
+    "query_id": "V2_SD_REAS_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_REAS_02": {
+    "query_id": "V2_SD_REAS_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #2, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_REAS_03": {
+    "query_id": "V2_SD_REAS_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #3, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_REAS_04": {
+    "query_id": "V2_SD_REAS_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #4, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_REAS_05": {
+    "query_id": "V2_SD_REAS_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #5, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_RET_01": {
+    "query_id": "V2_SD_RET_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #1.",
+        "capability": "retrieval",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_RET_02": {
+    "query_id": "V2_SD_RET_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #2.",
+        "capability": "retrieval",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_RET_03": {
+    "query_id": "V2_SD_RET_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #3.",
+        "capability": "retrieval",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_RET_04": {
+    "query_id": "V2_SD_RET_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #4.",
+        "capability": "retrieval",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_SD_RET_05": {
+    "query_id": "V2_SD_RET_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #5.",
+        "capability": "retrieval",
+        "dependencies": []
+      }
+    ]
+  },
+  "V2_TD_01": {
+    "query_id": "V2_TD_01",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_01",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_01",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_02": {
+    "query_id": "V2_TD_02",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_02",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_02",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_03": {
+    "query_id": "V2_TD_03",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_03",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_03",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_04": {
+    "query_id": "V2_TD_04",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_04",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_04",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_05": {
+    "query_id": "V2_TD_05",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_05",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_05",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_06": {
+    "query_id": "V2_TD_06",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_06",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_06",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_07": {
+    "query_id": "V2_TD_07",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_07",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_07",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_08": {
+    "query_id": "V2_TD_08",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_08",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_08",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_09": {
+    "query_id": "V2_TD_09",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_09",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_09",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_10": {
+    "query_id": "V2_TD_10",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_10",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_10",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_11": {
+    "query_id": "V2_TD_11",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_11",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_11",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_12": {
+    "query_id": "V2_TD_12",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_12",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_12",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_13": {
+    "query_id": "V2_TD_13",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_13",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_13",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_14": {
+    "query_id": "V2_TD_14",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_14",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_14",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_15": {
+    "query_id": "V2_TD_15",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_15",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_15",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_16": {
+    "query_id": "V2_TD_16",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_16",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_16",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_17": {
+    "query_id": "V2_TD_17",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_17",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_17",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_18": {
+    "query_id": "V2_TD_18",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_18",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_18",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_19": {
+    "query_id": "V2_TD_19",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_19",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_19",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_20": {
+    "query_id": "V2_TD_20",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_20",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_20",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_21": {
+    "query_id": "V2_TD_21",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_21",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_21",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_22": {
+    "query_id": "V2_TD_22",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_22",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_22",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_23": {
+    "query_id": "V2_TD_23",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_23",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_23",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_24": {
+    "query_id": "V2_TD_24",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_24",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_24",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_25": {
+    "query_id": "V2_TD_25",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_25",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_25",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_26": {
+    "query_id": "V2_TD_26",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_26",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_26",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_27": {
+    "query_id": "V2_TD_27",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_27",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_27",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_28": {
+    "query_id": "V2_TD_28",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_28",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_28",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_29": {
+    "query_id": "V2_TD_29",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_29",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_29",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_30": {
+    "query_id": "V2_TD_30",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_30",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: math synthesis for V2_TD_30",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_31": {
+    "query_id": "V2_TD_31",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_31",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: reasoning synthesis for V2_TD_31",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_32": {
+    "query_id": "V2_TD_32",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_32",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: reasoning synthesis for V2_TD_32",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_33": {
+    "query_id": "V2_TD_33",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_33",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: reasoning synthesis for V2_TD_33",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_34": {
+    "query_id": "V2_TD_34",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_34",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: reasoning synthesis for V2_TD_34",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_TD_35": {
+    "query_id": "V2_TD_35",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V2_TD_35",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: reasoning synthesis for V2_TD_35",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V2_CD_01": {
+    "query_id": "V2_CD_01",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_01",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_01",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_01",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_02": {
+    "query_id": "V2_CD_02",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_02",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_02",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_02",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_03": {
+    "query_id": "V2_CD_03",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_03",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_03",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_03",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_04": {
+    "query_id": "V2_CD_04",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_04",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_04",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_04",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_05": {
+    "query_id": "V2_CD_05",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_05",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_05",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_05",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_06": {
+    "query_id": "V2_CD_06",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_06",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_06",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_06",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_07": {
+    "query_id": "V2_CD_07",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_07",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_07",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_07",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_08": {
+    "query_id": "V2_CD_08",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_08",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_08",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_08",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_09": {
+    "query_id": "V2_CD_09",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_09",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_09",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_09",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_10": {
+    "query_id": "V2_CD_10",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_10",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_10",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_10",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_11": {
+    "query_id": "V2_CD_11",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_11",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_11",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_11",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_12": {
+    "query_id": "V2_CD_12",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_12",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_12",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_12",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_13": {
+    "query_id": "V2_CD_13",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_13",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_13",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_13",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_14": {
+    "query_id": "V2_CD_14",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_14",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_14",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_14",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_15": {
+    "query_id": "V2_CD_15",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_15",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_15",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_15",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_16": {
+    "query_id": "V2_CD_16",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_16",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_16",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_16",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_17": {
+    "query_id": "V2_CD_17",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_17",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_17",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_17",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_18": {
+    "query_id": "V2_CD_18",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_18",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_18",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_18",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_19": {
+    "query_id": "V2_CD_19",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_19",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_19",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_19",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_20": {
+    "query_id": "V2_CD_20",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_20",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_20",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_20",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_21": {
+    "query_id": "V2_CD_21",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_21",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_21",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_21",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_22": {
+    "query_id": "V2_CD_22",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_22",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_22",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_22",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_23": {
+    "query_id": "V2_CD_23",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_23",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_23",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_23",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_24": {
+    "query_id": "V2_CD_24",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_24",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_24",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_24",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_25": {
+    "query_id": "V2_CD_25",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_25",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_25",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_25",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_26": {
+    "query_id": "V2_CD_26",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_26",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_26",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_26",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_27": {
+    "query_id": "V2_CD_27",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_27",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_27",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_27",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_28": {
+    "query_id": "V2_CD_28",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_28",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_28",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_28",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_29": {
+    "query_id": "V2_CD_29",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_29",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_29",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_29",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_30": {
+    "query_id": "V2_CD_30",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V2_CD_30",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: math derivation for V2_CD_30",
+        "capability": "math",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_30",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_31": {
+    "query_id": "V2_CD_31",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval extraction for V2_CD_31",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V2_CD_31",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_31",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_32": {
+    "query_id": "V2_CD_32",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval extraction for V2_CD_32",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V2_CD_32",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_32",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_33": {
+    "query_id": "V2_CD_33",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval extraction for V2_CD_33",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V2_CD_33",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_33",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_34": {
+    "query_id": "V2_CD_34",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval extraction for V2_CD_34",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V2_CD_34",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_34",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V2_CD_35": {
+    "query_id": "V2_CD_35",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval extraction for V2_CD_35",
+        "capability": "retrieval",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V2_CD_35",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: reasoning implementation for V2_CD_35",
+        "capability": "reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "V2_SD_CODE_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_05",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #5 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_06",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #6 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_07",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #7 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_08",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #8 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_09",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_10",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #10 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_11",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #11 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_12",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_13",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #13 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_14",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_15",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_16",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #16 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_17",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #17 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_CODE_18",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #18 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": false,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_MATH_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_SD_MATH_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #3, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #4, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_05",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #5, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_06",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #6, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_07",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #7, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_08",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #8, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_09",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #9, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_10",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #10, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_11",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #11, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_12",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #12, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_13",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #13, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_14",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #14, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_15",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #15, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_16",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #16, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_17",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #17, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_MATH_18",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #18, showing all intermediate algebraic steps.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #2, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #3, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #4, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_05",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #5, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_06",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #6, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_07",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #7, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_08",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #8, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_09",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #9, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_10",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #10, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_11",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #11, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_REAS_12",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #12, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #1.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #2.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #3.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #4.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_05",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #5.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_06",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #6.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_07",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #7.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_08",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #8.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_09",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #9.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_10",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #10.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_11",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #11.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_SD_RET_12",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and summarize the core factual specifications, RFC protocols, and regulatory framework requirements for technical domain #12.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_01",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #1, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_02",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #2, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_03",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #3, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_04",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #4, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_05",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #5, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_06",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #6, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_07",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #7, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_08",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #8, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_09",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #9, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_10",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #10, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_11",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #11, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_12",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #12, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_13",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #13, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_14",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #14, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_15",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #15, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_16",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #16, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_17",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #17, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_18",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #18, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_19",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #19, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_20",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #20, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_21",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #21, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_22",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #22, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_23",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #23, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_24",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #24, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_25",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #25, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_26",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #26, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_27",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #27, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_28",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #28, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_29",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #29, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_30",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "math"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #30, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_TD_31",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #31, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_32",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #32, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_33",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #33, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_34",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #34, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_35",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #35, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_36",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #36, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_37",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #37, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_38",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #38, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_39",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #39, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_40",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #40, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_41",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #41, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_42",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #42, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_43",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #43, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_44",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #44, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_45",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #45, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_46",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #46, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_47",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #47, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_48",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #48, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_49",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #49, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_50",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #50, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_51",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #51, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_52",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #52, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_53",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #53, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_54",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #54, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_55",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #55, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_56",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #56, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_57",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #57, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_58",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #58, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_59",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #59, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_60",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical invariants and implement a verified concurrency engine for compound engineering problem #60, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_61",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #61, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_62",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #62, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_63",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #63, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_64",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #64, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_65",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #65, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_66",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #66, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_67",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #67, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_68",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #68, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_69",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #69, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_70",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #70, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_71",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #71, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_72",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #72, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_73",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #73, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_74",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #74, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_75",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #75, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_76",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #76, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_77",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #77, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_78",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #78, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_79",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #79, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_80",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #80, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_81",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #81, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_82",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #82, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_83",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #83, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_84",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #84, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_85",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #85, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_86",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #86, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_87",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #87, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_88",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #88, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_89",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #89, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_TD_90",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory specifications and formulate a causal trade-off framework for compound engineering problem #90, thoroughly addressing both domain constraints.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_01",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #1.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_02",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #2.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_03",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #3.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_04",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #4.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_05",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #5.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_06",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #6.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_07",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #7.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_08",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #8.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_09",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #9.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_10",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #10.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_11",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #11.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_12",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #12.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_13",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #13.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_14",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #14.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_15",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #15.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_16",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #16.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_17",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #17.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_18",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #18.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_19",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #19.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_20",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #20.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_21",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #21.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_22",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #22.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_23",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #23.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_24",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #24.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_25",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #25.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_26",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #26.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_27",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #27.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_28",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #28.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_29",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #29.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_30",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "math",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #30.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V2_CD_31",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #31.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_32",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #32.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_33",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #33.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_34",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #34.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_35",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #35.",
+    "gold_dag_available": true,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_36",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #36.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_37",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #37.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_38",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #38.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_39",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #39.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_40",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #40.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_41",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #41.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_42",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #42.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_43",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #43.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_44",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #44.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_45",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #45.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_46",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #46.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_47",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #47.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_48",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #48.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_49",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #49.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_50",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #50.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_51",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #51.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_52",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #52.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_53",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #53.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_54",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #54.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_55",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #55.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_56",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #56.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_57",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #57.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_58",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #58.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_59",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #59.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_60",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "coding",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate architectural threat vectors, and implement a sandboxed Python runtime for multi-disciplinary challenge #60.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_61",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #61.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_62",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #62.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_63",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #63.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_64",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #64.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_65",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #65.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_66",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #66.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_67",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #67.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_68",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #68.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_69",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #69.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_70",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #70.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_71",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #71.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_72",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #72.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_73",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #73.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_74",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #74.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_75",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #75.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_76",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #76.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_77",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #77.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_78",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #78.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_79",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #79.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_80",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #80.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_81",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #81.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_82",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #82.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_83",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #83.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_84",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #84.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_85",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #85.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_86",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #86.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_87",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #87.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_88",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #88.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_89",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #89.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  },
+  {
+    "id": "V2_CD_90",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval",
+      "math",
+      "general",
+      "reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve statutory guidelines, formulate quantitative risk assessment formulas, and synthesize executive policy recommendations for multi-disciplinary challenge #90.",
+    "gold_dag_available": false,
+    "split": "held_out"
+  }
+]

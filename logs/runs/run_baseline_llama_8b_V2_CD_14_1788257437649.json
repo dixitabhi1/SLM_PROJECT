@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_llama_8b_V2_CD_14_105",
+  "system_type": "baseline_llama_8b",
+  "query_id": "V2_CD_14",
+  "query_text": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #14.",
+  "complexity_tier": "three_plus_domain",
+  "seed": 105,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:37.621650+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:37.649676+00:00",
+  "total_wall_clock_latency_ms": 27.482700010295957,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 32,
+  "total_completion_tokens": 472,
+  "total_tokens": 504,
+  "total_cost_usd": 9.92e-05,
+  "stages": {
+    "monolithic_inference_llama_8b": [
+      {
+        "stage_name": "monolithic_inference_llama_8b",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110429.8632002,
+        "end_time_rel_s": 110429.8906829,
+        "latency_ms": 27.482700010295957,
+        "prompt_tokens": 32,
+        "completion_tokens": 472,
+        "total_tokens": 504,
+        "cost_usd": 9.92e-05,
+        "confidence_score": null,
+        "input": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #14.",
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 2e3127.",
+        "extra_metadata": {
+          "baseline_model_id": "llama_8b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 2e3127.",
+  "config_snapshot": {
+    "baseline_model_id": "llama_8b"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "run_id": "baseline_llama_70b_V2_SD_CODE_04_45",
+  "system_type": "baseline_llama_70b",
+  "query_id": "V2_SD_CODE_04",
+  "query_text": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 45,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:09:55.068687+00:00",
+  "timestamp_end_utc": "2026-09-01T10:09:55.108371+00:00",
+  "total_wall_clock_latency_ms": 39.39770000579301,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 37,
+  "total_completion_tokens": 494,
+  "total_tokens": 531,
+  "total_cost_usd": 0.00047420000000000003,
+  "stages": {
+    "monolithic_inference_llama_70b": [
+      {
+        "stage_name": "monolithic_inference_llama_70b",
+        "model_name": "meta-llama/Llama-3.1-70B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110387.3099714,
+        "end_time_rel_s": 110387.3493691,
+        "latency_ms": 39.39770000579301,
+        "prompt_tokens": 37,
+        "completion_tokens": 494,
+        "total_tokens": 531,
+        "cost_usd": 0.00047420000000000003,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "[meta-llama/Llama-3.1-70B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash adac27.",
+        "extra_metadata": {
+          "baseline_model_id": "llama_70b"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [],
+  "final_response": "[meta-llama/Llama-3.1-70B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash adac27.",
+  "config_snapshot": {
+    "baseline_model_id": "llama_70b"
+  }
+}

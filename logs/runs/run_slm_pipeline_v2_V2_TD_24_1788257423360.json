@@ -1,0 +1,289 @@
+{
+  "run_id": "slm_pipe_v2_V2_TD_24_85",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_TD_24",
+  "query_text": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #24, thoroughly addressing both domain constraints.",
+  "complexity_tier": "two_domain",
+  "seed": 85,
+  "git_commit": "6779b733b0f6893cb927edaf6f7f83f12f85925f",
+  "timestamp_start_utc": "2026-09-01T10:10:23.272279+00:00",
+  "timestamp_end_utc": "2026-09-01T10:10:23.360992+00:00",
+  "total_wall_clock_latency_ms": 88.69609999237582,
+  "simulated_parallel_latency_ms": 1455.0,
+  "total_prompt_tokens": 111,
+  "total_completion_tokens": 1196,
+  "total_tokens": 1307,
+  "total_cost_usd": 0.00021748999999999998,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110415.5133265,
+        "end_time_rel_s": 110415.540413,
+        "latency_ms": 27.08649999112822,
+        "prompt_tokens": 32,
+        "completion_tokens": 293,
+        "total_tokens": 325,
+        "cost_usd": 2.504e-05,
+        "confidence_score": null,
+        "input": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #24, thoroughly addressing both domain constraints.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Execute domain-specific analysis and implementation directly.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_general_node_1": [
+      {
+        "stage_name": "pool_general_node_1",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110415.5407556,
+        "end_time_rel_s": 110415.5710353,
+        "latency_ms": 30.27970000403002,
+        "prompt_tokens": 10,
+        "completion_tokens": 534,
+        "total_tokens": 544,
+        "cost_usd": 0.0001083,
+        "confidence_score": null,
+        "input": "Task: Execute domain-specific analysis and implementation directly.",
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05.",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_synthesis": [
+      {
+        "stage_name": "global_aggregator_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 110415.5711092,
+        "end_time_rel_s": 110415.6020018,
+        "latency_ms": 30.892599999788217,
+        "prompt_tokens": 69,
+        "completion_tokens": 369,
+        "total_tokens": 438,
+        "cost_usd": 8.415e-05,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #24, thoroughly addressing both domain constraints.",
+          "subtask_results": {
+            "node_1": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash e0cd05."
+          }
+        },
+        "output": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 9636fc.",
+        "extra_metadata": {
+          "node_count": 1,
+          "stage": "global_terminal_aggregation"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "general"
+      ],
+      "dependencies": [],
+      "latency_ms": 30.29870000318624
+    }
+  ],
+  "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 9636fc.",
+  "config_snapshot": {
+    "experiment_id": "ai_search_framework_v2",
+    "version": "2.0.0",
+    "seed": 42,
+    "hardware": {
+      "device": "auto",
+      "parallelism": "simulated",
+      "max_concurrent_slms": 4,
+      "max_recursion_depth": 3
+    },
+    "models": {
+      "decomposer": {
+        "name": "meta-llama/Llama-3.2-3B-Instruct",
+        "revision": "main",
+        "size_params": "3.2B",
+        "type": "slm_decomposer",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8001/v1",
+        "max_tokens": 1024,
+        "temperature": 0.0
+      },
+      "pool": {
+        "coding": {
+          "name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "coding",
+          "color": "blue",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8002/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "math": {
+          "name": "Qwen/Qwen2.5-Math-7B-Instruct",
+          "revision": "main",
+          "size_params": "7.6B",
+          "capability": "math",
+          "color": "green",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8003/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "reasoning": {
+          "name": "microsoft/Phi-3.5-mini-instruct",
+          "revision": "main",
+          "size_params": "3.8B",
+          "capability": "reasoning",
+          "color": "purple",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8004/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "retrieval": {
+          "name": "meta-llama/Llama-3.2-3B-Instruct",
+          "revision": "main",
+          "size_params": "3.2B",
+          "capability": "retrieval",
+          "color": "amber",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8005/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        },
+        "general": {
+          "name": "meta-llama/Llama-3.1-8B-Instruct",
+          "revision": "main",
+          "size_params": "8.0B",
+          "capability": "general",
+          "color": "slate",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8006/v1",
+          "max_tokens": 2048,
+          "temperature": 0.0
+        }
+      },
+      "aggregator_global": {
+        "name": "meta-llama/Llama-3.1-8B-Instruct",
+        "revision": "main",
+        "size_params": "8.0B",
+        "type": "slm_aggregator",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8006/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      },
+      "multi_llm_baseline_roster": {
+        "llama_8b": {
+          "name": "meta-llama/Llama-3.1-8B-Instruct",
+          "revision": "main",
+          "tier": "small_baseline_8B",
+          "size_params": "8.0B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8010/v1"
+        },
+        "qwen_32b": {
+          "name": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "main",
+          "tier": "mid_baseline_32B",
+          "size_params": "32.5B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8011/v1"
+        },
+        "llama_70b": {
+          "name": "meta-llama/Llama-3.1-70B-Instruct",
+          "revision": "main",
+          "tier": "large_baseline_70B_v1_match",
+          "size_params": "70.6B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8000/v1"
+        },
+        "qwen_72b": {
+          "name": "Qwen/Qwen2.5-72B-Instruct",
+          "revision": "main",
+          "tier": "large_baseline_72B_open",
+          "size_params": "72.7B",
+          "provider": "vllm_local",
+          "endpoint": "http://localhost:8012/v1"
+        },
+        "gemini_frontier": {
+          "name": "gemini-1.5-pro",
+          "revision": "latest",
+          "tier": "frontier_api",
+          "size_params": "Frontier",
+          "provider": "google_api",
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta"
+        }
+      },
+      "judge": {
+        "name": "claude-3-5-sonnet-20241022",
+        "revision": "2024-10-22",
+        "tier": "independent_judge",
+        "provider": "anthropic_api",
+        "notes": "Strictly independent: not in SLM candidate pool and not in baseline roster"
+      }
+    },
+    "feedback_loop": {
+      "max_depth": 3,
+      "multi_color_threshold": 0.22,
+      "color_taxonomy": {
+        "coding": "blue",
+        "math": "green",
+        "reasoning": "purple",
+        "retrieval": "amber",
+        "general": "slate"
+      }
+    },
+    "evaluation": {
+      "non_inferiority_margin": 0.2,
+      "alpha": 0.025,
+      "ci_confidence": 0.95
+    }
+  },
+  "loop_events": [],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.0269,
+      "math": 0.0269,
+      "reasoning": 0.0269,
+      "retrieval": 0.0269,
+      "general": 0.8922
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "slate",
+      "dominant_domain": "general",
+      "active_colors": [
+        "slate"
+      ],
+      "active_domains": [
+        "general"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}
