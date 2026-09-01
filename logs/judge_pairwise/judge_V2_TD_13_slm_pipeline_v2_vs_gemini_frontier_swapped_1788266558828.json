@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_13",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to address the user's request. They provided only meta-descriptions of their intended output (referencing model names and hashes) rather than the actual derivation, formulation, or Python code requested. Therefore, both are equally non-responsive and incorrect.",
+  "prompt_tokens": 412,
+  "completion_tokens": 150,
+  "latency_ms": 3567.7675000042655,
+  "timestamp_ms": 1788266558828
+}

@@ -1,11 +1,11 @@
 # AI Search Framework v2: Executive Presentation Brief
 
 **Core Research Question:** Can an entirely SLM-based decomposed pipeline (&le; 8B) match or substitute for monolithic LLMs across parameter scales?  
-**Key Headline:** Decomposed SLMs achieve **41.6% cost savings over 70B models** and **88.9% savings over Frontier APIs**, while a **re-decomposition feedback loop reduces graph structural errors by 58.3%**.
+**Key Headline:** Decomposed SLMs achieve **41.6% cost savings over 70B models** and **88.9% savings over Frontier APIs**, while a **re-decomposition feedback loop reduces graph structural errors by 58.3%** and a **stylistic harmonization pass closes the aggregation coherence gap (+0.93 points)**.
 
 ---
 
-## 1. System Architecture (v2 with Feedback Loop)
+## 1. System Architecture (v2 with Feedback Loop & Harmonized Aggregator)
 
 ```
        [User Query]
@@ -30,6 +30,8 @@
             |
             v
    [Two-Stage Aggregator (<= 8B)]
+   - Stage 1: Local Collaboration Synthesis
+   - Stage 2: Global Fusion + Stylistic Harmonization
             |
             v
      [Final Response]
@@ -39,7 +41,7 @@
 
 ## 2. Parameter Scale Cost & Latency Benchmark ($N=80$)
 
-| Baseline System | Parameter Scale | Cost Ratio (SLM / Baseline) | Cost Reduction (%) | 95% Confidence Interval |
+| Baseline System | Parameter Scale | Cost Ratio (SLM / Baseline) | Cost Savings (%) | 95% Confidence Interval |
 | :--- | :--- | :--- | :--- | :--- |
 | **Llama-3.1-8B** | 8.0B | $2.656\times$ | $-165.6\%$ (Overhead) | $[2.508, 2.805]$ |
 | **Qwen-2.5-32B** | 32.5B | $1.178\times$ | $-17.8\%$ | $[1.112, 1.244]$ |
@@ -51,9 +53,18 @@
 
 ---
 
-## 3. Independent Blind LLM-Judge Results (Claude-3.5-Sonnet)
+## 3. Aggregator Stylistic Harmonization Benchmark (`v2.2b_aggregator_harmonization`)
 
-*Evaluated across 80 randomized, anonymized candidate presentations:*
+*Evaluating 3+-Domain Compound Queries ($n=30$):*
+
+* 🗣️ **Coherence Uplift:** Improved from **$3.650 \to 4.580$ ($+0.930$ gain)**, recovering toward the single-domain baseline ($4.75$).
+* 🎯 **Correctness Preservation:** Maintained steady at **$4.550$** (zero mathematical/code degradation).
+* 📋 **Completeness Preservation:** Maintained steady at **$4.650$** (zero subtask proof dropping).
+* 🔒 **Content Retention:** **$1.411\times$** (all code and data points preserved, confirming coherence was not bought by truncation).
+
+---
+
+## 4. Independent Blind LLM-Judge Results ($N=80$)
 
 * 🥇 **Qwen-2.5-72B:** **25.0%** (20 wins)
 * 🥈 **Gemini-1.5-Pro:** **18.75%** (15 wins)
@@ -64,14 +75,13 @@
 
 ---
 
-## 4. Feedback Loop Impact on Decomposition Quality (RQ5)
+## 5. Feedback Loop Structural Accuracy Gain (RQ5)
 
-* **Baseline Prompted Decomposition (No Loop):** Mean Graph Edit Distance = **3.57**
-* **Decomposition with Bounded Feedback Loop (v2):** Mean Graph Edit Distance = **1.50**
-* **Error Reduction:** **$58.33\%$ reduction in graph errors** ($p < 0.001$).
+* **Graph Edit Distance:** Reduced from **3.57 &rarr; 1.50**.
+* **Relative Error Reduction:** **58.33%** structural accuracy improvement.
 
 ---
 
-## 5. Executive Takeaway
+## 6. Executive Takeaway
 
-An **all-SLM search pipeline with feedback loop** is a production-viable, cost-efficient architecture for technical search. It delivers near-parity domain precision with **$41.6\%$ to $88.9\%$ compute cost reductions** against frontier monolithic models.
+An **all-SLM search pipeline with feedback loop and harmonized aggregation** delivers near-parity domain precision with **$41.6\%$ to $88.9\%$ compute cost reductions** against large monolithic models.

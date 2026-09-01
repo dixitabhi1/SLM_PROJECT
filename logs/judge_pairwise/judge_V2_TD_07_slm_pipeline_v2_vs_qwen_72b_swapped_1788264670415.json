@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_07",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to address the user's request. They provided only meta-descriptions of their intended output (e.g., 'Comprehensive structured response...') rather than the actual derivation, formulation, or Python code. Neither candidate provided any substantive content, making them equally non-compliant and useless for the specific technical query.",
+  "prompt_tokens": 415,
+  "completion_tokens": 181,
+  "latency_ms": 777.1231000078842,
+  "timestamp_ms": 1788264670415
+}

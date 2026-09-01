@@ -1,0 +1,13 @@
+{
+  "query_id": "V2_TD_16",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "status": "FAILED",
+  "error_detail": "Exhausted 5 retries: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199905, Reque",
+  "latency_ms": 38517.35490000283,
+  "timestamp_ms": 1788266682191
+}

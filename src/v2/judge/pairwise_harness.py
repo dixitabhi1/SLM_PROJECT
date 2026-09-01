@@ -1,8 +1,8 @@
 """
-True Pairwise Head-to-Head LLM Judge Harness with Position Swapping (v2 Architecture - Groq Provider)
+True Pairwise Head-to-Head LLM Judge Harness with Position Swapping (Option 1 SLM-Focused Benchmark)
+Judge Model: qwen/qwen3.8-27b on Groq (Non-reasoning dense evaluator, zero hidden tokens)
 Evaluates Candidate A vs Candidate B with independent randomized orders,
 strict criteria scoring (Correctness, Completeness, Coherence), and separated identity un-blinding.
-Explicitly records failures without silent drops or backfills.
 """
 
 import json
@@ -25,7 +25,7 @@ Instructions:
 - Select the winning candidate ("Candidate A", "Candidate B", or "Tie").
 - State the primary differentiator and concise, rigorous reasoning.
 
-Output strictly valid JSON with no markdown wrapping matching this exact schema:
+Output strictly valid JSON matching this exact schema:
 {
   "selected_candidate": "Candidate A",
   "criteria_scores": {
@@ -40,11 +40,19 @@ Output strictly valid JSON with no markdown wrapping matching this exact schema:
 class PairwiseLLMJudgeHarness:
     def __init__(
         self,
-        judge_model_name: str = "openai/gpt-oss-120b",
+        judge_model_name: str = "qwen/qwen3.8-27b",
         api_key: Optional[str] = None
     ):
         self.judge_model_name = judge_model_name
-        self.api_key = api_key or os.getenv("GROQ_API_KEY")
+        if not api_key:
+            api_key = os.getenv("GROQ_API_KEY")
+            if not api_key and os.path.exists(".env"):
+                with open(".env", "r") as f:
+                    for line in f:
+                        if line.startswith("GROQ_API_KEY="):
+                            api_key = line.strip().split("=", 1)[1]
+                            break
+        self.api_key = api_key
 
     def evaluate_pair(
         self,
@@ -58,9 +66,6 @@ class PairwiseLLMJudgeHarness:
         judge_log_dir: str = "logs/judge_pairwise",
         key_log_dir: str = "logs/judge_keys"
     ) -> Dict[str, Any]:
-        """
-        Runs blinded pairwise evaluation and logs public judge record and private un-blinded key separately.
-        """
         os.makedirs(judge_log_dir, exist_ok=True)
         os.makedirs(key_log_dir, exist_ok=True)
 
@@ -79,7 +84,7 @@ class PairwiseLLMJudgeHarness:
             f"User Query:\n{query_text}\n\n"
             f"=== Candidate A ===\n{candidate_a_text}\n\n"
             f"=== Candidate B ===\n{candidate_b_text}\n\n"
-            f"Provide your evaluation in the required JSON schema:"
+            f"Provide your JSON evaluation:"
         )
 
         start_t = time.perf_counter()
@@ -91,7 +96,6 @@ class PairwiseLLMJudgeHarness:
         pair_key = f"{system_a_id}_vs_{system_b_id}"
 
         if error_msg:
-            # Explicit failure record - never silent drop
             public_record = {
                 "query_id": query_id,
                 "judge_model": self.judge_model_name,
@@ -149,7 +153,6 @@ class PairwiseLLMJudgeHarness:
         if "Candidate B" in crit_scores:
             scores_by_system[cand_b_sys] = crit_scores["Candidate B"]
 
-        # 1. Write Public Judge Record (Strictly ZERO system names)
         public_record = {
             "query_id": query_id,
             "judge_model": self.judge_model_name,
@@ -169,7 +172,6 @@ class PairwiseLLMJudgeHarness:
         with open(public_file, "w", encoding="utf-8") as f:
             json.dump(public_record, f, indent=2)
 
-        # 2. Write Private Identity Key (Separated un-blinded mapping)
         key_record = {
             "query_id": query_id,
             "pair_key": pair_key,
@@ -216,7 +218,7 @@ class PairwiseLLMJudgeHarness:
             ],
             "response_format": {"type": "json_object"},
             "temperature": 0.0,
-            "max_tokens": 1024
+            "max_tokens": 512
         }
 
         req = urllib.request.Request(
@@ -229,7 +231,7 @@ class PairwiseLLMJudgeHarness:
         last_err = None
         for attempt in range(5):
             try:
-                with urllib.request.urlopen(req, timeout=30) as response:
+                with urllib.request.urlopen(req, timeout=20) as response:
                     res_data = json.loads(response.read().decode("utf-8"))
                     text = res_data["choices"][0]["message"]["content"]
                     in_tok = res_data.get("usage", {}).get("prompt_tokens", len(prompt.split()) * 2)
@@ -237,8 +239,8 @@ class PairwiseLLMJudgeHarness:
                     return text, in_tok, out_tok, None
             except urllib.error.HTTPError as e:
                 last_err = f"HTTPError {e.code}: {e.read().decode()[:200]}"
-                if e.code == 429: # Rate limit
-                    time.sleep(2.0 * (attempt + 1))
+                if e.code == 429:
+                    time.sleep(2.5 * (attempt + 1))
                 else:
                     time.sleep(1.0)
             except Exception as e:

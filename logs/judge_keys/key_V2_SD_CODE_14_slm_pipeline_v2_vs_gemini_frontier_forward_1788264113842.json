@@ -1,0 +1,24 @@
+{
+  "query_id": "V2_SD_CODE_14",
+  "pair_key": "slm_pipeline_v2_vs_gemini_frontier",
+  "order_tag": "forward",
+  "status": "SUCCESS",
+  "candidate_a_system": "slm_pipeline_v2",
+  "candidate_b_system": "gemini_frontier",
+  "selected_alias": "Tie",
+  "unblinded_winner": "Tie",
+  "scores_by_system": {
+    "slm_pipeline_v2": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "gemini_frontier": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "public_log_file": "logs/judge_pairwise\\judge_V2_SD_CODE_14_slm_pipeline_v2_vs_gemini_frontier_forward_1788264113842.json",
+  "timestamp_ms": 1788264113842
+}

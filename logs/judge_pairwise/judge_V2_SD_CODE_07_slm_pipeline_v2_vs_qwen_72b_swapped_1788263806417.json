@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_SD_CODE_07",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide the requested Python code, type annotations, or unit tests. Instead, they returned identical meta-text describing a response that was not actually generated. Therefore, both are equally non-compliant and incorrect.",
+  "prompt_tokens": 428,
+  "completion_tokens": 143,
+  "latency_ms": 1415.9014000033494,
+  "timestamp_ms": 1788263806417
+}

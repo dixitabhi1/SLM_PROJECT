@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_14",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to address the user's request. They provided only meta-information (model name and hash) and a generic placeholder sentence, completely omitting the required quantitative formulation, Python simulation code, and domain constraint analysis. Therefore, both are equally non-responsive and incorrect.",
+  "prompt_tokens": 419,
+  "completion_tokens": 153,
+  "latency_ms": 3375.7952000014484,
+  "timestamp_ms": 1788266583646
+}

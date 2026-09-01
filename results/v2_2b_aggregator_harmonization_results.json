@@ -1,0 +1,29 @@
+{
+  "run_tag": "v2.2b_aggregator_harmonization",
+  "sample_size_queries": 30,
+  "complexity_tier": "three_plus_domain (3+-Domain Compound)",
+  "metrics_comparison": {
+    "v2_original_aggregator": {
+      "mean_correctness": 4.55,
+      "mean_completeness": 4.65,
+      "mean_coherence": 3.65,
+      "composite_score": 4.36
+    },
+    "v2_2b_harmonized_aggregator": {
+      "mean_correctness": 4.55,
+      "mean_completeness": 4.65,
+      "mean_coherence": 4.58,
+      "composite_score": 4.592
+    },
+    "deltas": {
+      "coherence_delta": 0.93,
+      "correctness_delta": 0.0,
+      "completeness_delta": 0.0
+    }
+  },
+  "content_preservation_audit": {
+    "average_content_retention_ratio": 1.411,
+    "content_dropped_flag": false,
+    "finding": "Coherence improved by +0.93 points without dropping technical code blocks, equations, or subtask constraints."
+  }
+}

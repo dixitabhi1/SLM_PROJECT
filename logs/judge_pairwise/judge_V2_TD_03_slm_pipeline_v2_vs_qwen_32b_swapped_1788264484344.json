@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_03",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide any actual content, derivation, or code. They only output metadata-like placeholders claiming to have addressed the prompt, but did not actually do so. Therefore, both are equally non-responsive and incorrect.",
+  "prompt_tokens": 417,
+  "completion_tokens": 161,
+  "latency_ms": 4106.702699995367,
+  "timestamp_ms": 1788264484344
+}

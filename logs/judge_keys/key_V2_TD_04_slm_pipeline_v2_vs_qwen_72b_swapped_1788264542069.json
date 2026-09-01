@@ -1,0 +1,24 @@
+{
+  "query_id": "V2_TD_04",
+  "pair_key": "slm_pipeline_v2_vs_qwen_72b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidate_a_system": "qwen_72b",
+  "candidate_b_system": "slm_pipeline_v2",
+  "selected_alias": "Tie",
+  "unblinded_winner": "Tie",
+  "scores_by_system": {
+    "qwen_72b": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "slm_pipeline_v2": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "public_log_file": "logs/judge_pairwise\\judge_V2_TD_04_slm_pipeline_v2_vs_qwen_72b_swapped_1788264542069.json",
+  "timestamp_ms": 1788264542069
+}

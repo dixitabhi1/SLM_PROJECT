@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_15",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide any actual derivation, code, or analysis. They only output meta-text claiming to have addressed the prompt, which constitutes a complete failure to fulfill the user's request for a quantitative formulation and Python simulation.",
+  "prompt_tokens": 421,
+  "completion_tokens": 144,
+  "latency_ms": 3373.6019000061788,
+  "timestamp_ms": 1788266622498
+}

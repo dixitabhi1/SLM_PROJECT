@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_SD_MATH_02",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "Both candidates failed to provide any mathematical derivation, closed-form solution, or proof of convergence. Instead, they returned identical meta-text placeholders claiming to have addressed the prompt, which is factually incorrect and completely unhelpful. Therefore, both are equally non-responsive and incorrect.",
+  "prompt_tokens": 421,
+  "completion_tokens": 170,
+  "latency_ms": 1103.3730000053765,
+  "timestamp_ms": 1788264361744
+}

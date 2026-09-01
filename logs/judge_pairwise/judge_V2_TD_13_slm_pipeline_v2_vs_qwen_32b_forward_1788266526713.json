@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_13",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide any actual derivation, formulation, or Python code. They only output metadata headers claiming to have addressed the prompt, but provided no substantive content. Therefore, both are equally non-compliant and incorrect.",
+  "prompt_tokens": 418,
+  "completion_tokens": 161,
+  "latency_ms": 3394.271100012702,
+  "timestamp_ms": 1788266526713
+}

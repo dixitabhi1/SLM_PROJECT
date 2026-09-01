@@ -1,0 +1,11 @@
+{
+  "query_id": "V2_SD_CODE_01",
+  "pair_key": "slm_pipeline_v2_vs_llama_8b",
+  "order_tag": "forward",
+  "candidate_a_system": "slm_pipeline_v2",
+  "candidate_b_system": "llama_8b",
+  "status": "FAILED",
+  "error_detail": "Exhausted 5 retries: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199569, Reque",
+  "public_log_file": "logs/judge_pairwise\\judge_V2_SD_CODE_01_slm_pipeline_v2_vs_llama_8b_forward_1788266827647.json",
+  "timestamp_ms": 1788266827647
+}

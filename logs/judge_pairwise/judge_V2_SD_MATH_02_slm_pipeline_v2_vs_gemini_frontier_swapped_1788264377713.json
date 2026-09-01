@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_SD_MATH_02",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide any actual mathematical derivation, closed-form solution, or proof of convergence. They both returned identical placeholder text claiming to have addressed the prompt, which is factually incorrect and completely unhelpful. Therefore, they are equally poor.",
+  "prompt_tokens": 412,
+  "completion_tokens": 167,
+  "latency_ms": 3550.423499997123,
+  "timestamp_ms": 1788264377713
+}

@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_10",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "Both candidates failed to address the user's request. They provided only meta-text claiming to have a response, without actually deriving the formulation or providing the Python code. Therefore, both are equally incorrect and incomplete.",
+  "prompt_tokens": 419,
+  "completion_tokens": 139,
+  "latency_ms": 748.8106999953743,
+  "timestamp_ms": 1788266413370
+}

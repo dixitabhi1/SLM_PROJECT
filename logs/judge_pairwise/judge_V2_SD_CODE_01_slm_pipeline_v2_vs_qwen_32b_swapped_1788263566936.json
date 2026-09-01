@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_SD_CODE_01",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide any actual code, algorithm, or analysis. They returned only meta-text describing a response that was not generated. Therefore, both are equally non-compliant with the user's request for a Python implementation and tests.",
+  "prompt_tokens": 424,
+  "completion_tokens": 164,
+  "latency_ms": 916.6776000056416,
+  "timestamp_ms": 1788263566936
+}

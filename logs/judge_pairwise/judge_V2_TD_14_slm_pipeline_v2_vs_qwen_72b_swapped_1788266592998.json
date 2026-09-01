@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_14",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to address the user's request. They provided only meta-text describing a response (including model names and hashes) rather than actually deriving the formulation or implementing the Python simulation. Neither candidate provided any technical content, code, or mathematical derivation.",
+  "prompt_tokens": 416,
+  "completion_tokens": 167,
+  "latency_ms": 707.3138999985531,
+  "timestamp_ms": 1788266592998
+}

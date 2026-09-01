@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_10",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "Both candidates failed to provide any actual derivation, formulation, or Python code. They only output meta-text claiming to have addressed the prompt, which is a complete hallucination of the task requirements. Therefore, both are equally incorrect and incomplete.",
+  "prompt_tokens": 419,
+  "completion_tokens": 145,
+  "latency_ms": 756.7726999986917,
+  "timestamp_ms": 1788266411174
+}

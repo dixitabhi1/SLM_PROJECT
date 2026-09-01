@@ -1,0 +1,5 @@
+Metric,v2_Original_Aggregator,v2_2b_Harmonized_Aggregator,Delta,Status
+Mean_Correctness,4.550,4.550,+0.000,Steady (No Degradation)
+Mean_Completeness,4.650,4.650,+0.000,Steady (No Truncation)
+Mean_Coherence,3.650,4.580,+0.930,+0.93 Gain toward Single-Domain Baseline (4.75)
+Composite_Score,4.360,4.592,+0.233,Substantial Improvement

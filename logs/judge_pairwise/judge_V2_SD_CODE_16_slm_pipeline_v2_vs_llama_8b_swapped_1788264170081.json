@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_SD_CODE_16",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "Both candidates failed to provide the requested Python code, type annotations, or unit tests. Instead, they returned identical meta-text placeholders claiming to be a comprehensive response, which is factually incorrect and completely unhelpful. Therefore, both are equally non-compliant and incorrect.",
+  "prompt_tokens": 429,
+  "completion_tokens": 152,
+  "latency_ms": 3452.2064000047976,
+  "timestamp_ms": 1788264170081
+}
