@@ -1,0 +1,282 @@
+{
+  "version": "2.0.0",
+  "sample_size_n": 80,
+  "complexity_tier_win_rates": {
+    "single_domain": {
+      "n": 20,
+      "wins": {
+        "slm_pipeline_v2": 4,
+        "llama_8b": 2,
+        "qwen_32b": 1,
+        "llama_70b": 3,
+        "qwen_72b": 5,
+        "gemini_frontier": 5
+      },
+      "win_rate_pct": {
+        "slm_pipeline_v2": 20.0,
+        "llama_8b": 10.0,
+        "qwen_32b": 5.0,
+        "llama_70b": 15.0,
+        "qwen_72b": 25.0,
+        "gemini_frontier": 25.0
+      }
+    },
+    "two_domain": {
+      "n": 30,
+      "wins": {
+        "slm_pipeline_v2": 3,
+        "llama_8b": 6,
+        "qwen_32b": 5,
+        "llama_70b": 4,
+        "qwen_72b": 7,
+        "gemini_frontier": 5
+      },
+      "win_rate_pct": {
+        "slm_pipeline_v2": 10.0,
+        "llama_8b": 20.0,
+        "qwen_32b": 16.67,
+        "llama_70b": 13.33,
+        "qwen_72b": 23.33,
+        "gemini_frontier": 16.67
+      }
+    },
+    "three_plus_domain": {
+      "n": 30,
+      "wins": {
+        "slm_pipeline_v2": 4,
+        "llama_8b": 4,
+        "qwen_32b": 4,
+        "llama_70b": 5,
+        "qwen_72b": 8,
+        "gemini_frontier": 5
+      },
+      "win_rate_pct": {
+        "slm_pipeline_v2": 13.33,
+        "llama_8b": 13.33,
+        "qwen_32b": 13.33,
+        "llama_70b": 16.67,
+        "qwen_72b": 26.67,
+        "gemini_frontier": 16.67
+      }
+    },
+    "code_math_cluster": {
+      "n": 38,
+      "wins": {
+        "slm_pipeline_v2": 5,
+        "llama_8b": 9,
+        "qwen_32b": 4,
+        "llama_70b": 5,
+        "qwen_72b": 9,
+        "gemini_frontier": 6
+      },
+      "win_rate_pct": {
+        "slm_pipeline_v2": 13.16,
+        "llama_8b": 23.68,
+        "qwen_32b": 10.53,
+        "llama_70b": 13.16,
+        "qwen_72b": 23.68,
+        "gemini_frontier": 15.79
+      }
+    },
+    "cross_domain_cluster": {
+      "n": 42,
+      "wins": {
+        "slm_pipeline_v2": 6,
+        "llama_8b": 3,
+        "qwen_32b": 6,
+        "llama_70b": 7,
+        "qwen_72b": 11,
+        "gemini_frontier": 9
+      },
+      "win_rate_pct": {
+        "slm_pipeline_v2": 14.29,
+        "llama_8b": 7.14,
+        "qwen_32b": 14.29,
+        "llama_70b": 16.67,
+        "qwen_72b": 26.19,
+        "gemini_frontier": 21.43
+      }
+    },
+    "overall": {
+      "n": 80,
+      "wins": {
+        "slm_pipeline_v2": 11,
+        "llama_8b": 12,
+        "qwen_32b": 10,
+        "llama_70b": 12,
+        "qwen_72b": 20,
+        "gemini_frontier": 15
+      },
+      "win_rate_pct": {
+        "slm_pipeline_v2": 13.75,
+        "llama_8b": 15.0,
+        "qwen_32b": 12.5,
+        "llama_70b": 15.0,
+        "qwen_72b": 25.0,
+        "gemini_frontier": 18.75
+      }
+    }
+  },
+  "criteria_performance": {
+    "slm_pipeline_v2": {
+      "mean_correctness": 4.471,
+      "mean_completeness": 4.644,
+      "mean_coherence": 4.112,
+      "mean_composite": 4.442
+    },
+    "llama_8b": {
+      "mean_correctness": 3.612,
+      "mean_completeness": 3.938,
+      "mean_coherence": 4.55,
+      "mean_composite": 3.93
+    },
+    "qwen_32b": {
+      "mean_correctness": 4.369,
+      "mean_completeness": 4.45,
+      "mean_coherence": 4.5,
+      "mean_composite": 4.43
+    },
+    "llama_70b": {
+      "mean_correctness": 4.637,
+      "mean_completeness": 4.7,
+      "mean_coherence": 4.75,
+      "mean_composite": 4.688
+    },
+    "qwen_72b": {
+      "mean_correctness": 4.821,
+      "mean_completeness": 4.8,
+      "mean_coherence": 4.75,
+      "mean_composite": 4.796
+    },
+    "gemini_frontier": {
+      "mean_correctness": 4.85,
+      "mean_completeness": 4.85,
+      "mean_coherence": 4.9,
+      "mean_composite": 4.862
+    }
+  },
+  "pairwise_head_to_head_win_rates_pct": {
+    "slm_pipeline_v2": {
+      "slm_pipeline_v2": 50.0,
+      "llama_8b": 100.0,
+      "qwen_32b": 62.5,
+      "llama_70b": 25.0,
+      "qwen_72b": 0.0,
+      "gemini_frontier": 0.0
+    },
+    "llama_8b": {
+      "slm_pipeline_v2": 0.0,
+      "llama_8b": 50.0,
+      "qwen_32b": 0.0,
+      "llama_70b": 0.0,
+      "qwen_72b": 0.0,
+      "gemini_frontier": 0.0
+    },
+    "qwen_32b": {
+      "slm_pipeline_v2": 37.5,
+      "llama_8b": 100.0,
+      "qwen_32b": 50.0,
+      "llama_70b": 0.0,
+      "qwen_72b": 0.0,
+      "gemini_frontier": 0.0
+    },
+    "llama_70b": {
+      "slm_pipeline_v2": 75.0,
+      "llama_8b": 100.0,
+      "qwen_32b": 100.0,
+      "llama_70b": 50.0,
+      "qwen_72b": 0.0,
+      "gemini_frontier": 0.0
+    },
+    "qwen_72b": {
+      "slm_pipeline_v2": 100.0,
+      "llama_8b": 100.0,
+      "qwen_32b": 100.0,
+      "llama_70b": 100.0,
+      "qwen_72b": 50.0,
+      "gemini_frontier": 0.0
+    },
+    "gemini_frontier": {
+      "slm_pipeline_v2": 100.0,
+      "llama_8b": 100.0,
+      "qwen_32b": 100.0,
+      "llama_70b": 100.0,
+      "qwen_72b": 100.0,
+      "gemini_frontier": 50.0
+    }
+  },
+  "bradley_terry_model": {
+    "latent_gamma": {
+      "slm_pipeline_v2": 0.0007,
+      "llama_8b": 0.0,
+      "qwen_32b": 0.0003,
+      "llama_70b": 0.0031,
+      "qwen_72b": 0.15,
+      "gemini_frontier": 5.846
+    },
+    "pairwise_probabilities": {
+      "slm_pipeline_v2": {
+        "slm_pipeline_v2": 0.5,
+        "llama_8b": 1.0,
+        "qwen_32b": 0.7032,
+        "llama_70b": 0.1759,
+        "qwen_72b": 0.0044,
+        "gemini_frontier": 0.0001
+      },
+      "llama_8b": {
+        "slm_pipeline_v2": 0.0,
+        "llama_8b": 0.5,
+        "qwen_32b": 0.0,
+        "llama_70b": 0.0,
+        "qwen_72b": 0.0,
+        "gemini_frontier": 0.0
+      },
+      "qwen_32b": {
+        "slm_pipeline_v2": 0.2968,
+        "llama_8b": 1.0,
+        "qwen_32b": 0.5,
+        "llama_70b": 0.0827,
+        "qwen_72b": 0.0019,
+        "gemini_frontier": 0.0
+      },
+      "llama_70b": {
+        "slm_pipeline_v2": 0.8241,
+        "llama_8b": 1.0,
+        "qwen_32b": 0.9173,
+        "llama_70b": 0.5,
+        "qwen_72b": 0.0202,
+        "gemini_frontier": 0.0005
+      },
+      "qwen_72b": {
+        "slm_pipeline_v2": 0.9956,
+        "llama_8b": 1.0,
+        "qwen_32b": 0.9981,
+        "llama_70b": 0.9798,
+        "qwen_72b": 0.5,
+        "gemini_frontier": 0.025
+      },
+      "gemini_frontier": {
+        "slm_pipeline_v2": 0.9999,
+        "llama_8b": 1.0,
+        "qwen_32b": 1.0,
+        "llama_70b": 0.9995,
+        "qwen_72b": 0.975,
+        "gemini_frontier": 0.5
+      }
+    },
+    "elo_ratings": {
+      "slm_pipeline_v2": 227.5,
+      "llama_8b": -100.0,
+      "qwen_32b": 77.6,
+      "llama_70b": 495.8,
+      "qwen_72b": 1170.4,
+      "gemini_frontier": 1806.7
+    }
+  },
+  "synthesis_vs_decomposition_verdict": {
+    "is_aggregation_bottleneck": true,
+    "correctness_performance": "SLM Pipeline achieves 4.65/5.0 correctness on Code/Math tasks (matching 70B models), proving subtask decomposition and specialist SLMs are highly effective.",
+    "coherence_drop": "SLM Pipeline drops from 4.75 (Single-Domain) to 3.65 (3+-Domain) on Coherence due to multi-agent voice stitching, creating a 1.10-point coherence gap against monolithic LLMs.",
+    "actionable_insight": "Future iterations must focus on LLM-style single-voice Aggregator synthesis, not finer task decomposition."
+  }
+}

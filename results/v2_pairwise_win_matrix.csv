@@ -1,0 +1,7 @@
+System,slm_pipeline_v2,llama_8b,qwen_32b,llama_70b,qwen_72b,gemini_frontier
+slm_pipeline_v2,50.0,100.0,62.5,25.0,0.0,0.0
+llama_8b,0.0,50.0,0.0,0.0,0.0,0.0
+qwen_32b,37.5,100.0,50.0,0.0,0.0,0.0
+llama_70b,75.0,100.0,100.0,50.0,0.0,0.0
+qwen_72b,100.0,100.0,100.0,100.0,50.0,0.0
+gemini_frontier,100.0,100.0,100.0,100.0,100.0,50.0
