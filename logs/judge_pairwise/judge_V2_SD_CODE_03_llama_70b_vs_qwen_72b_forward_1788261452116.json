@@ -1,0 +1,28 @@
+{
+  "query_id": "V2_SD_CODE_03",
+  "judge_model": "openai/gpt-oss-120b",
+  "order_tag": "forward",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "Both candidates provide only placeholder text without any Python implementation, type annotations, complexity analysis, or unit tests, resulting in equally minimal correctness, completeness, and coherence.",
+  "prompt_tokens": 490,
+  "completion_tokens": 385,
+  "latency_ms": 4036.4229999977397,
+  "timestamp_ms": 1788261452116
+}

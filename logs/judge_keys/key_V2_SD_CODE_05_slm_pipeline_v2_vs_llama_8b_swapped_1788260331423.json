@@ -1,0 +1,23 @@
+{
+  "query_id": "V2_SD_CODE_05",
+  "pair_key": "slm_pipeline_v2_vs_llama_8b",
+  "order_tag": "swapped",
+  "candidate_a_system": "llama_8b",
+  "candidate_b_system": "slm_pipeline_v2",
+  "selected_alias": "Tie",
+  "unblinded_winner": "Tie",
+  "scores_by_system": {
+    "llama_8b": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "slm_pipeline_v2": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "public_log_file": "logs/judge_pairwise\\judge_V2_SD_CODE_05_slm_pipeline_v2_vs_llama_8b_swapped_1788260331423.json",
+  "timestamp_ms": 1788260331423
+}

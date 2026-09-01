@@ -1,0 +1,28 @@
+{
+  "query_id": "V2_SD_CODE_05",
+  "judge_model": "openai/gpt-oss-120b",
+  "order_tag": "swapped",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates fail to provide any Python implementation, type annotations, complexity analysis, or unit tests, resulting in minimal completeness and correctness; their coherence is similar, leading to a tie.",
+  "prompt_tokens": 486,
+  "completion_tokens": 340,
+  "latency_ms": 4163.634299999103,
+  "timestamp_ms": 1788260443939
+}

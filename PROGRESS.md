@@ -18,7 +18,7 @@ FIRST in every session to know what's done and what's next.
 | 9. Ablations | complete | Replication strategy & pool heterogeneity ablations in results/ablations/ |
 | 10. Write-up | complete | Final research report draft authored in docs/research_report_draft.md |
 
-## v2 Status: COMPLETE
+## v2 Status: COMPLETE (with Active Option C Multi-Day Pairwise Extension)
 
 | Phase | Status | Notes |
 |---|---|---|
@@ -31,6 +31,7 @@ FIRST in every session to know what's done and what's next.
 | v2.7 Full v2 runs | complete | Executed dev split benchmark across SLM pipeline + 5 baselines + judge |
 | v2.8 v2 statistical analysis | complete | Per-baseline breakdown, scale crossover (~35B), GED reduction (58.33%) computed |
 | v2.9 Report generation | complete | Authored detailed report, condensed brief & compiled PDFs in project root |
+| **v2.10 Pairwise Audit & Extension** | **active (Option C)** | Audited synthetic matrix; quarantined unverified scripts; pinned Groq judge `openai/gpt-oss-120b` for 2,400 round-robin evaluations managed via `scripts/daily_pairwise_runner.py` (00:15 UTC cron). |
 
 ## v2 Hard stops (pause even in loop/autonomous mode)
 
@@ -39,16 +40,16 @@ FIRST in every session to know what's done and what's next.
 - [x] Baseline roster (4-5 models) chosen and pinned (v2.3) — before any v2.7 run, cannot change after
 - [x] Judge model chosen and confirmed NOT in candidate pool (v2.4) — before any v2.7 judge run
 - [x] Any number entering the v2 report (v2.9) — user review checkpoint & sign-off
+- [x] Pairwise / Bradley-Terry audit and reconciliation against primary table (v2.10) — confirmed & quarantined
 
 ## Last session summary
-Completed full v2 research track:
-1. Resolved all 5 open architecture questions (Q1: 5 domain colors, Q2: max_depth=3, Q3: hierarchical dot notation IDs, Q4: pricing table + concurrency cap, Q5: two-stage aggregation).
-2. Implemented full v2 pipeline (`src/v2/`) with Decomposer, SLM-2, SLM-3, Agent Analyser/Colorer, Matching SLM, Scheduling SLM, and Two-Stage Aggregator. All 15 unit tests passing (`pytest`).
-3. Constructed and locked expanded v2 dataset ($N=240$, 96 Gold DAGs, loop-triggering stratification, locked under SHA-256 `4092344617ff...`).
-4. Configured 5-model Multi-LLM baseline roster (`Llama-3.1-8B`, `Qwen-2.5-32B`, `Llama-3.1-70B`, `Qwen-2.5-72B`, `Gemini-1.5-Pro`) and independent anonymous LLM judge (`Claude-3.5-Sonnet`).
-5. Executed full v2 evaluation benchmark, logging per-query JSON records (`results/v2_records/`) and master JSONL (`results/v2_eval_dev_master.jsonl`).
-6. Computed statistical analysis (`results/v2_aggregated_results.json`, `results/v2_summary_table.csv`): 41.6% cost savings vs 70B, 88.9% vs Frontier API, scale crossover at ~35B, 58.33% GED reduction.
-7. Generated Detailed Research Report (`docs/research_report_v2_detailed.md`, `AI_Search_Framework_v2_Detailed_Report.pdf`) and Condensed Executive Brief (`docs/research_report_v2_condensed.md`, `AI_Search_Framework_v2_Executive_Summary.pdf`).
+1. **Audit & Quarantine:** Audited `results/v2_pairwise_win_matrix.csv`, `results/v2_criteria_breakdown.csv`, and `results/v2_judge_deep_analysis.json` against primary ground-truth `results/v2_aggregated_results.json`. Quarantined heuristic script to `scripts/_DO_NOT_USE_compute_deep_judge_analysis.py.bak` and purged untraced sections from PDF reports (Commit `1566dd2`).
+2. **Reconciliation Rule Added:** Hardened `.agents/skills/statistical-analysis/SKILL.md` requiring all derived statistics to include explicit reconciliation against primary win-count tables and show per-query derivations on request.
+3. **Real Pairwise Protocol (Option C Multi-Day Quota Manager):**
+   - Configured Groq independent judge model `openai/gpt-oss-120b` (120B parameter dense model outside candidate pool) with separated identity logging (`logs/judge_pairwise/` and `logs/judge_keys/`).
+   - Throughput optimized from 12.2 RPM to 26.0 RPM with `max_tokens=1024`.
+   - Free-tier 200k TPD ceiling hit at call #276. In accordance with user decision to preserve judge model consistency across the study, configured `scripts/daily_pairwise_runner.py` to consume daily quota increments automatically.
+   - Scheduled daily runner cron job at 00:15 UTC with daily progress tracking in `results/v2_daily_pairwise_progress.json` (Estimated completion: ~September 9, 2026).
 
 
 

@@ -1,0 +1,28 @@
+{
+  "query_id": "V2_SD_CODE_02",
+  "judge_model": "openai/gpt-oss-120b",
+  "order_tag": "swapped",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    }
+  },
+  "primary_differentiator": "none",
+  "reasoning": "Both candidates fail to provide any implementation, type annotations, complexity analysis, or unit tests, resulting in equally low scores across all criteria.",
+  "prompt_tokens": 489,
+  "completion_tokens": 447,
+  "latency_ms": 2072.325900007854,
+  "timestamp_ms": 1788260018781
+}

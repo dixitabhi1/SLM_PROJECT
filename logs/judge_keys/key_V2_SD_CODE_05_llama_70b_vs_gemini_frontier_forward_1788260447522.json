@@ -1,0 +1,23 @@
+{
+  "query_id": "V2_SD_CODE_05",
+  "pair_key": "llama_70b_vs_gemini_frontier",
+  "order_tag": "forward",
+  "candidate_a_system": "llama_70b",
+  "candidate_b_system": "gemini_frontier",
+  "selected_alias": "Tie",
+  "unblinded_winner": "Tie",
+  "scores_by_system": {
+    "llama_70b": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "gemini_frontier": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "public_log_file": "logs/judge_pairwise\\judge_V2_SD_CODE_05_llama_70b_vs_gemini_frontier_forward_1788260447522.json",
+  "timestamp_ms": 1788260447522
+}

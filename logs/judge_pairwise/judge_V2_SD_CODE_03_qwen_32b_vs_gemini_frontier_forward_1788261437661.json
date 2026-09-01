@@ -1,0 +1,28 @@
+{
+  "query_id": "V2_SD_CODE_03",
+  "judge_model": "openai/gpt-oss-120b",
+  "order_tag": "forward",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "Both candidates fail to provide any implementation, type annotations, complexity analysis, or unit tests, resulting in minimal correctness and completeness. Their coherence is marginally better than zero but still insufficient. No candidate outperforms the other.",
+  "prompt_tokens": 482,
+  "completion_tokens": 469,
+  "latency_ms": 4700.517500008573,
+  "timestamp_ms": 1788261437661
+}

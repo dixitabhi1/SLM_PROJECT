@@ -1,0 +1,28 @@
+{
+  "query_id": "V2_SD_CODE_04",
+  "judge_model": "openai/gpt-oss-120b",
+  "order_tag": "forward",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "",
+  "prompt_tokens": 481,
+  "completion_tokens": 512,
+  "latency_ms": 4392.96139999351,
+  "timestamp_ms": 1788260305593
+}

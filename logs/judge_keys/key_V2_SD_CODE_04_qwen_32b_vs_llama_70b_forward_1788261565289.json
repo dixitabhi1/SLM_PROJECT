@@ -1,0 +1,23 @@
+{
+  "query_id": "V2_SD_CODE_04",
+  "pair_key": "qwen_32b_vs_llama_70b",
+  "order_tag": "forward",
+  "candidate_a_system": "qwen_32b",
+  "candidate_b_system": "llama_70b",
+  "selected_alias": "Tie",
+  "unblinded_winner": "Tie",
+  "scores_by_system": {
+    "qwen_32b": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    },
+    "llama_70b": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    }
+  },
+  "public_log_file": "logs/judge_pairwise\\judge_V2_SD_CODE_04_qwen_32b_vs_llama_70b_forward_1788261565289.json",
+  "timestamp_ms": 1788261565289
+}

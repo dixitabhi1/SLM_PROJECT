@@ -57,12 +57,15 @@ don't just report the discrepancy unexplained).
 ## Reporting discipline (unchanged principle, more rows)
 
 - Primary table: per-baseline-model x per-complexity-tier x
-  feedback-loop-triggered-or-not. This is a large table — the
-  short-report version (see `report-generation`) needs an aggregated
-  view, but the detailed report needs the full breakdown, same
-  principle as v1's "don't smooth into an aggregate."
-- Every number still needs a `run_id`/log-file pointer, same as v1 and
-  per `experiment-instrumentation`.
+  feedback-loop-triggered-or-not.
+- **Reconciliation Rule (MANDATORY)**: Any derived statistic (pairwise matrices,
+  Bradley-Terry ratings, Elo scores, or multi-criteria aggregations) must
+  include an explicit reconciliation check against the primary win-count
+  table (`results/v2_aggregated_results.json`) before being included in any
+  report. The full derivation code and per-query trace must be verifiable
+  from logged run records on request. Synthetic or heuristically assigned
+  scoring matrices are strictly prohibited.
+- Every number still needs a `run_id`/log-file pointer.
 - If non-inferiority is rejected for some baselines but not others
   (plausible once smaller baselines are in the roster), report this
   per-baseline — a mixed result across the roster is itself a finding,

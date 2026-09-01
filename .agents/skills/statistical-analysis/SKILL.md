@@ -60,6 +60,13 @@ something to back-justify after the dataset already exists.
   file(s)/run IDs it was computed from (AGENTS.md rule 2/8) — treat
   this the same way you'd treat a citation in a paper, except the
   citation target is a file in this repo, not an external source.
+- **Reconciliation Rule (MANDATORY)**: Any derived statistic (pairwise matrices,
+  Bradley-Terry ratings, Elo scores, or multi-criteria aggregations) must
+  include an explicit reconciliation check against the primary win-count
+  table (`results/v2_aggregated_results.json`) before being included in any
+  report. The full derivation code and per-query trace must be verifiable
+  from logged run records on request. Synthetic or heuristically assigned
+  scoring matrices are strictly prohibited.
 - A result where latency/cost win clearly but quality trails on hard
   subtasks is, per the PRD, "a realistic and still-valid outcome" —
   write it up as such rather than reframing it as an unqualified win.

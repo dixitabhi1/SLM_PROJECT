@@ -1,0 +1,11 @@
+{
+  "query_id": "V2_SD_CODE_06",
+  "pair_key": "slm_pipeline_v2_vs_qwen_32b",
+  "order_tag": "forward",
+  "candidate_a_system": "slm_pipeline_v2",
+  "candidate_b_system": "qwen_32b",
+  "status": "FAILED",
+  "error_detail": "Exhausted 5 retries: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199049, Re",
+  "public_log_file": "logs/judge_pairwise\\judge_V2_SD_CODE_06_slm_pipeline_v2_vs_qwen_32b_forward_1788261748585.json",
+  "timestamp_ms": 1788261748585
+}

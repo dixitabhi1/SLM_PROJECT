@@ -1,0 +1,23 @@
+{
+  "query_id": "V2_SD_CODE_01",
+  "judge_model": "openai/gpt-oss-120b",
+  "order_tag": "swapped",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    }
+  },
+  "primary_differentiator": "correctness",
+  "reasoning": "",
+  "prompt_tokens": 483,
+  "completion_tokens": 512,
+  "latency_ms": 8581.646899998304,
+  "timestamp_ms": 1788259801034
+}

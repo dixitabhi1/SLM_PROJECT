@@ -1,0 +1,91 @@
+{
+  "pilot_queries": 5,
+  "total_calls": 150,
+  "elapsed_seconds": 735.23,
+  "effective_rpm": 12.2,
+  "position_swap_agreement_rate_pct": 100.0,
+  "pairwise_wins_sample": {
+    "slm_pipeline_v2": {
+      "slm_pipeline_v2": 0.0,
+      "llama_8b": 2.5,
+      "qwen_32b": 2.5,
+      "llama_70b": 2.5,
+      "qwen_72b": 2.5,
+      "gemini_frontier": 2.5
+    },
+    "llama_8b": {
+      "slm_pipeline_v2": 2.5,
+      "llama_8b": 0.0,
+      "qwen_32b": 2.5,
+      "llama_70b": 2.5,
+      "qwen_72b": 2.5,
+      "gemini_frontier": 2.5
+    },
+    "qwen_32b": {
+      "slm_pipeline_v2": 2.5,
+      "llama_8b": 2.5,
+      "qwen_32b": 0.0,
+      "llama_70b": 2.5,
+      "qwen_72b": 2.5,
+      "gemini_frontier": 2.5
+    },
+    "llama_70b": {
+      "slm_pipeline_v2": 2.5,
+      "llama_8b": 2.5,
+      "qwen_32b": 2.5,
+      "llama_70b": 0.0,
+      "qwen_72b": 2.5,
+      "gemini_frontier": 2.5
+    },
+    "qwen_72b": {
+      "slm_pipeline_v2": 2.5,
+      "llama_8b": 2.5,
+      "qwen_32b": 2.5,
+      "llama_70b": 2.5,
+      "qwen_72b": 0.0,
+      "gemini_frontier": 2.5
+    },
+    "gemini_frontier": {
+      "slm_pipeline_v2": 2.5,
+      "llama_8b": 2.5,
+      "qwen_32b": 2.5,
+      "llama_70b": 2.5,
+      "qwen_72b": 2.5,
+      "gemini_frontier": 0.0
+    }
+  },
+  "criteria_summary_sample": {
+    "slm_pipeline_v2": {
+      "correctness": 1.0,
+      "completeness": 1.0,
+      "coherence": 1.56
+    },
+    "llama_8b": {
+      "correctness": 1.0,
+      "completeness": 1.0,
+      "coherence": 1.57
+    },
+    "qwen_32b": {
+      "correctness": 1.0,
+      "completeness": 1.0,
+      "coherence": 1.66
+    },
+    "llama_70b": {
+      "correctness": 1.0,
+      "completeness": 1.0,
+      "coherence": 1.64
+    },
+    "qwen_72b": {
+      "correctness": 1.0,
+      "completeness": 1.0,
+      "coherence": 1.78
+    },
+    "gemini_frontier": {
+      "correctness": 1.0,
+      "completeness": 1.0,
+      "coherence": 1.78
+    }
+  },
+  "extrapolated_time_full_2400_min": 196.1,
+  "extrapolated_time_option1_400_min": 32.7
+}
