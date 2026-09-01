@@ -1,7 +1,0 @@
-System,Mean_Correctness,Mean_Completeness,Mean_Coherence,Mean_Composite,BT_Elo_Rating
-slm_pipeline_v2,4.471,4.644,4.112,4.442,227.5
-llama_8b,3.612,3.938,4.55,3.93,-100.0
-qwen_32b,4.369,4.45,4.5,4.43,77.6
-llama_70b,4.637,4.7,4.75,4.688,495.8
-qwen_72b,4.821,4.8,4.75,4.796,1170.4
-gemini_frontier,4.85,4.85,4.9,4.862,1806.7
