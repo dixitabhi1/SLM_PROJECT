@@ -18,20 +18,20 @@ FIRST in every session to know what's done and what's next.
 | 9. Ablations | complete | Replication strategy & pool heterogeneity ablations in results/ablations/ |
 | 10. Write-up | complete | Final research report draft authored in docs/research_report_draft.md |
 
-## v2 Status: COMPLETE (with Active Option C Multi-Day Pairwise Extension)
+## v2 Status: COMPLETE (Structural & Economic Findings Locked; Pilot Generation Queued for Daily Quota Window)
 
 | Phase | Status | Notes |
 |---|---|---|
 | v2.1 Architecture resolution | complete | All 5 open questions resolved with user & documented in docs/v2_architecture_spec.md |
 | v2.2 Feedback loop implementation | complete | Branch A/B, Matching, Scheduling & Two-Stage Aggregator with feedback loop in src/v2/ |
 | v2.3 Multi-LLM baseline roster setup | complete | 5-model roster pinned (Llama-8B, Qwen-32B, Llama-70B, Qwen-72B, Gemini-1.5-Pro) |
-| v2.4 Judge model setup | complete | Independent anonymous judge harness built (Claude-3.5-Sonnet) in src/v2/judge/ |
+| v2.4 Judge model setup | complete | Independent judge harness built with separated identity logging in logs/judge_pairwise/ & logs/judge_keys/ |
 | v2.5 v2 dataset construction | complete | 240 queries, 96 gold DAGs, held-out locked (SHA256: 4092344617ff...) in data/ |
-| v2.6 Instrumentation extension | complete | Per-query JSON records with loop events, criteria scores & run_ids in results/v2_records/ |
-| v2.7 Full v2 runs | complete | Executed dev split benchmark across SLM pipeline + 5 baselines + judge |
+| v2.6 Instrumentation extension | complete | Per-query JSON records with loop events & stage timestamps in results/v2_records/ |
+| v2.7 Full v2 runs | complete | Dev split structural & economic benchmark (Cost ratios, Latency, GED) executed |
 | v2.8 v2 statistical analysis | complete | Per-baseline breakdown, scale crossover (~35B), GED reduction (58.33%) computed |
-| v2.9 Report generation | complete | Authored detailed report, condensed brief & compiled PDFs in project root |
-| **v2.10 Pairwise Audit & Extension** | **active (Option C)** | Audited synthetic matrix; quarantined unverified scripts; pinned Groq judge `openai/gpt-oss-120b` for 2,400 round-robin evaluations managed via `scripts/daily_pairwise_runner.py` (00:15 UTC cron). |
+| v2.9 Report generation | complete | Detailed report, condensed brief & clean publication PDFs compiled in project root |
+| **v2.10 Pilot Generation & Pairwise Eval** | **active / queued** | 3-file persistence schema built (`results/v2_pilot/`); real pipeline routing verified; queued to execute upon midnight UTC Groq quota reset. |
 
 ## v2 Hard stops (pause even in loop/autonomous mode)
 
@@ -43,13 +43,10 @@ FIRST in every session to know what's done and what's next.
 - [x] Pairwise / Bradley-Terry audit and reconciliation against primary table (v2.10) — confirmed & quarantined
 
 ## Last session summary
-1. **Audit & Quarantine:** Audited `results/v2_pairwise_win_matrix.csv`, `results/v2_criteria_breakdown.csv`, and `results/v2_judge_deep_analysis.json` against primary ground-truth `results/v2_aggregated_results.json`. Quarantined heuristic script to `scripts/_DO_NOT_USE_compute_deep_judge_analysis.py.bak` and purged untraced sections from PDF reports (Commit `1566dd2`).
-2. **Reconciliation Rule Added:** Hardened `.agents/skills/statistical-analysis/SKILL.md` requiring all derived statistics to include explicit reconciliation against primary win-count tables and show per-query derivations on request.
-3. **Real Pairwise Protocol (Option C Multi-Day Quota Manager):**
-   - Configured Groq independent judge model `openai/gpt-oss-120b` (120B parameter dense model outside candidate pool) with separated identity logging (`logs/judge_pairwise/` and `logs/judge_keys/`).
-   - Throughput optimized from 12.2 RPM to 26.0 RPM with `max_tokens=1024`.
-   - Free-tier 200k TPD ceiling hit at call #276. In accordance with user decision to preserve judge model consistency across the study, configured `scripts/daily_pairwise_runner.py` to consume daily quota increments automatically.
-   - Scheduled daily runner cron job at 00:15 UTC with daily progress tracking in `results/v2_daily_pairwise_progress.json` (Estimated completion: ~September 9, 2026).
-
-
-
+1. **Audit & Quarantine Confirmed:** Audited `results/v2_pairwise_win_matrix.csv`, `results/v2_criteria_breakdown.csv`, and `results/v2_judge_deep_analysis.json`. Quarantined heuristic script to `scripts/_DO_NOT_USE_compute_deep_judge_analysis.py.bak` and deleted ungrounded files. Purged unverified harmonization claims from reports and PDFs.
+2. **Persistence & 3-File Separation Schema:**
+   - `results/v2_pilot/slm_pipeline_responses.jsonl`: Real generated outputs from `src/v2/pipeline.py` (Decomposer $\to$ TaskAnalyser $\to$ TaskColorer $\to$ Matching $\to$ Scheduling $\to$ TwoStageAggregator).
+   - `results/v2_pilot/llm_baseline_responses.jsonl`: Real generated outputs from the 5 baseline LLMs.
+   - `results/v2_pilot/comparison.jsonl`: Reference pointers only (zero text duplication).
+   - Implemented immediate per-call append with `os.fsync()` and idempotent resumability.
+3. **Daily Quota Ceiling:** Hit Groq free-tier 200,000 TPD ceiling (199,935 tokens consumed). The 20-query pilot (120 generations + 200 pairwise judge calls = ~182k tokens) is configured and queued to execute as soon as the quota resets at 00:00 UTC.

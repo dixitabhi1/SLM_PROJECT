@@ -1,0 +1,83 @@
+{
+  "query_id": "V2_SD_MATH_01",
+  "query_text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+  "complexity_tier": "single_domain",
+  "triggers_feedback_loop": false,
+  "gold_dag": {
+    "query_id": "V2_SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+        "capability": "math",
+        "dependencies": []
+      }
+    ]
+  },
+  "slm_pipeline_response": {
+    "final_response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash d3efc7.",
+    "run_id": "slm_pipe_v2_V2_SD_MATH_01_60",
+    "log_path": "logs/runs\\run_slm_pipeline_v2_V2_SD_MATH_01_1788257405592.json",
+    "wall_clock_latency_ms": 89.23030000005383,
+    "simulated_parallel_latency_ms": 1482.0592000015313,
+    "cost_usd": 0.00021829,
+    "feedback_loop_fired": false,
+    "loop_events_count": 0
+  },
+  "baseline_responses": {
+    "llama_8b": {
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "response": "[meta-llama/Llama-3.1-8B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 10fbed.",
+      "run_id": "baseline_llama_8b_V2_SD_MATH_01_60",
+      "log_path": "logs/runs\\run_baseline_llama_8b_V2_SD_MATH_01_1788257405733.json",
+      "latency_ms": 18.638499997905456,
+      "cost_usd": 5.835e-05
+    },
+    "qwen_32b": {
+      "model_name": "Qwen/Qwen2.5-32B-Instruct",
+      "response": "[Qwen/Qwen2.5-32B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 10fbed.",
+      "run_id": "baseline_qwen_32b_V2_SD_MATH_01_60",
+      "log_path": "logs/runs\\run_baseline_qwen_32b_V2_SD_MATH_01_1788257405823.json",
+      "latency_ms": 25.73619999748189,
+      "cost_usd": 0.0001317
+    },
+    "llama_70b": {
+      "model_name": "meta-llama/Llama-3.1-70B-Instruct",
+      "response": "[meta-llama/Llama-3.1-70B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 10fbed.",
+      "run_id": "baseline_llama_70b_V2_SD_MATH_01_60",
+      "log_path": "logs/runs\\run_baseline_llama_70b_V2_SD_MATH_01_1788257405946.json",
+      "latency_ms": 22.377800007234327,
+      "cost_usd": 0.00026670000000000003
+    },
+    "qwen_72b": {
+      "model_name": "Qwen/Qwen2.5-72B-Instruct",
+      "response": "[Qwen/Qwen2.5-72B-Instruct] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 10fbed.",
+      "run_id": "baseline_qwen_72b_V2_SD_MATH_01_60",
+      "log_path": "logs/runs\\run_baseline_qwen_72b_V2_SD_MATH_01_1788257406038.json",
+      "latency_ms": 21.66870000655763,
+      "cost_usd": 0.00026670000000000003
+    },
+    "gemini_frontier": {
+      "model_name": "gemini-1.5-pro",
+      "response": "[gemini-1.5-pro] Comprehensive structured response addressing the prompt. Analysis derived with verified step-by-step reasoning and domain specifics for hash 10fbed.",
+      "run_id": "baseline_gemini_frontier_V2_SD_MATH_01_60",
+      "log_path": "logs/runs\\run_baseline_gemini_frontier_V2_SD_MATH_01_1788257406116.json",
+      "latency_ms": 21.05929999379441,
+      "cost_usd": 0.00137625
+    }
+  },
+  "comparison": {
+    "cost_ratio_vs_70b": 0.818485189351331,
+    "speedup_ratio_parallel_vs_70b": 0.015099126949322406
+  },
+  "judge_result": {
+    "judge_model_id": "claude-3-5-sonnet-20241022",
+    "selected_system": "qwen_72b",
+    "selected_alias": "Candidate A",
+    "criteria_scores": {},
+    "primary_differentiator": "correctness",
+    "reasoning": "Fallback selection due to unparseable judge output.",
+    "shuffle_seed": 60
+  }
+}

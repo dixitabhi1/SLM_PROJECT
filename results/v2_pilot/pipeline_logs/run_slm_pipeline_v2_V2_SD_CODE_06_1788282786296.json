@@ -1,0 +1,279 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_06_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_06",
+  "query_text": "Implement an advanced algorithmic module #6 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "0f31137ddbd8d02fdcbb5222616031935f68e0ee",
+  "timestamp_start_utc": "2026-09-01T16:46:47.800337+00:00",
+  "timestamp_end_utc": "2026-09-01T17:13:06.296071+00:00",
+  "total_wall_clock_latency_ms": 1578640.828100004,
+  "simulated_parallel_latency_ms": 46293.61330001848,
+  "total_prompt_tokens": 299,
+  "total_completion_tokens": 2201,
+  "total_tokens": 2500,
+  "total_cost_usd": 0.00040030999999999997,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 134203.7777331,
+        "end_time_rel_s": 134242.7177384,
+        "latency_ms": 38940.00530001358,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #6 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node.1",
+              "text": "Implement an advanced algorithmic module #6 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node.1": [
+      {
+        "stage_name": "re_decomposition_node.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 134242.7182587,
+        "end_time_rel_s": 135697.495399,
+        "latency_ms": 1454777.1402999933,
+        "prompt_tokens": 235,
+        "completion_tokens": 153,
+        "total_tokens": 388,
+        "cost_usd": 2.399e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1",
+          "text": "Implement an advanced algorithmic module #6 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1",
+              "text": "Design and implement the core algorithmic logic in Python with full type annotations, ensuring O(1) or O(log N) time complexity for all operations.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 1,
+              "parent_id": "node.1"
+            },
+            {
+              "id": "node.1.2",
+              "text": "Write comprehensive unit tests covering normal operations, boundary conditions, and edge cases to verify the correctness and complexity guarantees of the implemented module.",
+              "capability": "coding",
+              "dependencies": [
+                "node.1.1"
+              ],
+              "depth": 1,
+              "parent_id": "node.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node.1.1": [
+      {
+        "stage_name": "pool_coding_node.1.1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 135697.4962539,
+        "end_time_rel_s": 135705.1439283,
+        "latency_ms": 7647.674400010146,
+        "prompt_tokens": 64,
+        "completion_tokens": 2048,
+        "total_tokens": 2112,
+        "cost_usd": 0.00037632,
+        "confidence_score": null,
+        "input": "Task: Design and implement the core algorithmic logic in Python with full type annotations, ensuring O(1) or O(log N) time complexity for all operations.",
+        "output": "```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, plus tracking min/max via a heap-like structure\nor simply maintaining min/max values with lazy deletion.\n\nActually, let's design a more comprehensive structure:\n\n1. A hash map for O(1) key-value lookup\n2. A doubly-linked list for O(1) insertion and deletion\n3. Min and max tracking with O(1) amortized updates\n\nFor true O(1) min/max with deletions, we can use a \"min-max heap\" or track\nmin/max with a counter-based approach. However, the simplest O(1) approach for\nmin/max with arbitrary deletions is to use two heaps with lazy deletion, which\ngives O(log N) for min/max queries.\n\nLet me reconsider: The task says O(1) or O(log N) for ALL operations. So we can\nuse O(log N) where needed.\n\nLet's implement:\n- A dictionary for O(1) lookup\n- A balanced BST or heap for O(log N) min/max\n- O(1) insertion and deletion from the dictionary\n- O(log N) for min/max queries\n\nActually, let's create a clean, well-typed implementation of a data structure\nthat provides:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(log N) - using a min-heap with lazy deletion\n- max(): O(log N) - using a max-heap with lazy deletion\n- size(): O(1)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1)\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"Insert or update a key-value pair. O(1) time.\"\"\"\n        if key in self._data:\n            # Mark old entry as deleted in heaps\n            self._deleted.add(key)\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"Delete a key. Returns True if key existed, False otherwise. O(1) time.\"\"\"\n        if key not in self._data:\n            return False\n        del self._data[key]\n        self._deleted.add(key)\n        return True\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"Get value for key. Returns None if not found. O(1) time.\"\"\"\n        return self._data.get(key)\n\n    def _clean_min_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the min-heap. O(log N) amortized.\"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._min_heap)\n            else:\n                break\n\n    def _clean_max_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the max-heap. O(log N) amortized.\"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._max_heap)\n            else:\n                break\n\n    def min(self) -> Optional[Any]:\n        \"\"\"Get the minimum value. O(log N) amortized time. Returns None if empty.\"\"\"\n        self._clean_min_heap()\n        if not self._min_heap:\n            return None\n        return self._min_heap[0][0]\n\n    def max(self) -> Optional[Any]:\n        \"\"\"Get the maximum value. O(log N) amortized time. Returns None if empty.\"\"\"\n        self._clean_max_heap()\n        if not self._max_heap:\n            return None\n        return -self._max_heap[0][0]\n\n    def size(self) -> int:\n        \"\"\"Return the number of elements. O(1) time.\"\"\"\n        return len(self._data)\n\n    def is_empty(self) -> bool:\n        \"\"\"Check if the structure is empty. O(1) time.\"\"\"\n        return len(self._data) == 0\n\n    def keys(self) -> list[Any]:\n        \"\"\"Return all keys. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.keys())\n\n    def values(self) -> list[Any]:\n        \"\"\"Return all values. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.values())\n\n    def items(self) -> list[Tuple[Any, Any]]:\n        \"\"\"Return all key-value pairs. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.items())\n\n    def __contains__(self, key: Any) -> bool:\n        \"\"\"Check if key exists. O(1) time.\"\"\"\n        return key in self._data\n\n    def __len__(self) -> int:\n        \"\"\"Return size. O(1) time.\"\"\"\n        return len(self._data)\n\n    def __repr__(self) -> str:\n        return f\"CoreDataStructure({self._data})\"\n\n\nclass BinarySearchTree:\n    \"\"\"\n    A self-balancing binary search tree (AVL tree) providing:\n    - insert: O(log N)\n    - delete: O(log N)\n    - search: O(log N)\n    - min: O(log N)\n    - max: O(log N)\n    - size: O(1)\n    \"\"\"\n\n    class _Node:\n        __slots__ = ('key', 'value', 'left', 'right', 'height')\n\n        def __init__(self, key: Any, value: Any) -> None:\n            self.key = key\n            self.value = value\n            self.left: Optional[BinarySearchTree._Node] = None\n            self.right: Optional[BinarySearchTree._Node] = None\n            self.height: int = 1\n\n    def __init__(self) -> None:\n        self._root: Optional[BinarySearchTree._Node] = None\n        self._size: int = 0\n\n    def _height(self, node: Optional[BinarySearchTree._Node]) -> int:\n        \"\"\"Get height of node. O(1) time.\"\"\"\n        if node is None:\n            return 0\n        return node.height\n\n    def _update_height(self, node: BinarySearchTree._Node) -> None:\n        \"\"\"Update height of node. O(1) time.\"\"\"\n        node.height = 1 + max(self._height(node.left), self._height(node.right))\n\n    def _balance_factor(self, node: BinarySearchTree._Node) -> int:\n        \"\"\"Get balance factor of node. O(1) time.\"\"\"\n        return self._height(node.left) - self._height(node.right)\n\n    def _rotate_right(self, z: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Right rotation. O(1) time.\"\"\"\n        y = z.left\n        if y is None:\n            return z\n        t2 = y.right\n        y.right = z\n        z.left = t2\n        self._update_height(z)\n        self._update_height(y)\n        return y\n\n    def _rotate_left(self, z: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Left rotation. O(1) time.\"\"\"\n        y = z.right\n        if y is None:\n            return z\n        t2 = y.left\n        y.left = z\n        z.right = t2\n        self._update_height(z)\n        self._update_height(y)\n        return y\n\n    def _rebalance(self, node: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Rebalance node. O(1) time",
+        "extra_metadata": {
+          "node_id": "node.1.1",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node.1.2": [
+      {
+        "stage_name": "pool_coding_node.1.2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 135705.1439909,
+        "end_time_rel_s": 135743.7901553,
+        "latency_ms": 38646.164400008274,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "[Prerequisite node.1.1]:\n```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, plus tracking min/max via a heap-like structure\nor simply maintaining min/max values with lazy deletion.\n\nActually, let's design a more comprehensive structure:\n\n1. A hash map for O(1) key-value lookup\n2. A doubly-linked list for O(1) insertion and deletion\n3. Min and max tracking with O(1) amortized updates\n\nFor true O(1) min/max with deletions, we can use a \"min-max heap\" or track\nmin/max with a counter-based approach. However, the simplest O(1) approach for\nmin/max with arbitrary deletions is to use two heaps with lazy deletion, which\ngives O(log N) for min/max queries.\n\nLet me reconsider: The task says O(1) or O(log N) for ALL operations. So we can\nuse O(log N) where needed.\n\nLet's implement:\n- A dictionary for O(1) lookup\n- A balanced BST or heap for O(log N) min/max\n- O(1) insertion and deletion from the dictionary\n- O(log N) for min/max queries\n\nActually, let's create a clean, well-typed implementation of a data structure\nthat provides:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(log N) - using a min-heap with lazy deletion\n- max(): O(log N) - using a max-heap with lazy deletion\n- size(): O(1)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1)\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"Insert or update a key-value pair. O(1) time.\"\"\"\n        if key in self._data:\n            # Mark old entry as deleted in heaps\n            self._deleted.add(key)\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"Delete a key. Returns True if key existed, False otherwise. O(1) time.\"\"\"\n        if key not in self._data:\n            return False\n        del self._data[key]\n        self._deleted.add(key)\n        return True\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"Get value for key. Returns None if not found. O(1) time.\"\"\"\n        return self._data.get(key)\n\n    def _clean_min_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the min-heap. O(log N) amortized.\"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._min_heap)\n            else:\n                break\n\n    def _clean_max_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the max-heap. O(log N) amortized.\"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._max_heap)\n            else:\n                break\n\n    def min(self) -> Optional[Any]:\n        \"\"\"Get the minimum value. O(log N) amortized time. Returns None if empty.\"\"\"\n        self._clean_min_heap()\n        if not self._min_heap:\n            return None\n        return self._min_heap[0][0]\n\n    def max(self) -> Optional[Any]:\n        \"\"\"Get the maximum value. O(log N) amortized time. Returns None if empty.\"\"\"\n        self._clean_max_heap()\n        if not self._max_heap:\n            return None\n        return -self._max_heap[0][0]\n\n    def size(self) -> int:\n        \"\"\"Return the number of elements. O(1) time.\"\"\"\n        return len(self._data)\n\n    def is_empty(self) -> bool:\n        \"\"\"Check if the structure is empty. O(1) time.\"\"\"\n        return len(self._data) == 0\n\n    def keys(self) -> list[Any]:\n        \"\"\"Return all keys. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.keys())\n\n    def values(self) -> list[Any]:\n        \"\"\"Return all values. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.values())\n\n    def items(self) -> list[Tuple[Any, Any]]:\n        \"\"\"Return all key-value pairs. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.items())\n\n    def __contains__(self, key: Any) -> bool:\n        \"\"\"Check if key exists. O(1) time.\"\"\"\n        return key in self._data\n\n    def __len__(self) -> int:\n        \"\"\"Return size. O(1) time.\"\"\"\n        return len(self._data)\n\n    def __repr__(self) -> str:\n        return f\"CoreDataStructure({self._data})\"\n\n\nclass BinarySearchTree:\n    \"\"\"\n    A self-balancing binary search tree (AVL tree) providing:\n    - insert: O(log N)\n    - delete: O(log N)\n    - search: O(log N)\n    - min: O(log N)\n    - max: O(log N)\n    - size: O(1)\n    \"\"\"\n\n    class _Node:\n        __slots__ = ('key', 'value', 'left', 'right', 'height')\n\n        def __init__(self, key: Any, value: Any) -> None:\n            self.key = key\n            self.value = value\n            self.left: Optional[BinarySearchTree._Node] = None\n            self.right: Optional[BinarySearchTree._Node] = None\n            self.height: int = 1\n\n    def __init__(self) -> None:\n        self._root: Optional[BinarySearchTree._Node] = None\n        self._size: int = 0\n\n    def _height(self, node: Optional[BinarySearchTree._Node]) -> int:\n        \"\"\"Get height of node. O(1) time.\"\"\"\n        if node is None:\n            return 0\n        return node.height\n\n    def _update_height(self, node: BinarySearchTree._Node) -> None:\n        \"\"\"Update height of node. O(1) time.\"\"\"\n        node.height = 1 + max(self._height(node.left), self._height(node.right))\n\n    def _balance_factor(self, node: BinarySearchTree._Node) -> int:\n        \"\"\"Get balance factor of node. O(1) time.\"\"\"\n        return self._height(node.left) - self._height(node.right)\n\n    def _rotate_right(self, z: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Right rotation. O(1) time.\"\"\"\n        y = z.left\n        if y is None:\n            return z\n        t2 = y.right\n        y.right = z\n        z.left = t2\n        self._update_height(z)\n        self._update_height(y)\n        return y\n\n    def _rotate_left(self, z: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Left rotation. O(1) time.\"\"\"\n        y = z.right\n        if y is None:\n            return z\n        t2 = y.left\n        y.left = z\n        z.right = t2\n        self._update_height(z)\n        self._update_height(y)\n        return y\n\n    def _rebalance(self, node: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Rebalance node. O(1) time\n\nTask: Write comprehensive unit tests covering normal operations, boundary conditions, and edge cases to verify the correctness and complexity guarantees of the implemented module.",
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199940, Reque]",
+        "extra_metadata": {
+          "node_id": "node.1.2",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 135743.7903261,
+        "end_time_rel_s": 135782.4185327,
+        "latency_ms": 38628.20659999852,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #6 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node.1.1": "```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, plus tracking min/max via a heap-like structure\nor simply maintaining min/max values with lazy deletion.\n\nActually, let's design a more comprehensive structure:\n\n1. A hash map for O(1) key-value lookup\n2. A doubly-linked list for O(1) insertion and deletion\n3. Min and max tracking with O(1) amortized updates\n\nFor true O(1) min/max with deletions, we can use a \"min-max heap\" or track\nmin/max with a counter-based approach. However, the simplest O(1) approach for\nmin/max with arbitrary deletions is to use two heaps with lazy deletion, which\ngives O(log N) for min/max queries.\n\nLet me reconsider: The task says O(1) or O(log N) for ALL operations. So we can\nuse O(log N) where needed.\n\nLet's implement:\n- A dictionary for O(1) lookup\n- A balanced BST or heap for O(log N) min/max\n- O(1) insertion and deletion from the dictionary\n- O(log N) for min/max queries\n\nActually, let's create a clean, well-typed implementation of a data structure\nthat provides:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(log N) - using a min-heap with lazy deletion\n- max(): O(log N) - using a max-heap with lazy deletion\n- size(): O(1)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1)\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"Insert or update a key-value pair. O(1) time.\"\"\"\n        if key in self._data:\n            # Mark old entry as deleted in heaps\n            self._deleted.add(key)\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"Delete a key. Returns True if key existed, False otherwise. O(1) time.\"\"\"\n        if key not in self._data:\n            return False\n        del self._data[key]\n        self._deleted.add(key)\n        return True\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"Get value for key. Returns None if not found. O(1) time.\"\"\"\n        return self._data.get(key)\n\n    def _clean_min_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the min-heap. O(log N) amortized.\"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._min_heap)\n            else:\n                break\n\n    def _clean_max_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the max-heap. O(log N) amortized.\"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._max_heap)\n            else:\n                break\n\n    def min(self) -> Optional[Any]:\n        \"\"\"Get the minimum value. O(log N) amortized time. Returns None if empty.\"\"\"\n        self._clean_min_heap()\n        if not self._min_heap:\n            return None\n        return self._min_heap[0][0]\n\n    def max(self) -> Optional[Any]:\n        \"\"\"Get the maximum value. O(log N) amortized time. Returns None if empty.\"\"\"\n        self._clean_max_heap()\n        if not self._max_heap:\n            return None\n        return -self._max_heap[0][0]\n\n    def size(self) -> int:\n        \"\"\"Return the number of elements. O(1) time.\"\"\"\n        return len(self._data)\n\n    def is_empty(self) -> bool:\n        \"\"\"Check if the structure is empty. O(1) time.\"\"\"\n        return len(self._data) == 0\n\n    def keys(self) -> list[Any]:\n        \"\"\"Return all keys. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.keys())\n\n    def values(self) -> list[Any]:\n        \"\"\"Return all values. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.values())\n\n    def items(self) -> list[Tuple[Any, Any]]:\n        \"\"\"Return all key-value pairs. O(N) time - this is inherently O(N).\"\"\"\n        return list(self._data.items())\n\n    def __contains__(self, key: Any) -> bool:\n        \"\"\"Check if key exists. O(1) time.\"\"\"\n        return key in self._data\n\n    def __len__(self) -> int:\n        \"\"\"Return size. O(1) time.\"\"\"\n        return len(self._data)\n\n    def __repr__(self) -> str:\n        return f\"CoreDataStructure({self._data})\"\n\n\nclass BinarySearchTree:\n    \"\"\"\n    A self-balancing binary search tree (AVL tree) providing:\n    - insert: O(log N)\n    - delete: O(log N)\n    - search: O(log N)\n    - min: O(log N)\n    - max: O(log N)\n    - size: O(1)\n    \"\"\"\n\n    class _Node:\n        __slots__ = ('key', 'value', 'left', 'right', 'height')\n\n        def __init__(self, key: Any, value: Any) -> None:\n            self.key = key\n            self.value = value\n            self.left: Optional[BinarySearchTree._Node] = None\n            self.right: Optional[BinarySearchTree._Node] = None\n            self.height: int = 1\n\n    def __init__(self) -> None:\n        self._root: Optional[BinarySearchTree._Node] = None\n        self._size: int = 0\n\n    def _height(self, node: Optional[BinarySearchTree._Node]) -> int:\n        \"\"\"Get height of node. O(1) time.\"\"\"\n        if node is None:\n            return 0\n        return node.height\n\n    def _update_height(self, node: BinarySearchTree._Node) -> None:\n        \"\"\"Update height of node. O(1) time.\"\"\"\n        node.height = 1 + max(self._height(node.left), self._height(node.right))\n\n    def _balance_factor(self, node: BinarySearchTree._Node) -> int:\n        \"\"\"Get balance factor of node. O(1) time.\"\"\"\n        return self._height(node.left) - self._height(node.right)\n\n    def _rotate_right(self, z: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Right rotation. O(1) time.\"\"\"\n        y = z.left\n        if y is None:\n            return z\n        t2 = y.right\n        y.right = z\n        z.left = t2\n        self._update_height(z)\n        self._update_height(y)\n        return y\n\n    def _rotate_left(self, z: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Left rotation. O(1) time.\"\"\"\n        y = z.right\n        if y is None:\n            return z\n        t2 = y.left\n        y.left = z\n        z.right = t2\n        self._update_height(z)\n        self._update_height(y)\n        return y\n\n    def _rebalance(self, node: BinarySearchTree._Node) -> BinarySearchTree._Node:\n        \"\"\"Rebalance node. O(1) time",
+            "node.1.2": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199940, Reque]"
+          }
+        },
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199851, Reque]",
+        "extra_metadata": {
+          "node_count": 2,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node.1.1",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 7647.686200012686
+    },
+    {
+      "node_id": "node.1.2",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node.1.1"
+      ],
+      "latency_ms": 38646.244600007776
+    }
+  ],
+  "final_response": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199851, Reque]",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node.1",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1": {
+      "coding": 0.9943,
+      "math": 0.0005,
+      "reasoning": 0.0041,
+      "retrieval": 0.0005,
+      "general": 0.0005
+    },
+    "node.1.2": {
+      "coding": 0.7612,
+      "math": 0.023,
+      "reasoning": 0.1698,
+      "retrieval": 0.023,
+      "general": 0.023
+    }
+  },
+  "v2_task_colors": {
+    "node.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node.1.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}
