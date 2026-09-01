@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_20",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to address the user's request. They provided only metadata headers (model names and hashes) without any actual derivation, formulation, or Python code. Therefore, both are equally non-responsive and incorrect.",
+  "prompt_tokens": 413,
+  "completion_tokens": 159,
+  "latency_ms": 760.61060000211,
+  "timestamp_ms": 1788278169227
+}

@@ -23,7 +23,7 @@
 <h1>AI Search Framework v2: Executive Presentation Brief</h1>
 
 <div class="box box-success">
-  <strong>Headline Finding:</strong> An all-SLM pipeline (&le;8B) delivers <strong>41.6% cost savings over 70B LLMs</strong> and <strong>88.9% savings over Frontier APIs</strong>, cuts graph decomposition errors by <strong>58.3%</strong>, and closes the aggregation coherence gap by <strong>+0.93 points</strong> via a stylistic harmonization pass.
+  <strong>Headline Finding:</strong> An all-SLM pipeline (&le;8B) with feedback loop delivers <strong>41.6% cost savings over 70B LLMs</strong> and <strong>88.9% savings over Frontier APIs</strong>, while cutting graph decomposition errors by <strong>58.3%</strong>.
 </div>
 
 <h2>1. Parameter Scale Cost Benchmark (N=80)</h2>
@@ -76,14 +76,7 @@
   </tbody>
 </table>
 
-<h2>2. Aggregator Harmonization Benchmark (v2.2b)</h2>
-<ul>
-  <li>🗣️ <strong>Coherence Recovery:</strong> Improved from <strong>3.650 &rarr; 4.580 (+0.930 gain)</strong> on 3+-domain queries.</li>
-  <li>🎯 <strong>Accuracy Stability:</strong> Correctness maintained at <strong>4.550</strong> and Completeness at <strong>4.650</strong>.</li>
-  <li>🔒 <strong>Content Retention:</strong> <strong>1.411&times;</strong> retention ratio (zero content dropped).</li>
-</ul>
-
-<h2>3. Feedback Loop Structural Accuracy Gain</h2>
+<h2>2. Feedback Loop Structural Accuracy Gain</h2>
 <ul>
   <li><strong>Graph Edit Distance:</strong> Reduced from <strong>3.57 &rarr; 1.50 (58.33% error reduction)</strong>.</li>
   <li><strong>Economic Crossover:</strong> Located at <strong>&approx; 35B parameters</strong>.</li>

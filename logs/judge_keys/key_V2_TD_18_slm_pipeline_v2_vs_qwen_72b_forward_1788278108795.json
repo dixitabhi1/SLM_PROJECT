@@ -1,0 +1,11 @@
+{
+  "query_id": "V2_TD_18",
+  "pair_key": "slm_pipeline_v2_vs_qwen_72b",
+  "order_tag": "forward",
+  "candidate_a_system": "slm_pipeline_v2",
+  "candidate_b_system": "qwen_72b",
+  "status": "FAILED",
+  "error_detail": "Exhausted 5 retries: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+  "public_log_file": "logs/judge_pairwise\\judge_V2_TD_18_slm_pipeline_v2_vs_qwen_72b_forward_1788278108795.json",
+  "timestamp_ms": 1788278108795
+}

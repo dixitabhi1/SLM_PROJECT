@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_19",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide any actual derivation, code, or analysis. They only output metadata tags and a generic placeholder sentence, completely ignoring the user's request for a quantitative formulation and Python simulation. Therefore, both are equally non-responsive and incorrect.",
+  "prompt_tokens": 420,
+  "completion_tokens": 148,
+  "latency_ms": 861.0410000255797,
+  "timestamp_ms": 1788278125149
+}

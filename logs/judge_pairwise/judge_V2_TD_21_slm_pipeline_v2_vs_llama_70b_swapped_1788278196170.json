@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_21",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to provide any actual derivation, formulation, or Python code. They only output meta-text claiming to have addressed the prompt. Therefore, both are equally non-responsive and incorrect.",
+  "prompt_tokens": 421,
+  "completion_tokens": 136,
+  "latency_ms": 3640.71690000128,
+  "timestamp_ms": 1788278196170
+}

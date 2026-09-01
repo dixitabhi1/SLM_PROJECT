@@ -1,0 +1,13 @@
+{
+  "query_id": "V2_TD_18",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "status": "FAILED",
+  "error_detail": "Exhausted 5 retries: <urlopen error [Errno 11001] getaddrinfo failed>",
+  "latency_ms": 5007.012299989583,
+  "timestamp_ms": 1788278092305
+}

@@ -1,0 +1,11 @@
+{
+  "query_id": "V2_TD_18",
+  "pair_key": "slm_pipeline_v2_vs_qwen_32b",
+  "order_tag": "forward",
+  "candidate_a_system": "slm_pipeline_v2",
+  "candidate_b_system": "qwen_32b",
+  "status": "FAILED",
+  "error_detail": "Exhausted 5 retries: <urlopen error [Errno 11001] getaddrinfo failed>",
+  "public_log_file": "logs/judge_pairwise\\judge_V2_TD_18_slm_pipeline_v2_vs_qwen_32b_forward_1788278082149.json",
+  "timestamp_ms": 1788278082149
+}

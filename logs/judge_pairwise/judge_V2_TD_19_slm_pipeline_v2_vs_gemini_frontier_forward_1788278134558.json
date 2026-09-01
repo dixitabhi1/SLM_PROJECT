@@ -1,0 +1,29 @@
+{
+  "query_id": "V2_TD_19",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "status": "SUCCESS",
+  "candidates_shown": [
+    "Candidate A",
+    "Candidate B"
+  ],
+  "selected_candidate": "Tie",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 1
+    }
+  },
+  "primary_differentiator": "completeness",
+  "reasoning": "Both candidates failed to address the user's request. They provided only meta-information (model names and hashes) instead of the required quantitative formulation and Python simulation code. Neither candidate attempted to solve the problem, making them equally non-compliant and useless.",
+  "prompt_tokens": 411,
+  "completion_tokens": 166,
+  "latency_ms": 1090.4206999985036,
+  "timestamp_ms": 1788278134558
+}
