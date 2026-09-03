@@ -44,11 +44,26 @@ class APIGroqModelRunner(BaseModelRunner):
             "Content-Type": "application/json",
             "User-Agent": "curl/7.88.1"
         }
+        # Dynamic TPM clamping for Groq 8000 TPM limit
+        approx_prompt_tokens = int(len(prompt.split()) * 1.35)
+        if system_prompt:
+            approx_prompt_tokens += int(len(system_prompt.split()) * 1.35)
+
+        # If prompt is extremely long, trim middle context to keep under 6200
+        if approx_prompt_tokens > 6200:
+            prompt_words = prompt.split()
+            prompt = " ".join(prompt_words[:3000]) + "\n\n...[Context Windowed for Token Limits]...\n\n" + " ".join(prompt_words[-2500:])
+            approx_prompt_tokens = 5500
+            messages[-1]["content"] = prompt
+
+        requested_max_tokens = kwargs.get("max_tokens", self.max_tokens)
+        safe_max_tokens = min(requested_max_tokens, 1024, max(384, 6500 - approx_prompt_tokens))
+
         body = {
             "model": self.api_model_name,
             "messages": messages,
             "temperature": kwargs.get("temperature", self.temperature),
-            "max_tokens": kwargs.get("max_tokens", self.max_tokens)
+            "max_tokens": safe_max_tokens
         }
 
         req = urllib.request.Request(
@@ -61,7 +76,7 @@ class APIGroqModelRunner(BaseModelRunner):
         start_t = time.perf_counter()
         last_err = None
 
-        for attempt in range(5):
+        for attempt in range(6):
             try:
                 def _do_request():
                     with urllib.request.urlopen(req, timeout=30) as resp:
@@ -86,14 +101,29 @@ class APIGroqModelRunner(BaseModelRunner):
                     metadata={"api_model": self.api_model_name, "raw_usage": data.get("usage")}
                 )
             except urllib.error.HTTPError as e:
-                last_err = f"HTTPError {e.code}: {e.read().decode()[:200]}"
+                err_content = e.read().decode("utf-8", errors="ignore")
+                last_err = f"HTTPError {e.code}: {err_content[:200]}"
                 if e.code == 429:
-                    await asyncio.sleep(2.5 * (attempt + 1))
+                    wait_s = 15.0
+                    if "try again in" in err_content:
+                        try:
+                            raw = err_content.split("try again in")[1].split(".")[0].strip()
+                            if "m" in raw:
+                                parts = raw.split("m")
+                                mins = float(parts[0])
+                                secs = float(parts[1].rstrip("s")) if len(parts) > 1 and parts[1] else 0.0
+                                wait_s = mins * 60.0 + secs + 3.0
+                            else:
+                                wait_s = float(raw.rstrip("s")) + 2.0
+                        except Exception:
+                            wait_s = 15.0
+                    print(f"[{self.api_model_name}] Groq 429 Rate Limit. Sleeping {wait_s:.1f}s before retry {attempt+1}/6...")
+                    await asyncio.sleep(wait_s)
                 else:
-                    await asyncio.sleep(1.0)
+                    await asyncio.sleep(1.5)
             except Exception as e:
                 last_err = str(e)
-                await asyncio.sleep(1.0)
+                await asyncio.sleep(1.5)
 
         end_t = time.perf_counter()
         return ModelResponse(

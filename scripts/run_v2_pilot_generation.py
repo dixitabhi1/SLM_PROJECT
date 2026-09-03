@@ -193,7 +193,7 @@ async def run_pilot_generation(api_key: Optional[str] = None):
                 config={"mode": "real_pilot_generation"}
             )
             slm_dur_s = time.perf_counter() - slm_t0
-            final_resp = pipe_record.get("final_response", "")
+            final_resp = pipe_record.get("response", "") or pipe_record.get("final_response", "")
 
             # Extract token usage from recorded stages
             total_prompt_tok = sum(s.get("prompt_tokens", 0) for s in pipe_record.get("stages", []))
@@ -215,9 +215,10 @@ async def run_pilot_generation(api_key: Optional[str] = None):
                 "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
             }
             append_jsonl_immediate(SLM_FILE, slm_record)
-            completed_slm.add(qid)
+            if slm_record["status"] == "SUCCESS":
+                completed_slm.add(qid)
             calls_made += 1
-            print(f"[{calls_made}/{total_calls}] Executed Real SLM Pipeline for {qid} ({slm_dur_s:.2f}s, subtasks={slm_record['total_subtasks']})")
+            print(f"[{calls_made}/{total_calls}] Executed Real SLM Pipeline for {qid} (Status: {slm_record['status']}, {slm_dur_s:.2f}s, subtasks={slm_record['total_subtasks']})")
 
             await asyncio.sleep(2.3)
 
@@ -245,8 +246,9 @@ async def run_pilot_generation(api_key: Optional[str] = None):
                     "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
                 }
                 append_jsonl_immediate(BASELINE_FILE, b_record)
-                completed_baselines.add((qid, b_id))
-                print(f"[{calls_made}/{total_calls}] Executed Baseline [{b_id}] for {qid} ({b_resp.latency_ms/1000.0:.2f}s)")
+                if b_record["status"] == "SUCCESS":
+                    completed_baselines.add((qid, b_id))
+                print(f"[{calls_made}/{total_calls}] Executed Baseline [{b_id}] for {qid} (Status: {b_record['status']}, {b_resp.latency_ms/1000.0:.2f}s)")
 
                 await asyncio.sleep(2.3)
 

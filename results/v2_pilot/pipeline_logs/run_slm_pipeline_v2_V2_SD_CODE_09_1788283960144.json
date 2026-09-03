@@ -1,0 +1,350 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_09_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_09",
+  "query_text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "2e7cd7bf24983de1041d77e57ec4b70ccfea25cd",
+  "timestamp_start_utc": "2026-09-01T17:29:25.568692+00:00",
+  "timestamp_end_utc": "2026-09-01T17:32:40.144787+00:00",
+  "total_wall_clock_latency_ms": 194576.19189997786,
+  "simulated_parallel_latency_ms": 0.0,
+  "total_prompt_tokens": 0,
+  "total_completion_tokens": 0,
+  "total_tokens": 0,
+  "total_cost_usd": 0.0,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 136761.6912097,
+        "end_time_rel_s": 136800.7286002,
+        "latency_ms": 39037.390500016045,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node.1",
+              "text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node.1": [
+      {
+        "stage_name": "re_decomposition_node.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 136800.7292389,
+        "end_time_rel_s": 136839.4973077,
+        "latency_ms": 38768.06879998185,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1",
+          "text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1",
+              "text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 1,
+              "parent_id": "node.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1",
+          "depth": 1
+        }
+      }
+    ],
+    "re_decomposition_node.1.1": [
+      {
+        "stage_name": "re_decomposition_node.1.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 136839.4983183,
+        "end_time_rel_s": 136878.4984326,
+        "latency_ms": 39000.11429999722,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1.1",
+          "text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 1,
+          "parent_id": "node.1"
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1.1",
+              "text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 2,
+              "parent_id": "node.1.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1.1",
+          "depth": 2
+        }
+      }
+    ],
+    "re_decomposition_node.1.1.1": [
+      {
+        "stage_name": "re_decomposition_node.1.1.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 136878.4998518,
+        "end_time_rel_s": 136917.467349,
+        "latency_ms": 38967.49720000662,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1.1.1",
+          "text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 2,
+          "parent_id": "node.1.1"
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1.1.1",
+              "text": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 3,
+              "parent_id": "node.1.1.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1.1.1",
+          "depth": 3
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 136917.4683854,
+        "end_time_rel_s": 136956.2673739,
+        "latency_ms": 38798.98849999881,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #9 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node.1.1.1.1": "=== Multi-Agent Collaboration (coding, general) ===\n"
+          }
+        },
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199287, Reque]",
+        "extra_metadata": {
+          "node_count": 1,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node.1.1.1.1",
+      "depth": 3,
+      "is_collaboration": true,
+      "team": [
+        "coding",
+        "general"
+      ],
+      "dependencies": [],
+      "latency_ms": 0.007299997378140688
+    }
+  ],
+  "final_response": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199287, Reque]",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node.1",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    },
+    {
+      "event_index": 2,
+      "parent_task_id": "node.1.1",
+      "recursion_depth": 1,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    },
+    {
+      "event_index": 3,
+      "parent_task_id": "node.1.1.1",
+      "recursion_depth": 2,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1.1.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    }
+  },
+  "v2_task_colors": {
+    "node.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    }
+  }
+}

@@ -1,0 +1,476 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_02_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_02",
+  "query_text": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "2e7cd7bf24983de1041d77e57ec4b70ccfea25cd",
+  "timestamp_start_utc": "2026-09-03T06:58:59.115091+00:00",
+  "timestamp_end_utc": "2026-09-03T07:01:12.860737+00:00",
+  "total_wall_clock_latency_ms": 133746.0442999727,
+  "simulated_parallel_latency_ms": 75187.85309995292,
+  "total_prompt_tokens": 11482,
+  "total_completion_tokens": 6662,
+  "total_tokens": 18144,
+  "total_cost_usd": 0.0026780700000000003,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271731.4252411,
+        "end_time_rel_s": 271736.5510933,
+        "latency_ms": 5125.852199969813,
+        "prompt_tokens": 226,
+        "completion_tokens": 364,
+        "total_tokens": 590,
+        "cost_usd": 4.0419999999999996e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Define the core data structures and function signatures for the advanced algorithmic module, ensuring full type annotations using Python's typing module (e.g., List, Dict, Optional, Union) to establish the interface contract.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 0
+            },
+            {
+              "id": "node_2",
+              "text": "Implement the primary algorithmic logic, strictly adhering to O(1) or O(log N) time complexity constraints by utilizing appropriate data structures (e.g., hash maps, balanced trees, or binary search) and avoiding nested loops or linear scans.",
+              "capability": "coding",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 0
+            },
+            {
+              "id": "node_3",
+              "text": "Identify and enumerate comprehensive edge cases for the algorithm, including empty inputs, single-element inputs, maximum/minimum boundary values, and invalid data types, to define the scope of the test suite.",
+              "capability": "reasoning",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 0
+            },
+            {
+              "id": "node_4",
+              "text": "Write a comprehensive unit test suite using a standard testing framework (e.g., pytest) that covers all identified edge cases and standard operational scenarios, asserting both correctness and performance characteristics where applicable.",
+              "capability": "coding",
+              "dependencies": [
+                "node_2",
+                "node_3"
+              ],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node_4": [
+      {
+        "stage_name": "re_decomposition_node_4",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271736.5548218,
+        "end_time_rel_s": 271740.6861979,
+        "latency_ms": 4131.376100005582,
+        "prompt_tokens": 239,
+        "completion_tokens": 154,
+        "total_tokens": 393,
+        "cost_usd": 2.4270000000000003e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node_4",
+          "text": "Write a comprehensive unit test suite using a standard testing framework (e.g., pytest) that covers all identified edge cases and standard operational scenarios, asserting both correctness and performance characteristics where applicable.",
+          "capability": "coding",
+          "dependencies": [
+            "node_2",
+            "node_3"
+          ],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node_4.1",
+              "text": "Design and implement a pytest-based unit test suite that validates the functional correctness of the target module, ensuring comprehensive coverage of all identified edge cases and standard operational scenarios.",
+              "capability": "coding",
+              "dependencies": [
+                "node_2",
+                "node_3"
+              ],
+              "depth": 1,
+              "parent_id": "node_4"
+            },
+            {
+              "id": "node_4.2",
+              "text": "Extend the test suite with performance assertions to verify that the target module meets specific latency and throughput benchmarks under standard and edge-case loads.",
+              "capability": "coding",
+              "dependencies": [
+                "node_4.1"
+              ],
+              "depth": 1,
+              "parent_id": "node_4"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node_4",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node_1": [
+      {
+        "stage_name": "pool_coding_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271740.6880558,
+        "end_time_rel_s": 271743.1216063,
+        "latency_ms": 2433.550500019919,
+        "prompt_tokens": 75,
+        "completion_tokens": 1024,
+        "total_tokens": 1099,
+        "cost_usd": 0.00019332,
+        "confidence_score": null,
+        "input": "Task: Define the core data structures and function signatures for the advanced algorithmic module, ensuring full type annotations using Python's typing module (e.g., List, Dict, Optional, Union) to establish the interface contract.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph.\"\"\"\n        pass\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph.\"\"\"\n        pass\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node.\"\"\"\n        pass\n\n    def get_edge_weight(self, source: int, target: int) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        pass\n\n\n@dataclass\nclass Tree:\n    \"\"\"Represents a tree data structure.\"\"\"\n    root: Optional[Node] = None\n    children: Dict[int, List[int]] = field(default_factory=dict)\n\n    def insert(self, parent_id: int, child: Node) -> None:\n        \"\"\"Insert a child node under a parent node.\"\"\"\n        pass\n\n    def get_depth(self, node_id: int) -> int:\n        \"\"\"Get the depth of a node from the root.\"\"\"\n        pass\n\n    def get_height(self) -> int:\n        \"\"\"Get the height of the tree.\"\"\"\n        pass\n\n\n@dataclass\nclass Matrix:\n    \"\"\"Represents a 2D matrix for linear algebra operations.\"\"\"\n    data: List[List[float]] = field(default_factory=list)\n    rows: int = 0\n    cols: int = 0\n\n    def __post_init__(self) -> None:\n        if self.data:\n            self.rows = len(self.data)\n            self.cols = len(self.data[0]) if self.data else 0\n\n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get an element from the matrix.\"\"\"\n        pass\n\n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set an element in the matrix.\"\"\"\n        pass\n\n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        pass\n\n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        pass\n\n\n@dataclass\nclass AlgorithmResult:\n    \"\"\"Represents the result of an algorithm execution.\"\"\"\n    success: bool\n    data",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_reasoning_node_3": [
+      {
+        "stage_name": "pool_reasoning_node_3",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271743.1220352,
+        "end_time_rel_s": 271760.1462305,
+        "latency_ms": 17024.195300007705,
+        "prompt_tokens": 1104,
+        "completion_tokens": 1024,
+        "total_tokens": 2128,
+        "cost_usd": 0.0003168,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph.\"\"\"\n        pass\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph.\"\"\"\n        pass\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node.\"\"\"\n        pass\n\n    def get_edge_weight(self, source: int, target: int) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        pass\n\n\n@dataclass\nclass Tree:\n    \"\"\"Represents a tree data structure.\"\"\"\n    root: Optional[Node] = None\n    children: Dict[int, List[int]] = field(default_factory=dict)\n\n    def insert(self, parent_id: int, child: Node) -> None:\n        \"\"\"Insert a child node under a parent node.\"\"\"\n        pass\n\n    def get_depth(self, node_id: int) -> int:\n        \"\"\"Get the depth of a node from the root.\"\"\"\n        pass\n\n    def get_height(self) -> int:\n        \"\"\"Get the height of the tree.\"\"\"\n        pass\n\n\n@dataclass\nclass Matrix:\n    \"\"\"Represents a 2D matrix for linear algebra operations.\"\"\"\n    data: List[List[float]] = field(default_factory=list)\n    rows: int = 0\n    cols: int = 0\n\n    def __post_init__(self) -> None:\n        if self.data:\n            self.rows = len(self.data)\n            self.cols = len(self.data[0]) if self.data else 0\n\n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get an element from the matrix.\"\"\"\n        pass\n\n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set an element in the matrix.\"\"\"\n        pass\n\n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        pass\n\n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        pass\n\n\n@dataclass\nclass AlgorithmResult:\n    \"\"\"Represents the result of an algorithm execution.\"\"\"\n    success: bool\n    data\n\nTask: Identify and enumerate comprehensive edge cases for the algorithm, including empty inputs, single-element inputs, maximum/minimum boundary values, and invalid data types, to define the scope of the test suite.",
+        "output": "```python\n\"\"\"\nComprehensive Edge Case Enumeration for the Advanced Algorithmic Module\n\nThis module defines a structured enumeration of edge cases for testing\nthe data structures and algorithms defined in the prerequisite module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph.\"\"\"\n        pass\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph.\"\"\"\n        pass\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node.\"\"\"\n        pass\n\n    def get_edge_weight(self, source: int, target: int) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        pass\n\n\n@dataclass\nclass Tree:\n    \"\"\"Represents a tree data structure.\"\"\"\n    root: Optional[Node] = None\n    children: Dict[int, List[int]] = field(default_factory=dict)\n\n    def insert(self, parent_id: int, child: Node) -> None:\n        \"\"\"Insert a child node under a parent node.\"\"\"\n        pass\n\n    def get_depth(self, node_id: int) -> int:\n        \"\"\"Get the depth of a node from the root.\"\"\"\n        pass\n\n    def get_height(self) -> int:\n        \"\"\"Get the height of the tree.\"\"\"\n        pass\n\n\n@dataclass\nclass Matrix:\n    \"\"\"Represents a 2D matrix for linear algebra operations.\"\"\"\n    data: List[List[float]] = field(default_factory=list)\n    rows: int = 0\n    cols: int = 0\n\n    def __post_init__(self) -> None:\n        if self.data:\n            self.rows = len(self.data)\n            self.cols = len(self.data[0]) if self.data else 0\n\n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get an element from the matrix.\"\"\"\n        pass\n\n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set an element in the matrix.\"\"\"\n        pass\n\n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        pass\n\n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        pass\n\n\n@dataclass\nclass AlgorithmResult:\n    \"\"\"Represents the result of an algorithm execution.\"\"\"\n",
+        "extra_metadata": {
+          "node_id": "node_3",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_2": [
+      {
+        "stage_name": "pool_coding_node_2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271743.1217641,
+        "end_time_rel_s": 271776.3057741,
+        "latency_ms": 33184.01000002632,
+        "prompt_tokens": 1116,
+        "completion_tokens": 1024,
+        "total_tokens": 2140,
+        "cost_usd": 0.00031824,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph.\"\"\"\n        pass\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph.\"\"\"\n        pass\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node.\"\"\"\n        pass\n\n    def get_edge_weight(self, source: int, target: int) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        pass\n\n\n@dataclass\nclass Tree:\n    \"\"\"Represents a tree data structure.\"\"\"\n    root: Optional[Node] = None\n    children: Dict[int, List[int]] = field(default_factory=dict)\n\n    def insert(self, parent_id: int, child: Node) -> None:\n        \"\"\"Insert a child node under a parent node.\"\"\"\n        pass\n\n    def get_depth(self, node_id: int) -> int:\n        \"\"\"Get the depth of a node from the root.\"\"\"\n        pass\n\n    def get_height(self) -> int:\n        \"\"\"Get the height of the tree.\"\"\"\n        pass\n\n\n@dataclass\nclass Matrix:\n    \"\"\"Represents a 2D matrix for linear algebra operations.\"\"\"\n    data: List[List[float]] = field(default_factory=list)\n    rows: int = 0\n    cols: int = 0\n\n    def __post_init__(self) -> None:\n        if self.data:\n            self.rows = len(self.data)\n            self.cols = len(self.data[0]) if self.data else 0\n\n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get an element from the matrix.\"\"\"\n        pass\n\n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set an element in the matrix.\"\"\"\n        pass\n\n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        pass\n\n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        pass\n\n\n@dataclass\nclass AlgorithmResult:\n    \"\"\"Represents the result of an algorithm execution.\"\"\"\n    success: bool\n    data\n\nTask: Implement the primary algorithmic logic, strictly adhering to O(1) or O(log N) time complexity constraints by utilizing appropriate data structures (e.g., hash maps, balanced trees, or binary search) and avoiding nested loops or linear scans.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    # Internal index for O(1) lookups\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node.id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node. O(1) to access the list.\"\"\"\n        return self._adjacency.get(node_id, [])\n\n    def get",
+        "extra_metadata": {
+          "node_id": "node_2",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_4.1": [
+      {
+        "stage_name": "pool_coding_node_4.1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271776.3059909,
+        "end_time_rel_s": 271800.1586229,
+        "latency_ms": 23852.632000052836,
+        "prompt_tokens": 2130,
+        "completion_tokens": 1024,
+        "total_tokens": 3154,
+        "cost_usd": 0.00043992,
+        "confidence_score": null,
+        "input": "[Prerequisite node_2]:\n```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    # Internal index for O(1) lookups\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node.id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node. O(1) to access the list.\"\"\"\n        return self._adjacency.get(node_id, [])\n\n    def get\n\n[Prerequisite node_3]:\n```python\n\"\"\"\nComprehensive Edge Case Enumeration for the Advanced Algorithmic Module\n\nThis module defines a structured enumeration of edge cases for testing\nthe data structures and algorithms defined in the prerequisite module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph.\"\"\"\n        pass\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph.\"\"\"\n        pass\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node.\"\"\"\n        pass\n\n    def get_edge_weight(self, source: int, target: int) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        pass\n\n\n@dataclass\nclass Tree:\n    \"\"\"Represents a tree data structure.\"\"\"\n    root: Optional[Node] = None\n    children: Dict[int, List[int]] = field(default_factory=dict)\n\n    def insert(self, parent_id: int, child: Node) -> None:\n        \"\"\"Insert a child node under a parent node.\"\"\"\n        pass\n\n    def get_depth(self, node_id: int) -> int:\n        \"\"\"Get the depth of a node from the root.\"\"\"\n        pass\n\n    def get_height(self) -> int:\n        \"\"\"Get the height of the tree.\"\"\"\n        pass\n\n\n@dataclass\nclass Matrix:\n    \"\"\"Represents a 2D matrix for linear algebra operations.\"\"\"\n    data: List[List[float]] = field(default_factory=list)\n    rows: int = 0\n    cols: int = 0\n\n    def __post_init__(self) -> None:\n        if self.data:\n            self.rows = len(self.data)\n            self.cols = len(self.data[0]) if self.data else 0\n\n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get an element from the matrix.\"\"\"\n        pass\n\n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set an element in the matrix.\"\"\"\n        pass\n\n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        pass\n\n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        pass\n\n\n@dataclass\nclass AlgorithmResult:\n    \"\"\"Represents the result of an algorithm execution.\"\"\"\n\n\nTask: Design and implement a pytest-based unit test suite that validates the functional correctness of the target module, ensuring comprehensive coverage of all identified edge cases and standard operational scenarios.",
+        "output": "```python\n\"\"\"\nComprehensive pytest-based unit test suite for the Advanced Algorithmic Module.\n\nThis test suite validates the functional correctness of the data structures\nand algorithms defined in the prerequisite module, covering both standard\noperational scenarios and edge cases.\n\"\"\"\n\nimport pytest\nimport math\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\n\n\n# Re-define the core data structures from the prerequisite module\n# (since we need them to be importable/testable in this context)\n\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node_id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor",
+        "extra_metadata": {
+          "node_id": "node_4.1",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node_4.2": [
+      {
+        "stage_name": "pool_coding_node_4.2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271800.1587626,
+        "end_time_rel_s": 271815.877761,
+        "latency_ms": 15718.998400028795,
+        "prompt_tokens": 1094,
+        "completion_tokens": 1024,
+        "total_tokens": 2118,
+        "cost_usd": 0.0003156,
+        "confidence_score": null,
+        "input": "[Prerequisite node_4.1]:\n```python\n\"\"\"\nComprehensive pytest-based unit test suite for the Advanced Algorithmic Module.\n\nThis test suite validates the functional correctness of the data structures\nand algorithms defined in the prerequisite module, covering both standard\noperational scenarios and edge cases.\n\"\"\"\n\nimport pytest\nimport math\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\n\n\n# Re-define the core data structures from the prerequisite module\n# (since we need them to be importable/testable in this context)\n\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node_id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor\n\nTask: Extend the test suite with performance assertions to verify that the target module meets specific latency and throughput benchmarks under standard and edge-case loads.",
+        "output": "```python\n\"\"\"\nComprehensive pytest-based unit test suite for the Advanced Algorithmic Module.\n\nThis test suite validates the functional correctness of the data structures\nand algorithms defined in the prerequisite module, covering both standard\noperational scenarios and edge cases.\n\"\"\"\n\nimport pytest\nimport math\nimport time\nimport random\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\n\n\n# Re-define the core data structures from the prerequisite module\n# (since we need them to be importable/testable in this context)\n\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node.id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:",
+        "extra_metadata": {
+          "node_id": "node_4.2",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271815.8778525,
+        "end_time_rel_s": 271865.1712628,
+        "latency_ms": 49293.410299986135,
+        "prompt_tokens": 5498,
+        "completion_tokens": 1024,
+        "total_tokens": 6522,
+        "cost_usd": 0.0010295,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph.\"\"\"\n        pass\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph.\"\"\"\n        pass\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node.\"\"\"\n        pass\n\n    def get_edge_weight(self, source: int, target: int) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        pass\n\n\n@dataclass\nclass Tree:\n    \"\"\"Represents a tree data structure.\"\"\"\n    root: Optional[Node] = None\n    children: Dict[int, List[int]] = field(default_factory=dict)\n\n    def insert(self, parent_id: int, child: Node) -> None:\n        \"\"\"Insert a child node under a parent node.\"\"\"\n        pass\n\n    def get_depth(self, node_id: int) -> int:\n        \"\"\"Get the depth of a node from the root.\"\"\"\n        pass\n\n    def get_height(self) -> int:\n        \"\"\"Get the height of the tree.\"\"\"\n        pass\n\n\n@dataclass\nclass Matrix:\n    \"\"\"Represents a 2D matrix for linear algebra operations.\"\"\"\n    data: List[List[float]] = field(default_factory=list)\n    rows: int = 0\n    cols: int = 0\n\n    def __post_init__(self) -> None:\n        if self.data:\n            self.rows = len(self.data)\n            self.cols = len(self.data[0]) if self.data else 0\n\n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get an element from the matrix.\"\"\"\n        pass\n\n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set an element in the matrix.\"\"\"\n        pass\n\n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        pass\n\n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        pass\n\n\n@dataclass\nclass AlgorithmResult:\n    \"\"\"Represents the result of an algorithm execution.\"\"\"\n    success: bool\n    data",
+            "node_2": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    # Internal index for O(1) lookups\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node.id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node. O(1) to access the list.\"\"\"\n        return self._adjacency.get(node_id, [])\n\n    def get",
+            "node_3": "```python\n\"\"\"\nComprehensive Edge Case Enumeration for the Advanced Algorithmic Module\n\nThis module defines a structured enumeration of edge cases for testing\nthe data structures and algorithms defined in the prerequisite module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph.\"\"\"\n        pass\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph.\"\"\"\n        pass\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node.\"\"\"\n        pass\n\n    def get_edge_weight(self, source: int, target: int) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        pass\n\n\n@dataclass\nclass Tree:\n    \"\"\"Represents a tree data structure.\"\"\"\n    root: Optional[Node] = None\n    children: Dict[int, List[int]] = field(default_factory=dict)\n\n    def insert(self, parent_id: int, child: Node) -> None:\n        \"\"\"Insert a child node under a parent node.\"\"\"\n        pass\n\n    def get_depth(self, node_id: int) -> int:\n        \"\"\"Get the depth of a node from the root.\"\"\"\n        pass\n\n    def get_height(self) -> int:\n        \"\"\"Get the height of the tree.\"\"\"\n        pass\n\n\n@dataclass\nclass Matrix:\n    \"\"\"Represents a 2D matrix for linear algebra operations.\"\"\"\n    data: List[List[float]] = field(default_factory=list)\n    rows: int = 0\n    cols: int = 0\n\n    def __post_init__(self) -> None:\n        if self.data:\n            self.rows = len(self.data)\n            self.cols = len(self.data[0]) if self.data else 0\n\n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get an element from the matrix.\"\"\"\n        pass\n\n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set an element in the matrix.\"\"\"\n        pass\n\n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        pass\n\n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        pass\n\n\n@dataclass\nclass AlgorithmResult:\n    \"\"\"Represents the result of an algorithm execution.\"\"\"\n",
+            "node_4.1": "```python\n\"\"\"\nComprehensive pytest-based unit test suite for the Advanced Algorithmic Module.\n\nThis test suite validates the functional correctness of the data structures\nand algorithms defined in the prerequisite module, covering both standard\noperational scenarios and edge cases.\n\"\"\"\n\nimport pytest\nimport math\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\n\n\n# Re-define the core data structures from the prerequisite module\n# (since we need them to be importable/testable in this context)\n\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node_id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor",
+            "node_4.2": "```python\n\"\"\"\nComprehensive pytest-based unit test suite for the Advanced Algorithmic Module.\n\nThis test suite validates the functional correctness of the data structures\nand algorithms defined in the prerequisite module, covering both standard\noperational scenarios and edge cases.\n\"\"\"\n\nimport pytest\nimport math\nimport time\nimport random\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\n\n\n# Re-define the core data structures from the prerequisite module\n# (since we need them to be importable/testable in this context)\n\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node.id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:"
+          }
+        },
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    # Internal index for O(1) lookups\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node.id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node. O(1) to access the list.\"\"\"\n        return self._adjacency.get(node_id, [])\n\n    def get",
+        "extra_metadata": {
+          "node_count": 5,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 2433.5719000082463
+    },
+    {
+      "node_id": "node_2",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_1"
+      ],
+      "latency_ms": 33184.02560002869
+    },
+    {
+      "node_id": "node_3",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "reasoning"
+      ],
+      "dependencies": [
+        "node_1"
+      ],
+      "latency_ms": 17024.220899969805
+    },
+    {
+      "node_id": "node_4.1",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_2",
+        "node_3"
+      ],
+      "latency_ms": 23852.658400021028
+    },
+    {
+      "node_id": "node_4.2",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_4.1"
+      ],
+      "latency_ms": 15719.014600035734
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines the core data structures and function signatures\nfor an advanced algorithmic toolkit, with full type annotations.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Set, Callable, Any, TypeVar, Generic\nfrom dataclasses import dataclass, field\nfrom enum import Enum, auto\nfrom abc import ABC, abstractmethod\nimport math\n\n\n# Type variables for generic types\nT = TypeVar('T')\nK = TypeVar('K')\nV = TypeVar('V')\n\n\nclass ComplexityClass(Enum):\n    \"\"\"Enumeration of algorithmic complexity classes.\"\"\"\n    CONSTANT = auto()\n    LOGARITHMIC = auto()\n    LINEAR = auto()\n    LINEAR_LOGARITHMIC = auto()\n    QUADRATIC = auto()\n    CUBIC = auto()\n    EXPONENTIAL = auto()\n    FACTORIAL = auto()\n\n\nclass GraphType(Enum):\n    \"\"\"Enumeration of graph types.\"\"\"\n    DIRECTED = auto()\n    UNDIRECTED = auto()\n    WEIGHTED = auto()\n    UNWEIGHTED = auto()\n\n\n@dataclass\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    id: int\n    value: Any = None\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash(self.id)\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Node):\n            return NotImplemented\n        return self.id == other.id\n\n\n@dataclass\nclass Edge:\n    \"\"\"Represents an edge in a graph.\"\"\"\n    source: int\n    target: int\n    weight: float = 1.0\n    metadata: Dict[str, Any] = field(default_factory=dict)\n\n    def __hash__(self) -> int:\n        return hash((self.source, self.target))\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Edge):\n            return NotImplemented\n        return self.source == other.source and self.target == other.target\n\n\n@dataclass\nclass Graph:\n    \"\"\"Represents a graph data structure.\"\"\"\n    nodes: List[Node] = field(default_factory=list)\n    edges: List[Edge] = field(default_factory=list)\n    is_directed: bool = False\n    is_weighted: bool = False\n    # Internal index for O(1) lookups\n    _node_index: Dict[int, Node] = field(default_factory=dict, repr=False)\n    _adjacency: Dict[int, List[int]] = field(default_factory=dict, repr=False)\n    _edge_index: Dict[Tuple[int, int], float] = field(default_factory=dict, repr=False)\n\n    def __post_init__(self) -> None:\n        \"\"\"Initialize internal indices from existing nodes and edges.\"\"\"\n        self._node_index = {}\n        self._adjacency = {}\n        self._edge_index = {}\n        for node in self.nodes:\n            self._node_index[node.id] = node\n            if node.id not in self._adjacency:\n                self._adjacency[node.id] = []\n        for edge in self.edges:\n            self._add_edge_to_indices(edge)\n\n    def _add_edge_to_indices(self, edge: Edge) -> None:\n        \"\"\"Add edge to internal indices.\"\"\"\n        self._edge_index[(edge.source, edge.target)] = edge.weight\n        if edge.source not in self._adjacency:\n            self._adjacency[edge.source] = []\n        if edge.target not in self._adjacency:\n            self._adjacency[edge.target] = []\n        self._adjacency[edge.source].append(edge.target)\n        if not self.is_directed:\n            self._edge_index[(edge.target, edge.source)] = edge.weight\n            self._adjacency[edge.target].append(edge.source)\n\n    def add_node(self, node: Node) -> None:\n        \"\"\"Add a node to the graph. O(1) average.\"\"\"\n        self.nodes.append(node)\n        self._node_index[node.id] = node\n        if node.id not in self._adjacency:\n            self._adjacency[node.id] = []\n\n    def add_edge(self, edge: Edge) -> None:\n        \"\"\"Add an edge to the graph. O(1) average.\"\"\"\n        self.edges.append(edge)\n        self._add_edge_to_indices(edge)\n\n    def get_neighbors(self, node_id: int) -> List[int]:\n        \"\"\"Get all neighbor node IDs for a given node. O(1) to access the list.\"\"\"\n        return self._adjacency.get(node_id, [])\n\n    def get",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node_4",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "amber"
+      ],
+      "skill_vector": {
+        "coding": 0.3758,
+        "math": 0.0015,
+        "reasoning": 0.0015,
+        "retrieval": 0.6196,
+        "general": 0.0015
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.9978,
+      "math": 0.0006,
+      "reasoning": 0.0006,
+      "retrieval": 0.0006,
+      "general": 0.0006
+    },
+    "node_2": {
+      "coding": 0.9908,
+      "math": 0.0005,
+      "reasoning": 0.004,
+      "retrieval": 0.004,
+      "general": 0.0005
+    },
+    "node_3": {
+      "coding": 0.1698,
+      "math": 0.023,
+      "reasoning": 0.7612,
+      "retrieval": 0.023,
+      "general": 0.023
+    },
+    "node_4": {
+      "coding": 0.3758,
+      "math": 0.0015,
+      "reasoning": 0.0015,
+      "retrieval": 0.6196,
+      "general": 0.0015
+    },
+    "node_4.1": {
+      "coding": 0.9943,
+      "math": 0.0005,
+      "reasoning": 0.0005,
+      "retrieval": 0.0041,
+      "general": 0.0005
+    },
+    "node_4.2": {
+      "coding": 0.6637,
+      "math": 0.02,
+      "reasoning": 0.1481,
+      "retrieval": 0.1481,
+      "general": 0.02
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_3": {
+      "dominant_color": "purple",
+      "dominant_domain": "reasoning",
+      "active_colors": [
+        "purple"
+      ],
+      "active_domains": [
+        "reasoning"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_4": {
+      "dominant_color": "amber",
+      "dominant_domain": "retrieval",
+      "active_colors": [
+        "blue",
+        "amber"
+      ],
+      "active_domains": [
+        "coding",
+        "retrieval"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node_4.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_4.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

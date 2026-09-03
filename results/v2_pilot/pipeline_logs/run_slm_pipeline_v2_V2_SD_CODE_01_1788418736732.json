@@ -1,0 +1,476 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_01_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_01",
+  "query_text": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "2e7cd7bf24983de1041d77e57ec4b70ccfea25cd",
+  "timestamp_start_utc": "2026-09-03T06:57:19.195113+00:00",
+  "timestamp_end_utc": "2026-09-03T06:58:56.732727+00:00",
+  "total_wall_clock_latency_ms": 97537.49749995768,
+  "simulated_parallel_latency_ms": 46542.10909997346,
+  "total_prompt_tokens": 11478,
+  "total_completion_tokens": 6661,
+  "total_tokens": 18139,
+  "total_cost_usd": 0.00267748,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271631.5053769,
+        "end_time_rel_s": 271632.9824989,
+        "latency_ms": 1477.1219999529421,
+        "prompt_tokens": 226,
+        "completion_tokens": 363,
+        "total_tokens": 589,
+        "cost_usd": 4.034e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Define the core data structures and function signatures for the algorithmic module, ensuring full type annotations using Python's typing module (e.g., List, Dict, Optional, Union) to establish the interface contract.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 0
+            },
+            {
+              "id": "node_2",
+              "text": "Implement the primary algorithmic logic, strictly adhering to O(1) or O(log N) time complexity constraints by utilizing appropriate data structures (e.g., hash maps, balanced trees, or binary search) and avoiding nested loops or linear scans.",
+              "capability": "coding",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 0
+            },
+            {
+              "id": "node_3",
+              "text": "Identify and enumerate comprehensive edge cases for the algorithm, including empty inputs, single-element inputs, maximum/minimum boundary values, and invalid data types, to define the scope of the test suite.",
+              "capability": "reasoning",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 0
+            },
+            {
+              "id": "node_4",
+              "text": "Write a comprehensive unit test suite using a standard testing framework (e.g., pytest) that covers all identified edge cases and standard operational scenarios, asserting both correctness and performance characteristics where applicable.",
+              "capability": "coding",
+              "dependencies": [
+                "node_2",
+                "node_3"
+              ],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node_4": [
+      {
+        "stage_name": "re_decomposition_node_4",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271632.9867254,
+        "end_time_rel_s": 271633.6240121,
+        "latency_ms": 637.2866999590769,
+        "prompt_tokens": 239,
+        "completion_tokens": 154,
+        "total_tokens": 393,
+        "cost_usd": 2.4270000000000003e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node_4",
+          "text": "Write a comprehensive unit test suite using a standard testing framework (e.g., pytest) that covers all identified edge cases and standard operational scenarios, asserting both correctness and performance characteristics where applicable.",
+          "capability": "coding",
+          "dependencies": [
+            "node_2",
+            "node_3"
+          ],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node_4.1",
+              "text": "Design and implement a pytest-based unit test suite that validates the functional correctness of the target module, ensuring comprehensive coverage of all identified edge cases and standard operational scenarios.",
+              "capability": "coding",
+              "dependencies": [
+                "node_2",
+                "node_3"
+              ],
+              "depth": 1,
+              "parent_id": "node_4"
+            },
+            {
+              "id": "node_4.2",
+              "text": "Extend the test suite with performance assertions to verify that the target module meets specific latency and throughput benchmarks under standard and edge-case loads.",
+              "capability": "coding",
+              "dependencies": [
+                "node_4.1"
+              ],
+              "depth": 1,
+              "parent_id": "node_4"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node_4",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node_1": [
+      {
+        "stage_name": "pool_coding_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271633.6253394,
+        "end_time_rel_s": 271636.0676547,
+        "latency_ms": 2442.3152999952435,
+        "prompt_tokens": 74,
+        "completion_tokens": 1024,
+        "total_tokens": 1098,
+        "cost_usd": 0.0001932,
+        "confidence_score": null,
+        "input": "Task: Define the core data structures and function signatures for the algorithmic module, ensuring full type annotations using Python's typing module (e.g., List, Dict, Optional, Union) to establish the interface contract.",
+        "output": "```python\n\"\"\"\nCore data structures and function signatures for the algorithmic module.\n\nThis module defines the interface contract using full type annotations\nfrom Python's typing module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\n\n\n# Core data structures\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"Represents a graph data structure with nodes and edges.\"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph.\"\"\"\n        ...\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes.\"\"\"\n        ...\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node.\"\"\"\n        ...\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        ...\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position.\"\"\"\n        ...\n    \n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set element at specified position.\"\"\"\n        ...\n    \n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        ...\n    \n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        ...\n\n\nclass Segment:\n    \"\"\"Represents a line segment in 2D space.\"\"\"\n    \n    def __init__(self, start: Tuple[float, float], end: Tuple[float, float]) -> None:\n        self.start: Tuple[float, float] = start\n        self.end: Tuple[float, float] = end\n    \n    def length(self) -> float:\n        \"\"\"Calculate the length of the segment.\"\"\"\n        ...\n    \n    def midpoint(self) -> Tuple[float, float]:\n        \"\"\"Calculate the midpoint of the segment.\"\"\"\n        ...\n\n\nclass Point:\n    \"\"\"Represents a point in 2D space.\"\"\"\n    \n    def __init__(self, x: float, y: float) -> None:\n        self.x: float = x\n        self.y: float = y\n    \n    def distance(self, other: 'Point') -> float:\n        \"\"\"Calculate Euclidean distance to another point.\"\"\"\n        ...\n\n\n# Function signatures for core algorithms\n\ndef shortest_path(graph: Graph, start: Any, end: Any) -> Optional[List[Any]]:\n    \"\"\"\n    Find the shortest path between two nodes in a graph.\n    \n    Args:\n        graph: The graph to search in.\n        start: The starting node value.\n        end: The ending node value.\n    \n    Returns:\n        A list of node values representing the shortest path, or None if no path exists.\n    \"\"\"\n    ...\n\n\ndef dijkstra(graph: Graph, start: Any) -> Dict[Any, float]:\n    \"\"\"\n    Compute shortest distances from start node to all reachable nodes using Dijkstra's algorithm.\n    \n    Args:\n        graph: The weighted graph.\n        start: The starting node value.\n    \n    Returns:\n        A dictionary mapping node values to their shortest distance from start.\n    \"\"\"\n    ...\n\n\ndef binary_search(arr: List[Union[int, float]], target: Union[int, float]) -> int:\n    \"\"\"\n",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_2": [
+      {
+        "stage_name": "pool_coding_node_2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271636.0677978,
+        "end_time_rel_s": 271638.518723,
+        "latency_ms": 2450.925200013444,
+        "prompt_tokens": 1115,
+        "completion_tokens": 1024,
+        "total_tokens": 2139,
+        "cost_usd": 0.00031811999999999997,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```python\n\"\"\"\nCore data structures and function signatures for the algorithmic module.\n\nThis module defines the interface contract using full type annotations\nfrom Python's typing module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\n\n\n# Core data structures\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"Represents a graph data structure with nodes and edges.\"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph.\"\"\"\n        ...\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes.\"\"\"\n        ...\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node.\"\"\"\n        ...\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        ...\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position.\"\"\"\n        ...\n    \n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set element at specified position.\"\"\"\n        ...\n    \n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        ...\n    \n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        ...\n\n\nclass Segment:\n    \"\"\"Represents a line segment in 2D space.\"\"\"\n    \n    def __init__(self, start: Tuple[float, float], end: Tuple[float, float]) -> None:\n        self.start: Tuple[float, float] = start\n        self.end: Tuple[float, float] = end\n    \n    def length(self) -> float:\n        \"\"\"Calculate the length of the segment.\"\"\"\n        ...\n    \n    def midpoint(self) -> Tuple[float, float]:\n        \"\"\"Calculate the midpoint of the segment.\"\"\"\n        ...\n\n\nclass Point:\n    \"\"\"Represents a point in 2D space.\"\"\"\n    \n    def __init__(self, x: float, y: float) -> None:\n        self.x: float = x\n        self.y: float = y\n    \n    def distance(self, other: 'Point') -> float:\n        \"\"\"Calculate Euclidean distance to another point.\"\"\"\n        ...\n\n\n# Function signatures for core algorithms\n\ndef shortest_path(graph: Graph, start: Any, end: Any) -> Optional[List[Any]]:\n    \"\"\"\n    Find the shortest path between two nodes in a graph.\n    \n    Args:\n        graph: The graph to search in.\n        start: The starting node value.\n        end: The ending node value.\n    \n    Returns:\n        A list of node values representing the shortest path, or None if no path exists.\n    \"\"\"\n    ...\n\n\ndef dijkstra(graph: Graph, start: Any) -> Dict[Any, float]:\n    \"\"\"\n    Compute shortest distances from start node to all reachable nodes using Dijkstra's algorithm.\n    \n    Args:\n        graph: The weighted graph.\n        start: The starting node value.\n    \n    Returns:\n        A dictionary mapping node values to their shortest distance from start.\n    \"\"\"\n    ...\n\n\ndef binary_search(arr: List[Union[int, float]], target: Union[int, float]) -> int:\n    \"\"\"\n\n\nTask: Implement the primary algorithmic logic, strictly adhering to O(1) or O(log N) time complexity constraints by utilizing appropriate data structures (e.g., hash maps, balanced trees, or binary search) and avoiding nested loops or linear scans.",
+        "output": "```python\n\"\"\"\nCore data structures and function signatures for the algorithmic module.\n\nThis module defines the interface contract using full type annotations\nfrom Python's typing module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport heapq\nimport math\n\n\n# Core data structures\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"Represents a graph data structure with nodes and edges.\"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n        # For O(1) neighbor lookup, maintain adjacency list\n        self._adjacency: Dict[Any, List[Tuple[Any, Optional[float]]]] = {}\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph.\"\"\"\n        if value not in self.nodes:\n            node = Node(value)\n            self.nodes[value] = node\n            self._adjacency[value] = []\n        return self.nodes[value]\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes.\"\"\"\n        source_node = self.add_node(source_value)\n        target_node = self.add_node(target_value)\n        edge = Edge(source_node, target_node, weight)\n        self.edges.append(edge)\n        \n        # Add to adjacency list\n        self._adjacency[source_value].append((target_value, weight))\n        if not self.directed:\n            self._adjacency[target_value].append((source_value, weight))\n        \n        # Update node neighbors\n        source_node.neighbors.append(target_node)\n        if not self.directed:\n            target_node.neighbors.append(source_node)\n        \n        return edge\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node.\"\"\"\n        if node_value not in self._adjacency:\n            return []\n        return [self.nodes[neighbor_value] for neighbor_value, _ in self._adjacency[node_value]]\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        if source_value not in self._adjacency:\n            return None\n        for neighbor_value, weight in self._adjacency[source_value]:\n            if neighbor_value == target_value:\n                return weight\n        return None\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position.\"\"\"\n        return self.data[row][col]\n    \n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set element at specified position.\"\"\"\n        self.data[row][col] = value\n    \n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        if not self.data:\n            return Matrix([])\n        transposed = [[self.data[i][j] for i in range(self.rows)] for j in range(self.cols)]\n        return Matrix(transposed)\n    \n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        if self.cols != other.rows:\n            raise ValueError(\"Matrix dimensions do not match for multiplication\")\n        \n        result = [[0.0] * other.cols for _ in range(self.rows)]\n        for i in range(self.rows):\n            for k in range(self.cols):\n                if self.data[i][k] != 0:\n                    for j in range(other.cols):\n",
+        "extra_metadata": {
+          "node_id": "node_2",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_reasoning_node_3": [
+      {
+        "stage_name": "pool_reasoning_node_3",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271636.0688103,
+        "end_time_rel_s": 271638.6002978,
+        "latency_ms": 2531.487499945797,
+        "prompt_tokens": 1103,
+        "completion_tokens": 1024,
+        "total_tokens": 2127,
+        "cost_usd": 0.00031667999999999996,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```python\n\"\"\"\nCore data structures and function signatures for the algorithmic module.\n\nThis module defines the interface contract using full type annotations\nfrom Python's typing module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\n\n\n# Core data structures\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"Represents a graph data structure with nodes and edges.\"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph.\"\"\"\n        ...\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes.\"\"\"\n        ...\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node.\"\"\"\n        ...\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        ...\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position.\"\"\"\n        ...\n    \n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set element at specified position.\"\"\"\n        ...\n    \n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        ...\n    \n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        ...\n\n\nclass Segment:\n    \"\"\"Represents a line segment in 2D space.\"\"\"\n    \n    def __init__(self, start: Tuple[float, float], end: Tuple[float, float]) -> None:\n        self.start: Tuple[float, float] = start\n        self.end: Tuple[float, float] = end\n    \n    def length(self) -> float:\n        \"\"\"Calculate the length of the segment.\"\"\"\n        ...\n    \n    def midpoint(self) -> Tuple[float, float]:\n        \"\"\"Calculate the midpoint of the segment.\"\"\"\n        ...\n\n\nclass Point:\n    \"\"\"Represents a point in 2D space.\"\"\"\n    \n    def __init__(self, x: float, y: float) -> None:\n        self.x: float = x\n        self.y: float = y\n    \n    def distance(self, other: 'Point') -> float:\n        \"\"\"Calculate Euclidean distance to another point.\"\"\"\n        ...\n\n\n# Function signatures for core algorithms\n\ndef shortest_path(graph: Graph, start: Any, end: Any) -> Optional[List[Any]]:\n    \"\"\"\n    Find the shortest path between two nodes in a graph.\n    \n    Args:\n        graph: The graph to search in.\n        start: The starting node value.\n        end: The ending node value.\n    \n    Returns:\n        A list of node values representing the shortest path, or None if no path exists.\n    \"\"\"\n    ...\n\n\ndef dijkstra(graph: Graph, start: Any) -> Dict[Any, float]:\n    \"\"\"\n    Compute shortest distances from start node to all reachable nodes using Dijkstra's algorithm.\n    \n    Args:\n        graph: The weighted graph.\n        start: The starting node value.\n    \n    Returns:\n        A dictionary mapping node values to their shortest distance from start.\n    \"\"\"\n    ...\n\n\ndef binary_search(arr: List[Union[int, float]], target: Union[int, float]) -> int:\n    \"\"\"\n\n\nTask: Identify and enumerate comprehensive edge cases for the algorithm, including empty inputs, single-element inputs, maximum/minimum boundary values, and invalid data types, to define the scope of the test suite.",
+        "output": "```python\n\"\"\"\nComprehensive edge case enumeration for the algorithmic module.\n\nThis module defines the scope of the test suite by identifying and\nenumerating edge cases for each core data structure and algorithm.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport math\n\n\n# =============================================================================\n# Edge Cases for Node\n# =============================================================================\n\nNODE_EDGE_CASES: List[Dict[str, Any]] = [\n    {\n        \"name\": \"node_with_default_neighbors\",\n        \"description\": \"Node created without specifying neighbors (should default to empty list)\",\n        \"input\": {\"value\": 1, \"neighbors\": None},\n        \"expected\": \"neighbors is an empty list\",\n    },\n    {\n        \"name\": \"node_with_empty_neighbors_list\",\n        \"description\": \"Node created with an explicitly empty neighbors list\",\n        \"input\": {\"value\": 2, \"neighbors\": []},\n        \"expected\": \"neighbors is an empty list\",\n    },\n    {\n        \"name\": \"node_with_single_neighbor\",\n        \"description\": \"Node with exactly one neighbor\",\n        \"input\": {\"value\": 3, \"neighbors\": [Node(4)]},\n        \"expected\": \"neighbors has length 1\",\n    },\n    {\n        \"name\": \"node_with_multiple_neighbors\",\n        \"description\": \"Node with multiple neighbors\",\n        \"input\": {\"value\": 5, \"neighbors\": [Node(6), Node(7), Node(8)]},\n        \"expected\": \"neighbors has length 3\",\n    },\n    {\n        \"name\": \"node_with_none_value\",\n        \"description\": \"Node with None as its value\",\n        \"input\": {\"value\": None, \"neighbors\": []},\n        \"expected\": \"value is None\",\n    },\n    {\n        \"name\": \"node_with_string_value\",\n        \"description\": \"Node with a string value\",\n        \"input\": {\"value\": \"hello\", \"neighbors\": []},\n        \"expected\": \"value is 'hello'\",\n    },\n    {\n        \"name\": \"node_with_float_value\",\n        \"description\": \"Node with a float value\",\n        \"input\": {\"value\": 3.14, \"neighbors\": []},\n        \"expected\": \"value is 3.14\",\n    },\n    {\n        \"name\": \"node_with_list_value\",\n        \"description\": \"Node with a list as its value (unusual but valid per Any type)\",\n        \"input\": {\"value\": [1, 2, 3], \"neighbors\": []},\n        \"expected\": \"value is [1, 2, 3]\",\n    },\n    {\n        \"name\": \"node_with_dict_value\",\n        \"description\": \"Node with a dict as its value\",\n        \"input\": {\"value\": {\"key\": \"value\"}, \"neighbors\": []},\n        \"expected\": \"value is {'key': 'value'}\",\n    },\n    {\n        \"name\": \"node_with_self_reference\",\n        \"description\": \"Node that references itself as a neighbor (circular reference)\",\n        \"input\": {\"value\": 10, \"neighbors\": None},  # Self-reference set after creation\n        \"expected\": \"neighbors contains the node itself\",\n    },\n]\n\n\n# =============================================================================\n# Edge Cases for Edge\n# =============================================================================\n\nEDGE_EDGE_CASES: List[Dict[str, Any]] = [\n    {\n        \"name\": \"edge_with_default_weight\",\n        \"description\": \"Edge created without specifying weight (should default to None)\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": None},\n        \"expected\": \"weight is None\",\n    },\n    {\n        \"name\": \"edge_with_zero_weight\",\n        \"description\": \"Edge with weight 0\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": 0},\n        \"expected\": \"weight is 0\",\n    },\n    {\n        \"name\": \"edge_with_negative_weight\",\n        \"description\": \"Edge with negative weight (may be invalid for Dijkstra)\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": -5},\n        \"expected\": \"weight is -5\",\n    },\n    {\n        \"name\": \"edge_with_float_weight\",\n        \"description\": \"Edge with a float weight\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": 3.14},",
+        "extra_metadata": {
+          "node_id": "node_3",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_4.1": [
+      {
+        "stage_name": "pool_coding_node_4.1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271638.6004261,
+        "end_time_rel_s": 271664.2945837,
+        "latency_ms": 25694.15759999538,
+        "prompt_tokens": 2130,
+        "completion_tokens": 1024,
+        "total_tokens": 3154,
+        "cost_usd": 0.00043992,
+        "confidence_score": null,
+        "input": "[Prerequisite node_2]:\n```python\n\"\"\"\nCore data structures and function signatures for the algorithmic module.\n\nThis module defines the interface contract using full type annotations\nfrom Python's typing module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport heapq\nimport math\n\n\n# Core data structures\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"Represents a graph data structure with nodes and edges.\"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n        # For O(1) neighbor lookup, maintain adjacency list\n        self._adjacency: Dict[Any, List[Tuple[Any, Optional[float]]]] = {}\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph.\"\"\"\n        if value not in self.nodes:\n            node = Node(value)\n            self.nodes[value] = node\n            self._adjacency[value] = []\n        return self.nodes[value]\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes.\"\"\"\n        source_node = self.add_node(source_value)\n        target_node = self.add_node(target_value)\n        edge = Edge(source_node, target_node, weight)\n        self.edges.append(edge)\n        \n        # Add to adjacency list\n        self._adjacency[source_value].append((target_value, weight))\n        if not self.directed:\n            self._adjacency[target_value].append((source_value, weight))\n        \n        # Update node neighbors\n        source_node.neighbors.append(target_node)\n        if not self.directed:\n            target_node.neighbors.append(source_node)\n        \n        return edge\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node.\"\"\"\n        if node_value not in self._adjacency:\n            return []\n        return [self.nodes[neighbor_value] for neighbor_value, _ in self._adjacency[node_value]]\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        if source_value not in self._adjacency:\n            return None\n        for neighbor_value, weight in self._adjacency[source_value]:\n            if neighbor_value == target_value:\n                return weight\n        return None\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position.\"\"\"\n        return self.data[row][col]\n    \n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set element at specified position.\"\"\"\n        self.data[row][col] = value\n    \n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        if not self.data:\n            return Matrix([])\n        transposed = [[self.data[i][j] for i in range(self.rows)] for j in range(self.cols)]\n        return Matrix(transposed)\n    \n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        if self.cols != other.rows:\n            raise ValueError(\"Matrix dimensions do not match for multiplication\")\n        \n        result = [[0.0] * other.cols for _ in range(self.rows)]\n        for i in range(self.rows):\n            for k in range(self.cols):\n                if self.data[i][k] != 0:\n                    for j in range(other.cols):\n\n\n[Prerequisite node_3]:\n```python\n\"\"\"\nComprehensive edge case enumeration for the algorithmic module.\n\nThis module defines the scope of the test suite by identifying and\nenumerating edge cases for each core data structure and algorithm.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport math\n\n\n# =============================================================================\n# Edge Cases for Node\n# =============================================================================\n\nNODE_EDGE_CASES: List[Dict[str, Any]] = [\n    {\n        \"name\": \"node_with_default_neighbors\",\n        \"description\": \"Node created without specifying neighbors (should default to empty list)\",\n        \"input\": {\"value\": 1, \"neighbors\": None},\n        \"expected\": \"neighbors is an empty list\",\n    },\n    {\n        \"name\": \"node_with_empty_neighbors_list\",\n        \"description\": \"Node created with an explicitly empty neighbors list\",\n        \"input\": {\"value\": 2, \"neighbors\": []},\n        \"expected\": \"neighbors is an empty list\",\n    },\n    {\n        \"name\": \"node_with_single_neighbor\",\n        \"description\": \"Node with exactly one neighbor\",\n        \"input\": {\"value\": 3, \"neighbors\": [Node(4)]},\n        \"expected\": \"neighbors has length 1\",\n    },\n    {\n        \"name\": \"node_with_multiple_neighbors\",\n        \"description\": \"Node with multiple neighbors\",\n        \"input\": {\"value\": 5, \"neighbors\": [Node(6), Node(7), Node(8)]},\n        \"expected\": \"neighbors has length 3\",\n    },\n    {\n        \"name\": \"node_with_none_value\",\n        \"description\": \"Node with None as its value\",\n        \"input\": {\"value\": None, \"neighbors\": []},\n        \"expected\": \"value is None\",\n    },\n    {\n        \"name\": \"node_with_string_value\",\n        \"description\": \"Node with a string value\",\n        \"input\": {\"value\": \"hello\", \"neighbors\": []},\n        \"expected\": \"value is 'hello'\",\n    },\n    {\n        \"name\": \"node_with_float_value\",\n        \"description\": \"Node with a float value\",\n        \"input\": {\"value\": 3.14, \"neighbors\": []},\n        \"expected\": \"value is 3.14\",\n    },\n    {\n        \"name\": \"node_with_list_value\",\n        \"description\": \"Node with a list as its value (unusual but valid per Any type)\",\n        \"input\": {\"value\": [1, 2, 3], \"neighbors\": []},\n        \"expected\": \"value is [1, 2, 3]\",\n    },\n    {\n        \"name\": \"node_with_dict_value\",\n        \"description\": \"Node with a dict as its value\",\n        \"input\": {\"value\": {\"key\": \"value\"}, \"neighbors\": []},\n        \"expected\": \"value is {'key': 'value'}\",\n    },\n    {\n        \"name\": \"node_with_self_reference\",\n        \"description\": \"Node that references itself as a neighbor (circular reference)\",\n        \"input\": {\"value\": 10, \"neighbors\": None},  # Self-reference set after creation\n        \"expected\": \"neighbors contains the node itself\",\n    },\n]\n\n\n# =============================================================================\n# Edge Cases for Edge\n# =============================================================================\n\nEDGE_EDGE_CASES: List[Dict[str, Any]] = [\n    {\n        \"name\": \"edge_with_default_weight\",\n        \"description\": \"Edge created without specifying weight (should default to None)\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": None},\n        \"expected\": \"weight is None\",\n    },\n    {\n        \"name\": \"edge_with_zero_weight\",\n        \"description\": \"Edge with weight 0\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": 0},\n        \"expected\": \"weight is 0\",\n    },\n    {\n        \"name\": \"edge_with_negative_weight\",\n        \"description\": \"Edge with negative weight (may be invalid for Dijkstra)\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": -5},\n        \"expected\": \"weight is -5\",\n    },\n    {\n        \"name\": \"edge_with_float_weight\",\n        \"description\": \"Edge with a float weight\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": 3.14},\n\nTask: Design and implement a pytest-based unit test suite that validates the functional correctness of the target module, ensuring comprehensive coverage of all identified edge cases and standard operational scenarios.",
+        "output": "```python\n\"\"\"\nPytest-based unit test suite for the algorithmic module.\n\nThis test suite validates the functional correctness of the core data structures\n(Node, Edge, Graph, Matrix) and ensures comprehensive coverage of all identified\nedge cases and standard operational scenarios.\n\"\"\"\n\nimport pytest\nimport math\nfrom typing import List, Dict, Optional, Any\n\n# Import the module under test\n# Assuming the module is in the same directory or properly installed\n# We'll import the classes directly\ntry:\n    from node_2 import Node, Edge, Graph, Matrix\nexcept ImportError:\n    # Fallback: define minimal versions if import fails (for testing purposes)\n    # In a real scenario, the module should be importable\n    pass\n\n\nclass TestNode:\n    \"\"\"Tests for the Node class.\"\"\"\n    \n    def test_node_with_default_neighbors(self):\n        \"\"\"Node created without specifying neighbors should default to empty list.\"\"\"\n        node = Node(1)\n        assert node.value == 1\n        assert node.neighbors == []\n    \n    def test_node_with_empty_neighbors_list(self):\n        \"\"\"Node created with an explicitly empty neighbors list.\"\"\"\n        node = Node(2, neighbors=[])\n        assert node.value == 2\n        assert node.neighbors == []\n    \n    def test_node_with_single_neighbor(self):\n        \"\"\"Node with exactly one neighbor.\"\"\"\n        neighbor = Node(4)\n        node = Node(3, neighbors=[neighbor])\n        assert node.value == 3\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is neighbor\n    \n    def test_node_with_multiple_neighbors(self):\n        \"\"\"Node with multiple neighbors.\"\"\"\n        neighbors = [Node(6), Node(7), Node(8)]\n        node = Node(5, neighbors=neighbors)\n        assert node.value == 5\n        assert len(node.neighbors) == 3\n        for i, n in enumerate(neighbors):\n            assert node.neighbors[i] is n\n    \n    def test_node_with_none_value(self):\n        \"\"\"Node with None as its value.\"\"\"\n        node = Node(None)\n        assert node.value is None\n        assert node.neighbors == []\n    \n    def test_node_with_string_value(self):\n        \"\"\"Node with a string value.\"\"\"\n        node = Node(\"hello\")\n        assert node.value == \"hello\"\n        assert node.neighbors == []\n    \n    def test_node_with_float_value(self):\n        \"\"\"Node with a float value.\"\"\"\n        node = Node(3.14)\n        assert node.value == 3.14\n        assert node.neighbors == []\n    \n    def test_node_with_list_value(self):\n        \"\"\"Node with a list as its value.\"\"\"\n        node = Node([1, 2, 3])\n        assert node.value == [1, 2, 3]\n        assert node.neighbors == []\n    \n    def test_node_with_dict_value(self):\n        \"\"\"Node with a dict as its value.\"\"\"\n        node = Node({\"key\": \"value\"})\n        assert node.value == {\"key\": \"value\"}\n        assert node.neighbors == []\n    \n    def test_node_with_self_reference(self):\n        \"\"\"Node that references itself as a neighbor (circular reference).\"\"\"\n        node = Node(10)\n        node.neighbors.append(node)\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is node\n\n\nclass TestEdge:\n    \"\"\"Tests for the Edge class.\"\"\"\n    \n    def test_edge_with_default_weight(self):\n        \"\"\"Edge created without specifying weight should default to None.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target)\n        assert edge.source is source\n        assert edge.target is target\n        assert edge.weight is None\n    \n    def test_edge_with_zero_weight(self):\n        \"\"\"Edge with weight 0.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=0)\n        assert edge.weight == 0\n    \n    def test_edge_with_negative_weight(self):\n        \"\"\"Edge with negative weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=-5)\n        assert edge.weight == -5\n    \n    def test_edge_with_float_weight(self):\n        \"\"\"Edge with a float weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=3.14)\n        assert edge.weight == 3.14\n    \n    def test_edge_with_large_weight(self):\n        \"\"\"Edge with a very large weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge",
+        "extra_metadata": {
+          "node_id": "node_4.1",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node_4.2": [
+      {
+        "stage_name": "pool_coding_node_4.2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271664.2947138,
+        "end_time_rel_s": 271680.170159,
+        "latency_ms": 15875.44519995572,
+        "prompt_tokens": 1094,
+        "completion_tokens": 1024,
+        "total_tokens": 2118,
+        "cost_usd": 0.0003156,
+        "confidence_score": null,
+        "input": "[Prerequisite node_4.1]:\n```python\n\"\"\"\nPytest-based unit test suite for the algorithmic module.\n\nThis test suite validates the functional correctness of the core data structures\n(Node, Edge, Graph, Matrix) and ensures comprehensive coverage of all identified\nedge cases and standard operational scenarios.\n\"\"\"\n\nimport pytest\nimport math\nfrom typing import List, Dict, Optional, Any\n\n# Import the module under test\n# Assuming the module is in the same directory or properly installed\n# We'll import the classes directly\ntry:\n    from node_2 import Node, Edge, Graph, Matrix\nexcept ImportError:\n    # Fallback: define minimal versions if import fails (for testing purposes)\n    # In a real scenario, the module should be importable\n    pass\n\n\nclass TestNode:\n    \"\"\"Tests for the Node class.\"\"\"\n    \n    def test_node_with_default_neighbors(self):\n        \"\"\"Node created without specifying neighbors should default to empty list.\"\"\"\n        node = Node(1)\n        assert node.value == 1\n        assert node.neighbors == []\n    \n    def test_node_with_empty_neighbors_list(self):\n        \"\"\"Node created with an explicitly empty neighbors list.\"\"\"\n        node = Node(2, neighbors=[])\n        assert node.value == 2\n        assert node.neighbors == []\n    \n    def test_node_with_single_neighbor(self):\n        \"\"\"Node with exactly one neighbor.\"\"\"\n        neighbor = Node(4)\n        node = Node(3, neighbors=[neighbor])\n        assert node.value == 3\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is neighbor\n    \n    def test_node_with_multiple_neighbors(self):\n        \"\"\"Node with multiple neighbors.\"\"\"\n        neighbors = [Node(6), Node(7), Node(8)]\n        node = Node(5, neighbors=neighbors)\n        assert node.value == 5\n        assert len(node.neighbors) == 3\n        for i, n in enumerate(neighbors):\n            assert node.neighbors[i] is n\n    \n    def test_node_with_none_value(self):\n        \"\"\"Node with None as its value.\"\"\"\n        node = Node(None)\n        assert node.value is None\n        assert node.neighbors == []\n    \n    def test_node_with_string_value(self):\n        \"\"\"Node with a string value.\"\"\"\n        node = Node(\"hello\")\n        assert node.value == \"hello\"\n        assert node.neighbors == []\n    \n    def test_node_with_float_value(self):\n        \"\"\"Node with a float value.\"\"\"\n        node = Node(3.14)\n        assert node.value == 3.14\n        assert node.neighbors == []\n    \n    def test_node_with_list_value(self):\n        \"\"\"Node with a list as its value.\"\"\"\n        node = Node([1, 2, 3])\n        assert node.value == [1, 2, 3]\n        assert node.neighbors == []\n    \n    def test_node_with_dict_value(self):\n        \"\"\"Node with a dict as its value.\"\"\"\n        node = Node({\"key\": \"value\"})\n        assert node.value == {\"key\": \"value\"}\n        assert node.neighbors == []\n    \n    def test_node_with_self_reference(self):\n        \"\"\"Node that references itself as a neighbor (circular reference).\"\"\"\n        node = Node(10)\n        node.neighbors.append(node)\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is node\n\n\nclass TestEdge:\n    \"\"\"Tests for the Edge class.\"\"\"\n    \n    def test_edge_with_default_weight(self):\n        \"\"\"Edge created without specifying weight should default to None.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target)\n        assert edge.source is source\n        assert edge.target is target\n        assert edge.weight is None\n    \n    def test_edge_with_zero_weight(self):\n        \"\"\"Edge with weight 0.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=0)\n        assert edge.weight == 0\n    \n    def test_edge_with_negative_weight(self):\n        \"\"\"Edge with negative weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=-5)\n        assert edge.weight == -5\n    \n    def test_edge_with_float_weight(self):\n        \"\"\"Edge with a float weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=3.14)\n        assert edge.weight == 3.14\n    \n    def test_edge_with_large_weight(self):\n        \"\"\"Edge with a very large weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge\n\nTask: Extend the test suite with performance assertions to verify that the target module meets specific latency and throughput benchmarks under standard and edge-case loads.",
+        "output": "```python\n\"\"\"\nPytest-based unit test suite for the algorithmic module.\n\nThis test suite validates the functional correctness of the core data structures\n(Node, Edge, Graph, Matrix) and ensures comprehensive coverage of all identified\nedge cases and standard operational scenarios.\n\"\"\"\n\nimport pytest\nimport math\nimport time\nimport random\nfrom typing import List, Dict, Optional, Any\n\n# Import the module under test\n# Assuming the module is in the same directory or properly installed\n# We'll import the classes directly\ntry:\n    from node_2 import Node, Edge, Graph, Matrix\nexcept ImportError:\n    # Fallback: define minimal versions if import fails (for testing purposes)\n    # In a real scenario, the module should be importable\n    pass\n\n\nclass TestNode:\n    \"\"\"Tests for the Node class.\"\"\"\n    \n    def test_node_with_default_neighbors(self):\n        \"\"\"Node created without specifying neighbors should default to empty list.\"\"\"\n        node = Node(1)\n        assert node.value == 1\n        assert node.neighbors == []\n    \n    def test_node_with_empty_neighbors_list(self):\n        \"\"\"Node created with an explicitly empty neighbors list.\"\"\"\n        node = Node(2, neighbors=[])\n        assert node.value == 2\n        assert node.neighbors == []\n    \n    def test_node_with_single_neighbor(self):\n        \"\"\"Node with exactly one neighbor.\"\"\"\n        neighbor = Node(4)\n        node = Node(3, neighbors=[neighbor])\n        assert node.value == 3\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is neighbor\n    \n    def test_node_with_multiple_neighbors(self):\n        \"\"\"Node with multiple neighbors.\"\"\"\n        neighbors = [Node(6), Node(7), Node(8)]\n        node = Node(5, neighbors=neighbors)\n        assert node.value == 5\n        assert len(node.neighbors) == 3\n        for i, n in enumerate(neighbors):\n            assert node.neighbors[i] is n\n    \n    def test_node_with_none_value(self):\n        \"\"\"Node with None as its value.\"\"\"\n        node = Node(None)\n        assert node.value is None\n        assert node.neighbors == []\n    \n    def test_node_with_string_value(self):\n        \"\"\"Node with a string value.\"\"\"\n        node = Node(\"hello\")\n        assert node.value == \"hello\"\n        assert node.neighbors == []\n    \n    def test_node_with_float_value(self):\n        \"\"\"Node with a float value.\"\"\"\n        node = Node(3.14)\n        assert node.value == 3.14\n        assert node.neighbors == []\n    \n    def test_node_with_list_value(self):\n        \"\"\"Node with a list as its value.\"\"\"\n        node = Node([1, 2, 3])\n        assert node.value == [1, 2, 3]\n        assert node.neighbors == []\n    \n    def test_node_with_dict_value(self):\n        \"\"\"Node with a dict as its value.\"\"\"\n        node = Node({\"key\": \"value\"})\n        assert node.value == {\"key\": \"value\"}\n        assert node.neighbors == []\n    \n    def test_node_with_self_reference(self):\n        \"\"\"Node that references itself as a neighbor (circular reference).\"\"\"\n        node = Node(10)\n        node.neighbors.append(node)\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is node\n\n\nclass TestEdge:\n    \"\"\"Tests for the Edge class.\"\"\"\n    \n    def test_edge_with_default_weight(self):\n        \"\"\"Edge created without specifying weight should default to None.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target)\n        assert edge.source is source\n        assert edge.target is target\n        assert edge.weight is None\n    \n    def test_edge_with_zero_weight(self):\n        \"\"\"Edge with weight 0.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=0)\n        assert edge.weight == 0\n    \n    def test_edge_with_negative_weight(self):\n        \"\"\"Edge with negative weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=-5)\n        assert edge.weight == -5\n    \n    def test_edge_with_float_weight(self):\n        \"\"\"Edge with a float weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=3.14)\n        assert edge.weight == 3.14\n    \n    def test_edge_with_large_weight(self):\n        \"\"\"Edge with a very large weight.\"\"\"\n        source = Node(1)\n        target = Node",
+        "extra_metadata": {
+          "node_id": "node_4.2",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271680.1702537,
+        "end_time_rel_s": 271729.0428508,
+        "latency_ms": 48872.59709998034,
+        "prompt_tokens": 5497,
+        "completion_tokens": 1024,
+        "total_tokens": 6521,
+        "cost_usd": 0.00102935,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "```python\n\"\"\"\nCore data structures and function signatures for the algorithmic module.\n\nThis module defines the interface contract using full type annotations\nfrom Python's typing module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\n\n\n# Core data structures\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"Represents a graph data structure with nodes and edges.\"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph.\"\"\"\n        ...\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes.\"\"\"\n        ...\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node.\"\"\"\n        ...\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        ...\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position.\"\"\"\n        ...\n    \n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set element at specified position.\"\"\"\n        ...\n    \n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        ...\n    \n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        ...\n\n\nclass Segment:\n    \"\"\"Represents a line segment in 2D space.\"\"\"\n    \n    def __init__(self, start: Tuple[float, float], end: Tuple[float, float]) -> None:\n        self.start: Tuple[float, float] = start\n        self.end: Tuple[float, float] = end\n    \n    def length(self) -> float:\n        \"\"\"Calculate the length of the segment.\"\"\"\n        ...\n    \n    def midpoint(self) -> Tuple[float, float]:\n        \"\"\"Calculate the midpoint of the segment.\"\"\"\n        ...\n\n\nclass Point:\n    \"\"\"Represents a point in 2D space.\"\"\"\n    \n    def __init__(self, x: float, y: float) -> None:\n        self.x: float = x\n        self.y: float = y\n    \n    def distance(self, other: 'Point') -> float:\n        \"\"\"Calculate Euclidean distance to another point.\"\"\"\n        ...\n\n\n# Function signatures for core algorithms\n\ndef shortest_path(graph: Graph, start: Any, end: Any) -> Optional[List[Any]]:\n    \"\"\"\n    Find the shortest path between two nodes in a graph.\n    \n    Args:\n        graph: The graph to search in.\n        start: The starting node value.\n        end: The ending node value.\n    \n    Returns:\n        A list of node values representing the shortest path, or None if no path exists.\n    \"\"\"\n    ...\n\n\ndef dijkstra(graph: Graph, start: Any) -> Dict[Any, float]:\n    \"\"\"\n    Compute shortest distances from start node to all reachable nodes using Dijkstra's algorithm.\n    \n    Args:\n        graph: The weighted graph.\n        start: The starting node value.\n    \n    Returns:\n        A dictionary mapping node values to their shortest distance from start.\n    \"\"\"\n    ...\n\n\ndef binary_search(arr: List[Union[int, float]], target: Union[int, float]) -> int:\n    \"\"\"\n",
+            "node_2": "```python\n\"\"\"\nCore data structures and function signatures for the algorithmic module.\n\nThis module defines the interface contract using full type annotations\nfrom Python's typing module.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport heapq\nimport math\n\n\n# Core data structures\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"Represents a graph data structure with nodes and edges.\"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n        # For O(1) neighbor lookup, maintain adjacency list\n        self._adjacency: Dict[Any, List[Tuple[Any, Optional[float]]]] = {}\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph.\"\"\"\n        if value not in self.nodes:\n            node = Node(value)\n            self.nodes[value] = node\n            self._adjacency[value] = []\n        return self.nodes[value]\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes.\"\"\"\n        source_node = self.add_node(source_value)\n        target_node = self.add_node(target_value)\n        edge = Edge(source_node, target_node, weight)\n        self.edges.append(edge)\n        \n        # Add to adjacency list\n        self._adjacency[source_value].append((target_value, weight))\n        if not self.directed:\n            self._adjacency[target_value].append((source_value, weight))\n        \n        # Update node neighbors\n        source_node.neighbors.append(target_node)\n        if not self.directed:\n            target_node.neighbors.append(source_node)\n        \n        return edge\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node.\"\"\"\n        if node_value not in self._adjacency:\n            return []\n        return [self.nodes[neighbor_value] for neighbor_value, _ in self._adjacency[node_value]]\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes.\"\"\"\n        if source_value not in self._adjacency:\n            return None\n        for neighbor_value, weight in self._adjacency[source_value]:\n            if neighbor_value == target_value:\n                return weight\n        return None\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position.\"\"\"\n        return self.data[row][col]\n    \n    def set_element(self, row: int, col: int, value: float) -> None:\n        \"\"\"Set element at specified position.\"\"\"\n        self.data[row][col] = value\n    \n    def transpose(self) -> 'Matrix':\n        \"\"\"Return the transpose of the matrix.\"\"\"\n        if not self.data:\n            return Matrix([])\n        transposed = [[self.data[i][j] for i in range(self.rows)] for j in range(self.cols)]\n        return Matrix(transposed)\n    \n    def multiply(self, other: 'Matrix') -> 'Matrix':\n        \"\"\"Multiply this matrix with another matrix.\"\"\"\n        if self.cols != other.rows:\n            raise ValueError(\"Matrix dimensions do not match for multiplication\")\n        \n        result = [[0.0] * other.cols for _ in range(self.rows)]\n        for i in range(self.rows):\n            for k in range(self.cols):\n                if self.data[i][k] != 0:\n                    for j in range(other.cols):\n",
+            "node_3": "```python\n\"\"\"\nComprehensive edge case enumeration for the algorithmic module.\n\nThis module defines the scope of the test suite by identifying and\nenumerating edge cases for each core data structure and algorithm.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport math\n\n\n# =============================================================================\n# Edge Cases for Node\n# =============================================================================\n\nNODE_EDGE_CASES: List[Dict[str, Any]] = [\n    {\n        \"name\": \"node_with_default_neighbors\",\n        \"description\": \"Node created without specifying neighbors (should default to empty list)\",\n        \"input\": {\"value\": 1, \"neighbors\": None},\n        \"expected\": \"neighbors is an empty list\",\n    },\n    {\n        \"name\": \"node_with_empty_neighbors_list\",\n        \"description\": \"Node created with an explicitly empty neighbors list\",\n        \"input\": {\"value\": 2, \"neighbors\": []},\n        \"expected\": \"neighbors is an empty list\",\n    },\n    {\n        \"name\": \"node_with_single_neighbor\",\n        \"description\": \"Node with exactly one neighbor\",\n        \"input\": {\"value\": 3, \"neighbors\": [Node(4)]},\n        \"expected\": \"neighbors has length 1\",\n    },\n    {\n        \"name\": \"node_with_multiple_neighbors\",\n        \"description\": \"Node with multiple neighbors\",\n        \"input\": {\"value\": 5, \"neighbors\": [Node(6), Node(7), Node(8)]},\n        \"expected\": \"neighbors has length 3\",\n    },\n    {\n        \"name\": \"node_with_none_value\",\n        \"description\": \"Node with None as its value\",\n        \"input\": {\"value\": None, \"neighbors\": []},\n        \"expected\": \"value is None\",\n    },\n    {\n        \"name\": \"node_with_string_value\",\n        \"description\": \"Node with a string value\",\n        \"input\": {\"value\": \"hello\", \"neighbors\": []},\n        \"expected\": \"value is 'hello'\",\n    },\n    {\n        \"name\": \"node_with_float_value\",\n        \"description\": \"Node with a float value\",\n        \"input\": {\"value\": 3.14, \"neighbors\": []},\n        \"expected\": \"value is 3.14\",\n    },\n    {\n        \"name\": \"node_with_list_value\",\n        \"description\": \"Node with a list as its value (unusual but valid per Any type)\",\n        \"input\": {\"value\": [1, 2, 3], \"neighbors\": []},\n        \"expected\": \"value is [1, 2, 3]\",\n    },\n    {\n        \"name\": \"node_with_dict_value\",\n        \"description\": \"Node with a dict as its value\",\n        \"input\": {\"value\": {\"key\": \"value\"}, \"neighbors\": []},\n        \"expected\": \"value is {'key': 'value'}\",\n    },\n    {\n        \"name\": \"node_with_self_reference\",\n        \"description\": \"Node that references itself as a neighbor (circular reference)\",\n        \"input\": {\"value\": 10, \"neighbors\": None},  # Self-reference set after creation\n        \"expected\": \"neighbors contains the node itself\",\n    },\n]\n\n\n# =============================================================================\n# Edge Cases for Edge\n# =============================================================================\n\nEDGE_EDGE_CASES: List[Dict[str, Any]] = [\n    {\n        \"name\": \"edge_with_default_weight\",\n        \"description\": \"Edge created without specifying weight (should default to None)\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": None},\n        \"expected\": \"weight is None\",\n    },\n    {\n        \"name\": \"edge_with_zero_weight\",\n        \"description\": \"Edge with weight 0\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": 0},\n        \"expected\": \"weight is 0\",\n    },\n    {\n        \"name\": \"edge_with_negative_weight\",\n        \"description\": \"Edge with negative weight (may be invalid for Dijkstra)\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": -5},\n        \"expected\": \"weight is -5\",\n    },\n    {\n        \"name\": \"edge_with_float_weight\",\n        \"description\": \"Edge with a float weight\",\n        \"input\": {\"source\": Node(1), \"target\": Node(2), \"weight\": 3.14},",
+            "node_4.1": "```python\n\"\"\"\nPytest-based unit test suite for the algorithmic module.\n\nThis test suite validates the functional correctness of the core data structures\n(Node, Edge, Graph, Matrix) and ensures comprehensive coverage of all identified\nedge cases and standard operational scenarios.\n\"\"\"\n\nimport pytest\nimport math\nfrom typing import List, Dict, Optional, Any\n\n# Import the module under test\n# Assuming the module is in the same directory or properly installed\n# We'll import the classes directly\ntry:\n    from node_2 import Node, Edge, Graph, Matrix\nexcept ImportError:\n    # Fallback: define minimal versions if import fails (for testing purposes)\n    # In a real scenario, the module should be importable\n    pass\n\n\nclass TestNode:\n    \"\"\"Tests for the Node class.\"\"\"\n    \n    def test_node_with_default_neighbors(self):\n        \"\"\"Node created without specifying neighbors should default to empty list.\"\"\"\n        node = Node(1)\n        assert node.value == 1\n        assert node.neighbors == []\n    \n    def test_node_with_empty_neighbors_list(self):\n        \"\"\"Node created with an explicitly empty neighbors list.\"\"\"\n        node = Node(2, neighbors=[])\n        assert node.value == 2\n        assert node.neighbors == []\n    \n    def test_node_with_single_neighbor(self):\n        \"\"\"Node with exactly one neighbor.\"\"\"\n        neighbor = Node(4)\n        node = Node(3, neighbors=[neighbor])\n        assert node.value == 3\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is neighbor\n    \n    def test_node_with_multiple_neighbors(self):\n        \"\"\"Node with multiple neighbors.\"\"\"\n        neighbors = [Node(6), Node(7), Node(8)]\n        node = Node(5, neighbors=neighbors)\n        assert node.value == 5\n        assert len(node.neighbors) == 3\n        for i, n in enumerate(neighbors):\n            assert node.neighbors[i] is n\n    \n    def test_node_with_none_value(self):\n        \"\"\"Node with None as its value.\"\"\"\n        node = Node(None)\n        assert node.value is None\n        assert node.neighbors == []\n    \n    def test_node_with_string_value(self):\n        \"\"\"Node with a string value.\"\"\"\n        node = Node(\"hello\")\n        assert node.value == \"hello\"\n        assert node.neighbors == []\n    \n    def test_node_with_float_value(self):\n        \"\"\"Node with a float value.\"\"\"\n        node = Node(3.14)\n        assert node.value == 3.14\n        assert node.neighbors == []\n    \n    def test_node_with_list_value(self):\n        \"\"\"Node with a list as its value.\"\"\"\n        node = Node([1, 2, 3])\n        assert node.value == [1, 2, 3]\n        assert node.neighbors == []\n    \n    def test_node_with_dict_value(self):\n        \"\"\"Node with a dict as its value.\"\"\"\n        node = Node({\"key\": \"value\"})\n        assert node.value == {\"key\": \"value\"}\n        assert node.neighbors == []\n    \n    def test_node_with_self_reference(self):\n        \"\"\"Node that references itself as a neighbor (circular reference).\"\"\"\n        node = Node(10)\n        node.neighbors.append(node)\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is node\n\n\nclass TestEdge:\n    \"\"\"Tests for the Edge class.\"\"\"\n    \n    def test_edge_with_default_weight(self):\n        \"\"\"Edge created without specifying weight should default to None.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target)\n        assert edge.source is source\n        assert edge.target is target\n        assert edge.weight is None\n    \n    def test_edge_with_zero_weight(self):\n        \"\"\"Edge with weight 0.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=0)\n        assert edge.weight == 0\n    \n    def test_edge_with_negative_weight(self):\n        \"\"\"Edge with negative weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=-5)\n        assert edge.weight == -5\n    \n    def test_edge_with_float_weight(self):\n        \"\"\"Edge with a float weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=3.14)\n        assert edge.weight == 3.14\n    \n    def test_edge_with_large_weight(self):\n        \"\"\"Edge with a very large weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge",
+            "node_4.2": "```python\n\"\"\"\nPytest-based unit test suite for the algorithmic module.\n\nThis test suite validates the functional correctness of the core data structures\n(Node, Edge, Graph, Matrix) and ensures comprehensive coverage of all identified\nedge cases and standard operational scenarios.\n\"\"\"\n\nimport pytest\nimport math\nimport time\nimport random\nfrom typing import List, Dict, Optional, Any\n\n# Import the module under test\n# Assuming the module is in the same directory or properly installed\n# We'll import the classes directly\ntry:\n    from node_2 import Node, Edge, Graph, Matrix\nexcept ImportError:\n    # Fallback: define minimal versions if import fails (for testing purposes)\n    # In a real scenario, the module should be importable\n    pass\n\n\nclass TestNode:\n    \"\"\"Tests for the Node class.\"\"\"\n    \n    def test_node_with_default_neighbors(self):\n        \"\"\"Node created without specifying neighbors should default to empty list.\"\"\"\n        node = Node(1)\n        assert node.value == 1\n        assert node.neighbors == []\n    \n    def test_node_with_empty_neighbors_list(self):\n        \"\"\"Node created with an explicitly empty neighbors list.\"\"\"\n        node = Node(2, neighbors=[])\n        assert node.value == 2\n        assert node.neighbors == []\n    \n    def test_node_with_single_neighbor(self):\n        \"\"\"Node with exactly one neighbor.\"\"\"\n        neighbor = Node(4)\n        node = Node(3, neighbors=[neighbor])\n        assert node.value == 3\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is neighbor\n    \n    def test_node_with_multiple_neighbors(self):\n        \"\"\"Node with multiple neighbors.\"\"\"\n        neighbors = [Node(6), Node(7), Node(8)]\n        node = Node(5, neighbors=neighbors)\n        assert node.value == 5\n        assert len(node.neighbors) == 3\n        for i, n in enumerate(neighbors):\n            assert node.neighbors[i] is n\n    \n    def test_node_with_none_value(self):\n        \"\"\"Node with None as its value.\"\"\"\n        node = Node(None)\n        assert node.value is None\n        assert node.neighbors == []\n    \n    def test_node_with_string_value(self):\n        \"\"\"Node with a string value.\"\"\"\n        node = Node(\"hello\")\n        assert node.value == \"hello\"\n        assert node.neighbors == []\n    \n    def test_node_with_float_value(self):\n        \"\"\"Node with a float value.\"\"\"\n        node = Node(3.14)\n        assert node.value == 3.14\n        assert node.neighbors == []\n    \n    def test_node_with_list_value(self):\n        \"\"\"Node with a list as its value.\"\"\"\n        node = Node([1, 2, 3])\n        assert node.value == [1, 2, 3]\n        assert node.neighbors == []\n    \n    def test_node_with_dict_value(self):\n        \"\"\"Node with a dict as its value.\"\"\"\n        node = Node({\"key\": \"value\"})\n        assert node.value == {\"key\": \"value\"}\n        assert node.neighbors == []\n    \n    def test_node_with_self_reference(self):\n        \"\"\"Node that references itself as a neighbor (circular reference).\"\"\"\n        node = Node(10)\n        node.neighbors.append(node)\n        assert len(node.neighbors) == 1\n        assert node.neighbors[0] is node\n\n\nclass TestEdge:\n    \"\"\"Tests for the Edge class.\"\"\"\n    \n    def test_edge_with_default_weight(self):\n        \"\"\"Edge created without specifying weight should default to None.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target)\n        assert edge.source is source\n        assert edge.target is target\n        assert edge.weight is None\n    \n    def test_edge_with_zero_weight(self):\n        \"\"\"Edge with weight 0.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=0)\n        assert edge.weight == 0\n    \n    def test_edge_with_negative_weight(self):\n        \"\"\"Edge with negative weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=-5)\n        assert edge.weight == -5\n    \n    def test_edge_with_float_weight(self):\n        \"\"\"Edge with a float weight.\"\"\"\n        source = Node(1)\n        target = Node(2)\n        edge = Edge(source, target, weight=3.14)\n        assert edge.weight == 3.14\n    \n    def test_edge_with_large_weight(self):\n        \"\"\"Edge with a very large weight.\"\"\"\n        source = Node(1)\n        target = Node"
+          }
+        },
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #1\n\nThis module provides a comprehensive, type-annotated implementation of core\ngraph and matrix data structures, along with optimized algorithmic routines.\nIt guarantees O(1) or O(log N) complexity for standard operations where\napplicable, and includes a robust, self-contained pytest suite for edge-case\nvalidation.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport heapq\nimport math\nimport pytest\n\n\n# =============================================================================\n# Core Data Structures\n# =============================================================================\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"\n    Represents a graph data structure with nodes and edges.\n    \n    Complexity Guarantees:\n    - add_node: O(1)\n    - add_edge: O(1)\n    - get_neighbors: O(1) (returns list of references)\n    - get_edge_weight: O(1) (using adjacency matrix for weights)\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n        # For O(1) neighbor lookup, maintain adjacency list\n        self._adjacency: Dict[Any, List[Tuple[Any, Optional[float]]]] = {}\n        # For O(1) edge weight lookup\n        self._edge_weights: Dict[Tuple[Any, Any], float] = {}\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph. O(1).\"\"\"\n        if value not in self.nodes:\n            node = Node(value)\n            self.nodes[value] = node\n            self._adjacency[value] = []\n        return self.nodes[value]\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes. O(1).\"\"\"\n        source_node = self.add_node(source_value)\n        target_node = self.add_node(target_value)\n        edge = Edge(source_node, target_node, weight)\n        self.edges.append(edge)\n        \n        # Add to adjacency list\n        self._adjacency[source_value].append((target_value, weight))\n        if not self.directed:\n            self._adjacency[target_value].append((source_value, weight))\n        \n        # Update node neighbors\n        source_node.neighbors.append(target_node)\n        if not self.directed:\n            target_node.neighbors.append(source_node)\n            \n        # Store weight for O(1) lookup\n        if weight is not None:\n            self._edge_weights[(source_value, target_value)] = weight\n            if not self.directed:\n                self._edge_weights[(target_value, source_value)] = weight\n        \n        return edge\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node. O(1) to retrieve list.\"\"\"\n        if node_value not in self._adjacency:\n            return []\n        return [self.nodes[neighbor_value] for neighbor_value, _ in self._adjacency[node_value]]\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes. O(1).\"\"\"\n        return self._edge_weights.get((source_value, target_value), None)\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position. O(1).\"\"\"\n        return self.data[row][col]\n    \n    def set_element(self, row: int, col: int, value",
+        "extra_metadata": {
+          "node_count": 5,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 2442.3339999630116
+    },
+    {
+      "node_id": "node_2",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_1"
+      ],
+      "latency_ms": 2450.9457999956794
+    },
+    {
+      "node_id": "node_3",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "reasoning"
+      ],
+      "dependencies": [
+        "node_1"
+      ],
+      "latency_ms": 2531.504499958828
+    },
+    {
+      "node_id": "node_4.1",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_2",
+        "node_3"
+      ],
+      "latency_ms": 25694.17519995477
+    },
+    {
+      "node_id": "node_4.2",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_4.1"
+      ],
+      "latency_ms": 15875.46349997865
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nAdvanced Algorithmic Module #1\n\nThis module provides a comprehensive, type-annotated implementation of core\ngraph and matrix data structures, along with optimized algorithmic routines.\nIt guarantees O(1) or O(log N) complexity for standard operations where\napplicable, and includes a robust, self-contained pytest suite for edge-case\nvalidation.\n\"\"\"\n\nfrom typing import List, Dict, Optional, Union, Tuple, Any, Set, Callable\nimport heapq\nimport math\nimport pytest\n\n\n# =============================================================================\n# Core Data Structures\n# =============================================================================\n\nclass Node:\n    \"\"\"Represents a node in a graph or tree structure.\"\"\"\n    \n    def __init__(self, value: Any, neighbors: Optional[List['Node']] = None) -> None:\n        self.value: Any = value\n        self.neighbors: List['Node'] = neighbors if neighbors is not None else []\n\n\nclass Edge:\n    \"\"\"Represents a directed or undirected edge between two nodes.\"\"\"\n    \n    def __init__(self, source: Node, target: Node, weight: Optional[float] = None) -> None:\n        self.source: Node = source\n        self.target: Node = target\n        self.weight: Optional[float] = weight\n\n\nclass Graph:\n    \"\"\"\n    Represents a graph data structure with nodes and edges.\n    \n    Complexity Guarantees:\n    - add_node: O(1)\n    - add_edge: O(1)\n    - get_neighbors: O(1) (returns list of references)\n    - get_edge_weight: O(1) (using adjacency matrix for weights)\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        self.directed: bool = directed\n        self.nodes: Dict[Any, Node] = {}\n        self.edges: List[Edge] = []\n        # For O(1) neighbor lookup, maintain adjacency list\n        self._adjacency: Dict[Any, List[Tuple[Any, Optional[float]]]] = {}\n        # For O(1) edge weight lookup\n        self._edge_weights: Dict[Tuple[Any, Any], float] = {}\n    \n    def add_node(self, value: Any) -> Node:\n        \"\"\"Add a node to the graph. O(1).\"\"\"\n        if value not in self.nodes:\n            node = Node(value)\n            self.nodes[value] = node\n            self._adjacency[value] = []\n        return self.nodes[value]\n    \n    def add_edge(self, source_value: Any, target_value: Any, weight: Optional[float] = None) -> Edge:\n        \"\"\"Add an edge between two nodes. O(1).\"\"\"\n        source_node = self.add_node(source_value)\n        target_node = self.add_node(target_value)\n        edge = Edge(source_node, target_node, weight)\n        self.edges.append(edge)\n        \n        # Add to adjacency list\n        self._adjacency[source_value].append((target_value, weight))\n        if not self.directed:\n            self._adjacency[target_value].append((source_value, weight))\n        \n        # Update node neighbors\n        source_node.neighbors.append(target_node)\n        if not self.directed:\n            target_node.neighbors.append(source_node)\n            \n        # Store weight for O(1) lookup\n        if weight is not None:\n            self._edge_weights[(source_value, target_value)] = weight\n            if not self.directed:\n                self._edge_weights[(target_value, source_value)] = weight\n        \n        return edge\n    \n    def get_neighbors(self, node_value: Any) -> List[Node]:\n        \"\"\"Get all neighbors of a given node. O(1) to retrieve list.\"\"\"\n        if node_value not in self._adjacency:\n            return []\n        return [self.nodes[neighbor_value] for neighbor_value, _ in self._adjacency[node_value]]\n    \n    def get_edge_weight(self, source_value: Any, target_value: Any) -> Optional[float]:\n        \"\"\"Get the weight of an edge between two nodes. O(1).\"\"\"\n        return self._edge_weights.get((source_value, target_value), None)\n\n\nclass Matrix:\n    \"\"\"Represents a 2D matrix with numerical values.\"\"\"\n    \n    def __init__(self, data: List[List[float]]) -> None:\n        self.data: List[List[float]] = data\n        self.rows: int = len(data)\n        self.cols: int = len(data[0]) if data else 0\n    \n    def get_element(self, row: int, col: int) -> float:\n        \"\"\"Get element at specified position. O(1).\"\"\"\n        return self.data[row][col]\n    \n    def set_element(self, row: int, col: int, value",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node_4",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "amber"
+      ],
+      "skill_vector": {
+        "coding": 0.3758,
+        "math": 0.0015,
+        "reasoning": 0.0015,
+        "retrieval": 0.6196,
+        "general": 0.0015
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.9978,
+      "math": 0.0006,
+      "reasoning": 0.0006,
+      "retrieval": 0.0006,
+      "general": 0.0006
+    },
+    "node_2": {
+      "coding": 0.9908,
+      "math": 0.0005,
+      "reasoning": 0.004,
+      "retrieval": 0.004,
+      "general": 0.0005
+    },
+    "node_3": {
+      "coding": 0.1698,
+      "math": 0.023,
+      "reasoning": 0.7612,
+      "retrieval": 0.023,
+      "general": 0.023
+    },
+    "node_4": {
+      "coding": 0.3758,
+      "math": 0.0015,
+      "reasoning": 0.0015,
+      "retrieval": 0.6196,
+      "general": 0.0015
+    },
+    "node_4.1": {
+      "coding": 0.9943,
+      "math": 0.0005,
+      "reasoning": 0.0005,
+      "retrieval": 0.0041,
+      "general": 0.0005
+    },
+    "node_4.2": {
+      "coding": 0.6637,
+      "math": 0.02,
+      "reasoning": 0.1481,
+      "retrieval": 0.1481,
+      "general": 0.02
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_3": {
+      "dominant_color": "purple",
+      "dominant_domain": "reasoning",
+      "active_colors": [
+        "purple"
+      ],
+      "active_domains": [
+        "reasoning"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_4": {
+      "dominant_color": "amber",
+      "dominant_domain": "retrieval",
+      "active_colors": [
+        "blue",
+        "amber"
+      ],
+      "active_domains": [
+        "coding",
+        "retrieval"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node_4.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_4.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

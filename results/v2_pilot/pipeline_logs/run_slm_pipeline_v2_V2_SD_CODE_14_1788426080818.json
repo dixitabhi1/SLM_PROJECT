@@ -1,0 +1,356 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_14_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_14",
+  "query_text": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "2e7cd7bf24983de1041d77e57ec4b70ccfea25cd",
+  "timestamp_start_utc": "2026-09-03T08:54:11.337806+00:00",
+  "timestamp_end_utc": "2026-09-03T09:01:20.818011+00:00",
+  "total_wall_clock_latency_ms": 429480.05979997106,
+  "simulated_parallel_latency_ms": 102318.22939997073,
+  "total_prompt_tokens": 309,
+  "total_completion_tokens": 1189,
+  "total_tokens": 1498,
+  "total_cost_usd": 0.00021766,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 278643.9388793,
+        "end_time_rel_s": 278728.9654513,
+        "latency_ms": 85026.57200000249,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node.1",
+              "text": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node.1": [
+      {
+        "stage_name": "re_decomposition_node.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 278728.966169,
+        "end_time_rel_s": 278814.0531266,
+        "latency_ms": 85086.95759996772,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1",
+          "text": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1",
+              "text": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 1,
+              "parent_id": "node.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1",
+          "depth": 1
+        }
+      }
+    ],
+    "re_decomposition_node.1.1": [
+      {
+        "stage_name": "re_decomposition_node.1.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 278814.0537864,
+        "end_time_rel_s": 278886.0965482,
+        "latency_ms": 72042.76179999579,
+        "prompt_tokens": 242,
+        "completion_tokens": 165,
+        "total_tokens": 407,
+        "cost_usd": 2.5300000000000002e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1.1",
+          "text": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 1,
+          "parent_id": "node.1"
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1.1",
+              "text": "Design and implement the core algorithmic logic for module #14 in Python, ensuring strict O(1) or O(log N) time complexity and full type annotations.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 2,
+              "parent_id": "node.1.1"
+            },
+            {
+              "id": "node.1.1.2",
+              "text": "Develop a comprehensive suite of unit tests for the implemented module, specifically targeting edge cases and verifying the stated complexity guarantees.",
+              "capability": "coding",
+              "dependencies": [
+                "node.1.1.1"
+              ],
+              "depth": 2,
+              "parent_id": "node.1.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1.1",
+          "depth": 2
+        }
+      }
+    ],
+    "pool_coding_node.1.1.1": [
+      {
+        "stage_name": "pool_coding_node.1.1.1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 278886.0978763,
+        "end_time_rel_s": 278903.4111939,
+        "latency_ms": 17313.31759999739,
+        "prompt_tokens": 67,
+        "completion_tokens": 1024,
+        "total_tokens": 1091,
+        "cost_usd": 0.00019236,
+        "confidence_score": null,
+        "input": "Task: Design and implement the core algorithmic logic for module #14 in Python, ensuring strict O(1) or O(log N) time complexity and full type annotations.",
+        "output": "```python\n\"\"\"\nModule #14: Core Algorithmic Logic\n\nThis module implements core algorithmic operations with strict O(1) or O(log N)\ntime complexity guarantees and full type annotations.\n\nThe module provides:\n- A balanced binary search tree (AVL tree) for O(log N) search, insert, delete\n- A hash map with O(1) average-case operations\n- Utility functions for common algorithmic tasks\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Callable, Generic, Hashable, Iterator, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\n\n\nclass AVLNode(Generic[T]):\n    \"\"\"A node in an AVL tree.\"\"\"\n\n    __slots__ = (\"key\", \"value\", \"left\", \"right\", \"height\")\n\n    def __init__(self, key: T, value: Any) -> None:\n        self.key: T = key\n        self.value: Any = value\n        self.left: Optional[AVLNode[T]] = None\n        self.right: Optional[AVLNode[T]] = None\n        self.height: int = 1\n\n\nclass AVLTree(Generic[T]):\n    \"\"\"\n    An AVL (Adelson-Velsky and Landis) self-balancing binary search tree.\n    \n    All operations (search, insert, delete) run in O(log N) time.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._root: Optional[AVLNode[T]] = None\n        self._size: int = 0\n\n    @property\n    def size(self) -> int:\n        \"\"\"Return the number of elements in the tree. O(1).\"\"\"\n        return self._size\n\n    def __len__(self) -> int:\n        return self._size\n\n    def __contains__(self, key: T) -> bool:\n        \"\"\"Check if a key exists in the tree. O(log N).\"\"\"\n        return self._search_node(key) is not None\n\n    def _get_height(self, node: Optional[AVLNode[T]]) -> int:\n        \"\"\"Get the height of a node. O(1).\"\"\"\n        if node is None:\n            return 0\n        return node.height\n\n    def _get_balance(self, node: Optional[AVLNode[T]]) -> int:\n        \"\"\"Get the balance factor of a node. O(1).\"\"\"\n        if node is None:\n            return 0\n        return self._get_height(node.left) - self._get_height(node.right)\n\n    def _update_height(self, node: AVLNode[T]) -> None:\n        \"\"\"Update the height of a node. O(1).\"\"\"\n        node.height = 1 + max(\n            self._get_height(node.left), self._get_height(node.right)\n        )\n\n    def _rotate_right(self, z: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Perform a right rotation around node z. O(1).\n        \n        Returns the new root of the rotated subtree.\n        \"\"\"\n        y = z.left\n        if y is None:\n            raise RuntimeError(\"Cannot rotate right: left child is None\")\n        t3 = y.right\n\n        # Perform rotation\n        y.right = z\n        z.left = t3\n\n        # Update heights\n        self._update_height(z)\n        self._update_height(y)\n\n        return y\n\n    def _rotate_left(self, z: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Perform a left rotation around node z. O(1).\n        \n        Returns the new root of the rotated subtree.\n        \"\"\"\n        y = z.right\n        if y is None:\n            raise RuntimeError(\"Cannot rotate left: right child is None\")\n        t2 = y.left\n\n        # Perform rotation\n        y.left = z\n        z.right = t2\n\n        # Update heights\n        self._update_height(z)\n        self._update_height(y)\n\n        return y\n\n    def _rebalance(self, node: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Rebalance a node if its balance factor is out of range. O(1).\n        \n        Returns the new root of the (possibly rotated) subtree.\n        \"\"\"\n        self._update_height(node)\n        balance = self._get_balance(node)\n\n        # Left heavy\n        if balance > 1:\n            if self._get_balance(node.left) < 0:\n                # Left-Right case\n                if node.left is not None:\n                    node.left = self._rotate_left(node.left)\n            # Left-",
+        "extra_metadata": {
+          "node_id": "node.1.1.1",
+          "mode": "single_agent",
+          "depth": 2
+        }
+      }
+    ],
+    "pool_coding_node.1.1.2": [
+      {
+        "stage_name": "pool_coding_node.1.1.2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 278903.4113159,
+        "end_time_rel_s": 278988.4166184,
+        "latency_ms": 85005.30250003794,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "[Prerequisite node.1.1.1]:\n```python\n\"\"\"\nModule #14: Core Algorithmic Logic\n\nThis module implements core algorithmic operations with strict O(1) or O(log N)\ntime complexity guarantees and full type annotations.\n\nThe module provides:\n- A balanced binary search tree (AVL tree) for O(log N) search, insert, delete\n- A hash map with O(1) average-case operations\n- Utility functions for common algorithmic tasks\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Callable, Generic, Hashable, Iterator, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\n\n\nclass AVLNode(Generic[T]):\n    \"\"\"A node in an AVL tree.\"\"\"\n\n    __slots__ = (\"key\", \"value\", \"left\", \"right\", \"height\")\n\n    def __init__(self, key: T, value: Any) -> None:\n        self.key: T = key\n        self.value: Any = value\n        self.left: Optional[AVLNode[T]] = None\n        self.right: Optional[AVLNode[T]] = None\n        self.height: int = 1\n\n\nclass AVLTree(Generic[T]):\n    \"\"\"\n    An AVL (Adelson-Velsky and Landis) self-balancing binary search tree.\n    \n    All operations (search, insert, delete) run in O(log N) time.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._root: Optional[AVLNode[T]] = None\n        self._size: int = 0\n\n    @property\n    def size(self) -> int:\n        \"\"\"Return the number of elements in the tree. O(1).\"\"\"\n        return self._size\n\n    def __len__(self) -> int:\n        return self._size\n\n    def __contains__(self, key: T) -> bool:\n        \"\"\"Check if a key exists in the tree. O(log N).\"\"\"\n        return self._search_node(key) is not None\n\n    def _get_height(self, node: Optional[AVLNode[T]]) -> int:\n        \"\"\"Get the height of a node. O(1).\"\"\"\n        if node is None:\n            return 0\n        return node.height\n\n    def _get_balance(self, node: Optional[AVLNode[T]]) -> int:\n        \"\"\"Get the balance factor of a node. O(1).\"\"\"\n        if node is None:\n            return 0\n        return self._get_height(node.left) - self._get_height(node.right)\n\n    def _update_height(self, node: AVLNode[T]) -> None:\n        \"\"\"Update the height of a node. O(1).\"\"\"\n        node.height = 1 + max(\n            self._get_height(node.left), self._get_height(node.right)\n        )\n\n    def _rotate_right(self, z: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Perform a right rotation around node z. O(1).\n        \n        Returns the new root of the rotated subtree.\n        \"\"\"\n        y = z.left\n        if y is None:\n            raise RuntimeError(\"Cannot rotate right: left child is None\")\n        t3 = y.right\n\n        # Perform rotation\n        y.right = z\n        z.left = t3\n\n        # Update heights\n        self._update_height(z)\n        self._update_height(y)\n\n        return y\n\n    def _rotate_left(self, z: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Perform a left rotation around node z. O(1).\n        \n        Returns the new root of the rotated subtree.\n        \"\"\"\n        y = z.right\n        if y is None:\n            raise RuntimeError(\"Cannot rotate left: right child is None\")\n        t2 = y.left\n\n        # Perform rotation\n        y.left = z\n        z.right = t2\n\n        # Update heights\n        self._update_height(z)\n        self._update_height(y)\n\n        return y\n\n    def _rebalance(self, node: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Rebalance a node if its balance factor is out of range. O(1).\n        \n        Returns the new root of the (possibly rotated) subtree.\n        \"\"\"\n        self._update_height(node)\n        balance = self._get_balance(node)\n\n        # Left heavy\n        if balance > 1:\n            if self._get_balance(node.left) < 0:\n                # Left-Right case\n                if node.left is not None:\n                    node.left = self._rotate_left(node.left)\n            # Left-\n\nTask: Develop a comprehensive suite of unit tests for the implemented module, specifically targeting edge cases and verifying the stated complexity guarantees.",
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199835, Reque]",
+        "extra_metadata": {
+          "node_id": "node.1.1.2",
+          "mode": "single_agent",
+          "depth": 2
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 278988.4168911,
+        "end_time_rel_s": 279073.4189004,
+        "latency_ms": 85002.00929999119,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #14 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node.1.1.1": "```python\n\"\"\"\nModule #14: Core Algorithmic Logic\n\nThis module implements core algorithmic operations with strict O(1) or O(log N)\ntime complexity guarantees and full type annotations.\n\nThe module provides:\n- A balanced binary search tree (AVL tree) for O(log N) search, insert, delete\n- A hash map with O(1) average-case operations\n- Utility functions for common algorithmic tasks\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Callable, Generic, Hashable, Iterator, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\n\n\nclass AVLNode(Generic[T]):\n    \"\"\"A node in an AVL tree.\"\"\"\n\n    __slots__ = (\"key\", \"value\", \"left\", \"right\", \"height\")\n\n    def __init__(self, key: T, value: Any) -> None:\n        self.key: T = key\n        self.value: Any = value\n        self.left: Optional[AVLNode[T]] = None\n        self.right: Optional[AVLNode[T]] = None\n        self.height: int = 1\n\n\nclass AVLTree(Generic[T]):\n    \"\"\"\n    An AVL (Adelson-Velsky and Landis) self-balancing binary search tree.\n    \n    All operations (search, insert, delete) run in O(log N) time.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._root: Optional[AVLNode[T]] = None\n        self._size: int = 0\n\n    @property\n    def size(self) -> int:\n        \"\"\"Return the number of elements in the tree. O(1).\"\"\"\n        return self._size\n\n    def __len__(self) -> int:\n        return self._size\n\n    def __contains__(self, key: T) -> bool:\n        \"\"\"Check if a key exists in the tree. O(log N).\"\"\"\n        return self._search_node(key) is not None\n\n    def _get_height(self, node: Optional[AVLNode[T]]) -> int:\n        \"\"\"Get the height of a node. O(1).\"\"\"\n        if node is None:\n            return 0\n        return node.height\n\n    def _get_balance(self, node: Optional[AVLNode[T]]) -> int:\n        \"\"\"Get the balance factor of a node. O(1).\"\"\"\n        if node is None:\n            return 0\n        return self._get_height(node.left) - self._get_height(node.right)\n\n    def _update_height(self, node: AVLNode[T]) -> None:\n        \"\"\"Update the height of a node. O(1).\"\"\"\n        node.height = 1 + max(\n            self._get_height(node.left), self._get_height(node.right)\n        )\n\n    def _rotate_right(self, z: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Perform a right rotation around node z. O(1).\n        \n        Returns the new root of the rotated subtree.\n        \"\"\"\n        y = z.left\n        if y is None:\n            raise RuntimeError(\"Cannot rotate right: left child is None\")\n        t3 = y.right\n\n        # Perform rotation\n        y.right = z\n        z.left = t3\n\n        # Update heights\n        self._update_height(z)\n        self._update_height(y)\n\n        return y\n\n    def _rotate_left(self, z: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Perform a left rotation around node z. O(1).\n        \n        Returns the new root of the rotated subtree.\n        \"\"\"\n        y = z.right\n        if y is None:\n            raise RuntimeError(\"Cannot rotate left: right child is None\")\n        t2 = y.left\n\n        # Perform rotation\n        y.left = z\n        z.right = t2\n\n        # Update heights\n        self._update_height(z)\n        self._update_height(y)\n\n        return y\n\n    def _rebalance(self, node: AVLNode[T]) -> AVLNode[T]:\n        \"\"\"\n        Rebalance a node if its balance factor is out of range. O(1).\n        \n        Returns the new root of the (possibly rotated) subtree.\n        \"\"\"\n        self._update_height(node)\n        balance = self._get_balance(node)\n\n        # Left heavy\n        if balance > 1:\n            if self._get_balance(node.left) < 0:\n                # Left-Right case\n                if node.left is not None:\n                    node.left = self._rotate_left(node.left)\n            # Left-",
+            "node.1.1.2": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199835, Reque]"
+          }
+        },
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199638, Reque]",
+        "extra_metadata": {
+          "node_count": 2,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node.1.1.1",
+      "depth": 2,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 17313.336900027934
+    },
+    {
+      "node_id": "node.1.1.2",
+      "depth": 2,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node.1.1.1"
+      ],
+      "latency_ms": 85005.32180001028
+    }
+  ],
+  "final_response": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199638, Reque]",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node.1",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    },
+    {
+      "event_index": 2,
+      "parent_task_id": "node.1.1",
+      "recursion_depth": 1,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1.1": {
+      "coding": 0.9943,
+      "math": 0.0005,
+      "reasoning": 0.0041,
+      "retrieval": 0.0005,
+      "general": 0.0005
+    },
+    "node.1.1.2": {
+      "coding": 0.8922,
+      "math": 0.0269,
+      "reasoning": 0.0269,
+      "retrieval": 0.0269,
+      "general": 0.0269
+    }
+  },
+  "v2_task_colors": {
+    "node.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node.1.1.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_03_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_03",
+  "query_text": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "2e7cd7bf24983de1041d77e57ec4b70ccfea25cd",
+  "timestamp_start_utc": "2026-09-03T07:01:15.264728+00:00",
+  "timestamp_end_utc": "2026-09-03T07:02:29.170132+00:00",
+  "total_wall_clock_latency_ms": 73905.37340001902,
+  "simulated_parallel_latency_ms": 35628.7553999573,
+  "total_prompt_tokens": 5890,
+  "total_completion_tokens": 4312,
+  "total_tokens": 10202,
+  "total_cost_usd": 0.0015687700000000001,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271867.5749899,
+        "end_time_rel_s": 271872.3675443,
+        "latency_ms": 4792.554399988148,
+        "prompt_tokens": 226,
+        "completion_tokens": 216,
+        "total_tokens": 442,
+        "cost_usd": 2.858e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Define the core data structures and function signatures for the advanced algorithmic module, ensuring full type annotations using Python's typing module.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 0
+            },
+            {
+              "id": "node_2",
+              "text": "Implement the primary algorithmic logic, strictly adhering to O(1) or O(log N) time complexity constraints for all operations.",
+              "capability": "coding",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 0
+            },
+            {
+              "id": "node_3",
+              "text": "Develop comprehensive unit tests covering normal operations, boundary conditions, and specific edge cases to verify correctness and performance guarantees.",
+              "capability": "coding",
+              "dependencies": [
+                "node_2"
+              ],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_1": [
+      {
+        "stage_name": "pool_coding_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271872.3693259,
+        "end_time_rel_s": 271874.7269797,
+        "latency_ms": 2357.6537999906577,
+        "prompt_tokens": 58,
+        "completion_tokens": 1024,
+        "total_tokens": 1082,
+        "cost_usd": 0.00019128,
+        "confidence_score": null,
+        "input": "Task: Define the core data structures and function signatures for the advanced algorithmic module, ensuring full type annotations using Python's typing module.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines core data structures and function signatures for advanced\nalgorithmic operations, with full type annotations using Python's typing module.\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        ...\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        ...\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        ...\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        ...\n    \n    def get_neighbors(self, node: T) -> List[Tuple[T, float]]:\n        \"\"\"\n        Get all neighbors of a node with their edge weights.\n        \n        Args:\n            node: The node whose neighbors are to be retrieved.\n            \n        Returns:\n            A list of (neighbor, weight) tuples.\n        \"\"\"\n        ...\n    \n    def has_node(self, node: T) -> bool:\n        \"\"\"\n        Check if a node exists in the graph.\n        \n        Args:\n            node: The node to check.\n            \n        Returns:\n            True if the node exists, False otherwise.\n        \"\"\"\n        ...\n    \n    def has_edge(self, u: T, v: T) -> bool:\n        \"\"\"\n        Check if an edge exists between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            \n        Returns:\n            True if the edge exists, False otherwise.\n        \"\"\"\n        ...\n    \n    def get_edge_weight(self, u: T, v: T) -> Optional[float]:\n        \"\"\"\n        Get the weight of an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            \n        Returns:\n            The weight of the edge, or None if the edge does not exist.\n        \"\"\"\n        ...\n    \n    def __len__(self) -> int:\n        \"\"\"Return the number of nodes in the graph.\"\"\"\n        ...\n    \n    def __contains__(self, node: T) -> bool:\n        \"\"\"Check if a node is in the graph.\"\"\"\n        ...\n    \n    def __iter__(self) -> Iterable[T]:\n        \"\"\"Iterate over all nodes in the graph.\"\"\"\n        ...\n\n\nclass PriorityQueue(Generic[T]):\n    \"\"\"\n    A generic priority queue implementation.\n    \n    Attributes:\n        _heap: Internal list representing the heap.\n        _comparator: Function to compare two elements for priority ordering.\n    \"\"\"\n    \n    def __init__(self, comparator: Optional[Callable[[T, T], int]] = None) -> None:\n        \"\"\"\n        Initialize",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_2": [
+      {
+        "stage_name": "pool_coding_node_2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271874.7272365,
+        "end_time_rel_s": 271892.1311409,
+        "latency_ms": 17403.904400009196,
+        "prompt_tokens": 1093,
+        "completion_tokens": 1024,
+        "total_tokens": 2117,
+        "cost_usd": 0.00031548,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines core data structures and function signatures for advanced\nalgorithmic operations, with full type annotations using Python's typing module.\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        ...\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        ...\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        ...\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        ...\n    \n    def get_neighbors(self, node: T) -> List[Tuple[T, float]]:\n        \"\"\"\n        Get all neighbors of a node with their edge weights.\n        \n        Args:\n            node: The node whose neighbors are to be retrieved.\n            \n        Returns:\n            A list of (neighbor, weight) tuples.\n        \"\"\"\n        ...\n    \n    def has_node(self, node: T) -> bool:\n        \"\"\"\n        Check if a node exists in the graph.\n        \n        Args:\n            node: The node to check.\n            \n        Returns:\n            True if the node exists, False otherwise.\n        \"\"\"\n        ...\n    \n    def has_edge(self, u: T, v: T) -> bool:\n        \"\"\"\n        Check if an edge exists between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            \n        Returns:\n            True if the edge exists, False otherwise.\n        \"\"\"\n        ...\n    \n    def get_edge_weight(self, u: T, v: T) -> Optional[float]:\n        \"\"\"\n        Get the weight of an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            \n        Returns:\n            The weight of the edge, or None if the edge does not exist.\n        \"\"\"\n        ...\n    \n    def __len__(self) -> int:\n        \"\"\"Return the number of nodes in the graph.\"\"\"\n        ...\n    \n    def __contains__(self, node: T) -> bool:\n        \"\"\"Check if a node is in the graph.\"\"\"\n        ...\n    \n    def __iter__(self) -> Iterable[T]:\n        \"\"\"Iterate over all nodes in the graph.\"\"\"\n        ...\n\n\nclass PriorityQueue(Generic[T]):\n    \"\"\"\n    A generic priority queue implementation.\n    \n    Attributes:\n        _heap: Internal list representing the heap.\n        _comparator: Function to compare two elements for priority ordering.\n    \"\"\"\n    \n    def __init__(self, comparator: Optional[Callable[[T, T], int]] = None) -> None:\n        \"\"\"\n        Initialize\n\nTask: Implement the primary algorithmic logic, strictly adhering to O(1) or O(log N) time complexity constraints for all operations.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines core data structures and function signatures for advanced\nalgorithmic operations, with full type annotations using Python's typing module.\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\nimport heapq\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        if node not in self.nodes:\n            self.nodes.add(node)\n            self.edges[node] = []\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        self.add_node(u)\n        self.add_node(v)\n        \n        # Check if edge already exists and update weight if so\n        for i, (neighbor, w) in enumerate(self.edges[u]):\n            if neighbor == v:\n                self.edges[u][i] = (v, weight)\n                break\n        else:\n            self.edges[u].append((v, weight))\n        \n        if not self.directed:\n            for i, (neighbor, w) in enumerate(self.edges[v]):\n                if neighbor == u:\n                    self.edges[v][i] = (u, weight)\n                    break\n            else:\n                self.edges[v].append((u, weight))\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        if node not in self.nodes:\n            return\n        \n        # Remove edges from all neighbors\n        for neighbor, _ in self.edges[node]:\n            self.remove_edge(neighbor, node)\n        \n        self.nodes.discard(node)\n        del self.edges[node]\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        if u not in self.edges or v not in self.edges:\n            return\n        \n        # Remove v from u's adjacency list\n        self.edges[u] = [(n, w) for n, w in self.edges[u] if n != v]\n        \n        if not self.directed:\n            # Remove u from v's adjacency list\n            self.edges[v] = [(n, w) for n, w in self.edges[v] if n != u]\n    \n    def get_neighbors(self, node: T) -> List[Tuple[T, float]]:\n        \"\"\"\n        Get all neighbors of a node with their edge weights.\n        \n        Args:\n            node: The node whose neighbors are to be retrieved.\n            \n        Returns:\n            A list of (neighbor, weight) tuples.\n        \"\"\"\n        if node not in self.edges:\n            return []\n        return list(self.edges[node])\n    \n    def has_node(self, node: T) -> bool:\n        \"\"\"\n        Check if a node exists in the graph.\n        \n        Args:\n            node: The node to check.\n            \n        Returns:\n            True if the node exists",
+        "extra_metadata": {
+          "node_id": "node_2",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_3": [
+      {
+        "stage_name": "pool_coding_node_3",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271892.1313115,
+        "end_time_rel_s": 271907.9994404,
+        "latency_ms": 15868.128900008742,
+        "prompt_tokens": 1088,
+        "completion_tokens": 1024,
+        "total_tokens": 2112,
+        "cost_usd": 0.00031488,
+        "confidence_score": null,
+        "input": "[Prerequisite node_2]:\n```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines core data structures and function signatures for advanced\nalgorithmic operations, with full type annotations using Python's typing module.\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\nimport heapq\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        if node not in self.nodes:\n            self.nodes.add(node)\n            self.edges[node] = []\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        self.add_node(u)\n        self.add_node(v)\n        \n        # Check if edge already exists and update weight if so\n        for i, (neighbor, w) in enumerate(self.edges[u]):\n            if neighbor == v:\n                self.edges[u][i] = (v, weight)\n                break\n        else:\n            self.edges[u].append((v, weight))\n        \n        if not self.directed:\n            for i, (neighbor, w) in enumerate(self.edges[v]):\n                if neighbor == u:\n                    self.edges[v][i] = (u, weight)\n                    break\n            else:\n                self.edges[v].append((u, weight))\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        if node not in self.nodes:\n            return\n        \n        # Remove edges from all neighbors\n        for neighbor, _ in self.edges[node]:\n            self.remove_edge(neighbor, node)\n        \n        self.nodes.discard(node)\n        del self.edges[node]\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        if u not in self.edges or v not in self.edges:\n            return\n        \n        # Remove v from u's adjacency list\n        self.edges[u] = [(n, w) for n, w in self.edges[u] if n != v]\n        \n        if not self.directed:\n            # Remove u from v's adjacency list\n            self.edges[v] = [(n, w) for n, w in self.edges[v] if n != u]\n    \n    def get_neighbors(self, node: T) -> List[Tuple[T, float]]:\n        \"\"\"\n        Get all neighbors of a node with their edge weights.\n        \n        Args:\n            node: The node whose neighbors are to be retrieved.\n            \n        Returns:\n            A list of (neighbor, weight) tuples.\n        \"\"\"\n        if node not in self.edges:\n            return []\n        return list(self.edges[node])\n    \n    def has_node(self, node: T) -> bool:\n        \"\"\"\n        Check if a node exists in the graph.\n        \n        Args:\n            node: The node to check.\n            \n        Returns:\n            True if the node exists\n\nTask: Develop comprehensive unit tests covering normal operations, boundary conditions, and specific edge cases to verify correctness and performance guarantees.",
+        "output": "```python\n\"\"\"\nComprehensive unit tests for the Advanced Algorithmic Module.\n\nCovers normal operations, boundary conditions, and specific edge cases\nfor the Graph class.\n\"\"\"\n\nimport unittest\nfrom typing import Any, Dict, List, Optional, Set, Tuple\nimport sys\nimport os\n\n# Add the parent directory to path so we can import the module\nsys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))\n\n# Import the Graph class from the prerequisite module\n# We need to handle the import carefully since the module file name is not specified\n# Let's assume the module is in the same directory or we can import it directly\n# For this test, we'll define the Graph class inline or import it properly\n\n# Since the prerequisite code is provided, let's create a proper import\n# The module should be importable. Let's assume it's in a file called 'advanced_algorithmic_module.py'\n# or we can just copy the class definition for testing purposes.\n\n# For robustness, let's define the Graph class here based on the provided code\n# This ensures the tests are self-contained\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\nimport heapq\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        if node not in self.nodes:\n            self.nodes.add(node)\n            self.edges[node] = []\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        self.add_node(u)\n        self.add_node(v)\n        \n        # Check if edge already exists and update weight if so\n        for i, (neighbor, w) in enumerate(self.edges[u]):\n            if neighbor == v:\n                self.edges[u][i] = (v, weight)\n                break\n        else:\n            self.edges[u].append((v, weight))\n        \n        if not self.directed:\n            for i, (neighbor, w) in enumerate(self.edges[v]):\n                if neighbor == u:\n                    self.edges[v][i] = (u, weight)\n                    break\n            else:\n                self.edges[v].append((u, weight))\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        if node not in self.nodes:\n            return\n        \n        # Remove edges from all neighbors\n        for neighbor, _ in self.edges[node]:\n            self.remove_edge(neighbor, node)\n        \n        self.nodes.discard(node)\n        del self.edges[node]\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        if u not in self.edges or v not in self.edges:\n            return\n        \n        # Remove v from u's adjacency list\n        self.edges[u] = [(n, w) for n, w in self.edges[u] if",
+        "extra_metadata": {
+          "node_id": "node_3",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 271907.9995188,
+        "end_time_rel_s": 271941.480345,
+        "latency_ms": 33480.82619998604,
+        "prompt_tokens": 3425,
+        "completion_tokens": 1024,
+        "total_tokens": 4449,
+        "cost_usd": 0.00071855,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines core data structures and function signatures for advanced\nalgorithmic operations, with full type annotations using Python's typing module.\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        ...\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        ...\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        ...\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        ...\n    \n    def get_neighbors(self, node: T) -> List[Tuple[T, float]]:\n        \"\"\"\n        Get all neighbors of a node with their edge weights.\n        \n        Args:\n            node: The node whose neighbors are to be retrieved.\n            \n        Returns:\n            A list of (neighbor, weight) tuples.\n        \"\"\"\n        ...\n    \n    def has_node(self, node: T) -> bool:\n        \"\"\"\n        Check if a node exists in the graph.\n        \n        Args:\n            node: The node to check.\n            \n        Returns:\n            True if the node exists, False otherwise.\n        \"\"\"\n        ...\n    \n    def has_edge(self, u: T, v: T) -> bool:\n        \"\"\"\n        Check if an edge exists between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            \n        Returns:\n            True if the edge exists, False otherwise.\n        \"\"\"\n        ...\n    \n    def get_edge_weight(self, u: T, v: T) -> Optional[float]:\n        \"\"\"\n        Get the weight of an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            \n        Returns:\n            The weight of the edge, or None if the edge does not exist.\n        \"\"\"\n        ...\n    \n    def __len__(self) -> int:\n        \"\"\"Return the number of nodes in the graph.\"\"\"\n        ...\n    \n    def __contains__(self, node: T) -> bool:\n        \"\"\"Check if a node is in the graph.\"\"\"\n        ...\n    \n    def __iter__(self) -> Iterable[T]:\n        \"\"\"Iterate over all nodes in the graph.\"\"\"\n        ...\n\n\nclass PriorityQueue(Generic[T]):\n    \"\"\"\n    A generic priority queue implementation.\n    \n    Attributes:\n        _heap: Internal list representing the heap.\n        _comparator: Function to compare two elements for priority ordering.\n    \"\"\"\n    \n    def __init__(self, comparator: Optional[Callable[[T, T], int]] = None) -> None:\n        \"\"\"\n        Initialize",
+            "node_2": "```python\n\"\"\"\nAdvanced Algorithmic Module\n\nThis module defines core data structures and function signatures for advanced\nalgorithmic operations, with full type annotations using Python's typing module.\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\nimport heapq\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        if node not in self.nodes:\n            self.nodes.add(node)\n            self.edges[node] = []\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        self.add_node(u)\n        self.add_node(v)\n        \n        # Check if edge already exists and update weight if so\n        for i, (neighbor, w) in enumerate(self.edges[u]):\n            if neighbor == v:\n                self.edges[u][i] = (v, weight)\n                break\n        else:\n            self.edges[u].append((v, weight))\n        \n        if not self.directed:\n            for i, (neighbor, w) in enumerate(self.edges[v]):\n                if neighbor == u:\n                    self.edges[v][i] = (u, weight)\n                    break\n            else:\n                self.edges[v].append((u, weight))\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        if node not in self.nodes:\n            return\n        \n        # Remove edges from all neighbors\n        for neighbor, _ in self.edges[node]:\n            self.remove_edge(neighbor, node)\n        \n        self.nodes.discard(node)\n        del self.edges[node]\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        if u not in self.edges or v not in self.edges:\n            return\n        \n        # Remove v from u's adjacency list\n        self.edges[u] = [(n, w) for n, w in self.edges[u] if n != v]\n        \n        if not self.directed:\n            # Remove u from v's adjacency list\n            self.edges[v] = [(n, w) for n, w in self.edges[v] if n != u]\n    \n    def get_neighbors(self, node: T) -> List[Tuple[T, float]]:\n        \"\"\"\n        Get all neighbors of a node with their edge weights.\n        \n        Args:\n            node: The node whose neighbors are to be retrieved.\n            \n        Returns:\n            A list of (neighbor, weight) tuples.\n        \"\"\"\n        if node not in self.edges:\n            return []\n        return list(self.edges[node])\n    \n    def has_node(self, node: T) -> bool:\n        \"\"\"\n        Check if a node exists in the graph.\n        \n        Args:\n            node: The node to check.\n            \n        Returns:\n            True if the node exists",
+            "node_3": "```python\n\"\"\"\nComprehensive unit tests for the Advanced Algorithmic Module.\n\nCovers normal operations, boundary conditions, and specific edge cases\nfor the Graph class.\n\"\"\"\n\nimport unittest\nfrom typing import Any, Dict, List, Optional, Set, Tuple\nimport sys\nimport os\n\n# Add the parent directory to path so we can import the module\nsys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))\n\n# Import the Graph class from the prerequisite module\n# We need to handle the import carefully since the module file name is not specified\n# Let's assume the module is in the same directory or we can import it directly\n# For this test, we'll define the Graph class inline or import it properly\n\n# Since the prerequisite code is provided, let's create a proper import\n# The module should be importable. Let's assume it's in a file called 'advanced_algorithmic_module.py'\n# or we can just copy the class definition for testing purposes.\n\n# For robustness, let's define the Graph class here based on the provided code\n# This ensures the tests are self-contained\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\nimport heapq\n\n# Type variables\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        if node not in self.nodes:\n            self.nodes.add(node)\n            self.edges[node] = []\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        self.add_node(u)\n        self.add_node(v)\n        \n        # Check if edge already exists and update weight if so\n        for i, (neighbor, w) in enumerate(self.edges[u]):\n            if neighbor == v:\n                self.edges[u][i] = (v, weight)\n                break\n        else:\n            self.edges[u].append((v, weight))\n        \n        if not self.directed:\n            for i, (neighbor, w) in enumerate(self.edges[v]):\n                if neighbor == u:\n                    self.edges[v][i] = (u, weight)\n                    break\n            else:\n                self.edges[v].append((u, weight))\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        if node not in self.nodes:\n            return\n        \n        # Remove edges from all neighbors\n        for neighbor, _ in self.edges[node]:\n            self.remove_edge(neighbor, node)\n        \n        self.nodes.discard(node)\n        del self.edges[node]\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n        \"\"\"\n        if u not in self.edges or v not in self.edges:\n            return\n        \n        # Remove v from u's adjacency list\n        self.edges[u] = [(n, w) for n, w in self.edges[u] if"
+          }
+        },
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #3\n\nThis module provides a robust, fully type-annotated implementation of core\ngraph data structures and algorithmic utilities. It guarantees O(1) average\ncomplexity for node existence checks and O(log N) complexity for priority\nqueue operations, while maintaining strict type safety and comprehensive\nedge-case handling.\n\nDependencies:\n    - Python 3.8+\n    - Standard library only (typing, heapq, unittest)\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\nimport heapq\nimport unittest\n\n# ---------------------------------------------------------------------------\n# Type Variables\n# ---------------------------------------------------------------------------\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\n# ---------------------------------------------------------------------------\n# Core Data Structures\n# ---------------------------------------------------------------------------\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Complexity Guarantees:\n        - add_node: O(1) average\n        - add_edge: O(D) where D is the degree of the node (to check for existing edges)\n        - remove_node: O(D) where D is the degree of the node\n        - remove_edge: O(D) where D is the degree of the node\n        - get_neighbors: O(D)\n        - has_node: O(1) average\n        - has_edge: O(D)\n        - get_edge_weight: O(D)\n        - __len__: O(1)\n        - __contains__: O(1) average\n        - __iter__: O(1) for iterator creation, O(N) for full iteration\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        if node not in self.nodes:\n            self.nodes.add(node)\n            self.edges[node] = []\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        If the edge already exists, the weight is updated.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        self.add_node(u)\n        self.add_node(v)\n        \n        # Check if edge already exists and update weight if so\n        for i, (neighbor, w) in enumerate(self.edges[u]):\n            if neighbor == v:\n                self.edges[u][i] = (v, weight)\n                break\n        else:\n            self.edges[u].append((v, weight))\n        \n        if not self.directed:\n            for i, (neighbor, w) in enumerate(self.edges[v]):\n                if neighbor == u:\n                    self.edges[v][i] = (u, weight)\n                    break\n            else:\n                self.edges[v].append((u, weight))\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        if node not in self.nodes:\n            return\n        \n        # Remove edges from all neighbors\n        for neighbor, _ in self.edges[node]:\n            self.remove_edge(neighbor, node)\n        \n        self.nodes.discard(node)\n        del self.edges[node]\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination",
+        "extra_metadata": {
+          "node_count": 3,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 2357.706600043457
+    },
+    {
+      "node_id": "node_2",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_1"
+      ],
+      "latency_ms": 17403.923299978487
+    },
+    {
+      "node_id": "node_3",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_2"
+      ],
+      "latency_ms": 15868.144900014158
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nAdvanced Algorithmic Module #3\n\nThis module provides a robust, fully type-annotated implementation of core\ngraph data structures and algorithmic utilities. It guarantees O(1) average\ncomplexity for node existence checks and O(log N) complexity for priority\nqueue operations, while maintaining strict type safety and comprehensive\nedge-case handling.\n\nDependencies:\n    - Python 3.8+\n    - Standard library only (typing, heapq, unittest)\n\"\"\"\n\nfrom typing import (\n    Any,\n    Callable,\n    Dict,\n    Generic,\n    Hashable,\n    Iterable,\n    List,\n    Optional,\n    Sequence,\n    Set,\n    Tuple,\n    TypeVar,\n    Union,\n)\nimport heapq\nimport unittest\n\n# ---------------------------------------------------------------------------\n# Type Variables\n# ---------------------------------------------------------------------------\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\nN = TypeVar(\"N\", bound=Union[int, float])\n\n\n# ---------------------------------------------------------------------------\n# Core Data Structures\n# ---------------------------------------------------------------------------\n\nclass Graph(Generic[T]):\n    \"\"\"\n    A generic graph data structure supporting both directed and undirected graphs.\n    \n    Complexity Guarantees:\n        - add_node: O(1) average\n        - add_edge: O(D) where D is the degree of the node (to check for existing edges)\n        - remove_node: O(D) where D is the degree of the node\n        - remove_edge: O(D) where D is the degree of the node\n        - get_neighbors: O(D)\n        - has_node: O(1) average\n        - has_edge: O(D)\n        - get_edge_weight: O(D)\n        - __len__: O(1)\n        - __contains__: O(1) average\n        - __iter__: O(1) for iterator creation, O(N) for full iteration\n    \n    Attributes:\n        directed: Whether the graph is directed.\n        nodes: Set of nodes in the graph.\n        edges: Dictionary mapping each node to a list of (neighbor, weight) tuples.\n    \"\"\"\n    \n    def __init__(self, directed: bool = False) -> None:\n        \"\"\"\n        Initialize an empty graph.\n        \n        Args:\n            directed: If True, the graph is directed; otherwise, it is undirected.\n        \"\"\"\n        self.directed: bool = directed\n        self.nodes: Set[T] = set()\n        self.edges: Dict[T, List[Tuple[T, float]]] = {}\n    \n    def add_node(self, node: T) -> None:\n        \"\"\"\n        Add a node to the graph.\n        \n        Args:\n            node: The node to add.\n        \"\"\"\n        if node not in self.nodes:\n            self.nodes.add(node)\n            self.edges[node] = []\n    \n    def add_edge(self, u: T, v: T, weight: float = 1.0) -> None:\n        \"\"\"\n        Add an edge between two nodes with an optional weight.\n        If the edge already exists, the weight is updated.\n        \n        Args:\n            u: Source node.\n            v: Destination node.\n            weight: Weight of the edge (default is 1.0).\n        \"\"\"\n        self.add_node(u)\n        self.add_node(v)\n        \n        # Check if edge already exists and update weight if so\n        for i, (neighbor, w) in enumerate(self.edges[u]):\n            if neighbor == v:\n                self.edges[u][i] = (v, weight)\n                break\n        else:\n            self.edges[u].append((v, weight))\n        \n        if not self.directed:\n            for i, (neighbor, w) in enumerate(self.edges[v]):\n                if neighbor == u:\n                    self.edges[v][i] = (u, weight)\n                    break\n            else:\n                self.edges[v].append((u, weight))\n    \n    def remove_node(self, node: T) -> None:\n        \"\"\"\n        Remove a node and all its associated edges from the graph.\n        \n        Args:\n            node: The node to remove.\n        \"\"\"\n        if node not in self.nodes:\n            return\n        \n        # Remove edges from all neighbors\n        for neighbor, _ in self.edges[node]:\n            self.remove_edge(neighbor, node)\n        \n        self.nodes.discard(node)\n        del self.edges[node]\n    \n    def remove_edge(self, u: T, v: T) -> None:\n        \"\"\"\n        Remove an edge between two nodes.\n        \n        Args:\n            u: Source node.\n            v: Destination",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.9978,
+      "math": 0.0006,
+      "reasoning": 0.0006,
+      "retrieval": 0.0006,
+      "general": 0.0006
+    },
+    "node_2": {
+      "coding": 0.9593,
+      "math": 0.0039,
+      "reasoning": 0.029,
+      "retrieval": 0.0039,
+      "general": 0.0039
+    },
+    "node_3": {
+      "coding": 0.7612,
+      "math": 0.023,
+      "reasoning": 0.1698,
+      "retrieval": 0.023,
+      "general": 0.023
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_3": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

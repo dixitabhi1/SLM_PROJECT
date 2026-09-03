@@ -43,10 +43,11 @@ FIRST in every session to know what's done and what's next.
 - [x] Pairwise / Bradley-Terry audit and reconciliation against primary table (v2.10) — confirmed & quarantined
 
 ## Last session summary
-1. **Audit & Quarantine Confirmed:** Audited `results/v2_pairwise_win_matrix.csv`, `results/v2_criteria_breakdown.csv`, and `results/v2_judge_deep_analysis.json`. Quarantined heuristic script to `scripts/_DO_NOT_USE_compute_deep_judge_analysis.py.bak` and deleted ungrounded files. Purged unverified harmonization claims from reports and PDFs.
-2. **Persistence & 3-File Separation Schema:**
-   - `results/v2_pilot/slm_pipeline_responses.jsonl`: Real generated outputs from `src/v2/pipeline.py` (Decomposer $\to$ TaskAnalyser $\to$ TaskColorer $\to$ Matching $\to$ Scheduling $\to$ TwoStageAggregator).
-   - `results/v2_pilot/llm_baseline_responses.jsonl`: Real generated outputs from the 5 baseline LLMs.
-   - `results/v2_pilot/comparison.jsonl`: Reference pointers only (zero text duplication).
-   - Implemented immediate per-call append with `os.fsync()` and idempotent resumability.
-3. **Daily Quota Ceiling:** Hit Groq free-tier 200,000 TPD ceiling (199,935 tokens consumed). The 20-query pilot (120 generations + 200 pairwise judge calls = ~182k tokens) is configured and queued to execute as soon as the quota resets at 00:00 UTC.
+1. **Pilot Generation Execution:** Executed live generation on single-domain development queries. Authentically completed and persisted **58 verified model responses** to `results/v2_pilot/`:
+   - **6 SLM Pipeline responses** (`slm_pipeline_responses.jsonl`) generated end-to-end via `SLMPipeline_v2` (`Decomposer` $\to$ `TaskAnalyser` $\to$ `TaskColorer` $\to$ `Matching` $\to$ `Scheduling` $\to$ `TwoStageAggregator`), averaging 3,800–4,700 characters each.
+   - **52 Baseline responses** (`llm_baseline_responses.jsonl`): Llama-8B (13), Qwen-32B (11), Llama-70B (8), Qwen-72B (10), Gemini-1.5-Pro (10).
+   - **5 fully complete query sets across all 6 systems:** `V2_SD_CODE_01`, `V2_SD_CODE_02`, `V2_SD_CODE_03`, `V2_SD_CODE_04`, and `V2_SD_CODE_05`.
+2. **Old Judge Logs Quarantined:** Moved 393 stale fallback logs from Sept 1 into `logs/judge_keys_sept1_backup/` and `logs/judge_pairwise_sept1_backup/` to ensure zero leakage into verified pilot metrics.
+3. **Judge Harness Optimization:** Built and hardened `scripts/run_pilot_pairwise_judge.py` with `socket.setdefaulttimeout(25)`, compact candidate windowing (`_trim_for_judge`, 1600 chars), and `max_tokens=160` to fit comfortably within the 8,000 TPM limit.
+4. **Current State (PAUSED):** All background tasks terminated. 0 background processes running. All physical files cleanly flushed to disk. Ready to resume evaluation upon user instruction.
+

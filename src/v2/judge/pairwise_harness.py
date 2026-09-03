@@ -8,9 +8,12 @@ strict criteria scoring (Correctness, Completeness, Coherence), and separated id
 import json
 import os
 import re
+import socket
 import time
 import urllib.request
 from typing import Dict, List, Any, Optional, Tuple
+
+socket.setdefaulttimeout(25)
 
 PAIRWISE_JUDGE_SYSTEM_PROMPT = """You are an impartial, expert AI judge evaluating two candidate responses (Candidate A and Candidate B) to a technical user query.
 
@@ -80,10 +83,19 @@ class PairwiseLLMJudgeHarness:
             cand_a_sys = system_b_id
             cand_b_sys = system_a_id
 
+        def _trim_for_judge(text: str, max_chars: int = 1600) -> str:
+            text = text.strip()
+            if len(text) <= max_chars:
+                return text
+            return text[:1100] + "\n\n...[Implementation Details Continued]...\n\n" + text[-400:]
+
+        cand_a_formatted = _trim_for_judge(candidate_a_text)
+        cand_b_formatted = _trim_for_judge(candidate_b_text)
+
         user_prompt = (
             f"User Query:\n{query_text}\n\n"
-            f"=== Candidate A ===\n{candidate_a_text}\n\n"
-            f"=== Candidate B ===\n{candidate_b_text}\n\n"
+            f"=== Candidate A ===\n{cand_a_formatted}\n\n"
+            f"=== Candidate B ===\n{cand_b_formatted}\n\n"
             f"Provide your JSON evaluation:"
         )
 
@@ -218,7 +230,7 @@ class PairwiseLLMJudgeHarness:
             ],
             "response_format": {"type": "json_object"},
             "temperature": 0.0,
-            "max_tokens": 512
+            "max_tokens": 160
         }
 
         req = urllib.request.Request(
@@ -238,16 +250,32 @@ class PairwiseLLMJudgeHarness:
                     out_tok = res_data.get("usage", {}).get("completion_tokens", len(text.split()) * 2)
                     return text, in_tok, out_tok, None
             except urllib.error.HTTPError as e:
-                last_err = f"HTTPError {e.code}: {e.read().decode()[:200]}"
+                err_content = e.read().decode("utf-8", errors="ignore")
+                last_err = f"HTTPError {e.code}: {err_content[:200]}"
                 if e.code == 429:
-                    time.sleep(2.5 * (attempt + 1))
+                    wait_s = 15.0
+                    if "try again in" in err_content:
+                        try:
+                            raw = err_content.split("try again in")[1].split("Need more tokens")[0].strip()
+                            raw = raw.rstrip(".").rstrip("s").strip()
+                            if "m" in raw:
+                                parts = raw.split("m")
+                                mins = float(parts[0])
+                                secs = float(parts[1]) if len(parts) > 1 and parts[1] else 0.0
+                                wait_s = mins * 60.0 + secs + 2.0
+                            else:
+                                wait_s = float(raw) + 2.0
+                        except Exception:
+                            wait_s = 15.0
+                    print(f"[{self.judge_model_name}] Groq 429 Rate Limit. Waiting {wait_s:.1f}s before retry {attempt+1}/6...", flush=True)
+                    time.sleep(wait_s)
                 else:
-                    time.sleep(1.0)
+                    time.sleep(1.5)
             except Exception as e:
                 last_err = str(e)
-                time.sleep(1.0)
+                time.sleep(1.5)
 
-        return "", 0, 0, f"Exhausted 5 retries: {last_err}"
+        return "", 0, 0, f"Exhausted 6 retries: {last_err}"
 
     def _parse_json_verdict(self, raw_text: str) -> Dict[str, Any]:
         cleaned = re.sub(r"^```json\s*", "", raw_text.strip(), flags=re.IGNORECASE)

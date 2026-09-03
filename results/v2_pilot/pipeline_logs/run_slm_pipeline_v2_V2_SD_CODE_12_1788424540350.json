@@ -1,0 +1,356 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_12_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_12",
+  "query_text": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "2e7cd7bf24983de1041d77e57ec4b70ccfea25cd",
+  "timestamp_start_utc": "2026-09-03T08:18:17.387967+00:00",
+  "timestamp_end_utc": "2026-09-03T08:35:40.350372+00:00",
+  "total_wall_clock_latency_ms": 1043107.4406999978,
+  "simulated_parallel_latency_ms": 707215.7444999903,
+  "total_prompt_tokens": 309,
+  "total_completion_tokens": 1189,
+  "total_tokens": 1498,
+  "total_cost_usd": 0.00021766,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 276489.8438577,
+        "end_time_rel_s": 276574.6700088,
+        "latency_ms": 84826.15109998733,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node.1",
+              "text": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node.1": [
+      {
+        "stage_name": "re_decomposition_node.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 276574.6704291,
+        "end_time_rel_s": 276660.0131019,
+        "latency_ms": 85342.67280000495,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1",
+          "text": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1",
+              "text": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 1,
+              "parent_id": "node.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1",
+          "depth": 1
+        }
+      }
+    ],
+    "re_decomposition_node.1.1": [
+      {
+        "stage_name": "re_decomposition_node.1.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 276660.0135844,
+        "end_time_rel_s": 276740.9088236,
+        "latency_ms": 80895.23919997737,
+        "prompt_tokens": 242,
+        "completion_tokens": 165,
+        "total_tokens": 407,
+        "cost_usd": 2.5300000000000002e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1.1",
+          "text": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 1,
+          "parent_id": "node.1"
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1.1",
+              "text": "Design and implement the core algorithmic logic for module #12 in Python, ensuring strict O(1) or O(log N) time complexity and full type annotations.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 2,
+              "parent_id": "node.1.1"
+            },
+            {
+              "id": "node.1.1.2",
+              "text": "Develop a comprehensive suite of unit tests for the implemented module, specifically targeting edge cases and verifying the stated complexity guarantees.",
+              "capability": "coding",
+              "dependencies": [
+                "node.1.1.1"
+              ],
+              "depth": 2,
+              "parent_id": "node.1.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1.1",
+          "depth": 2
+        }
+      }
+    ],
+    "pool_coding_node.1.1.1": [
+      {
+        "stage_name": "pool_coding_node.1.1.1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 276740.9102719,
+        "end_time_rel_s": 277363.3506182,
+        "latency_ms": 622440.3463000199,
+        "prompt_tokens": 67,
+        "completion_tokens": 1024,
+        "total_tokens": 1091,
+        "cost_usd": 0.00019236,
+        "confidence_score": null,
+        "input": "Task: Design and implement the core algorithmic logic for module #12 in Python, ensuring strict O(1) or O(log N) time complexity and full type annotations.",
+        "output": "```python\n\"\"\"\nModule #12: Core Algorithmic Logic\n\nThis module implements core algorithmic operations with strict O(1) or O(log N)\ntime complexity guarantees and full type annotations.\n\nThe module provides:\n- A binary search implementation (O(log N))\n- A hash-based lookup structure (O(1) average)\n- Mathematical utility functions (O(1))\n- A priority queue using a heap (O(log N) for insert/extract)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Callable, Generic, List, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\")\nV = TypeVar(\"V\")\n\n\ndef binary_search(arr: List[T], target: T, key: Optional[Callable[[T], T]] = None) -> int:\n    \"\"\"\n    Perform binary search on a sorted list.\n\n    Args:\n        arr: A sorted list of elements.\n        target: The target value to search for.\n        key: Optional key function to extract comparison value from elements.\n\n    Returns:\n        The index of the target if found, otherwise -1.\n\n    Time Complexity: O(log N)\n    Space Complexity: O(1)\n    \"\"\"\n    if key is None:\n        key = lambda x: x\n\n    left: int = 0\n    right: int = len(arr) - 1\n\n    while left <= right:\n        mid: int = left + (right - left) // 2\n        mid_val: T = key(arr[mid])\n        target_val: T = key(target)\n\n        if mid_val == target_val:\n            return mid\n        elif mid_val < target_val:\n            left = mid + 1\n        else:\n            right = mid - 1\n\n    return -1\n\n\nclass HashTable(Generic[K, V]):\n    \"\"\"\n    A simple hash table implementation with O(1) average-case operations.\n\n    Uses chaining for collision resolution.\n    \"\"\"\n\n    def __init__(self, initial_capacity: int = 16, load_factor: float = 0.75) -> None:\n        \"\"\"\n        Initialize the hash table.\n\n        Args:\n            initial_capacity: Initial number of buckets.\n            load_factor: Load factor threshold for resizing.\n        \"\"\"\n        self._capacity: int = initial_capacity\n        self._load_factor: float = load_factor\n        self._size: int = 0\n        self._buckets: List[List[tuple[K, V]]] = [[] for _ in range(self._capacity)]\n\n    def _hash(self, key: K) -> int:\n        \"\"\"Compute the hash index for a key. O(1)\"\"\"\n        return hash(key) % self._capacity\n\n    def _resize(self) -> None:\n        \"\"\"Resize the hash table when load factor is exceeded. Amortized O(1).\"\"\"\n        old_buckets: List[List[tuple[K, V]]] = self._buckets\n        self._capacity *= 2\n        self._buckets = [[] for _ in range(self._capacity)]\n        self._size = 0\n        for bucket in old_buckets:\n            for k, v in bucket:\n                self._put(k, v)\n\n    def _put(self, key: K, value: V) -> None:\n        \"\"\"Internal put method without size check. O(1) average.\"\"\"\n        idx: int = self._hash(key)\n        bucket: List[tuple[K, V]] = self._buckets[idx]\n        for i, (k, _) in enumerate(bucket):\n            if k == key:\n                bucket[i] = (key, value)\n                return\n        bucket.append((key, value))\n        self._size += 1\n\n    def put(self, key: K, value: V) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n\n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n\n        Time Complexity: O(1) average\n        \"\"\"\n        if self._size / self._capacity >= self._load_factor:\n            self._resize()\n        self._put(key, value)\n\n    def get(self, key: K, default: Optional[V] = None) -> Optional[V]:\n        \"\"\"\n        Retrieve a value by key.\n\n        Args:\n            key: The key to look up.\n            default: Default value to return if key not found.\n\n        Returns:\n            The value associated with the key, or default if not found.\n\n        Time Complexity: O(1) average\n        \"\"\"\n        idx: int = self._hash",
+        "extra_metadata": {
+          "node_id": "node.1.1.1",
+          "mode": "single_agent",
+          "depth": 2
+        }
+      }
+    ],
+    "pool_coding_node.1.1.2": [
+      {
+        "stage_name": "pool_coding_node.1.1.2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 277363.3506717,
+        "end_time_rel_s": 277448.1263031,
+        "latency_ms": 84775.63139999984,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "[Prerequisite node.1.1.1]:\n```python\n\"\"\"\nModule #12: Core Algorithmic Logic\n\nThis module implements core algorithmic operations with strict O(1) or O(log N)\ntime complexity guarantees and full type annotations.\n\nThe module provides:\n- A binary search implementation (O(log N))\n- A hash-based lookup structure (O(1) average)\n- Mathematical utility functions (O(1))\n- A priority queue using a heap (O(log N) for insert/extract)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Callable, Generic, List, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\")\nV = TypeVar(\"V\")\n\n\ndef binary_search(arr: List[T], target: T, key: Optional[Callable[[T], T]] = None) -> int:\n    \"\"\"\n    Perform binary search on a sorted list.\n\n    Args:\n        arr: A sorted list of elements.\n        target: The target value to search for.\n        key: Optional key function to extract comparison value from elements.\n\n    Returns:\n        The index of the target if found, otherwise -1.\n\n    Time Complexity: O(log N)\n    Space Complexity: O(1)\n    \"\"\"\n    if key is None:\n        key = lambda x: x\n\n    left: int = 0\n    right: int = len(arr) - 1\n\n    while left <= right:\n        mid: int = left + (right - left) // 2\n        mid_val: T = key(arr[mid])\n        target_val: T = key(target)\n\n        if mid_val == target_val:\n            return mid\n        elif mid_val < target_val:\n            left = mid + 1\n        else:\n            right = mid - 1\n\n    return -1\n\n\nclass HashTable(Generic[K, V]):\n    \"\"\"\n    A simple hash table implementation with O(1) average-case operations.\n\n    Uses chaining for collision resolution.\n    \"\"\"\n\n    def __init__(self, initial_capacity: int = 16, load_factor: float = 0.75) -> None:\n        \"\"\"\n        Initialize the hash table.\n\n        Args:\n            initial_capacity: Initial number of buckets.\n            load_factor: Load factor threshold for resizing.\n        \"\"\"\n        self._capacity: int = initial_capacity\n        self._load_factor: float = load_factor\n        self._size: int = 0\n        self._buckets: List[List[tuple[K, V]]] = [[] for _ in range(self._capacity)]\n\n    def _hash(self, key: K) -> int:\n        \"\"\"Compute the hash index for a key. O(1)\"\"\"\n        return hash(key) % self._capacity\n\n    def _resize(self) -> None:\n        \"\"\"Resize the hash table when load factor is exceeded. Amortized O(1).\"\"\"\n        old_buckets: List[List[tuple[K, V]]] = self._buckets\n        self._capacity *= 2\n        self._buckets = [[] for _ in range(self._capacity)]\n        self._size = 0\n        for bucket in old_buckets:\n            for k, v in bucket:\n                self._put(k, v)\n\n    def _put(self, key: K, value: V) -> None:\n        \"\"\"Internal put method without size check. O(1) average.\"\"\"\n        idx: int = self._hash(key)\n        bucket: List[tuple[K, V]] = self._buckets[idx]\n        for i, (k, _) in enumerate(bucket):\n            if k == key:\n                bucket[i] = (key, value)\n                return\n        bucket.append((key, value))\n        self._size += 1\n\n    def put(self, key: K, value: V) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n\n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n\n        Time Complexity: O(1) average\n        \"\"\"\n        if self._size / self._capacity >= self._load_factor:\n            self._resize()\n        self._put(key, value)\n\n    def get(self, key: K, default: Optional[V] = None) -> Optional[V]:\n        \"\"\"\n        Retrieve a value by key.\n\n        Args:\n            key: The key to look up.\n            default: Default value to return if key not found.\n\n        Returns:\n            The value associated with the key, or default if not found.\n\n        Time Complexity: O(1) average\n        \"\"\"\n        idx: int = self._hash\n\nTask: Develop a comprehensive suite of unit tests for the implemented module, specifically targeting edge cases and verifying the stated complexity guarantees.",
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199309, Reque]",
+        "extra_metadata": {
+          "node_id": "node.1.1.2",
+          "mode": "single_agent",
+          "depth": 2
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 277448.1263417,
+        "end_time_rel_s": 277532.9512736,
+        "latency_ms": 84824.93190001696,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #12 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node.1.1.1": "```python\n\"\"\"\nModule #12: Core Algorithmic Logic\n\nThis module implements core algorithmic operations with strict O(1) or O(log N)\ntime complexity guarantees and full type annotations.\n\nThe module provides:\n- A binary search implementation (O(log N))\n- A hash-based lookup structure (O(1) average)\n- Mathematical utility functions (O(1))\n- A priority queue using a heap (O(log N) for insert/extract)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Callable, Generic, List, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\")\nV = TypeVar(\"V\")\n\n\ndef binary_search(arr: List[T], target: T, key: Optional[Callable[[T], T]] = None) -> int:\n    \"\"\"\n    Perform binary search on a sorted list.\n\n    Args:\n        arr: A sorted list of elements.\n        target: The target value to search for.\n        key: Optional key function to extract comparison value from elements.\n\n    Returns:\n        The index of the target if found, otherwise -1.\n\n    Time Complexity: O(log N)\n    Space Complexity: O(1)\n    \"\"\"\n    if key is None:\n        key = lambda x: x\n\n    left: int = 0\n    right: int = len(arr) - 1\n\n    while left <= right:\n        mid: int = left + (right - left) // 2\n        mid_val: T = key(arr[mid])\n        target_val: T = key(target)\n\n        if mid_val == target_val:\n            return mid\n        elif mid_val < target_val:\n            left = mid + 1\n        else:\n            right = mid - 1\n\n    return -1\n\n\nclass HashTable(Generic[K, V]):\n    \"\"\"\n    A simple hash table implementation with O(1) average-case operations.\n\n    Uses chaining for collision resolution.\n    \"\"\"\n\n    def __init__(self, initial_capacity: int = 16, load_factor: float = 0.75) -> None:\n        \"\"\"\n        Initialize the hash table.\n\n        Args:\n            initial_capacity: Initial number of buckets.\n            load_factor: Load factor threshold for resizing.\n        \"\"\"\n        self._capacity: int = initial_capacity\n        self._load_factor: float = load_factor\n        self._size: int = 0\n        self._buckets: List[List[tuple[K, V]]] = [[] for _ in range(self._capacity)]\n\n    def _hash(self, key: K) -> int:\n        \"\"\"Compute the hash index for a key. O(1)\"\"\"\n        return hash(key) % self._capacity\n\n    def _resize(self) -> None:\n        \"\"\"Resize the hash table when load factor is exceeded. Amortized O(1).\"\"\"\n        old_buckets: List[List[tuple[K, V]]] = self._buckets\n        self._capacity *= 2\n        self._buckets = [[] for _ in range(self._capacity)]\n        self._size = 0\n        for bucket in old_buckets:\n            for k, v in bucket:\n                self._put(k, v)\n\n    def _put(self, key: K, value: V) -> None:\n        \"\"\"Internal put method without size check. O(1) average.\"\"\"\n        idx: int = self._hash(key)\n        bucket: List[tuple[K, V]] = self._buckets[idx]\n        for i, (k, _) in enumerate(bucket):\n            if k == key:\n                bucket[i] = (key, value)\n                return\n        bucket.append((key, value))\n        self._size += 1\n\n    def put(self, key: K, value: V) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n\n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n\n        Time Complexity: O(1) average\n        \"\"\"\n        if self._size / self._capacity >= self._load_factor:\n            self._resize()\n        self._put(key, value)\n\n    def get(self, key: K, default: Optional[V] = None) -> Optional[V]:\n        \"\"\"\n        Retrieve a value by key.\n\n        Args:\n            key: The key to look up.\n            default: Default value to return if key not found.\n\n        Returns:\n            The value associated with the key, or default if not found.\n\n        Time Complexity: O(1) average\n        \"\"\"\n        idx: int = self._hash",
+            "node.1.1.2": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199309, Reque]"
+          }
+        },
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199632, Reque]",
+        "extra_metadata": {
+          "node_count": 2,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node.1.1.1",
+      "depth": 2,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 622440.354899969
+    },
+    {
+      "node_id": "node.1.1.2",
+      "depth": 2,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node.1.1.1"
+      ],
+      "latency_ms": 84775.64089995576
+    }
+  ],
+  "final_response": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199632, Reque]",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node.1",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    },
+    {
+      "event_index": 2,
+      "parent_task_id": "node.1.1",
+      "recursion_depth": 1,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1.1": {
+      "coding": 0.9943,
+      "math": 0.0005,
+      "reasoning": 0.0041,
+      "retrieval": 0.0005,
+      "general": 0.0005
+    },
+    "node.1.1.2": {
+      "coding": 0.8922,
+      "math": 0.0269,
+      "reasoning": 0.0269,
+      "retrieval": 0.0269,
+      "general": 0.0269
+    }
+  },
+  "v2_task_colors": {
+    "node.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node.1.1.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}
