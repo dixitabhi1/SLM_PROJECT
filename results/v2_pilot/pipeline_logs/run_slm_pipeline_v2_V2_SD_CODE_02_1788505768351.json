@@ -1,0 +1,138 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_02_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_02",
+  "query_text": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "21b515830e4ff1ea8321b598b9610e24bf35eddd",
+  "timestamp_start_utc": "2026-09-04T07:08:32.461735+00:00",
+  "timestamp_end_utc": "2026-09-04T07:09:28.351280+00:00",
+  "total_wall_clock_latency_ms": 55889.34460002929,
+  "simulated_parallel_latency_ms": 2472.259300004225,
+  "total_prompt_tokens": 406,
+  "total_completion_tokens": 1112,
+  "total_tokens": 1518,
+  "total_cost_usd": 0.00021627999999999998,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 358705.9884576,
+        "end_time_rel_s": 358759.4042549,
+        "latency_ms": 53415.797299996484,
+        "prompt_tokens": 340,
+        "completion_tokens": 88,
+        "total_tokens": 428,
+        "cost_usd": 2.404e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_1": [
+      {
+        "stage_name": "pool_coding_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 358759.4050678,
+        "end_time_rel_s": 358761.8776293,
+        "latency_ms": 2472.5614999770187,
+        "prompt_tokens": 66,
+        "completion_tokens": 1024,
+        "total_tokens": 1090,
+        "cost_usd": 0.00019224,
+        "confidence_score": null,
+        "input": "Task: Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #2\n\nThis module implements several advanced algorithms with full type annotations,\nO(1) or O(log N) complexity guarantees, and comprehensive edge-case handling.\n\nAlgorithms included:\n1. Binary Search (iterative and recursive) - O(log N)\n2. Exponentiation by Squaring - O(log N)\n3. Order Statistics (k-th smallest) using a min-heap approach with O(log N) per operation\n4. Range Sum Query using Prefix Sums - O(1) query after O(N) preprocessing\n5. Two Sum with Hash Map - O(N) time, O(N) space (but each lookup is O(1))\n6. Sliding Window Maximum using a deque - O(N) time overall, O(1) amortized per element\n7. LRU Cache - O(1) get and put operations\n8. Median of Two Sorted Arrays - O(log(min(m, n)))\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom collections import deque\nfrom typing import Any, Callable, Dict, Generic, List, Optional, Tuple, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\")\nV = TypeVar(\"V\")\n\n\nclass BinarySearch:\n    \"\"\"\n    Binary search implementations with O(log N) time complexity.\n    \n    Assumes the input list is sorted in ascending order.\n    \"\"\"\n\n    @staticmethod\n    def search_iterative(arr: List[int], target: int) -> int:\n        \"\"\"\n        Perform iterative binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return -1\n        \n        left: int = 0\n        right: int = len(arr) - 1\n        \n        while left <= right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] == target:\n                return mid\n            elif arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid - 1\n        \n        return -1\n\n    @staticmethod\n    def search_recursive(arr: List[int], target: int, left: int = 0, right: Optional[int] = None) -> int:\n        \"\"\"\n        Perform recursive binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            left: The left boundary of the search range.\n            right: The right boundary of the search range.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(log N) due to recursion stack\n        \"\"\"\n        if right is None:\n            right = len(arr) - 1\n        \n        if left > right:\n            return -1\n        \n        mid: int = left + (right - left) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            return BinarySearch.search_recursive(arr, target, mid + 1, right)\n        else:\n            return BinarySearch.search_recursive(arr, target, left, mid - 1)\n\n    @staticmethod\n    def lower_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] >= target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to find the lower bound for.\n            \n        Returns:\n            The index of the first element >= target, or len(arr) if no such element exists.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return 0\n        \n        left: int = 0\n        right: int = len(arr)\n        \n        while left < right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid\n        \n        return left\n\n    @staticmethod\n    def upper_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] > target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target:",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_passthrough": [
+      {
+        "stage_name": "global_aggregator_passthrough",
+        "model_name": "passthrough_bypass",
+        "model_revision": "main",
+        "start_time_rel_s": 358761.8777658,
+        "end_time_rel_s": 358761.8777658,
+        "latency_ms": 0.0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "```python\n\"\"\"\nAdvanced Algorithmic Module #2\n\nThis module implements several advanced algorithms with full type annotations,\nO(1) or O(log N) complexity guarantees, and comprehensive edge-case handling.\n\nAlgorithms included:\n1. Binary Search (iterative and recursive) - O(log N)\n2. Exponentiation by Squaring - O(log N)\n3. Order Statistics (k-th smallest) using a min-heap approach with O(log N) per operation\n4. Range Sum Query using Prefix Sums - O(1) query after O(N) preprocessing\n5. Two Sum with Hash Map - O(N) time, O(N) space (but each lookup is O(1))\n6. Sliding Window Maximum using a deque - O(N) time overall, O(1) amortized per element\n7. LRU Cache - O(1) get and put operations\n8. Median of Two Sorted Arrays - O(log(min(m, n)))\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom collections import deque\nfrom typing import Any, Callable, Dict, Generic, List, Optional, Tuple, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\")\nV = TypeVar(\"V\")\n\n\nclass BinarySearch:\n    \"\"\"\n    Binary search implementations with O(log N) time complexity.\n    \n    Assumes the input list is sorted in ascending order.\n    \"\"\"\n\n    @staticmethod\n    def search_iterative(arr: List[int], target: int) -> int:\n        \"\"\"\n        Perform iterative binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return -1\n        \n        left: int = 0\n        right: int = len(arr) - 1\n        \n        while left <= right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] == target:\n                return mid\n            elif arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid - 1\n        \n        return -1\n\n    @staticmethod\n    def search_recursive(arr: List[int], target: int, left: int = 0, right: Optional[int] = None) -> int:\n        \"\"\"\n        Perform recursive binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            left: The left boundary of the search range.\n            right: The right boundary of the search range.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(log N) due to recursion stack\n        \"\"\"\n        if right is None:\n            right = len(arr) - 1\n        \n        if left > right:\n            return -1\n        \n        mid: int = left + (right - left) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            return BinarySearch.search_recursive(arr, target, mid + 1, right)\n        else:\n            return BinarySearch.search_recursive(arr, target, left, mid - 1)\n\n    @staticmethod\n    def lower_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] >= target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to find the lower bound for.\n            \n        Returns:\n            The index of the first element >= target, or len(arr) if no such element exists.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return 0\n        \n        left: int = 0\n        right: int = len(arr)\n        \n        while left < right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid\n        \n        return left\n\n    @staticmethod\n    def upper_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] > target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target:"
+          }
+        },
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #2\n\nThis module implements several advanced algorithms with full type annotations,\nO(1) or O(log N) complexity guarantees, and comprehensive edge-case handling.\n\nAlgorithms included:\n1. Binary Search (iterative and recursive) - O(log N)\n2. Exponentiation by Squaring - O(log N)\n3. Order Statistics (k-th smallest) using a min-heap approach with O(log N) per operation\n4. Range Sum Query using Prefix Sums - O(1) query after O(N) preprocessing\n5. Two Sum with Hash Map - O(N) time, O(N) space (but each lookup is O(1))\n6. Sliding Window Maximum using a deque - O(N) time overall, O(1) amortized per element\n7. LRU Cache - O(1) get and put operations\n8. Median of Two Sorted Arrays - O(log(min(m, n)))\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom collections import deque\nfrom typing import Any, Callable, Dict, Generic, List, Optional, Tuple, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\")\nV = TypeVar(\"V\")\n\n\nclass BinarySearch:\n    \"\"\"\n    Binary search implementations with O(log N) time complexity.\n    \n    Assumes the input list is sorted in ascending order.\n    \"\"\"\n\n    @staticmethod\n    def search_iterative(arr: List[int], target: int) -> int:\n        \"\"\"\n        Perform iterative binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return -1\n        \n        left: int = 0\n        right: int = len(arr) - 1\n        \n        while left <= right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] == target:\n                return mid\n            elif arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid - 1\n        \n        return -1\n\n    @staticmethod\n    def search_recursive(arr: List[int], target: int, left: int = 0, right: Optional[int] = None) -> int:\n        \"\"\"\n        Perform recursive binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            left: The left boundary of the search range.\n            right: The right boundary of the search range.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(log N) due to recursion stack\n        \"\"\"\n        if right is None:\n            right = len(arr) - 1\n        \n        if left > right:\n            return -1\n        \n        mid: int = left + (right - left) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            return BinarySearch.search_recursive(arr, target, mid + 1, right)\n        else:\n            return BinarySearch.search_recursive(arr, target, left, mid - 1)\n\n    @staticmethod\n    def lower_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] >= target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to find the lower bound for.\n            \n        Returns:\n            The index of the first element >= target, or len(arr) if no such element exists.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return 0\n        \n        left: int = 0\n        right: int = len(arr)\n        \n        while left < right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid\n        \n        return left\n\n    @staticmethod\n    def upper_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] > target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target:",
+        "extra_metadata": {
+          "node_count": 1,
+          "bypassed": true,
+          "reason": "single_subtask_direct_passthrough"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 2472.5947999977507
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nAdvanced Algorithmic Module #2\n\nThis module implements several advanced algorithms with full type annotations,\nO(1) or O(log N) complexity guarantees, and comprehensive edge-case handling.\n\nAlgorithms included:\n1. Binary Search (iterative and recursive) - O(log N)\n2. Exponentiation by Squaring - O(log N)\n3. Order Statistics (k-th smallest) using a min-heap approach with O(log N) per operation\n4. Range Sum Query using Prefix Sums - O(1) query after O(N) preprocessing\n5. Two Sum with Hash Map - O(N) time, O(N) space (but each lookup is O(1))\n6. Sliding Window Maximum using a deque - O(N) time overall, O(1) amortized per element\n7. LRU Cache - O(1) get and put operations\n8. Median of Two Sorted Arrays - O(log(min(m, n)))\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom collections import deque\nfrom typing import Any, Callable, Dict, Generic, List, Optional, Tuple, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\")\nV = TypeVar(\"V\")\n\n\nclass BinarySearch:\n    \"\"\"\n    Binary search implementations with O(log N) time complexity.\n    \n    Assumes the input list is sorted in ascending order.\n    \"\"\"\n\n    @staticmethod\n    def search_iterative(arr: List[int], target: int) -> int:\n        \"\"\"\n        Perform iterative binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return -1\n        \n        left: int = 0\n        right: int = len(arr) - 1\n        \n        while left <= right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] == target:\n                return mid\n            elif arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid - 1\n        \n        return -1\n\n    @staticmethod\n    def search_recursive(arr: List[int], target: int, left: int = 0, right: Optional[int] = None) -> int:\n        \"\"\"\n        Perform recursive binary search on a sorted list.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to search for.\n            left: The left boundary of the search range.\n            right: The right boundary of the search range.\n            \n        Returns:\n            The index of the target if found, otherwise -1.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(log N) due to recursion stack\n        \"\"\"\n        if right is None:\n            right = len(arr) - 1\n        \n        if left > right:\n            return -1\n        \n        mid: int = left + (right - left) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            return BinarySearch.search_recursive(arr, target, mid + 1, right)\n        else:\n            return BinarySearch.search_recursive(arr, target, left, mid - 1)\n\n    @staticmethod\n    def lower_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] >= target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target: The integer value to find the lower bound for.\n            \n        Returns:\n            The index of the first element >= target, or len(arr) if no such element exists.\n            \n        Time Complexity: O(log N)\n        Space Complexity: O(1)\n        \"\"\"\n        if not arr:\n            return 0\n        \n        left: int = 0\n        right: int = len(arr)\n        \n        while left < right:\n            mid: int = left + (right - left) // 2\n            if arr[mid] < target:\n                left = mid + 1\n            else:\n                right = mid\n        \n        return left\n\n    @staticmethod\n    def upper_bound(arr: List[int], target: int) -> int:\n        \"\"\"\n        Find the first index where arr[index] > target.\n        \n        Args:\n            arr: A sorted list of integers in ascending order.\n            target:",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.9978,
+      "math": 0.0006,
+      "reasoning": 0.0006,
+      "retrieval": 0.0006,
+      "general": 0.0006
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

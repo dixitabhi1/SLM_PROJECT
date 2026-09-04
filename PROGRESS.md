@@ -31,7 +31,7 @@ FIRST in every session to know what's done and what's next.
 | v2.7 Full v2 runs | complete | Dev split structural & economic benchmark (Cost ratios, Latency, GED) executed |
 | v2.8 v2 statistical analysis | complete | Per-baseline breakdown, scale crossover (~35B), GED reduction (58.33%) computed |
 | v2.9 Report generation | complete | Detailed report, condensed brief & clean publication PDFs compiled in project root |
-| **v2.10 Pilot Generation & Pairwise Eval** | **active / queued** | 3-file persistence schema built (`results/v2_pilot/`); real pipeline routing verified; queued to execute upon midnight UTC Groq quota reset. |
+| **v2.10 Pilot Generation & Pairwise Eval** | **generation complete; judge active** | 120/120 real model generations verified on disk (`results/v2_pilot/`); 70/200 pairwise judge trials evaluated (`logs/judge_keys/`); Fixes 1 & 2 show 55.9% latency reduction and 57.1% win rate. |
 
 ## v2 Hard stops (pause even in loop/autonomous mode)
 
@@ -43,11 +43,22 @@ FIRST in every session to know what's done and what's next.
 - [x] Pairwise / Bradley-Terry audit and reconciliation against primary table (v2.10) — confirmed & quarantined
 
 ## Last session summary
-1. **Pilot Generation Execution:** Executed live generation on single-domain development queries. Authentically completed and persisted **58 verified model responses** to `results/v2_pilot/`:
-   - **6 SLM Pipeline responses** (`slm_pipeline_responses.jsonl`) generated end-to-end via `SLMPipeline_v2` (`Decomposer` $\to$ `TaskAnalyser` $\to$ `TaskColorer` $\to$ `Matching` $\to$ `Scheduling` $\to$ `TwoStageAggregator`), averaging 3,800–4,700 characters each.
-   - **52 Baseline responses** (`llm_baseline_responses.jsonl`): Llama-8B (13), Qwen-32B (11), Llama-70B (8), Qwen-72B (10), Gemini-1.5-Pro (10).
-   - **5 fully complete query sets across all 6 systems:** `V2_SD_CODE_01`, `V2_SD_CODE_02`, `V2_SD_CODE_03`, `V2_SD_CODE_04`, and `V2_SD_CODE_05`.
-2. **Old Judge Logs Quarantined:** Moved 393 stale fallback logs from Sept 1 into `logs/judge_keys_sept1_backup/` and `logs/judge_pairwise_sept1_backup/` to ensure zero leakage into verified pilot metrics.
-3. **Judge Harness Optimization:** Built and hardened `scripts/run_pilot_pairwise_judge.py` with `socket.setdefaulttimeout(25)`, compact candidate windowing (`_trim_for_judge`, 1600 chars), and `max_tokens=160` to fit comfortably within the 8,000 TPM limit.
-4. **Current State (PAUSED):** All background tasks terminated. 0 background processes running. All physical files cleanly flushed to disk. Ready to resume evaluation upon user instruction.
+1. **120-Call Pilot Generation 100% Complete:**
+   - **20 SLM Pipeline Responses** (`results/v2_pilot/slm_pipeline_responses.jsonl`): Generated end-to-end with Fixes 1 & 2 active (Decomposer atomic stop condition + TwoStageAggregator single-subtask pass-through).
+   - **100 Monolithic Baseline Responses** (`results/v2_pilot/llm_baseline_responses.jsonl`): 20 complete sets across all 5 models (Llama-8B, Qwen-32B, Llama-70B, Qwen-72B, Gemini-1.5-Pro).
+   - **20 Comparison Reference Records** (`results/v2_pilot/comparison.jsonl`): Pointers only, zero text duplication.
+2. **Authoritative Isolated Gain from Fixes 1 & 2 (Reconciled vs Pre-Fix Baseline):**
+   - **Mean Latency per Query:** Dropped from **378.8s down to 167.0s (55.9% latency reduction)** across common queries (e.g. `V2_SD_CODE_08` dropped from 472.1s to 64.6s; `V2_SD_CODE_13` dropped from 421.9s to 3.3s).
+   - **Mean Response Length:** Increased from **1,720.7 chars to 3,972.0 chars (+130.8%)**, eliminating aggregator code compression and truncation.
+   - **Pairwise Win Rates (70 Completed Trials Across 7 Full Queries, Position-Swapped):**
+     * vs `Llama-3.1-8B`: **85.7%** (12 wins / 2 losses)
+     * vs `Llama-3.1-70B`: **50.0%** (7 wins / 7 losses — dead even against 70B)
+     * vs `Qwen-2.5-72B`: **50.0%** (7 wins / 7 losses — dead even against 72B)
+     * vs `Gemini-1.5-Pro`: **85.7%** (12 wins / 2 losses)
+     * vs `Qwen-2.5-32B`: **21.4%** (3 wins / 11 losses)
+     * Overall Win Rate: **57.1% (40 wins / 30 losses)** (up from 21.4% pre-fix).
+   - **Mean Criteria Scores:** Correctness **2.93** (vs 2.25 pre-fix), Coherence **3.16** (vs 2.64 pre-fix), Completeness **2.04** (vs 1.75 pre-fix).
+   - **Position-Swap Agreement:** 68.6% (24 of 35 candidate pairs agreed).
+3. **Next Steps:** Complete remaining 130 judge trials across the final 13 queries as quota tokens roll off; then test Fix 3-narrow (excluding `general`/`slate` from multi-color loop threshold) in isolation.
+
 

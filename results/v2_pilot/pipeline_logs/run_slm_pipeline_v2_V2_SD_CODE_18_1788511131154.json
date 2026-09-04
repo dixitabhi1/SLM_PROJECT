@@ -1,0 +1,279 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_18_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_18",
+  "query_text": "Implement an advanced algorithmic module #18 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "21b515830e4ff1ea8321b598b9610e24bf35eddd",
+  "timestamp_start_utc": "2026-09-04T08:36:10.862033+00:00",
+  "timestamp_end_utc": "2026-09-04T08:38:51.154924+00:00",
+  "total_wall_clock_latency_ms": 160292.06589999376,
+  "simulated_parallel_latency_ms": 43443.79640003899,
+  "total_prompt_tokens": 3789,
+  "total_completion_tokens": 3225,
+  "total_tokens": 7014,
+  "total_cost_usd": 0.0010956899999999999,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 363964.3893816,
+        "end_time_rel_s": 364056.0689634,
+        "latency_ms": 91679.58179995185,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #18 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node.1",
+              "text": "Implement an advanced algorithmic module #18 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node.1": [
+      {
+        "stage_name": "re_decomposition_node.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 364056.0699054,
+        "end_time_rel_s": 364057.175046,
+        "latency_ms": 1105.1406000042334,
+        "prompt_tokens": 236,
+        "completion_tokens": 153,
+        "total_tokens": 389,
+        "cost_usd": 2.404e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1",
+          "text": "Implement an advanced algorithmic module #18 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1",
+              "text": "Design and implement the core algorithmic logic in Python with full type annotations, ensuring O(1) or O(log N) time complexity for all operations.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 1,
+              "parent_id": "node.1"
+            },
+            {
+              "id": "node.1.2",
+              "text": "Write comprehensive unit tests covering normal operations, boundary conditions, and edge cases to validate the correctness and complexity guarantees of the implemented module.",
+              "capability": "coding",
+              "dependencies": [
+                "node.1.1"
+              ],
+              "depth": 1,
+              "parent_id": "node.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node.1.1": [
+      {
+        "stage_name": "pool_coding_node.1.1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 364057.1767904,
+        "end_time_rel_s": 364075.1301933,
+        "latency_ms": 17953.402900020592,
+        "prompt_tokens": 64,
+        "completion_tokens": 1024,
+        "total_tokens": 1088,
+        "cost_usd": 0.000192,
+        "confidence_score": null,
+        "input": "Task: Design and implement the core algorithmic logic in Python with full type annotations, ensuring O(1) or O(log N) time complexity for all operations.",
+        "output": "```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, along with tracking min/max values.\n\nHowever, maintaining true O(1) min/max with deletions is tricky. Let's design\na structure that provides:\n- O(1) insert\n- O(1) delete by key\n- O(1) get by key\n- O(1) size\n- O(1) min (with amortized considerations)\n- O(1) max (with amortized considerations)\n\nActually, for strict O(1) min/max with arbitrary deletions, we can use a\nbalanced approach. But let's implement a practical solution:\n\n1. A hash map for O(1) key-value access\n2. A doubly-linked list for O(1) insertion/deletion at known positions\n3. For min/max, we'll use a heap-based approach which gives O(log N) for\n   extraction, but O(1) for peek.\n\nLet me reconsider. The task says \"O(1) or O(log N) time complexity for all\noperations.\" So O(log N) is acceptable.\n\nLet's implement:\n- Insert: O(1)\n- Delete: O(1) \n- Get: O(1)\n- Min: O(1) (peek)\n- Max: O(1) (peek)\n- PopMin: O(log N)\n- PopMax: O(log N)\n- Size: O(1)\n\nWe'll use:\n- A dict for O(1) key-value storage\n- A min-heap and max-heap for O(1) peek and O(log N) pop\n- Lazy deletion to handle removed elements\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreAlgorithm:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert(key, value): O(1)\n    - delete(key): O(1)\n    - get(key): O(1)\n    - min(): O(1)\n    - max(): O(1)\n    - pop_min(): O(log N)\n    - pop_max(): O(log N)\n    - size(): O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Initialize the data structure.\"\"\"\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key)\n        self._deleted: set[Any] = set()  # Keys that have been deleted (lazy deletion)\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n        \"\"\"\n        if key in self._data:\n            # Update existing key\n            self._data[key] = value\n            # Push new value to heaps (old value will be lazily deleted)\n            heapq.heappush(self._min_heap, (value, key))\n            heapq.heappush(self._max_heap, (-value, key))\n        else:\n            self._data[key] = value\n            heapq.heappush(self._min_heap, (value, key))\n            heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"\n        Delete a key from the data structure.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to delete.\n            \n        Returns:\n            True if the key was present and deleted, False otherwise.\n        \"\"\"\n        if key in self._data:\n            del self._data[key]\n            self._deleted.add(key)\n            return True\n        return False\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"\n        Get the value associated with a key.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key",
+        "extra_metadata": {
+          "node_id": "node.1.1",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node.1.2": [
+      {
+        "stage_name": "pool_coding_node.1.2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 364075.1303474,
+        "end_time_rel_s": 364100.6213073,
+        "latency_ms": 25490.95990002388,
+        "prompt_tokens": 1094,
+        "completion_tokens": 1024,
+        "total_tokens": 2118,
+        "cost_usd": 0.0003156,
+        "confidence_score": null,
+        "input": "[Prerequisite node.1.1]:\n```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, along with tracking min/max values.\n\nHowever, maintaining true O(1) min/max with deletions is tricky. Let's design\na structure that provides:\n- O(1) insert\n- O(1) delete by key\n- O(1) get by key\n- O(1) size\n- O(1) min (with amortized considerations)\n- O(1) max (with amortized considerations)\n\nActually, for strict O(1) min/max with arbitrary deletions, we can use a\nbalanced approach. But let's implement a practical solution:\n\n1. A hash map for O(1) key-value access\n2. A doubly-linked list for O(1) insertion/deletion at known positions\n3. For min/max, we'll use a heap-based approach which gives O(log N) for\n   extraction, but O(1) for peek.\n\nLet me reconsider. The task says \"O(1) or O(log N) time complexity for all\noperations.\" So O(log N) is acceptable.\n\nLet's implement:\n- Insert: O(1)\n- Delete: O(1) \n- Get: O(1)\n- Min: O(1) (peek)\n- Max: O(1) (peek)\n- PopMin: O(log N)\n- PopMax: O(log N)\n- Size: O(1)\n\nWe'll use:\n- A dict for O(1) key-value storage\n- A min-heap and max-heap for O(1) peek and O(log N) pop\n- Lazy deletion to handle removed elements\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreAlgorithm:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert(key, value): O(1)\n    - delete(key): O(1)\n    - get(key): O(1)\n    - min(): O(1)\n    - max(): O(1)\n    - pop_min(): O(log N)\n    - pop_max(): O(log N)\n    - size(): O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Initialize the data structure.\"\"\"\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key)\n        self._deleted: set[Any] = set()  # Keys that have been deleted (lazy deletion)\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n        \"\"\"\n        if key in self._data:\n            # Update existing key\n            self._data[key] = value\n            # Push new value to heaps (old value will be lazily deleted)\n            heapq.heappush(self._min_heap, (value, key))\n            heapq.heappush(self._max_heap, (-value, key))\n        else:\n            self._data[key] = value\n            heapq.heappush(self._min_heap, (value, key))\n            heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"\n        Delete a key from the data structure.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to delete.\n            \n        Returns:\n            True if the key was present and deleted, False otherwise.\n        \"\"\"\n        if key in self._data:\n            del self._data[key]\n            self._deleted.add(key)\n            return True\n        return False\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"\n        Get the value associated with a key.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key\n\nTask: Write comprehensive unit tests covering normal operations, boundary conditions, and edge cases to validate the correctness and complexity guarantees of the implemented module.",
+        "output": "```python\n\"\"\"\nComprehensive unit tests for the CoreAlgorithm module.\n\nTests cover:\n- Normal operations (insert, delete, get, min, max, pop_min, pop_max, size)\n- Boundary conditions (empty structure, single element, duplicates)\n- Edge cases (updating existing keys, lazy deletion, heap consistency)\n- Complexity guarantees (verifying O(1) and O(log N) behavior)\n\"\"\"\n\nimport unittest\nimport time\nimport random\nimport sys\nfrom typing import Any, Optional\n\n# Import the CoreAlgorithm class\n# Assuming it's in the same directory or accessible via the module path\ntry:\n    from core_algorithm import CoreAlgorithm\nexcept ImportError:\n    # Try alternative import paths\n    try:\n        from .core_algorithm import CoreAlgorithm\n    except ImportError:\n        # If the module is defined inline or in a different location, we need to handle that\n        # For now, let's assume it's importable\n        raise\n\n\nclass TestCoreAlgorithm(unittest.TestCase):\n    \"\"\"Comprehensive test suite for CoreAlgorithm.\"\"\"\n\n    def setUp(self):\n        \"\"\"Set up a fresh CoreAlgorithm instance for each test.\"\"\"\n        self.algo = CoreAlgorithm()\n\n    # -------------------------------------------------------------------------\n    # Basic Operations Tests\n    # -------------------------------------------------------------------------\n\n    def test_initial_state(self):\n        \"\"\"Test that a newly created instance has size 0 and no min/max.\"\"\"\n        self.assertEqual(self.algo.size(), 0)\n        with self.assertRaises(Exception):\n            self.algo.min()\n        with self.assertRaises(Exception):\n            self.algo.max()\n\n    def test_insert_and_get(self):\n        \"\"\"Test basic insert and get operations.\"\"\"\n        self.algo.insert(\"a\", 1)\n        self.algo.insert(\"b\", 2)\n        self.algo.insert(\"c\", 3)\n\n        self.assertEqual(self.algo.get(\"a\"), 1)\n        self.assertEqual(self.algo.get(\"b\"), 2)\n        self.assertEqual(self.algo.get(\"c\"), 3)\n        self.assertIsNone(self.algo.get(\"d\"))\n\n    def test_insert_updates_existing_key(self):\n        \"\"\"Test that inserting an existing key updates its value.\"\"\"\n        self.algo.insert(\"a\", 1)\n        self.algo.insert(\"a\", 2)\n\n        self.assertEqual(self.algo.get(\"a\"), 2)\n        self.assertEqual(self.algo.size(), 1)\n\n    def test_delete_existing_key(self):\n        \"\"\"Test deleting an existing key.\"\"\"\n        self.algo.insert(\"a\", 1)\n        self.algo.insert(\"b\", 2)\n\n        self.assertTrue(self.algo.delete(\"a\"))\n        self.assertIsNone(self.algo.get(\"a\"))\n        self.assertEqual(self.algo.size(), 1)\n        self.assertEqual(self.algo.get(\"b\"), 2)\n\n    def test_delete_nonexistent_key(self):\n        \"\"\"Test deleting a key that doesn't exist.\"\"\"\n        self.assertFalse(self.algo.delete(\"nonexistent\"))\n        self.assertEqual(self.algo.size(), 0)\n\n    def test_size_tracking(self):\n        \"\"\"Test that size is correctly tracked through operations.\"\"\"\n        self.assertEqual(self.algo.size(), 0)\n\n        self.algo.insert(\"a\", 1)\n        self.assertEqual(self.algo.size(), 1)\n\n        self.algo.insert(\"b\", 2)\n        self.assertEqual(self.algo.size(), 2)\n\n        self.algo.delete(\"a\")\n        self.assertEqual(self.algo.size(), 1)\n\n        self.algo.delete(\"b\")\n        self.assertEqual(self.algo.size(), 0)\n\n    # -------------------------------------------------------------------------\n    # Min/Max Operations Tests\n    # -------------------------------------------------------------------------\n\n    def test_min_single_element(self):\n        \"\"\"Test min with a single element.\"\"\"\n        self.algo.insert(\"a\", 5)\n        self.assertEqual(self.algo.min(), 5)\n\n    def test_max_single_element(self):\n        \"\"\"Test max with a single element.\"\"\"\n        self.algo.insert(\"a\", 5)\n        self.assertEqual(self.algo.max(), 5)\n\n    def test_min_multiple_elements(self):\n        \"\"\"Test min with multiple elements.\"\"\"\n        self.algo.insert(\"a\", 3)\n        self.algo.insert(\"b\", 1)\n        self.algo.insert(\"c\", 2)\n\n        self.assertEqual(self.algo.min(), 1)\n\n    def test_max_multiple_elements(self):\n        \"\"\"Test max with multiple elements.\"\"\"\n        self.algo.insert(\"a\", 3)\n        self.algo.insert(\"b\", 1)\n        self.algo.insert(\"c\", 2)\n\n        self.assertEqual(self.algo.max(), 3)\n\n    def test_min_after_deletion(self):\n        \"\"\"Test",
+        "extra_metadata": {
+          "node_id": "node.1.2",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 364100.6214162,
+        "end_time_rel_s": 364124.6814249,
+        "latency_ms": 24060.00870000571,
+        "prompt_tokens": 2395,
+        "completion_tokens": 1024,
+        "total_tokens": 3419,
+        "cost_usd": 0.00056405,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #18 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node.1.1": "```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, along with tracking min/max values.\n\nHowever, maintaining true O(1) min/max with deletions is tricky. Let's design\na structure that provides:\n- O(1) insert\n- O(1) delete by key\n- O(1) get by key\n- O(1) size\n- O(1) min (with amortized considerations)\n- O(1) max (with amortized considerations)\n\nActually, for strict O(1) min/max with arbitrary deletions, we can use a\nbalanced approach. But let's implement a practical solution:\n\n1. A hash map for O(1) key-value access\n2. A doubly-linked list for O(1) insertion/deletion at known positions\n3. For min/max, we'll use a heap-based approach which gives O(log N) for\n   extraction, but O(1) for peek.\n\nLet me reconsider. The task says \"O(1) or O(log N) time complexity for all\noperations.\" So O(log N) is acceptable.\n\nLet's implement:\n- Insert: O(1)\n- Delete: O(1) \n- Get: O(1)\n- Min: O(1) (peek)\n- Max: O(1) (peek)\n- PopMin: O(log N)\n- PopMax: O(log N)\n- Size: O(1)\n\nWe'll use:\n- A dict for O(1) key-value storage\n- A min-heap and max-heap for O(1) peek and O(log N) pop\n- Lazy deletion to handle removed elements\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreAlgorithm:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert(key, value): O(1)\n    - delete(key): O(1)\n    - get(key): O(1)\n    - min(): O(1)\n    - max(): O(1)\n    - pop_min(): O(log N)\n    - pop_max(): O(log N)\n    - size(): O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Initialize the data structure.\"\"\"\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key)\n        self._deleted: set[Any] = set()  # Keys that have been deleted (lazy deletion)\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n        \"\"\"\n        if key in self._data:\n            # Update existing key\n            self._data[key] = value\n            # Push new value to heaps (old value will be lazily deleted)\n            heapq.heappush(self._min_heap, (value, key))\n            heapq.heappush(self._max_heap, (-value, key))\n        else:\n            self._data[key] = value\n            heapq.heappush(self._min_heap, (value, key))\n            heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"\n        Delete a key from the data structure.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to delete.\n            \n        Returns:\n            True if the key was present and deleted, False otherwise.\n        \"\"\"\n        if key in self._data:\n            del self._data[key]\n            self._deleted.add(key)\n            return True\n        return False\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"\n        Get the value associated with a key.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key",
+            "node.1.2": "```python\n\"\"\"\nComprehensive unit tests for the CoreAlgorithm module.\n\nTests cover:\n- Normal operations (insert, delete, get, min, max, pop_min, pop_max, size)\n- Boundary conditions (empty structure, single element, duplicates)\n- Edge cases (updating existing keys, lazy deletion, heap consistency)\n- Complexity guarantees (verifying O(1) and O(log N) behavior)\n\"\"\"\n\nimport unittest\nimport time\nimport random\nimport sys\nfrom typing import Any, Optional\n\n# Import the CoreAlgorithm class\n# Assuming it's in the same directory or accessible via the module path\ntry:\n    from core_algorithm import CoreAlgorithm\nexcept ImportError:\n    # Try alternative import paths\n    try:\n        from .core_algorithm import CoreAlgorithm\n    except ImportError:\n        # If the module is defined inline or in a different location, we need to handle that\n        # For now, let's assume it's importable\n        raise\n\n\nclass TestCoreAlgorithm(unittest.TestCase):\n    \"\"\"Comprehensive test suite for CoreAlgorithm.\"\"\"\n\n    def setUp(self):\n        \"\"\"Set up a fresh CoreAlgorithm instance for each test.\"\"\"\n        self.algo = CoreAlgorithm()\n\n    # -------------------------------------------------------------------------\n    # Basic Operations Tests\n    # -------------------------------------------------------------------------\n\n    def test_initial_state(self):\n        \"\"\"Test that a newly created instance has size 0 and no min/max.\"\"\"\n        self.assertEqual(self.algo.size(), 0)\n        with self.assertRaises(Exception):\n            self.algo.min()\n        with self.assertRaises(Exception):\n            self.algo.max()\n\n    def test_insert_and_get(self):\n        \"\"\"Test basic insert and get operations.\"\"\"\n        self.algo.insert(\"a\", 1)\n        self.algo.insert(\"b\", 2)\n        self.algo.insert(\"c\", 3)\n\n        self.assertEqual(self.algo.get(\"a\"), 1)\n        self.assertEqual(self.algo.get(\"b\"), 2)\n        self.assertEqual(self.algo.get(\"c\"), 3)\n        self.assertIsNone(self.algo.get(\"d\"))\n\n    def test_insert_updates_existing_key(self):\n        \"\"\"Test that inserting an existing key updates its value.\"\"\"\n        self.algo.insert(\"a\", 1)\n        self.algo.insert(\"a\", 2)\n\n        self.assertEqual(self.algo.get(\"a\"), 2)\n        self.assertEqual(self.algo.size(), 1)\n\n    def test_delete_existing_key(self):\n        \"\"\"Test deleting an existing key.\"\"\"\n        self.algo.insert(\"a\", 1)\n        self.algo.insert(\"b\", 2)\n\n        self.assertTrue(self.algo.delete(\"a\"))\n        self.assertIsNone(self.algo.get(\"a\"))\n        self.assertEqual(self.algo.size(), 1)\n        self.assertEqual(self.algo.get(\"b\"), 2)\n\n    def test_delete_nonexistent_key(self):\n        \"\"\"Test deleting a key that doesn't exist.\"\"\"\n        self.assertFalse(self.algo.delete(\"nonexistent\"))\n        self.assertEqual(self.algo.size(), 0)\n\n    def test_size_tracking(self):\n        \"\"\"Test that size is correctly tracked through operations.\"\"\"\n        self.assertEqual(self.algo.size(), 0)\n\n        self.algo.insert(\"a\", 1)\n        self.assertEqual(self.algo.size(), 1)\n\n        self.algo.insert(\"b\", 2)\n        self.assertEqual(self.algo.size(), 2)\n\n        self.algo.delete(\"a\")\n        self.assertEqual(self.algo.size(), 1)\n\n        self.algo.delete(\"b\")\n        self.assertEqual(self.algo.size(), 0)\n\n    # -------------------------------------------------------------------------\n    # Min/Max Operations Tests\n    # -------------------------------------------------------------------------\n\n    def test_min_single_element(self):\n        \"\"\"Test min with a single element.\"\"\"\n        self.algo.insert(\"a\", 5)\n        self.assertEqual(self.algo.min(), 5)\n\n    def test_max_single_element(self):\n        \"\"\"Test max with a single element.\"\"\"\n        self.algo.insert(\"a\", 5)\n        self.assertEqual(self.algo.max(), 5)\n\n    def test_min_multiple_elements(self):\n        \"\"\"Test min with multiple elements.\"\"\"\n        self.algo.insert(\"a\", 3)\n        self.algo.insert(\"b\", 1)\n        self.algo.insert(\"c\", 2)\n\n        self.assertEqual(self.algo.min(), 1)\n\n    def test_max_multiple_elements(self):\n        \"\"\"Test max with multiple elements.\"\"\"\n        self.algo.insert(\"a\", 3)\n        self.algo.insert(\"b\", 1)\n        self.algo.insert(\"c\", 2)\n\n        self.assertEqual(self.algo.max(), 3)\n\n    def test_min_after_deletion(self):\n        \"\"\"Test"
+          }
+        },
+        "output": "```python\n\"\"\"\nModule #18: Advanced Algorithmic Data Structure\n\nThis module implements a hybrid data structure that guarantees O(1) or O(log N)\ntime complexity for all operations. It combines a hash map for direct key-value\naccess with dual binary heaps (min-heap and max-heap) to support efficient\nextremum queries.\n\nComplexity Guarantees:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(1)\n- max(): O(1)\n- pop_min(): O(log N)\n- pop_max(): O(log N)\n- size(): O(1)\n\nImplementation Strategy:\n1. A dictionary (`_data`) stores active key-value pairs for O(1) lookup and update.\n2. A min-heap (`_min_heap`) and a max-heap (`_max_heap`) store tuples of (value, key)\n   to support O(1) peek and O(log N) extraction of minimum and maximum values.\n3. Lazy deletion is employed: when a key is deleted, it is removed from `_data`\n   but remains in the heaps. During `min()`, `max()`, `pop_min()`, or `pop_max()`,\n   stale entries are purged from the top of the heaps until a valid, active key\n   is encountered. This ensures amortized O(1) for peek and O(log N) for pop.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreAlgorithm:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert(key, value): O(1)\n    - delete(key): O(1)\n    - get(key): O(1)\n    - min(): O(1)\n    - max(): O(1)\n    - pop_min(): O(log N)\n    - pop_max(): O(log N)\n    - size(): O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Initialize the data structure.\"\"\"\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key)\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n        \"\"\"\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"\n        Delete a key from the data structure.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to delete.\n            \n        Returns:\n            True if the key was present and deleted, False otherwise.\n        \"\"\"\n        if key in self._data:\n            del self._data[key]\n            return True\n        return False\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"\n        Get the value associated with a key.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to retrieve.\n            \n        Returns:\n            The value if the key exists, None otherwise.\n        \"\"\"\n        return self._data.get(key)\n\n    def _purge_min_heap(self) -> None:\n        \"\"\"\n        Remove stale entries from the top of the min-heap.\n        \n        Time complexity: Amortized O(1)\n        \"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._data and self._data[key] == value:\n                break\n            heapq.heappop(self._min_heap)\n\n    def _purge_max_heap(self) -> None:\n        \"\"\"\n        Remove stale entries from the top of the max-heap.\n        \n        Time complexity: Amortized O(1)\n        \"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._data and self._data[key] == value:\n                break\n            heapq.heappop(self._max_heap)\n\n    def min",
+        "extra_metadata": {
+          "node_count": 2,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node.1.1",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 17953.42370000435
+    },
+    {
+      "node_id": "node.1.2",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node.1.1"
+      ],
+      "latency_ms": 25490.979700000025
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nModule #18: Advanced Algorithmic Data Structure\n\nThis module implements a hybrid data structure that guarantees O(1) or O(log N)\ntime complexity for all operations. It combines a hash map for direct key-value\naccess with dual binary heaps (min-heap and max-heap) to support efficient\nextremum queries.\n\nComplexity Guarantees:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(1)\n- max(): O(1)\n- pop_min(): O(log N)\n- pop_max(): O(log N)\n- size(): O(1)\n\nImplementation Strategy:\n1. A dictionary (`_data`) stores active key-value pairs for O(1) lookup and update.\n2. A min-heap (`_min_heap`) and a max-heap (`_max_heap`) store tuples of (value, key)\n   to support O(1) peek and O(log N) extraction of minimum and maximum values.\n3. Lazy deletion is employed: when a key is deleted, it is removed from `_data`\n   but remains in the heaps. During `min()`, `max()`, `pop_min()`, or `pop_max()`,\n   stale entries are purged from the top of the heaps until a valid, active key\n   is encountered. This ensures amortized O(1) for peek and O(log N) for pop.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreAlgorithm:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert(key, value): O(1)\n    - delete(key): O(1)\n    - get(key): O(1)\n    - min(): O(1)\n    - max(): O(1)\n    - pop_min(): O(log N)\n    - pop_max(): O(log N)\n    - size(): O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Initialize the data structure.\"\"\"\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key)\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to insert.\n            value: The value to associate with the key.\n        \"\"\"\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"\n        Delete a key from the data structure.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to delete.\n            \n        Returns:\n            True if the key was present and deleted, False otherwise.\n        \"\"\"\n        if key in self._data:\n            del self._data[key]\n            return True\n        return False\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"\n        Get the value associated with a key.\n        \n        Time complexity: O(1)\n        \n        Args:\n            key: The key to retrieve.\n            \n        Returns:\n            The value if the key exists, None otherwise.\n        \"\"\"\n        return self._data.get(key)\n\n    def _purge_min_heap(self) -> None:\n        \"\"\"\n        Remove stale entries from the top of the min-heap.\n        \n        Time complexity: Amortized O(1)\n        \"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._data and self._data[key] == value:\n                break\n            heapq.heappop(self._min_heap)\n\n    def _purge_max_heap(self) -> None:\n        \"\"\"\n        Remove stale entries from the top of the max-heap.\n        \n        Time complexity: Amortized O(1)\n        \"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._data and self._data[key] == value:\n                break\n            heapq.heappop(self._max_heap)\n\n    def min",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node.1",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1": {
+      "coding": 0.9943,
+      "math": 0.0005,
+      "reasoning": 0.0041,
+      "retrieval": 0.0005,
+      "general": 0.0005
+    },
+    "node.1.2": {
+      "coding": 0.8922,
+      "math": 0.0269,
+      "reasoning": 0.0269,
+      "retrieval": 0.0269,
+      "general": 0.0269
+    }
+  },
+  "v2_task_colors": {
+    "node.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node.1.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

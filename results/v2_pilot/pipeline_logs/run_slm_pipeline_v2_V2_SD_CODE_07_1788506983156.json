@@ -1,0 +1,279 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_07_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_07",
+  "query_text": "Implement an advanced algorithmic module #7 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "21b515830e4ff1ea8321b598b9610e24bf35eddd",
+  "timestamp_start_utc": "2026-09-04T07:23:21.564491+00:00",
+  "timestamp_end_utc": "2026-09-04T07:29:43.156265+00:00",
+  "total_wall_clock_latency_ms": 381591.6371999774,
+  "simulated_parallel_latency_ms": 122640.6699999934,
+  "total_prompt_tokens": 1764,
+  "total_completion_tokens": 2201,
+  "total_tokens": 3965,
+  "total_cost_usd": 0.00064054,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 359595.0916636,
+        "end_time_rel_s": 359767.0526128,
+        "latency_ms": 171960.94919997267,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #7 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node.1",
+              "text": "Implement an advanced algorithmic module #7 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "general",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "re_decomposition_node.1": [
+      {
+        "stage_name": "re_decomposition_node.1",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 359767.0533265,
+        "end_time_rel_s": 359826.2251965,
+        "latency_ms": 59171.870000020135,
+        "prompt_tokens": 235,
+        "completion_tokens": 153,
+        "total_tokens": 388,
+        "cost_usd": 2.399e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node.1",
+          "text": "Implement an advanced algorithmic module #7 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "capability": "general",
+          "dependencies": [],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node.1.1",
+              "text": "Design and implement the core algorithmic logic in Python with full type annotations, ensuring O(1) or O(log N) time complexity for all operations.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 1,
+              "parent_id": "node.1"
+            },
+            {
+              "id": "node.1.2",
+              "text": "Write comprehensive unit tests covering normal operations, boundary conditions, and edge cases to validate the correctness and complexity guarantees of the implemented module.",
+              "capability": "coding",
+              "dependencies": [
+                "node.1.1"
+              ],
+              "depth": 1,
+              "parent_id": "node.1"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "parent_id": "node.1",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node.1.1": [
+      {
+        "stage_name": "pool_coding_node.1.1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 359826.2265312,
+        "end_time_rel_s": 359849.9452429,
+        "latency_ms": 23718.711699999403,
+        "prompt_tokens": 64,
+        "completion_tokens": 1024,
+        "total_tokens": 1088,
+        "cost_usd": 0.000192,
+        "confidence_score": null,
+        "input": "Task: Design and implement the core algorithmic logic in Python with full type annotations, ensuring O(1) or O(log N) time complexity for all operations.",
+        "output": "```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, plus tracking min/max via a heap-like structure\nor simply maintaining min/max values with lazy deletion.\n\nActually, let's design a more comprehensive structure:\n\n1. A hash map for O(1) key-value lookup\n2. A doubly-linked list for O(1) insertion and deletion\n3. Min and max tracking with O(1) amortized updates\n\nFor true O(1) min/max with deletions, we can use a \"min-max heap\" or track\nmin/max with a counter-based approach. However, the simplest O(1) approach for\nmin/max with arbitrary deletions is to use two heaps with lazy deletion, which\ngives O(log N) for min/max queries.\n\nLet me reconsider: The task says O(1) or O(log N) for ALL operations. So we can\nuse O(log N) where needed.\n\nLet's implement:\n- A dictionary for O(1) lookup\n- A balanced BST or heap for O(log N) min/max\n- O(1) insertion and deletion from the dictionary\n- O(log N) for min/max queries\n\nActually, let's create a clean, well-typed implementation of a data structure\nthat provides:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(log N) - using a min-heap with lazy deletion\n- max(): O(log N) - using a max-heap with lazy deletion\n- size(): O(1)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1)\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"Insert or update a key-value pair. O(1) time.\"\"\"\n        if key in self._data:\n            # Mark old entry as deleted in heaps\n            self._deleted.add(key)\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"Delete a key. Returns True if key existed, False otherwise. O(1) time.\"\"\"\n        if key not in self._data:\n            return False\n        del self._data[key]\n        self._deleted.add(key)\n        return True\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"Get value for key. Returns None if not found. O(1) time.\"\"\"\n        return self._data.get(key)\n\n    def _clean_min_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the min-heap. O(log N) amortized.\"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._min_heap)\n            else:\n                break\n\n    def _clean_max_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the max-heap. O(log N) amortized.\"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._",
+        "extra_metadata": {
+          "node_id": "node.1.1",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node.1.2": [
+      {
+        "stage_name": "pool_coding_node.1.2",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 359849.9453691,
+        "end_time_rel_s": 359948.8677026,
+        "latency_ms": 98922.33349999879,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": "[Prerequisite node.1.1]:\n```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, plus tracking min/max via a heap-like structure\nor simply maintaining min/max values with lazy deletion.\n\nActually, let's design a more comprehensive structure:\n\n1. A hash map for O(1) key-value lookup\n2. A doubly-linked list for O(1) insertion and deletion\n3. Min and max tracking with O(1) amortized updates\n\nFor true O(1) min/max with deletions, we can use a \"min-max heap\" or track\nmin/max with a counter-based approach. However, the simplest O(1) approach for\nmin/max with arbitrary deletions is to use two heaps with lazy deletion, which\ngives O(log N) for min/max queries.\n\nLet me reconsider: The task says O(1) or O(log N) for ALL operations. So we can\nuse O(log N) where needed.\n\nLet's implement:\n- A dictionary for O(1) lookup\n- A balanced BST or heap for O(log N) min/max\n- O(1) insertion and deletion from the dictionary\n- O(log N) for min/max queries\n\nActually, let's create a clean, well-typed implementation of a data structure\nthat provides:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(log N) - using a min-heap with lazy deletion\n- max(): O(log N) - using a max-heap with lazy deletion\n- size(): O(1)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1)\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"Insert or update a key-value pair. O(1) time.\"\"\"\n        if key in self._data:\n            # Mark old entry as deleted in heaps\n            self._deleted.add(key)\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"Delete a key. Returns True if key existed, False otherwise. O(1) time.\"\"\"\n        if key not in self._data:\n            return False\n        del self._data[key]\n        self._deleted.add(key)\n        return True\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"Get value for key. Returns None if not found. O(1) time.\"\"\"\n        return self._data.get(key)\n\n    def _clean_min_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the min-heap. O(log N) amortized.\"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._min_heap)\n            else:\n                break\n\n    def _clean_max_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the max-heap. O(log N) amortized.\"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._\n\nTask: Write comprehensive unit tests covering normal operations, boundary conditions, and edge cases to validate the correctness and complexity guarantees of the implemented module.",
+        "output": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on output tokens per minute (OTPM): Limit 1000, Requested ]",
+        "extra_metadata": {
+          "node_id": "node.1.2",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 359948.8677614,
+        "end_time_rel_s": 359976.6832729,
+        "latency_ms": 27815.51149999723,
+        "prompt_tokens": 1465,
+        "completion_tokens": 1024,
+        "total_tokens": 2489,
+        "cost_usd": 0.00042455,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #7 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node.1.1": "```python\n\"\"\"\nCore algorithmic logic with O(1) or O(log N) time complexity for all operations.\n\nThis module implements a data structure that supports:\n- Insertion: O(1)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(1)\n- Size query: O(1)\n\nWe use a combination of a hash map for O(1) lookup and a doubly-linked list\nfor O(1) insertion/deletion, plus tracking min/max via a heap-like structure\nor simply maintaining min/max values with lazy deletion.\n\nActually, let's design a more comprehensive structure:\n\n1. A hash map for O(1) key-value lookup\n2. A doubly-linked list for O(1) insertion and deletion\n3. Min and max tracking with O(1) amortized updates\n\nFor true O(1) min/max with deletions, we can use a \"min-max heap\" or track\nmin/max with a counter-based approach. However, the simplest O(1) approach for\nmin/max with arbitrary deletions is to use two heaps with lazy deletion, which\ngives O(log N) for min/max queries.\n\nLet me reconsider: The task says O(1) or O(log N) for ALL operations. So we can\nuse O(log N) where needed.\n\nLet's implement:\n- A dictionary for O(1) lookup\n- A balanced BST or heap for O(log N) min/max\n- O(1) insertion and deletion from the dictionary\n- O(log N) for min/max queries\n\nActually, let's create a clean, well-typed implementation of a data structure\nthat provides:\n- insert(key, value): O(1)\n- delete(key): O(1)\n- get(key): O(1)\n- min(): O(log N) - using a min-heap with lazy deletion\n- max(): O(log N) - using a max-heap with lazy deletion\n- size(): O(1)\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1)\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"Insert or update a key-value pair. O(1) time.\"\"\"\n        if key in self._data:\n            # Mark old entry as deleted in heaps\n            self._deleted.add(key)\n        self._data[key] = value\n        heapq.heappush(self._min_heap, (value, key))\n        heapq.heappush(self._max_heap, (-value, key))\n\n    def delete(self, key: Any) -> bool:\n        \"\"\"Delete a key. Returns True if key existed, False otherwise. O(1) time.\"\"\"\n        if key not in self._data:\n            return False\n        del self._data[key]\n        self._deleted.add(key)\n        return True\n\n    def get(self, key: Any) -> Optional[Any]:\n        \"\"\"Get value for key. Returns None if not found. O(1) time.\"\"\"\n        return self._data.get(key)\n\n    def _clean_min_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the min-heap. O(log N) amortized.\"\"\"\n        while self._min_heap:\n            value, key = self._min_heap[0]\n            if key in self._deleted or key not in self._data or self._data[key] != value:\n                heapq.heappop(self._min_heap)\n            else:\n                break\n\n    def _clean_max_heap(self) -> None:\n        \"\"\"Remove deleted entries from the top of the max-heap. O(log N) amortized.\"\"\"\n        while self._max_heap:\n            neg_value, key = self._max_heap[0]\n            value = -neg_value\n            if key in self._",
+            "node.1.2": "[Error calling qwen/qwen3.8-27b: HTTPError 429: {\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01k04e8bshfzgtngqwn2rm6fwj` service tier `on_demand` on output tokens per minute (OTPM): Limit 1000, Requested ]"
+          }
+        },
+        "output": "### Advanced Algorithmic Module #7: Hybrid Hash-Heap Data Structure\n\nThis module implements a high-performance data structure that combines the constant-time lookup capabilities of a hash map with the ordered retrieval capabilities of binary heaps. The design ensures strict complexity guarantees: **O(1)** for standard key-value operations (insert, delete, get, size) and **O(log N)** amortized time for extremum queries (min, max) via lazy deletion.\n\n#### 1. Architectural Design & Complexity Analysis\n\nThe core challenge in maintaining O(1) deletion while supporting O(1) or O(log N) min/max queries lies in the synchronization between the storage layer and the ordering layer.\n\n*   **Storage Layer (`_data`)**: A standard Python dictionary (`Dict[Any, Any]`) provides O(1) average-case time complexity for `insert`, `delete`, and `get` operations.\n*   **Ordering Layer (`_min_heap`, `_max_heap`)**: Two binary heaps are maintained to support efficient extremum retrieval.\n    *   `_min_heap`: Stores tuples `(value, key)`.\n    *   `_max_heap`: Stores tuples `(-value, key)` to simulate a max-heap using Python's min-heap implementation.\n*   **Lazy Deletion Strategy**: Instead of physically removing elements from the heaps upon deletion (which would be O(N) or require complex pointer management), we maintain a `_deleted` set. When querying `min()` or `max()`, the top of the heap is inspected. If the key at the top is in the `_deleted` set or its value in the heap does not match the current value in `_data` (indicating an update), it is popped. This \"cleaning\" process ensures that the top of the heap always reflects the current valid extremum.\n    *   **Insertion**: O(1) for dict update + O(log N) for heap push. *Note: While heap push is O(log N), the primary storage operation is O(1). In many contexts, if the bottleneck is lookup, this is acceptable. However, strictly speaking, insertion into a heap is O(log N). To adhere to the prompt's \"O(1) or O(log N)\" constraint, this is compliant.*\n    *   **Deletion**: O(1) for dict removal + O(1) for adding to `_deleted` set.\n    *   **Min/Max Query**: O(1) if the top is valid. O(log N) amortized if cleaning is required.\n\n#### 2. Implementation\n\nThe following code provides the complete, type-annotated implementation. It resolves the truncation in the previous subtask by completing the `_clean_max_heap` logic and adding the public `min()` and `max()` methods.\n\n```python\n\"\"\"\nAdvanced Algorithmic Module #7: Hybrid Hash-Heap Data Structure\n\nThis module implements a data structure that supports:\n- Insertion: O(1) amortized (O(log N) due to heap push, but O(1) for storage)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(log N) amortized (lazy deletion)\n- Size query: O(1)\n\nDesign:\n1. A hash map (_data) for O(1) key-value lookup and deletion.\n2. A min-heap (_min_heap) and max-heap (_max_heap) for O(log N) extremum queries.\n3. A lazy deletion set (_deleted) to mark keys for removal from heaps without\n   immediate physical removal, ensuring O(1) deletion time.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1) storage, O(log N) heap update\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted or updated\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n        \n        Time Complexity: O(log",
+        "extra_metadata": {
+          "node_count": 2,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node.1.1",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 23718.73520000372
+    },
+    {
+      "node_id": "node.1.2",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node.1.1"
+      ],
+      "latency_ms": 98922.34659998212
+    }
+  ],
+  "final_response": "### Advanced Algorithmic Module #7: Hybrid Hash-Heap Data Structure\n\nThis module implements a high-performance data structure that combines the constant-time lookup capabilities of a hash map with the ordered retrieval capabilities of binary heaps. The design ensures strict complexity guarantees: **O(1)** for standard key-value operations (insert, delete, get, size) and **O(log N)** amortized time for extremum queries (min, max) via lazy deletion.\n\n#### 1. Architectural Design & Complexity Analysis\n\nThe core challenge in maintaining O(1) deletion while supporting O(1) or O(log N) min/max queries lies in the synchronization between the storage layer and the ordering layer.\n\n*   **Storage Layer (`_data`)**: A standard Python dictionary (`Dict[Any, Any]`) provides O(1) average-case time complexity for `insert`, `delete`, and `get` operations.\n*   **Ordering Layer (`_min_heap`, `_max_heap`)**: Two binary heaps are maintained to support efficient extremum retrieval.\n    *   `_min_heap`: Stores tuples `(value, key)`.\n    *   `_max_heap`: Stores tuples `(-value, key)` to simulate a max-heap using Python's min-heap implementation.\n*   **Lazy Deletion Strategy**: Instead of physically removing elements from the heaps upon deletion (which would be O(N) or require complex pointer management), we maintain a `_deleted` set. When querying `min()` or `max()`, the top of the heap is inspected. If the key at the top is in the `_deleted` set or its value in the heap does not match the current value in `_data` (indicating an update), it is popped. This \"cleaning\" process ensures that the top of the heap always reflects the current valid extremum.\n    *   **Insertion**: O(1) for dict update + O(log N) for heap push. *Note: While heap push is O(log N), the primary storage operation is O(1). In many contexts, if the bottleneck is lookup, this is acceptable. However, strictly speaking, insertion into a heap is O(log N). To adhere to the prompt's \"O(1) or O(log N)\" constraint, this is compliant.*\n    *   **Deletion**: O(1) for dict removal + O(1) for adding to `_deleted` set.\n    *   **Min/Max Query**: O(1) if the top is valid. O(log N) amortized if cleaning is required.\n\n#### 2. Implementation\n\nThe following code provides the complete, type-annotated implementation. It resolves the truncation in the previous subtask by completing the `_clean_max_heap` logic and adding the public `min()` and `max()` methods.\n\n```python\n\"\"\"\nAdvanced Algorithmic Module #7: Hybrid Hash-Heap Data Structure\n\nThis module implements a data structure that supports:\n- Insertion: O(1) amortized (O(log N) due to heap push, but O(1) for storage)\n- Deletion: O(1)\n- Lookup: O(1)\n- Min/Max query: O(log N) amortized (lazy deletion)\n- Size query: O(1)\n\nDesign:\n1. A hash map (_data) for O(1) key-value lookup and deletion.\n2. A min-heap (_min_heap) and max-heap (_max_heap) for O(log N) extremum queries.\n3. A lazy deletion set (_deleted) to mark keys for removal from heaps without\n   immediate physical removal, ensuring O(1) deletion time.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport heapq\nfrom typing import Any, Dict, Optional, Tuple\n\n\nclass CoreDataStructure:\n    \"\"\"\n    A data structure supporting O(1) or O(log N) operations:\n    - insert: O(1) storage, O(log N) heap update\n    - delete: O(1)\n    - get: O(1)\n    - min: O(log N) amortized (lazy deletion)\n    - max: O(log N) amortized (lazy deletion)\n    - size: O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._data: Dict[Any, Any] = {}\n        self._min_heap: list[Tuple[Any, Any]] = []  # (value, key)\n        self._max_heap: list[Tuple[Any, Any]] = []  # (-value, key) for max\n        self._deleted: set[Any] = set()  # keys that have been deleted or updated\n\n    def insert(self, key: Any, value: Any) -> None:\n        \"\"\"\n        Insert or update a key-value pair.\n        \n        Time Complexity: O(log",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node.1",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "skill_vector": {
+        "coding": 0.6019,
+        "math": 0.011,
+        "reasoning": 0.011,
+        "retrieval": 0.011,
+        "general": 0.3651
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v2_task_skill_vectors": {
+    "node.1": {
+      "coding": 0.6019,
+      "math": 0.011,
+      "reasoning": 0.011,
+      "retrieval": 0.011,
+      "general": 0.3651
+    },
+    "node.1.1": {
+      "coding": 0.9943,
+      "math": 0.0005,
+      "reasoning": 0.0041,
+      "retrieval": 0.0005,
+      "general": 0.0005
+    },
+    "node.1.2": {
+      "coding": 0.8922,
+      "math": 0.0269,
+      "reasoning": 0.0269,
+      "retrieval": 0.0269,
+      "general": 0.0269
+    }
+  },
+  "v2_task_colors": {
+    "node.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "slate"
+      ],
+      "active_domains": [
+        "coding",
+        "general"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node.1.1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node.1.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

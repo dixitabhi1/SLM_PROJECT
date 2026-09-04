@@ -1,0 +1,138 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_15_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_15",
+  "query_text": "Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "21b515830e4ff1ea8321b598b9610e24bf35eddd",
+  "timestamp_start_utc": "2026-09-04T08:18:34.078422+00:00",
+  "timestamp_end_utc": "2026-09-04T08:19:24.014030+00:00",
+  "total_wall_clock_latency_ms": 49935.1059999899,
+  "simulated_parallel_latency_ms": 2747.1872000023723,
+  "total_prompt_tokens": 408,
+  "total_completion_tokens": 1113,
+  "total_tokens": 1521,
+  "total_cost_usd": 0.00021653000000000002,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 362907.6057936,
+        "end_time_rel_s": 362954.7903274,
+        "latency_ms": 47184.53379999846,
+        "prompt_tokens": 341,
+        "completion_tokens": 89,
+        "total_tokens": 430,
+        "cost_usd": 2.417e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_1": [
+      {
+        "stage_name": "pool_coding_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 362954.7930044,
+        "end_time_rel_s": 362957.5406909,
+        "latency_ms": 2747.686500020791,
+        "prompt_tokens": 67,
+        "completion_tokens": 1024,
+        "total_tokens": 1091,
+        "cost_usd": 0.00019236,
+        "confidence_score": null,
+        "input": "Task: Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #15: Efficient Range Query and Update Structure\n\nThis module implements a data structure that supports:\n1. Point updates in O(1) time\n2. Range sum queries in O(log N) time\n3. Range minimum queries in O(log N) time\n4. Range maximum queries in O(log N) time\n\nThe implementation uses a segment tree with lazy propagation for efficient\nrange queries and updates.\n\nComplexity Guarantees:\n- Build: O(N)\n- Point Update: O(log N)\n- Range Sum Query: O(log N)\n- Range Min Query: O(log N)\n- Range Max Query: O(log N)\n- Space: O(N)\n\"\"\"\n\nfrom typing import List, Optional, Tuple, Union\nimport math\n\n\nclass SegmentTree:\n    \"\"\"\n    A segment tree supporting range sum, min, and max queries with point updates.\n    \n    Attributes:\n        n: The size of the original array.\n        tree_sum: Segment tree for sum queries.\n        tree_min: Segment tree for min queries.\n        tree_max: Segment tree for max queries.\n    \"\"\"\n    \n    def __init__(self, data: List[int]) -> None:\n        \"\"\"\n        Initialize the segment tree with the given data.\n        \n        Args:\n            data: The initial array of integers.\n            \n        Raises:\n            ValueError: If data is empty.\n        \"\"\"\n        if not data:\n            raise ValueError(\"Data cannot be empty\")\n        \n        self.n: int = len(data)\n        self._size: int = 1\n        while self._size < self.n:\n            self._size *= 2\n        \n        # Initialize trees with neutral elements\n        self.tree_sum: List[int] = [0] * (2 * self._size)\n        self.tree_min: List[int] = [float('inf')] * (2 * self._size)\n        self.tree_max: List[int] = [float('-inf')] * (2 * self._size)\n        \n        # Build the trees\n        self._build(data)\n    \n    def _build(self, data: List[int]) -> None:\n        \"\"\"\n        Build the segment trees from the input data.\n        \n        Args:\n            data: The input array.\n        \"\"\"\n        # Fill leaves\n        for i in range(self.n):\n            self.tree_sum[self._size + i] = data[i]\n            self.tree_min[self._size + i] = data[i]\n            self.tree_max[self._size + i] = data[i]\n        \n        # Fill remaining leaves with neutral elements\n        for i in range(self.n, self._size):\n            self.tree_sum[self._size + i] = 0\n            self.tree_min[self._size + i] = float('inf')\n            self.tree_max[self._size + i] = float('-inf')\n        \n        # Build internal nodes\n        for i in range(self._size - 1, 0, -1):\n            self._pull_up(i)\n    \n    def _pull_up(self, i: int) -> None:\n        \"\"\"\n        Update node i based on its children.\n        \n        Args:\n            i: The index of the node to update.\n        \"\"\"\n        left = 2 * i\n        right = 2 * i + 1\n        \n        self.tree_sum[i] = self.tree_sum[left] + self.tree_sum[right]\n        self.tree_min[i] = min(self.tree_min[left], self.tree_min[right])\n        self.tree_max[i] = max(self.tree_max[left], self.tree_max[right])\n    \n    def update(self, index: int, value: int) -> None:\n        \"\"\"\n        Update the value at the given index.\n        \n        Args:\n            index: The 0-based index to update.\n            value: The new value.\n            \n        Raises:\n            IndexError: If index is out of bounds.\n        \"\"\"\n        if index < 0 or index >= self.n:\n            raise IndexError(f\"Index {index} out of bounds [0, {self.n})\")\n        \n        pos = self._size + index\n        self.tree_sum[pos] = value\n        self.tree_min[pos] = value\n        self.tree_max[pos] = value\n        \n        # Update ancestors\n        pos //= 2\n        while pos >= 1:\n            self._pull_up(pos)\n            pos //= 2\n    \n    def query_sum(self, left: int, right: int) -> int:\n        \"\"\"\n        Query the sum of elements in the range [left, right].\n        \n        Args:\n            left: The 0-based left boundary (inclusive).\n            right",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_passthrough": [
+      {
+        "stage_name": "global_aggregator_passthrough",
+        "model_name": "passthrough_bypass",
+        "model_revision": "main",
+        "start_time_rel_s": 362957.5408733,
+        "end_time_rel_s": 362957.5408733,
+        "latency_ms": 0.0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #15 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "```python\n\"\"\"\nAdvanced Algorithmic Module #15: Efficient Range Query and Update Structure\n\nThis module implements a data structure that supports:\n1. Point updates in O(1) time\n2. Range sum queries in O(log N) time\n3. Range minimum queries in O(log N) time\n4. Range maximum queries in O(log N) time\n\nThe implementation uses a segment tree with lazy propagation for efficient\nrange queries and updates.\n\nComplexity Guarantees:\n- Build: O(N)\n- Point Update: O(log N)\n- Range Sum Query: O(log N)\n- Range Min Query: O(log N)\n- Range Max Query: O(log N)\n- Space: O(N)\n\"\"\"\n\nfrom typing import List, Optional, Tuple, Union\nimport math\n\n\nclass SegmentTree:\n    \"\"\"\n    A segment tree supporting range sum, min, and max queries with point updates.\n    \n    Attributes:\n        n: The size of the original array.\n        tree_sum: Segment tree for sum queries.\n        tree_min: Segment tree for min queries.\n        tree_max: Segment tree for max queries.\n    \"\"\"\n    \n    def __init__(self, data: List[int]) -> None:\n        \"\"\"\n        Initialize the segment tree with the given data.\n        \n        Args:\n            data: The initial array of integers.\n            \n        Raises:\n            ValueError: If data is empty.\n        \"\"\"\n        if not data:\n            raise ValueError(\"Data cannot be empty\")\n        \n        self.n: int = len(data)\n        self._size: int = 1\n        while self._size < self.n:\n            self._size *= 2\n        \n        # Initialize trees with neutral elements\n        self.tree_sum: List[int] = [0] * (2 * self._size)\n        self.tree_min: List[int] = [float('inf')] * (2 * self._size)\n        self.tree_max: List[int] = [float('-inf')] * (2 * self._size)\n        \n        # Build the trees\n        self._build(data)\n    \n    def _build(self, data: List[int]) -> None:\n        \"\"\"\n        Build the segment trees from the input data.\n        \n        Args:\n            data: The input array.\n        \"\"\"\n        # Fill leaves\n        for i in range(self.n):\n            self.tree_sum[self._size + i] = data[i]\n            self.tree_min[self._size + i] = data[i]\n            self.tree_max[self._size + i] = data[i]\n        \n        # Fill remaining leaves with neutral elements\n        for i in range(self.n, self._size):\n            self.tree_sum[self._size + i] = 0\n            self.tree_min[self._size + i] = float('inf')\n            self.tree_max[self._size + i] = float('-inf')\n        \n        # Build internal nodes\n        for i in range(self._size - 1, 0, -1):\n            self._pull_up(i)\n    \n    def _pull_up(self, i: int) -> None:\n        \"\"\"\n        Update node i based on its children.\n        \n        Args:\n            i: The index of the node to update.\n        \"\"\"\n        left = 2 * i\n        right = 2 * i + 1\n        \n        self.tree_sum[i] = self.tree_sum[left] + self.tree_sum[right]\n        self.tree_min[i] = min(self.tree_min[left], self.tree_min[right])\n        self.tree_max[i] = max(self.tree_max[left], self.tree_max[right])\n    \n    def update(self, index: int, value: int) -> None:\n        \"\"\"\n        Update the value at the given index.\n        \n        Args:\n            index: The 0-based index to update.\n            value: The new value.\n            \n        Raises:\n            IndexError: If index is out of bounds.\n        \"\"\"\n        if index < 0 or index >= self.n:\n            raise IndexError(f\"Index {index} out of bounds [0, {self.n})\")\n        \n        pos = self._size + index\n        self.tree_sum[pos] = value\n        self.tree_min[pos] = value\n        self.tree_max[pos] = value\n        \n        # Update ancestors\n        pos //= 2\n        while pos >= 1:\n            self._pull_up(pos)\n            pos //= 2\n    \n    def query_sum(self, left: int, right: int) -> int:\n        \"\"\"\n        Query the sum of elements in the range [left, right].\n        \n        Args:\n            left: The 0-based left boundary (inclusive).\n            right"
+          }
+        },
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #15: Efficient Range Query and Update Structure\n\nThis module implements a data structure that supports:\n1. Point updates in O(1) time\n2. Range sum queries in O(log N) time\n3. Range minimum queries in O(log N) time\n4. Range maximum queries in O(log N) time\n\nThe implementation uses a segment tree with lazy propagation for efficient\nrange queries and updates.\n\nComplexity Guarantees:\n- Build: O(N)\n- Point Update: O(log N)\n- Range Sum Query: O(log N)\n- Range Min Query: O(log N)\n- Range Max Query: O(log N)\n- Space: O(N)\n\"\"\"\n\nfrom typing import List, Optional, Tuple, Union\nimport math\n\n\nclass SegmentTree:\n    \"\"\"\n    A segment tree supporting range sum, min, and max queries with point updates.\n    \n    Attributes:\n        n: The size of the original array.\n        tree_sum: Segment tree for sum queries.\n        tree_min: Segment tree for min queries.\n        tree_max: Segment tree for max queries.\n    \"\"\"\n    \n    def __init__(self, data: List[int]) -> None:\n        \"\"\"\n        Initialize the segment tree with the given data.\n        \n        Args:\n            data: The initial array of integers.\n            \n        Raises:\n            ValueError: If data is empty.\n        \"\"\"\n        if not data:\n            raise ValueError(\"Data cannot be empty\")\n        \n        self.n: int = len(data)\n        self._size: int = 1\n        while self._size < self.n:\n            self._size *= 2\n        \n        # Initialize trees with neutral elements\n        self.tree_sum: List[int] = [0] * (2 * self._size)\n        self.tree_min: List[int] = [float('inf')] * (2 * self._size)\n        self.tree_max: List[int] = [float('-inf')] * (2 * self._size)\n        \n        # Build the trees\n        self._build(data)\n    \n    def _build(self, data: List[int]) -> None:\n        \"\"\"\n        Build the segment trees from the input data.\n        \n        Args:\n            data: The input array.\n        \"\"\"\n        # Fill leaves\n        for i in range(self.n):\n            self.tree_sum[self._size + i] = data[i]\n            self.tree_min[self._size + i] = data[i]\n            self.tree_max[self._size + i] = data[i]\n        \n        # Fill remaining leaves with neutral elements\n        for i in range(self.n, self._size):\n            self.tree_sum[self._size + i] = 0\n            self.tree_min[self._size + i] = float('inf')\n            self.tree_max[self._size + i] = float('-inf')\n        \n        # Build internal nodes\n        for i in range(self._size - 1, 0, -1):\n            self._pull_up(i)\n    \n    def _pull_up(self, i: int) -> None:\n        \"\"\"\n        Update node i based on its children.\n        \n        Args:\n            i: The index of the node to update.\n        \"\"\"\n        left = 2 * i\n        right = 2 * i + 1\n        \n        self.tree_sum[i] = self.tree_sum[left] + self.tree_sum[right]\n        self.tree_min[i] = min(self.tree_min[left], self.tree_min[right])\n        self.tree_max[i] = max(self.tree_max[left], self.tree_max[right])\n    \n    def update(self, index: int, value: int) -> None:\n        \"\"\"\n        Update the value at the given index.\n        \n        Args:\n            index: The 0-based index to update.\n            value: The new value.\n            \n        Raises:\n            IndexError: If index is out of bounds.\n        \"\"\"\n        if index < 0 or index >= self.n:\n            raise IndexError(f\"Index {index} out of bounds [0, {self.n})\")\n        \n        pos = self._size + index\n        self.tree_sum[pos] = value\n        self.tree_min[pos] = value\n        self.tree_max[pos] = value\n        \n        # Update ancestors\n        pos //= 2\n        while pos >= 1:\n            self._pull_up(pos)\n            pos //= 2\n    \n    def query_sum(self, left: int, right: int) -> int:\n        \"\"\"\n        Query the sum of elements in the range [left, right].\n        \n        Args:\n            left: The 0-based left boundary (inclusive).\n            right",
+        "extra_metadata": {
+          "node_count": 1,
+          "bypassed": true,
+          "reason": "single_subtask_direct_passthrough"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 2747.7234000107273
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nAdvanced Algorithmic Module #15: Efficient Range Query and Update Structure\n\nThis module implements a data structure that supports:\n1. Point updates in O(1) time\n2. Range sum queries in O(log N) time\n3. Range minimum queries in O(log N) time\n4. Range maximum queries in O(log N) time\n\nThe implementation uses a segment tree with lazy propagation for efficient\nrange queries and updates.\n\nComplexity Guarantees:\n- Build: O(N)\n- Point Update: O(log N)\n- Range Sum Query: O(log N)\n- Range Min Query: O(log N)\n- Range Max Query: O(log N)\n- Space: O(N)\n\"\"\"\n\nfrom typing import List, Optional, Tuple, Union\nimport math\n\n\nclass SegmentTree:\n    \"\"\"\n    A segment tree supporting range sum, min, and max queries with point updates.\n    \n    Attributes:\n        n: The size of the original array.\n        tree_sum: Segment tree for sum queries.\n        tree_min: Segment tree for min queries.\n        tree_max: Segment tree for max queries.\n    \"\"\"\n    \n    def __init__(self, data: List[int]) -> None:\n        \"\"\"\n        Initialize the segment tree with the given data.\n        \n        Args:\n            data: The initial array of integers.\n            \n        Raises:\n            ValueError: If data is empty.\n        \"\"\"\n        if not data:\n            raise ValueError(\"Data cannot be empty\")\n        \n        self.n: int = len(data)\n        self._size: int = 1\n        while self._size < self.n:\n            self._size *= 2\n        \n        # Initialize trees with neutral elements\n        self.tree_sum: List[int] = [0] * (2 * self._size)\n        self.tree_min: List[int] = [float('inf')] * (2 * self._size)\n        self.tree_max: List[int] = [float('-inf')] * (2 * self._size)\n        \n        # Build the trees\n        self._build(data)\n    \n    def _build(self, data: List[int]) -> None:\n        \"\"\"\n        Build the segment trees from the input data.\n        \n        Args:\n            data: The input array.\n        \"\"\"\n        # Fill leaves\n        for i in range(self.n):\n            self.tree_sum[self._size + i] = data[i]\n            self.tree_min[self._size + i] = data[i]\n            self.tree_max[self._size + i] = data[i]\n        \n        # Fill remaining leaves with neutral elements\n        for i in range(self.n, self._size):\n            self.tree_sum[self._size + i] = 0\n            self.tree_min[self._size + i] = float('inf')\n            self.tree_max[self._size + i] = float('-inf')\n        \n        # Build internal nodes\n        for i in range(self._size - 1, 0, -1):\n            self._pull_up(i)\n    \n    def _pull_up(self, i: int) -> None:\n        \"\"\"\n        Update node i based on its children.\n        \n        Args:\n            i: The index of the node to update.\n        \"\"\"\n        left = 2 * i\n        right = 2 * i + 1\n        \n        self.tree_sum[i] = self.tree_sum[left] + self.tree_sum[right]\n        self.tree_min[i] = min(self.tree_min[left], self.tree_min[right])\n        self.tree_max[i] = max(self.tree_max[left], self.tree_max[right])\n    \n    def update(self, index: int, value: int) -> None:\n        \"\"\"\n        Update the value at the given index.\n        \n        Args:\n            index: The 0-based index to update.\n            value: The new value.\n            \n        Raises:\n            IndexError: If index is out of bounds.\n        \"\"\"\n        if index < 0 or index >= self.n:\n            raise IndexError(f\"Index {index} out of bounds [0, {self.n})\")\n        \n        pos = self._size + index\n        self.tree_sum[pos] = value\n        self.tree_min[pos] = value\n        self.tree_max[pos] = value\n        \n        # Update ancestors\n        pos //= 2\n        while pos >= 1:\n            self._pull_up(pos)\n            pos //= 2\n    \n    def query_sum(self, left: int, right: int) -> int:\n        \"\"\"\n        Query the sum of elements in the range [left, right].\n        \n        Args:\n            left: The 0-based left boundary (inclusive).\n            right",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.9978,
+      "math": 0.0006,
+      "reasoning": 0.0006,
+      "retrieval": 0.0006,
+      "general": 0.0006
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

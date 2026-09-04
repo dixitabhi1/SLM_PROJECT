@@ -58,6 +58,7 @@ class APIGroqModelRunner(BaseModelRunner):
 
         requested_max_tokens = kwargs.get("max_tokens", self.max_tokens)
         safe_max_tokens = min(requested_max_tokens, 1024, max(384, 6500 - approx_prompt_tokens))
+        safe_max_tokens = min(requested_max_tokens, 950, max(256, 6500 - approx_prompt_tokens))
 
         body = {
             "model": self.api_model_name,
@@ -118,6 +119,7 @@ class APIGroqModelRunner(BaseModelRunner):
                         except Exception:
                             wait_s = 15.0
                     print(f"[{self.api_model_name}] Groq 429 Rate Limit. Sleeping {wait_s:.1f}s before retry {attempt+1}/6...")
+                    print(f"[{self.api_model_name}] Groq 429 Rate Limit. Sleeping {wait_s:.1f}s before retry {attempt+1}/6...", flush=True)
                     await asyncio.sleep(wait_s)
                 else:
                     await asyncio.sleep(1.5)

@@ -1,0 +1,138 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_03_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_03",
+  "query_text": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "21b515830e4ff1ea8321b598b9610e24bf35eddd",
+  "timestamp_start_utc": "2026-09-04T07:09:30.753197+00:00",
+  "timestamp_end_utc": "2026-09-04T07:10:36.936525+00:00",
+  "total_wall_clock_latency_ms": 66183.36490000365,
+  "simulated_parallel_latency_ms": 17895.547199994326,
+  "total_prompt_tokens": 406,
+  "total_completion_tokens": 1112,
+  "total_tokens": 1518,
+  "total_cost_usd": 0.00021627999999999998,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 358764.2801121,
+        "end_time_rel_s": 358812.566778,
+        "latency_ms": 48286.6658999701,
+        "prompt_tokens": 340,
+        "completion_tokens": 88,
+        "total_tokens": 428,
+        "cost_usd": 2.404e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_1": [
+      {
+        "stage_name": "pool_coding_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 358812.5675524,
+        "end_time_rel_s": 358830.4633474,
+        "latency_ms": 17895.795000018552,
+        "prompt_tokens": 66,
+        "completion_tokens": 1024,
+        "total_tokens": 1090,
+        "cost_usd": 0.00019224,
+        "confidence_score": null,
+        "input": "Task: Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #3: Efficient Data Structure Operations\n\nThis module implements several advanced algorithmic operations with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case unit tests\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Dict, List, Optional, Tuple, Union\n\n\nclass MinMaxHeap:\n    \"\"\"\n    A min-max heap that supports O(1) access to both minimum and maximum elements,\n    and O(log N) insertion and deletion.\n    \n    The min-max heap is a complete binary tree where nodes at even levels (0-indexed)\n    are min-nodes and nodes at odd levels are max-nodes.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._heap: List[int] = []\n\n    def __len__(self) -> int:\n        return len(self._heap)\n\n    def is_empty(self) -> bool:\n        return len(self._heap) == 0\n\n    def _parent(self, i: int) -> int:\n        return (i - 1) // 2\n\n    def _left_child(self, i: int) -> int:\n        return 2 * i + 1\n\n    def _right_child(self, i: int) -> int:\n        return 2 * i + 2\n\n    def _grandparent(self, i: int) -> int:\n        return self._parent(self._parent(i))\n\n    def _is_min_level(self, i: int) -> bool:\n        \"\"\"Check if node at index i is at a min-level (even level).\"\"\"\n        level = self._level(i)\n        return level % 2 == 0\n\n    def _level(self, i: int) -> int:\n        \"\"\"Calculate the level of node at index i.\"\"\"\n        return int(math.log2(i + 1)) if i >= 0 else 0\n\n    def _bubble_up(self, i: int) -> None:\n        \"\"\"Bubble up the element at index i to its correct position.\"\"\"\n        while i > 0:\n            parent = self._parent(i)\n            grandparent = self._grandparent(i) if parent > 0 else -1\n\n            if self._is_min_level(i):\n                # i is at a min-level\n                if self._heap[i] < self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] < self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n            else:\n                # i is at a max-level\n                if self._heap[i] > self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] > self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n\n    def _bubble_down(self, i: int) -> None:\n        \"\"\"Bubble down the element at index i to its correct position.\"\"\"\n        n = len(self._heap)\n        while True:\n            left = self._left_child(i)\n            right = self._right_child(i)\n            if left >= n:\n                break\n\n            if self._is_min_level(i):\n                # i is at a min-level, find the smallest child\n                smallest = i\n                if left < n and self._heap[left] < self._heap[smallest]:\n                    smallest = left\n                if right < n and self._heap[right] < self._heap[smallest]:\n                    smallest = right\n                if smallest != i:\n                    self._heap[i], self._heap[smallest] = self._heap[smallest], self._heap[i]\n                    i = smallest\n                    continue\n                break\n            else:\n                # i is at a max-level, find the largest child\n                largest = i\n                if left < n and self._heap[left] > self._heap[largest]:\n                    largest = left\n                if right < n and self._heap[right] > self._heap[largest]:\n                    largest = right\n                if largest != i:\n                    self._heap[i], self._heap[largest] =",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_passthrough": [
+      {
+        "stage_name": "global_aggregator_passthrough",
+        "model_name": "passthrough_bypass",
+        "model_revision": "main",
+        "start_time_rel_s": 358830.4634591,
+        "end_time_rel_s": 358830.4634591,
+        "latency_ms": 0.0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "```python\n\"\"\"\nAdvanced Algorithmic Module #3: Efficient Data Structure Operations\n\nThis module implements several advanced algorithmic operations with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case unit tests\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Dict, List, Optional, Tuple, Union\n\n\nclass MinMaxHeap:\n    \"\"\"\n    A min-max heap that supports O(1) access to both minimum and maximum elements,\n    and O(log N) insertion and deletion.\n    \n    The min-max heap is a complete binary tree where nodes at even levels (0-indexed)\n    are min-nodes and nodes at odd levels are max-nodes.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._heap: List[int] = []\n\n    def __len__(self) -> int:\n        return len(self._heap)\n\n    def is_empty(self) -> bool:\n        return len(self._heap) == 0\n\n    def _parent(self, i: int) -> int:\n        return (i - 1) // 2\n\n    def _left_child(self, i: int) -> int:\n        return 2 * i + 1\n\n    def _right_child(self, i: int) -> int:\n        return 2 * i + 2\n\n    def _grandparent(self, i: int) -> int:\n        return self._parent(self._parent(i))\n\n    def _is_min_level(self, i: int) -> bool:\n        \"\"\"Check if node at index i is at a min-level (even level).\"\"\"\n        level = self._level(i)\n        return level % 2 == 0\n\n    def _level(self, i: int) -> int:\n        \"\"\"Calculate the level of node at index i.\"\"\"\n        return int(math.log2(i + 1)) if i >= 0 else 0\n\n    def _bubble_up(self, i: int) -> None:\n        \"\"\"Bubble up the element at index i to its correct position.\"\"\"\n        while i > 0:\n            parent = self._parent(i)\n            grandparent = self._grandparent(i) if parent > 0 else -1\n\n            if self._is_min_level(i):\n                # i is at a min-level\n                if self._heap[i] < self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] < self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n            else:\n                # i is at a max-level\n                if self._heap[i] > self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] > self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n\n    def _bubble_down(self, i: int) -> None:\n        \"\"\"Bubble down the element at index i to its correct position.\"\"\"\n        n = len(self._heap)\n        while True:\n            left = self._left_child(i)\n            right = self._right_child(i)\n            if left >= n:\n                break\n\n            if self._is_min_level(i):\n                # i is at a min-level, find the smallest child\n                smallest = i\n                if left < n and self._heap[left] < self._heap[smallest]:\n                    smallest = left\n                if right < n and self._heap[right] < self._heap[smallest]:\n                    smallest = right\n                if smallest != i:\n                    self._heap[i], self._heap[smallest] = self._heap[smallest], self._heap[i]\n                    i = smallest\n                    continue\n                break\n            else:\n                # i is at a max-level, find the largest child\n                largest = i\n                if left < n and self._heap[left] > self._heap[largest]:\n                    largest = left\n                if right < n and self._heap[right] > self._heap[largest]:\n                    largest = right\n                if largest != i:\n                    self._heap[i], self._heap[largest] ="
+          }
+        },
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #3: Efficient Data Structure Operations\n\nThis module implements several advanced algorithmic operations with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case unit tests\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Dict, List, Optional, Tuple, Union\n\n\nclass MinMaxHeap:\n    \"\"\"\n    A min-max heap that supports O(1) access to both minimum and maximum elements,\n    and O(log N) insertion and deletion.\n    \n    The min-max heap is a complete binary tree where nodes at even levels (0-indexed)\n    are min-nodes and nodes at odd levels are max-nodes.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._heap: List[int] = []\n\n    def __len__(self) -> int:\n        return len(self._heap)\n\n    def is_empty(self) -> bool:\n        return len(self._heap) == 0\n\n    def _parent(self, i: int) -> int:\n        return (i - 1) // 2\n\n    def _left_child(self, i: int) -> int:\n        return 2 * i + 1\n\n    def _right_child(self, i: int) -> int:\n        return 2 * i + 2\n\n    def _grandparent(self, i: int) -> int:\n        return self._parent(self._parent(i))\n\n    def _is_min_level(self, i: int) -> bool:\n        \"\"\"Check if node at index i is at a min-level (even level).\"\"\"\n        level = self._level(i)\n        return level % 2 == 0\n\n    def _level(self, i: int) -> int:\n        \"\"\"Calculate the level of node at index i.\"\"\"\n        return int(math.log2(i + 1)) if i >= 0 else 0\n\n    def _bubble_up(self, i: int) -> None:\n        \"\"\"Bubble up the element at index i to its correct position.\"\"\"\n        while i > 0:\n            parent = self._parent(i)\n            grandparent = self._grandparent(i) if parent > 0 else -1\n\n            if self._is_min_level(i):\n                # i is at a min-level\n                if self._heap[i] < self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] < self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n            else:\n                # i is at a max-level\n                if self._heap[i] > self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] > self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n\n    def _bubble_down(self, i: int) -> None:\n        \"\"\"Bubble down the element at index i to its correct position.\"\"\"\n        n = len(self._heap)\n        while True:\n            left = self._left_child(i)\n            right = self._right_child(i)\n            if left >= n:\n                break\n\n            if self._is_min_level(i):\n                # i is at a min-level, find the smallest child\n                smallest = i\n                if left < n and self._heap[left] < self._heap[smallest]:\n                    smallest = left\n                if right < n and self._heap[right] < self._heap[smallest]:\n                    smallest = right\n                if smallest != i:\n                    self._heap[i], self._heap[smallest] = self._heap[smallest], self._heap[i]\n                    i = smallest\n                    continue\n                break\n            else:\n                # i is at a max-level, find the largest child\n                largest = i\n                if left < n and self._heap[left] > self._heap[largest]:\n                    largest = left\n                if right < n and self._heap[right] > self._heap[largest]:\n                    largest = right\n                if largest != i:\n                    self._heap[i], self._heap[largest] =",
+        "extra_metadata": {
+          "node_count": 1,
+          "bypassed": true,
+          "reason": "single_subtask_direct_passthrough"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 17895.826200023293
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nAdvanced Algorithmic Module #3: Efficient Data Structure Operations\n\nThis module implements several advanced algorithmic operations with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case unit tests\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Dict, List, Optional, Tuple, Union\n\n\nclass MinMaxHeap:\n    \"\"\"\n    A min-max heap that supports O(1) access to both minimum and maximum elements,\n    and O(log N) insertion and deletion.\n    \n    The min-max heap is a complete binary tree where nodes at even levels (0-indexed)\n    are min-nodes and nodes at odd levels are max-nodes.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._heap: List[int] = []\n\n    def __len__(self) -> int:\n        return len(self._heap)\n\n    def is_empty(self) -> bool:\n        return len(self._heap) == 0\n\n    def _parent(self, i: int) -> int:\n        return (i - 1) // 2\n\n    def _left_child(self, i: int) -> int:\n        return 2 * i + 1\n\n    def _right_child(self, i: int) -> int:\n        return 2 * i + 2\n\n    def _grandparent(self, i: int) -> int:\n        return self._parent(self._parent(i))\n\n    def _is_min_level(self, i: int) -> bool:\n        \"\"\"Check if node at index i is at a min-level (even level).\"\"\"\n        level = self._level(i)\n        return level % 2 == 0\n\n    def _level(self, i: int) -> int:\n        \"\"\"Calculate the level of node at index i.\"\"\"\n        return int(math.log2(i + 1)) if i >= 0 else 0\n\n    def _bubble_up(self, i: int) -> None:\n        \"\"\"Bubble up the element at index i to its correct position.\"\"\"\n        while i > 0:\n            parent = self._parent(i)\n            grandparent = self._grandparent(i) if parent > 0 else -1\n\n            if self._is_min_level(i):\n                # i is at a min-level\n                if self._heap[i] < self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] < self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n            else:\n                # i is at a max-level\n                if self._heap[i] > self._heap[parent]:\n                    self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]\n                    i = parent\n                    continue\n                if grandparent >= 0 and self._heap[i] > self._heap[grandparent]:\n                    self._heap[i], self._heap[grandparent] = self._heap[grandparent], self._heap[i]\n                    i = grandparent\n                    continue\n                break\n\n    def _bubble_down(self, i: int) -> None:\n        \"\"\"Bubble down the element at index i to its correct position.\"\"\"\n        n = len(self._heap)\n        while True:\n            left = self._left_child(i)\n            right = self._right_child(i)\n            if left >= n:\n                break\n\n            if self._is_min_level(i):\n                # i is at a min-level, find the smallest child\n                smallest = i\n                if left < n and self._heap[left] < self._heap[smallest]:\n                    smallest = left\n                if right < n and self._heap[right] < self._heap[smallest]:\n                    smallest = right\n                if smallest != i:\n                    self._heap[i], self._heap[smallest] = self._heap[smallest], self._heap[i]\n                    i = smallest\n                    continue\n                break\n            else:\n                # i is at a max-level, find the largest child\n                largest = i\n                if left < n and self._heap[left] > self._heap[largest]:\n                    largest = left\n                if right < n and self._heap[right] > self._heap[largest]:\n                    largest = right\n                if largest != i:\n                    self._heap[i], self._heap[largest] =",
+  "config_snapshot": {
+    "mode": "real_pilot_generation"
+  },
+  "loop_events": [],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.9978,
+      "math": 0.0006,
+      "reasoning": 0.0006,
+      "retrieval": 0.0006,
+      "general": 0.0006
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

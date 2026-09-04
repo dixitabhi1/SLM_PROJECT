@@ -1,0 +1,138 @@
+{
+  "run_id": "slm_pipe_v2_V2_SD_CODE_01_42",
+  "system_type": "slm_pipeline_v2",
+  "query_id": "V2_SD_CODE_01",
+  "query_text": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+  "complexity_tier": "single_domain",
+  "seed": 42,
+  "git_commit": "21b515830e4ff1ea8321b598b9610e24bf35eddd",
+  "timestamp_start_utc": "2026-09-04T07:06:36.675819+00:00",
+  "timestamp_end_utc": "2026-09-04T07:06:56.552721+00:00",
+  "total_wall_clock_latency_ms": 19877.504499978386,
+  "simulated_parallel_latency_ms": 3190.9431000240147,
+  "total_prompt_tokens": 406,
+  "total_completion_tokens": 1112,
+  "total_tokens": 1518,
+  "total_cost_usd": 0.00021627999999999998,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "Qwen/Qwen2.5-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 358590.2024392,
+        "end_time_rel_s": 358606.8866422,
+        "latency_ms": 16684.202999982517,
+        "prompt_tokens": 340,
+        "completion_tokens": 88,
+        "total_tokens": 428,
+        "cost_usd": 2.404e-05,
+        "confidence_score": null,
+        "input": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+              "capability": "coding",
+              "dependencies": [],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_1": [
+      {
+        "stage_name": "pool_coding_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 358606.8885643,
+        "end_time_rel_s": 358610.079778,
+        "latency_ms": 3191.213699989021,
+        "prompt_tokens": 66,
+        "completion_tokens": 1024,
+        "total_tokens": 1090,
+        "cost_usd": 0.00019224,
+        "confidence_score": null,
+        "input": "Task: Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #1: Efficient Data Structures and Algorithms\n\nThis module provides high-performance data structures and algorithms with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case handling\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Callable, Generic, Hashable, Iterator, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\n\n\nclass MinHeap(Generic[T]):\n    \"\"\"\n    A min-heap implementation with O(log N) insert and extract-min operations.\n    \n    Complexity:\n    - push: O(log N)\n    - pop: O(log N)\n    - peek: O(1)\n    - __len__: O(1)\n    - __contains__: O(N) - note: this is not O(1) or O(log N)\n    \"\"\"\n\n    def __init__(self, items: Optional[list[T]] = None) -> None:\n        \"\"\"Initialize the heap, optionally with a list of items.\"\"\"\n        self._data: list[T] = []\n        if items is not None:\n            for item in items:\n                self.push(item)\n\n    def push(self, item: T) -> None:\n        \"\"\"Insert an item into the heap. O(log N).\"\"\"\n        self._data.append(item)\n        self._sift_up(len(self._data) - 1)\n\n    def pop(self) -> T:\n        \"\"\"Remove and return the smallest item. O(log N). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"pop from empty heap\")\n        min_item = self._data[0]\n        last_item = self._data.pop()\n        if self._data:\n            self._data[0] = last_item\n            self._sift_down(0)\n        return min_item\n\n    def peek(self) -> T:\n        \"\"\"Return the smallest item without removing it. O(1). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"peek from empty heap\")\n        return self._data[0]\n\n    def __len__(self) -> int:\n        \"\"\"Return the number of items in the heap. O(1).\"\"\"\n        return len(self._data)\n\n    def __bool__(self) -> bool:\n        \"\"\"Return True if the heap is non-empty. O(1).\"\"\"\n        return len(self._data) > 0\n\n    def _sift_up(self, index: int) -> None:\n        \"\"\"Sift up the element at the given index. O(log N).\"\"\"\n        while index > 0:\n            parent = (index - 1) // 2\n            if self._data[index] < self._data[parent]:\n                self._data[index], self._data[parent] = self._data[parent], self._data[index]\n                index = parent\n            else:\n                break\n\n    def _sift_down(self, index: int) -> None:\n        \"\"\"Sift down the element at the given index. O(log N).\"\"\"\n        n = len(self._data)\n        while True:\n            smallest = index\n            left = 2 * index + 1\n            right = 2 * index + 2\n            if left < n and self._data[left] < self._data[smallest]:\n                smallest = left\n            if right < n and self._data[right] < self._data[smallest]:\n                smallest = right\n            if smallest != index:\n                self._data[index], self._data[smallest] = self._data[smallest], self._data[index]\n                index = smallest\n            else:\n                break\n\n\nclass LRUCache(Generic[K, V]):\n    \"\"\"\n    An LRU (Least Recently Used) cache with O(1) get and put operations.\n    \n    Uses a dictionary for O(1) lookup and a doubly-linked list for O(1) reordering.\n    \n    Complexity:\n    - get: O(1)\n    - put: O(1)\n    - __contains__: O(1)\n    - __len__: O(1)\n    \"\"\"\n\n    class _Node(Generic[K, V]):\n        \"\"\"Doubly-linked list node.\"\"\"\n        __slots__ = (\"key\", \"value\", \"prev\", \"next\")\n\n        def __init__(self, key: K, value: V) -> None:\n            self.key: K = key\n            self.value: V = value\n            self.prev: Optional[_",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_passthrough": [
+      {
+        "stage_name": "global_aggregator_passthrough",
+        "model_name": "passthrough_bypass",
+        "model_revision": "main",
+        "start_time_rel_s": 358610.0799075,
+        "end_time_rel_s": 358610.0799075,
+        "latency_ms": 0.0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+          "subtask_results": {
+            "node_1": "```python\n\"\"\"\nAdvanced Algorithmic Module #1: Efficient Data Structures and Algorithms\n\nThis module provides high-performance data structures and algorithms with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case handling\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Callable, Generic, Hashable, Iterator, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\n\n\nclass MinHeap(Generic[T]):\n    \"\"\"\n    A min-heap implementation with O(log N) insert and extract-min operations.\n    \n    Complexity:\n    - push: O(log N)\n    - pop: O(log N)\n    - peek: O(1)\n    - __len__: O(1)\n    - __contains__: O(N) - note: this is not O(1) or O(log N)\n    \"\"\"\n\n    def __init__(self, items: Optional[list[T]] = None) -> None:\n        \"\"\"Initialize the heap, optionally with a list of items.\"\"\"\n        self._data: list[T] = []\n        if items is not None:\n            for item in items:\n                self.push(item)\n\n    def push(self, item: T) -> None:\n        \"\"\"Insert an item into the heap. O(log N).\"\"\"\n        self._data.append(item)\n        self._sift_up(len(self._data) - 1)\n\n    def pop(self) -> T:\n        \"\"\"Remove and return the smallest item. O(log N). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"pop from empty heap\")\n        min_item = self._data[0]\n        last_item = self._data.pop()\n        if self._data:\n            self._data[0] = last_item\n            self._sift_down(0)\n        return min_item\n\n    def peek(self) -> T:\n        \"\"\"Return the smallest item without removing it. O(1). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"peek from empty heap\")\n        return self._data[0]\n\n    def __len__(self) -> int:\n        \"\"\"Return the number of items in the heap. O(1).\"\"\"\n        return len(self._data)\n\n    def __bool__(self) -> bool:\n        \"\"\"Return True if the heap is non-empty. O(1).\"\"\"\n        return len(self._data) > 0\n\n    def _sift_up(self, index: int) -> None:\n        \"\"\"Sift up the element at the given index. O(log N).\"\"\"\n        while index > 0:\n            parent = (index - 1) // 2\n            if self._data[index] < self._data[parent]:\n                self._data[index], self._data[parent] = self._data[parent], self._data[index]\n                index = parent\n            else:\n                break\n\n    def _sift_down(self, index: int) -> None:\n        \"\"\"Sift down the element at the given index. O(log N).\"\"\"\n        n = len(self._data)\n        while True:\n            smallest = index\n            left = 2 * index + 1\n            right = 2 * index + 2\n            if left < n and self._data[left] < self._data[smallest]:\n                smallest = left\n            if right < n and self._data[right] < self._data[smallest]:\n                smallest = right\n            if smallest != index:\n                self._data[index], self._data[smallest] = self._data[smallest], self._data[index]\n                index = smallest\n            else:\n                break\n\n\nclass LRUCache(Generic[K, V]):\n    \"\"\"\n    An LRU (Least Recently Used) cache with O(1) get and put operations.\n    \n    Uses a dictionary for O(1) lookup and a doubly-linked list for O(1) reordering.\n    \n    Complexity:\n    - get: O(1)\n    - put: O(1)\n    - __contains__: O(1)\n    - __len__: O(1)\n    \"\"\"\n\n    class _Node(Generic[K, V]):\n        \"\"\"Doubly-linked list node.\"\"\"\n        __slots__ = (\"key\", \"value\", \"prev\", \"next\")\n\n        def __init__(self, key: K, value: V) -> None:\n            self.key: K = key\n            self.value: V = value\n            self.prev: Optional[_"
+          }
+        },
+        "output": "```python\n\"\"\"\nAdvanced Algorithmic Module #1: Efficient Data Structures and Algorithms\n\nThis module provides high-performance data structures and algorithms with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case handling\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Callable, Generic, Hashable, Iterator, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\n\n\nclass MinHeap(Generic[T]):\n    \"\"\"\n    A min-heap implementation with O(log N) insert and extract-min operations.\n    \n    Complexity:\n    - push: O(log N)\n    - pop: O(log N)\n    - peek: O(1)\n    - __len__: O(1)\n    - __contains__: O(N) - note: this is not O(1) or O(log N)\n    \"\"\"\n\n    def __init__(self, items: Optional[list[T]] = None) -> None:\n        \"\"\"Initialize the heap, optionally with a list of items.\"\"\"\n        self._data: list[T] = []\n        if items is not None:\n            for item in items:\n                self.push(item)\n\n    def push(self, item: T) -> None:\n        \"\"\"Insert an item into the heap. O(log N).\"\"\"\n        self._data.append(item)\n        self._sift_up(len(self._data) - 1)\n\n    def pop(self) -> T:\n        \"\"\"Remove and return the smallest item. O(log N). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"pop from empty heap\")\n        min_item = self._data[0]\n        last_item = self._data.pop()\n        if self._data:\n            self._data[0] = last_item\n            self._sift_down(0)\n        return min_item\n\n    def peek(self) -> T:\n        \"\"\"Return the smallest item without removing it. O(1). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"peek from empty heap\")\n        return self._data[0]\n\n    def __len__(self) -> int:\n        \"\"\"Return the number of items in the heap. O(1).\"\"\"\n        return len(self._data)\n\n    def __bool__(self) -> bool:\n        \"\"\"Return True if the heap is non-empty. O(1).\"\"\"\n        return len(self._data) > 0\n\n    def _sift_up(self, index: int) -> None:\n        \"\"\"Sift up the element at the given index. O(log N).\"\"\"\n        while index > 0:\n            parent = (index - 1) // 2\n            if self._data[index] < self._data[parent]:\n                self._data[index], self._data[parent] = self._data[parent], self._data[index]\n                index = parent\n            else:\n                break\n\n    def _sift_down(self, index: int) -> None:\n        \"\"\"Sift down the element at the given index. O(log N).\"\"\"\n        n = len(self._data)\n        while True:\n            smallest = index\n            left = 2 * index + 1\n            right = 2 * index + 2\n            if left < n and self._data[left] < self._data[smallest]:\n                smallest = left\n            if right < n and self._data[right] < self._data[smallest]:\n                smallest = right\n            if smallest != index:\n                self._data[index], self._data[smallest] = self._data[smallest], self._data[index]\n                index = smallest\n            else:\n                break\n\n\nclass LRUCache(Generic[K, V]):\n    \"\"\"\n    An LRU (Least Recently Used) cache with O(1) get and put operations.\n    \n    Uses a dictionary for O(1) lookup and a doubly-linked list for O(1) reordering.\n    \n    Complexity:\n    - get: O(1)\n    - put: O(1)\n    - __contains__: O(1)\n    - __len__: O(1)\n    \"\"\"\n\n    class _Node(Generic[K, V]):\n        \"\"\"Doubly-linked list node.\"\"\"\n        __slots__ = (\"key\", \"value\", \"prev\", \"next\")\n\n        def __init__(self, key: K, value: V) -> None:\n            self.key: K = key\n            self.value: V = value\n            self.prev: Optional[_",
+        "extra_metadata": {
+          "node_count": 1,
+          "bypassed": true,
+          "reason": "single_subtask_direct_passthrough"
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [],
+      "latency_ms": 3191.2413999671116
+    }
+  ],
+  "final_response": "```python\n\"\"\"\nAdvanced Algorithmic Module #1: Efficient Data Structures and Algorithms\n\nThis module provides high-performance data structures and algorithms with:\n- Full type annotations\n- O(1) or O(log N) complexity guarantees\n- Comprehensive edge-case handling\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any, Callable, Generic, Hashable, Iterator, Optional, TypeVar, Union\n\nT = TypeVar(\"T\")\nK = TypeVar(\"K\", bound=Hashable)\nV = TypeVar(\"V\")\n\n\nclass MinHeap(Generic[T]):\n    \"\"\"\n    A min-heap implementation with O(log N) insert and extract-min operations.\n    \n    Complexity:\n    - push: O(log N)\n    - pop: O(log N)\n    - peek: O(1)\n    - __len__: O(1)\n    - __contains__: O(N) - note: this is not O(1) or O(log N)\n    \"\"\"\n\n    def __init__(self, items: Optional[list[T]] = None) -> None:\n        \"\"\"Initialize the heap, optionally with a list of items.\"\"\"\n        self._data: list[T] = []\n        if items is not None:\n            for item in items:\n                self.push(item)\n\n    def push(self, item: T) -> None:\n        \"\"\"Insert an item into the heap. O(log N).\"\"\"\n        self._data.append(item)\n        self._sift_up(len(self._data) - 1)\n\n    def pop(self) -> T:\n        \"\"\"Remove and return the smallest item. O(log N). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"pop from empty heap\")\n        min_item = self._data[0]\n        last_item = self._data.pop()\n        if self._data:\n            self._data[0] = last_item\n            self._sift_down(0)\n        return min_item\n\n    def peek(self) -> T:\n        \"\"\"Return the smallest item without removing it. O(1). Raises IndexError if empty.\"\"\"\n        if not self._data:\n            raise IndexError(\"peek from empty heap\")\n        return self._data[0]\n\n    def __len__(self) -> int:\n        \"\"\"Return the number of items in the heap. O(1).\"\"\"\n        return len(self._data)\n\n    def __bool__(self) -> bool:\n        \"\"\"Return True if the heap is non-empty. O(1).\"\"\"\n        return len(self._data) > 0\n\n    def _sift_up(self, index: int) -> None:\n        \"\"\"Sift up the element at the given index. O(log N).\"\"\"\n        while index > 0:\n            parent = (index - 1) // 2\n            if self._data[index] < self._data[parent]:\n                self._data[index], self._data[parent] = self._data[parent], self._data[index]\n                index = parent\n            else:\n                break\n\n    def _sift_down(self, index: int) -> None:\n        \"\"\"Sift down the element at the given index. O(log N).\"\"\"\n        n = len(self._data)\n        while True:\n            smallest = index\n            left = 2 * index + 1\n            right = 2 * index + 2\n            if left < n and self._data[left] < self._data[smallest]:\n                smallest = left\n            if right < n and self._data[right] < self._data[smallest]:\n                smallest = right\n            if smallest != index:\n                self._data[index], self._data[smallest] = self._data[smallest], self._data[index]\n                index = smallest\n            else:\n                break\n\n\nclass LRUCache(Generic[K, V]):\n    \"\"\"\n    An LRU (Least Recently Used) cache with O(1) get and put operations.\n    \n    Uses a dictionary for O(1) lookup and a doubly-linked list for O(1) reordering.\n    \n    Complexity:\n    - get: O(1)\n    - put: O(1)\n    - __contains__: O(1)\n    - __len__: O(1)\n    \"\"\"\n\n    class _Node(Generic[K, V]):\n        \"\"\"Doubly-linked list node.\"\"\"\n        __slots__ = (\"key\", \"value\", \"prev\", \"next\")\n\n        def __init__(self, key: K, value: V) -> None:\n            self.key: K = key\n            self.value: V = value\n            self.prev: Optional[_",
+  "config_snapshot": {
+    "mode": "test_fixes_1_and_2"
+  },
+  "loop_events": [],
+  "v2_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.9978,
+      "math": 0.0006,
+      "reasoning": 0.0006,
+      "retrieval": 0.0006,
+      "general": 0.0006
+    }
+  },
+  "v2_task_colors": {
+    "node_1": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}
