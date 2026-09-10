@@ -23,9 +23,9 @@ Evaluation Criteria:
 3. Coherence (1-5): Logical structure, readability, unified authoritative voice, and seamless synthesis.
 
 Instructions:
-- Evaluate both candidates objectively.
+- Evaluate both candidates objectively without position bias. Do NOT favor Candidate B simply because it appears second; evaluate Candidate A and Candidate B with equal critical rigor.
 - Assign integer criteria scores (1-5) to both Candidate A and Candidate B.
-- Select the winning candidate ("Candidate A", "Candidate B", or "Tie").
+- Select the winning candidate ("Candidate A", "Candidate B", or "Tie"). If both candidates provide comparable quality, declare "Tie".
 - State the primary differentiator and concise, rigorous reasoning.
 
 Output strictly valid JSON matching this exact schema:
@@ -83,11 +83,11 @@ class PairwiseLLMJudgeHarness:
             cand_a_sys = system_b_id
             cand_b_sys = system_a_id
 
-        def _trim_for_judge(text: str, max_chars: int = 1600) -> str:
+        def _trim_for_judge(text: str, max_chars: int = 7000) -> str:
             text = text.strip()
             if len(text) <= max_chars:
                 return text
-            return text[:1100] + "\n\n...[Implementation Details Continued]...\n\n" + text[-400:]
+            return text[:5000] + "\n\n...[Implementation Details Continued]...\n\n" + text[-1500:]
 
         cand_a_formatted = _trim_for_judge(candidate_a_text)
         cand_b_formatted = _trim_for_judge(candidate_b_text)

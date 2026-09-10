@@ -1,0 +1,46 @@
+# V3 RESEARCH CONSTRAINTS & SPECIFICATION SOURCE DOCUMENT
+Date: September 9, 2026
+Source: Mentor Review & Research Advisory Guidance
+Status: Active Ground-Truth Contract for Phase 3 (v3 Architecture)
+
+================================================================================
+MENTOR DIRECTIVES & REQUIREMENTS (RECORDED VERBATIM)
+================================================================================
+
+1. EXPAND SLM POOL TO 7-8 SPECIALISTS
+"Expand the SLM pool from 5 to 7-8 specialists for more effective testing — propose
+additional domains (e.g. splitting 'general' into general-reasoning and retrieval-QA,
+adding a dedicated science/knowledge specialist) and get my confirmation on the final
+domain list before pinning models."
+
+2. HARD PARAMETER CAP AT ≤5B FOR ALL POOL MODELS
+"Hard cap every pool model at ≤5B parameters — audit the current pinning table,
+identify every component that violates this (currently: coding 7.6B, math 7.6B,
+general/aggregator 8.0B), and propose same-family smaller replacements. Before pinning
+any replacement, verify the exact checkpoint actually exists on Hugging Face (real
+model card, not an assumed smaller variant) — do not guess a plausible-sounding name."
+
+3. REMOVE 8B BASELINE & ENFORCE ≥30B BASELINE FLOOR
+"Remove the 8B baseline; floor all baselines at ≥30B parameters. Drop Llama-3.1-8B from
+the baseline roster entirely (not as a comparison baseline, and it's already excluded
+from the pool by constraint 2). Confirm the remaining roster (Qwen-2.5-32B, Llama-3.1-70B,
+Qwen-2.5-72B, Gemini-1.5-Pro) all genuinely meet the ≥30B floor."
+
+4. TARGET ≥75% WIN-RATE / QUALITY ACCURACY (REAL IMPROVEMENT ONLY)
+"Target ≥75% win-rate/quality accuracy, achieved only through real architecture/prompt
+improvements — record this explicitly as a target in PROGRESS.md, not a number to be
+reverse-engineered. Do not adjust judge criteria, cherry-pick queries, or tune prompts
+against the same small pilot set being measured on to hit this number artificially —
+if real results land below 75%, report that honestly, the same way the current below-target
+numbers have been reported throughout this project."
+
+5. WORKFLOW & INTEGRITY PROTOCOL
+"Once the new pool and baseline rosters are pinned and verified, treat this as requiring
+a new held-out lock (the old lock was generated under the old architecture/roster) and a
+fresh pilot run under the same real-generation, real-judge discipline used for v2 — no
+shortcuts reused from the placeholder-text or fabricated-matrix incidents earlier in
+this project."
+
+================================================================================
+END OF V3 SPECIFICATION CONTRACT
+================================================================================

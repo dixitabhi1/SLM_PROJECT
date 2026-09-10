@@ -1,0 +1,360 @@
+{
+  "run_id": "slm_pipe_v3_TEST_V3_TD_11_42",
+  "system_type": "slm_pipeline_v3",
+  "query_id": "TEST_V3_TD_11",
+  "query_text": "Design relational database schema and implement Python ORM access layer for compound engineering problem #11, thoroughly addressing both domain constraints.",
+  "complexity_tier": "two_domain",
+  "seed": 42,
+  "git_commit": "34a17dfd07e1378d60eba0c0a930c935a21e1fbc",
+  "timestamp_start_utc": "2026-09-10T11:12:32.166266+00:00",
+  "timestamp_end_utc": "2026-09-10T11:15:31.790372+00:00",
+  "total_wall_clock_latency_ms": 179624.6573999524,
+  "simulated_parallel_latency_ms": 120821.33409997914,
+  "total_prompt_tokens": 6120,
+  "total_completion_tokens": 4097,
+  "total_tokens": 10217,
+  "total_cost_usd": 0.00096946,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 506521.0412069,
+        "end_time_rel_s": 506522.1443968,
+        "latency_ms": 1103.1899000518024,
+        "prompt_tokens": 512,
+        "completion_tokens": 145,
+        "total_tokens": 657,
+        "cost_usd": 3.72e-05,
+        "confidence_score": null,
+        "input": "Design relational database schema and implement Python ORM access layer for compound engineering problem #11, thoroughly addressing both domain constraints.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Design a relational database schema for compound engineering problem #11, ensuring all domain constraints are thoroughly addressed.",
+              "capability": "structured_data",
+              "dependencies": [],
+              "depth": 0
+            },
+            {
+              "id": "node_2",
+              "text": "Implement a Python ORM access layer for the relational database schema designed for compound engineering problem #11, ensuring all domain constraints are thoroughly addressed.",
+              "capability": "coding",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "decomposition_loop_1": [
+      {
+        "stage_name": "decomposition_loop_1",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 506522.1464074,
+        "end_time_rel_s": 506522.9417633,
+        "latency_ms": 795.35589995794,
+        "prompt_tokens": 273,
+        "completion_tokens": 152,
+        "total_tokens": 425,
+        "cost_usd": 2.5810000000000002e-05,
+        "confidence_score": null,
+        "input": {
+          "id": "node_2",
+          "text": "Implement a Python ORM access layer for the relational database schema designed for compound engineering problem #11, ensuring all domain constraints are thoroughly addressed.",
+          "capability": "coding",
+          "dependencies": [
+            "node_1"
+          ],
+          "depth": 0
+        },
+        "output": {
+          "child_subtasks": [
+            {
+              "id": "node_2.1",
+              "text": "Define the relational database schema and domain constraints for compound engineering problem #11, including table structures, primary/foreign keys, and validation rules.",
+              "capability": "structured_data",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 1,
+              "parent_id": "node_2"
+            },
+            {
+              "id": "node_2.2",
+              "text": "Implement a Python ORM access layer that maps to the defined schema, ensuring all domain constraints are enforced through model definitions and validation logic.",
+              "capability": "coding",
+              "dependencies": [
+                "node_2.1"
+              ],
+              "depth": 1,
+              "parent_id": "node_2"
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 1,
+          "parent_task_id": "node_2"
+        }
+      }
+    ],
+    "pool_structured_data_node_1": [
+      {
+        "stage_name": "pool_structured_data_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 506522.9440338,
+        "end_time_rel_s": 506525.3515441,
+        "latency_ms": 2407.510299992282,
+        "prompt_tokens": 55,
+        "completion_tokens": 950,
+        "total_tokens": 1005,
+        "cost_usd": 0.00019825000000000002,
+        "confidence_score": null,
+        "input": "Task: Design a relational database schema for compound engineering problem #11, ensuring all domain constraints are thoroughly addressed.",
+        "output": "```json\n{\n  \"task_id\": \"compound_engineering_problem_11\",\n  \"schema_name\": \"compound_engineering_db\",\n  \"description\": \"Relational database schema for compound engineering problem #11, addressing all domain constraints including material properties, structural integrity, manufacturing tolerances, and quality control.\",\n  \"tables\": [\n    {\n      \"table_name\": \"materials\",\n      \"description\": \"Master table for all materials used in engineering components\",\n      \"columns\": [\n        {\n          \"name\": \"material_id\",\n          \"type\": \"UUID\",\n          \"primary_key\": true,\n          \"nullable\": false,\n          \"description\": \"Unique identifier for the material\"\n        },\n        {\n          \"name\": \"material_name\",\n          \"type\": \"VARCHAR(255)\",\n          \"nullable\": false,\n          \"description\": \"Common name of the material\"\n        },\n        {\n          \"name\": \"material_grade\",\n          \"type\": \"VARCHAR(100)\",\n          \"nullable\": true,\n          \"description\": \"Specific grade or variant of the material\"\n        },\n        {\n          \"name\": \"density\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": false,\n          \"description\": \"Density in kg/m^3\",\n          \"constraint\": \"CHECK (density > 0)\"\n        },\n        {\n          \"name\": \"youngs_modulus\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Young's modulus in Pa\",\n          \"constraint\": \"CHECK (youngs_modulus > 0)\"\n        },\n        {\n          \"name\": \"poissons_ratio\",\n          \"type\": \"DECIMAL(5,4)\",\n          \"nullable\": false,\n          \"description\": \"Poisson's ratio\",\n          \"constraint\": \"CHECK (poissons_ratio >= 0 AND poissons_ratio < 0.5)\"\n        },\n        {\n          \"name\": \"yield_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Yield strength in Pa\",\n          \"constraint\": \"CHECK (yield_strength > 0)\"\n        },\n        {\n          \"name\": \"ultimate_tensile_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Ultimate tensile strength in Pa\",\n          \"constraint\": \"CHECK (ultimate_tensile_strength > 0 AND ultimate_tensile_strength >= yield_strength)\"\n        },\n        {\n          \"name\": \"thermal_conductivity\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": true,\n          \"description\": \"Thermal conductivity in W/(m\u00b7K)\",\n          \"constraint\": \"CHECK (thermal_conductivity IS NULL OR thermal_conductivity > 0)\"\n        },\n        {\n          \"name\": \"thermal_expansion_coefficient\",\n          \"type\": \"DECIMAL(12,8)\",\n          \"nullable\": true,\n          \"description\": \"Coefficient of thermal expansion in 1/K\",\n          \"constraint\": \"CHECK (thermal_expansion_coefficient IS NULL OR thermal_expansion_coefficient >= 0)\"\n        },\n        {\n          \"name\": \"melting_point\",\n          \"type\": \"DECIMAL(8,2)\",\n          \"nullable\": true,\n          \"description\": \"Melting point in Kelvin\",\n          \"constraint\": \"CHECK (melting_point IS NULL OR melting_point > 0)\"\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record creation timestamp\"\n        },\n        {\n          \"name\": \"updated_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record last update timestamp\"\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_material_name\",\n          \"columns\": [\"material_name\"],\n          \"",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_structured_data_node_2.1": [
+      {
+        "stage_name": "pool_structured_data_node_2.1",
+        "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 506525.3519386,
+        "end_time_rel_s": 506586.2330104,
+        "latency_ms": 60881.0718000168,
+        "prompt_tokens": 1022,
+        "completion_tokens": 950,
+        "total_tokens": 1972,
+        "cost_usd": 0.0003433,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```json\n{\n  \"task_id\": \"compound_engineering_problem_11\",\n  \"schema_name\": \"compound_engineering_db\",\n  \"description\": \"Relational database schema for compound engineering problem #11, addressing all domain constraints including material properties, structural integrity, manufacturing tolerances, and quality control.\",\n  \"tables\": [\n    {\n      \"table_name\": \"materials\",\n      \"description\": \"Master table for all materials used in engineering components\",\n      \"columns\": [\n        {\n          \"name\": \"material_id\",\n          \"type\": \"UUID\",\n          \"primary_key\": true,\n          \"nullable\": false,\n          \"description\": \"Unique identifier for the material\"\n        },\n        {\n          \"name\": \"material_name\",\n          \"type\": \"VARCHAR(255)\",\n          \"nullable\": false,\n          \"description\": \"Common name of the material\"\n        },\n        {\n          \"name\": \"material_grade\",\n          \"type\": \"VARCHAR(100)\",\n          \"nullable\": true,\n          \"description\": \"Specific grade or variant of the material\"\n        },\n        {\n          \"name\": \"density\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": false,\n          \"description\": \"Density in kg/m^3\",\n          \"constraint\": \"CHECK (density > 0)\"\n        },\n        {\n          \"name\": \"youngs_modulus\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Young's modulus in Pa\",\n          \"constraint\": \"CHECK (youngs_modulus > 0)\"\n        },\n        {\n          \"name\": \"poissons_ratio\",\n          \"type\": \"DECIMAL(5,4)\",\n          \"nullable\": false,\n          \"description\": \"Poisson's ratio\",\n          \"constraint\": \"CHECK (poissons_ratio >= 0 AND poissons_ratio < 0.5)\"\n        },\n        {\n          \"name\": \"yield_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Yield strength in Pa\",\n          \"constraint\": \"CHECK (yield_strength > 0)\"\n        },\n        {\n          \"name\": \"ultimate_tensile_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Ultimate tensile strength in Pa\",\n          \"constraint\": \"CHECK (ultimate_tensile_strength > 0 AND ultimate_tensile_strength >= yield_strength)\"\n        },\n        {\n          \"name\": \"thermal_conductivity\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": true,\n          \"description\": \"Thermal conductivity in W/(m\u00b7K)\",\n          \"constraint\": \"CHECK (thermal_conductivity IS NULL OR thermal_conductivity > 0)\"\n        },\n        {\n          \"name\": \"thermal_expansion_coefficient\",\n          \"type\": \"DECIMAL(12,8)\",\n          \"nullable\": true,\n          \"description\": \"Coefficient of thermal expansion in 1/K\",\n          \"constraint\": \"CHECK (thermal_expansion_coefficient IS NULL OR thermal_expansion_coefficient >= 0)\"\n        },\n        {\n          \"name\": \"melting_point\",\n          \"type\": \"DECIMAL(8,2)\",\n          \"nullable\": true,\n          \"description\": \"Melting point in Kelvin\",\n          \"constraint\": \"CHECK (melting_point IS NULL OR melting_point > 0)\"\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record creation timestamp\"\n        },\n        {\n          \"name\": \"updated_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record last update timestamp\"\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_material_name\",\n          \"columns\": [\"material_name\"],\n          \"\n\nTask: Define the relational database schema and domain constraints for compound engineering problem #11, including table structures, primary/foreign keys, and validation rules.",
+        "output": "```json\n{\n  \"task_id\": \"compound_engineering_problem_11\",\n  \"schema_name\": \"compound_engineering_db\",\n  \"description\": \"Relational database schema for compound engineering problem #11, addressing all domain constraints including material properties, structural integrity, manufacturing tolerances, and quality control.\",\n  \"tables\": [\n    {\n      \"table_name\": \"materials\",\n      \"description\": \"Master table for all materials used in engineering components\",\n      \"columns\": [\n        {\n          \"name\": \"material_id\",\n          \"type\": \"UUID\",\n          \"primary_key\": true,\n          \"nullable\": false,\n          \"description\": \"Unique identifier for the material\"\n        },\n        {\n          \"name\": \"material_name\",\n          \"type\": \"VARCHAR(255)\",\n          \"nullable\": false,\n          \"description\": \"Common name of the material\"\n        },\n        {\n          \"name\": \"material_grade\",\n          \"type\": \"VARCHAR(100)\",\n          \"nullable\": true,\n          \"description\": \"Specific grade or variant of the material\"\n        },\n        {\n          \"name\": \"density\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": false,\n          \"description\": \"Density in kg/m^3\",\n          \"constraint\": \"CHECK (density > 0)\"\n        },\n        {\n          \"name\": \"youngs_modulus\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Young's modulus in Pa\",\n          \"constraint\": \"CHECK (youngs_modulus > 0)\"\n        },\n        {\n          \"name\": \"poissons_ratio\",\n          \"type\": \"DECIMAL(5,4)\",\n          \"nullable\": false,\n          \"description\": \"Poisson's ratio\",\n          \"constraint\": \"CHECK (poissons_ratio >= 0 AND poissons_ratio < 0.5)\"\n        },\n        {\n          \"name\": \"yield_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Yield strength in Pa\",\n          \"constraint\": \"CHECK (yield_strength > 0)\"\n        },\n        {\n          \"name\": \"ultimate_tensile_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Ultimate tensile strength in Pa\",\n          \"constraint\": \"CHECK (ultimate_tensile_strength > 0 AND ultimate_tensile_strength >= yield_strength)\"\n        },\n        {\n          \"name\": \"thermal_conductivity\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": true,\n          \"description\": \"Thermal conductivity in W/(m\u00b7K)\",\n          \"constraint\": \"CHECK (thermal_conductivity IS NULL OR thermal_conductivity > 0)\"\n        },\n        {\n          \"name\": \"thermal_expansion_coefficient\",\n          \"type\": \"DECIMAL(12,8)\",\n          \"nullable\": true,\n          \"description\": \"Coefficient of thermal expansion in 1/K\",\n          \"constraint\": \"CHECK (thermal_expansion_coefficient IS NULL OR thermal_expansion_coefficient >= 0)\"\n        },\n        {\n          \"name\": \"melting_point\",\n          \"type\": \"DECIMAL(8,2)\",\n          \"nullable\": true,\n          \"description\": \"Melting point in Kelvin\",\n          \"constraint\": \"CHECK (melting_point IS NULL OR melting_point > 0)\"\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record creation timestamp\"\n        },\n        {\n          \"name\": \"updated_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record last update timestamp\"\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_material_name\",\n          \"columns\": [\"material_name\"],\n          \"",
+        "extra_metadata": {
+          "node_id": "node_2.1",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "pool_coding_node_2.2": [
+      {
+        "stage_name": "pool_coding_node_2.2",
+        "model_name": "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 506586.2333573,
+        "end_time_rel_s": 506643.7676383,
+        "latency_ms": 57534.281000029296,
+        "prompt_tokens": 1020,
+        "completion_tokens": 950,
+        "total_tokens": 1970,
+        "cost_usd": 0.000127,
+        "confidence_score": null,
+        "input": "[Prerequisite node_2.1]:\n```json\n{\n  \"task_id\": \"compound_engineering_problem_11\",\n  \"schema_name\": \"compound_engineering_db\",\n  \"description\": \"Relational database schema for compound engineering problem #11, addressing all domain constraints including material properties, structural integrity, manufacturing tolerances, and quality control.\",\n  \"tables\": [\n    {\n      \"table_name\": \"materials\",\n      \"description\": \"Master table for all materials used in engineering components\",\n      \"columns\": [\n        {\n          \"name\": \"material_id\",\n          \"type\": \"UUID\",\n          \"primary_key\": true,\n          \"nullable\": false,\n          \"description\": \"Unique identifier for the material\"\n        },\n        {\n          \"name\": \"material_name\",\n          \"type\": \"VARCHAR(255)\",\n          \"nullable\": false,\n          \"description\": \"Common name of the material\"\n        },\n        {\n          \"name\": \"material_grade\",\n          \"type\": \"VARCHAR(100)\",\n          \"nullable\": true,\n          \"description\": \"Specific grade or variant of the material\"\n        },\n        {\n          \"name\": \"density\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": false,\n          \"description\": \"Density in kg/m^3\",\n          \"constraint\": \"CHECK (density > 0)\"\n        },\n        {\n          \"name\": \"youngs_modulus\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Young's modulus in Pa\",\n          \"constraint\": \"CHECK (youngs_modulus > 0)\"\n        },\n        {\n          \"name\": \"poissons_ratio\",\n          \"type\": \"DECIMAL(5,4)\",\n          \"nullable\": false,\n          \"description\": \"Poisson's ratio\",\n          \"constraint\": \"CHECK (poissons_ratio >= 0 AND poissons_ratio < 0.5)\"\n        },\n        {\n          \"name\": \"yield_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Yield strength in Pa\",\n          \"constraint\": \"CHECK (yield_strength > 0)\"\n        },\n        {\n          \"name\": \"ultimate_tensile_strength\",\n          \"type\": \"DECIMAL(12,4)\",\n          \"nullable\": false,\n          \"description\": \"Ultimate tensile strength in Pa\",\n          \"constraint\": \"CHECK (ultimate_tensile_strength > 0 AND ultimate_tensile_strength >= yield_strength)\"\n        },\n        {\n          \"name\": \"thermal_conductivity\",\n          \"type\": \"DECIMAL(10,4)\",\n          \"nullable\": true,\n          \"description\": \"Thermal conductivity in W/(m\u00b7K)\",\n          \"constraint\": \"CHECK (thermal_conductivity IS NULL OR thermal_conductivity > 0)\"\n        },\n        {\n          \"name\": \"thermal_expansion_coefficient\",\n          \"type\": \"DECIMAL(12,8)\",\n          \"nullable\": true,\n          \"description\": \"Coefficient of thermal expansion in 1/K\",\n          \"constraint\": \"CHECK (thermal_expansion_coefficient IS NULL OR thermal_expansion_coefficient >= 0)\"\n        },\n        {\n          \"name\": \"melting_point\",\n          \"type\": \"DECIMAL(8,2)\",\n          \"nullable\": true,\n          \"description\": \"Melting point in Kelvin\",\n          \"constraint\": \"CHECK (melting_point IS NULL OR melting_point > 0)\"\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record creation timestamp\"\n        },\n        {\n          \"name\": \"updated_at\",\n          \"type\": \"TIMESTAMP\",\n          \"nullable\": false,\n          \"default\": \"CURRENT_TIMESTAMP\",\n          \"description\": \"Record last update timestamp\"\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_material_name\",\n          \"columns\": [\"material_name\"],\n          \"\n\nTask: Implement a Python ORM access layer that maps to the defined schema, ensuring all domain constraints are enforced through model definitions and validation logic.",
+        "output": "```python\n\"\"\"\nORM Access Layer for Compound Engineering Database Schema\n\nThis module implements a Python ORM layer that maps to the compound_engineering_db schema,\nensuring all domain constraints are enforced through model definitions and validation logic.\n\"\"\"\n\nimport uuid\nfrom datetime import datetime\nfrom decimal import Decimal, InvalidOperation\nfrom typing import Optional, Any, Dict, List\nfrom dataclasses import dataclass, field\nfrom enum import Enum\nimport re\n\n\nclass ValidationError(Exception):\n    \"\"\"Custom exception for validation errors.\"\"\"\n    pass\n\n\nclass Material:\n    \"\"\"\n    ORM model for the materials table.\n    \n    Enforces all domain constraints from the schema:\n    - density > 0\n    - youngs_modulus > 0\n    - 0 <= poissons_ratio < 0.5\n    - yield_strength > 0\n    - ultimate_tensile_strength > 0 AND ultimate_tensile_strength >= yield_strength\n    - thermal_conductivity IS NULL OR thermal_conductivity > 0\n    - thermal_expansion_coefficient IS NULL OR thermal_expansion_coefficient >= 0\n    - melting_point IS NULL OR melting_point > 0\n    \"\"\"\n    \n    def __init__(\n        self,\n        material_id: Optional[uuid.UUID] = None,\n        material_name: str = \"\",\n        material_grade: Optional[str] = None,\n        density: Optional[Decimal] = None,\n        youngs_modulus: Optional[Decimal] = None,\n        poissons_ratio: Optional[Decimal] = None,\n        yield_strength: Optional[Decimal] = None,\n        ultimate_tensile_strength: Optional[Decimal] = None,\n        thermal_conductivity: Optional[Decimal] = None,\n        thermal_expansion_coefficient: Optional[Decimal] = None,\n        melting_point: Optional[Decimal] = None,\n        created_at: Optional[datetime] = None,\n        updated_at: Optional[datetime] = None,\n    ):\n        self.material_id = material_id if material_id is not None else uuid.uuid4()\n        self.material_name = material_name\n        self.material_grade = material_grade\n        self.density = density\n        self.youngs_modulus = youngs_modulus\n        self.poissons_ratio = poissons_ratio\n        self.yield_strength = yield_strength\n        self.ultimate_tensile_strength = ultimate_tensile_strength\n        self.thermal_conductivity = thermal_conductivity\n        self.thermal_expansion_coefficient = thermal_expansion_coefficient\n        self.melting_point = melting_point\n        self.created_at = created_at if created_at is not None else datetime.utcnow()\n        self.updated_at = updated_at if updated_at is not None else datetime.utcnow()\n        \n        # Validate all fields\n        self._validate()\n    \n    def _validate(self):\n        \"\"\"Validate all fields against domain constraints.\"\"\"\n        # material_name must not be empty\n        if not self.material_name or not isinstance(self.material_name, str):\n            raise ValidationError(\"material_name must be a non-empty string\")\n        \n        # material_name length check (VARCHAR(255))\n        if len(self.material_name) > 255:\n            raise ValidationError(\"material_name must be at most 255 characters\")\n        \n        # material_grade length check (VARCHAR(100))\n        if self.material_grade is not None:\n            if not isinstance(self.material_grade, str):\n                raise ValidationError(\"material_grade must be a string or None\")\n            if len(self.material_grade) > 100:\n                raise ValidationError(\"material_grade must be at most 100 characters\")\n        \n        # density: DECIMAL(10,4), CHECK (density > 0)\n        if self.density is None:\n            raise ValidationError(\"density is required\")\n        if not isinstance(self.density, Decimal):\n            try:\n                self.density = Decimal(str(self.density))\n            except (InvalidOperation, ValueError):\n                raise ValidationError(\"density must be a valid decimal number\")\n        if self.density <= 0:\n            raise ValidationError(\"density must be greater than 0\")\n        # DECIMAL(10,4) means up to 10 digits total, 4 after decimal\n        self._check_decimal_precision(self.density, 10, 4, \"density\")\n        \n        # youngs_modulus: DECIMAL",
+        "extra_metadata": {
+          "node_id": "node_2.2",
+          "mode": "single_agent",
+          "depth": 1
+        }
+      }
+    ],
+    "global_aggregator_synthesis": [
+      {
+        "stage_name": "global_aggregator_synthesis",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 506643.7678489,
+        "end_time_rel_s": 506700.6658151,
+        "latency_ms": 56897.966200020164,
+        "prompt_tokens": 3238,
+        "completion_tokens": 950,
+        "total_tokens": 4188,
+        "cost_usd": 0.0002379,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #11, thoroughly addressing both domain constraints.",
+          "subtask_nodes": [
+            "node_1",
+            "node_2.1",
+            "node_2.2"
+          ]
+        },
+        "output": "# Compound Engineering Problem #11: Relational Schema and Python ORM Implementation\n\n## 1. Executive Problem Framing\n\nCompound Engineering Problem #11 requires the design of a robust data persistence layer for managing engineering materials and their associated physical properties. The core challenge lies in accurately modeling complex domain constraints\u2014specifically regarding material physics (e.g., Poisson's ratio bounds, strength hierarchies) and ensuring data integrity across both the relational database layer and the application layer.\n\nThis synthesis provides:\n1.  **A Comprehensive Relational Schema**: Defining the `materials` table with precise data types, constraints, and indexing strategies to enforce physical laws at the database level.\n2.  **A Python ORM Access Layer**: A complete, production-ready implementation that mirrors the schema, enforcing all domain constraints via validation logic, type coercion, and precision checks.\n\nThe solution ensures that invalid physical states (e.g., negative density, Poisson's ratio $\\ge 0.5$, or ultimate tensile strength less than yield strength) are rejected at both the application and database boundaries.\n\n---\n\n## 2. Relational Database Schema Design\n\nThe schema is designed for a PostgreSQL-compatible relational database. It utilizes `UUID` for primary keys to support distributed systems and `DECIMAL` types for precise numerical storage of physical constants.\n\n### 2.1 Table Definition: `materials`\n\nThe `materials` table serves as the master reference for all engineering materials. It enforces strict physical constraints through `CHECK` constraints.\n\n#### Column Specifications\n\n| Column Name | Type | Nullable | Default | Description & Constraints |\n| :--- | :--- | :--- | :--- | :--- |\n| `material_id` | `UUID` | No | `gen_random_uuid()` | Primary Key. Unique identifier. |\n| `material_name` | `VARCHAR(255)` | No | - | Common name. Max 255 chars. |\n| `material_grade` | `VARCHAR(100)` | Yes | - | Specific grade/variant. Max 100 chars. |\n| `density` | `DECIMAL(10,4)` | No | - | Density in kg/m\u00b3. **Constraint**: `> 0`. |\n| `youngs_modulus` | `DECIMAL(12,4)` | No | - | Young's Modulus in Pa. **Constraint**: `> 0`. |\n| `poissons_ratio` | `DECIMAL(5,4)` | No | - | Poisson's Ratio. **Constraint**: `>= 0 AND < 0.5`. |\n| `yield_strength` | `DECIMAL(12,4)` | No | - | Yield Strength in Pa. **Constraint**: `> 0`. |\n| `ultimate_tensile_strength` | `DECIMAL(12,4)` | No | - | UTS in Pa. **Constraint**: `> 0 AND >= yield_strength`. |\n| `thermal_conductivity` | `DECIMAL(10,4)` | Yes | - | Thermal Conductivity in W/(m\u00b7K). **Constraint**: `IS NULL OR > 0`. |\n| `thermal_expansion_coefficient` | `DECIMAL(12,8)` | Yes | - | CTE in 1/K. **Constraint**: `IS NULL OR >= 0`. |\n| `melting_point` | `DECIMAL(8,2)` | Yes | - | Melting Point in Kelvin. **Constraint**: `IS NULL OR > 0`. |\n| `created_at` | `TIMESTAMP` | No | `CURRENT_TIMESTAMP` | Record creation time. |\n| `updated_at` | `TIMESTAMP` | No | `CURRENT_TIMESTAMP` | Last update time. |\n\n#### Indexing Strategy\n\nTo optimize lookup performance for common engineering queries (e.g., finding materials by name or filtering by grade), the following indexes are defined:\n\n1.  **`idx_material_name`**: B-Tree index on `material_name` for fast string lookups.\n2.  **`idx_material_grade`**: B-Tree index on `material_grade` for filtering by specific variants.\n3.  **`idx_materials_strength_range`**: Composite index on `(yield_strength, ultimate_tensile_strength)` to support range queries for structural integrity checks.\n\n### 2.2 SQL DDL Implementation\n\n```sql\n-- Enable UUID extension if not already present (PostgreSQL)\nCREATE",
+        "extra_metadata": {
+          "node_count": 3,
+          "bypassed": false
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "structured_data"
+      ],
+      "dependencies": [],
+      "latency_ms": 2407.5891000102274
+    },
+    {
+      "node_id": "node_2.1",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "structured_data"
+      ],
+      "dependencies": [
+        "node_1"
+      ],
+      "latency_ms": 60881.10890000826
+    },
+    {
+      "node_id": "node_2.2",
+      "depth": 1,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_2.1"
+      ],
+      "latency_ms": 57534.31790001923
+    }
+  ],
+  "final_response": "# Compound Engineering Problem #11: Relational Schema and Python ORM Implementation\n\n## 1. Executive Problem Framing\n\nCompound Engineering Problem #11 requires the design of a robust data persistence layer for managing engineering materials and their associated physical properties. The core challenge lies in accurately modeling complex domain constraints\u2014specifically regarding material physics (e.g., Poisson's ratio bounds, strength hierarchies) and ensuring data integrity across both the relational database layer and the application layer.\n\nThis synthesis provides:\n1.  **A Comprehensive Relational Schema**: Defining the `materials` table with precise data types, constraints, and indexing strategies to enforce physical laws at the database level.\n2.  **A Python ORM Access Layer**: A complete, production-ready implementation that mirrors the schema, enforcing all domain constraints via validation logic, type coercion, and precision checks.\n\nThe solution ensures that invalid physical states (e.g., negative density, Poisson's ratio $\\ge 0.5$, or ultimate tensile strength less than yield strength) are rejected at both the application and database boundaries.\n\n---\n\n## 2. Relational Database Schema Design\n\nThe schema is designed for a PostgreSQL-compatible relational database. It utilizes `UUID` for primary keys to support distributed systems and `DECIMAL` types for precise numerical storage of physical constants.\n\n### 2.1 Table Definition: `materials`\n\nThe `materials` table serves as the master reference for all engineering materials. It enforces strict physical constraints through `CHECK` constraints.\n\n#### Column Specifications\n\n| Column Name | Type | Nullable | Default | Description & Constraints |\n| :--- | :--- | :--- | :--- | :--- |\n| `material_id` | `UUID` | No | `gen_random_uuid()` | Primary Key. Unique identifier. |\n| `material_name` | `VARCHAR(255)` | No | - | Common name. Max 255 chars. |\n| `material_grade` | `VARCHAR(100)` | Yes | - | Specific grade/variant. Max 100 chars. |\n| `density` | `DECIMAL(10,4)` | No | - | Density in kg/m\u00b3. **Constraint**: `> 0`. |\n| `youngs_modulus` | `DECIMAL(12,4)` | No | - | Young's Modulus in Pa. **Constraint**: `> 0`. |\n| `poissons_ratio` | `DECIMAL(5,4)` | No | - | Poisson's Ratio. **Constraint**: `>= 0 AND < 0.5`. |\n| `yield_strength` | `DECIMAL(12,4)` | No | - | Yield Strength in Pa. **Constraint**: `> 0`. |\n| `ultimate_tensile_strength` | `DECIMAL(12,4)` | No | - | UTS in Pa. **Constraint**: `> 0 AND >= yield_strength`. |\n| `thermal_conductivity` | `DECIMAL(10,4)` | Yes | - | Thermal Conductivity in W/(m\u00b7K). **Constraint**: `IS NULL OR > 0`. |\n| `thermal_expansion_coefficient` | `DECIMAL(12,8)` | Yes | - | CTE in 1/K. **Constraint**: `IS NULL OR >= 0`. |\n| `melting_point` | `DECIMAL(8,2)` | Yes | - | Melting Point in Kelvin. **Constraint**: `IS NULL OR > 0`. |\n| `created_at` | `TIMESTAMP` | No | `CURRENT_TIMESTAMP` | Record creation time. |\n| `updated_at` | `TIMESTAMP` | No | `CURRENT_TIMESTAMP` | Last update time. |\n\n#### Indexing Strategy\n\nTo optimize lookup performance for common engineering queries (e.g., finding materials by name or filtering by grade), the following indexes are defined:\n\n1.  **`idx_material_name`**: B-Tree index on `material_name` for fast string lookups.\n2.  **`idx_material_grade`**: B-Tree index on `material_grade` for filtering by specific variants.\n3.  **`idx_materials_strength_range`**: Composite index on `(yield_strength, ultimate_tensile_strength)` to support range queries for structural integrity checks.\n\n### 2.2 SQL DDL Implementation\n\n```sql\n-- Enable UUID extension if not already present (PostgreSQL)\nCREATE",
+  "config_snapshot": {
+    "version": "3.1.0"
+  },
+  "loop_events": [
+    {
+      "event_index": 1,
+      "parent_task_id": "node_2",
+      "recursion_depth": 0,
+      "active_colors": [
+        "blue",
+        "cyan"
+      ],
+      "skill_vector": {
+        "coding": 0.6825,
+        "mathematics": 0.0035,
+        "formal_reasoning": 0.0035,
+        "retrieval_qa": 0.0035,
+        "science_tech": 0.0035,
+        "structured_data": 0.2966,
+        "creative_synthesis": 0.0035,
+        "systems_ops": 0.0035
+      },
+      "reason": "multi_color_subtask_trigger"
+    }
+  ],
+  "v3_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.0049,
+      "mathematics": 0.0049,
+      "formal_reasoning": 0.0049,
+      "retrieval_qa": 0.0049,
+      "science_tech": 0.0049,
+      "structured_data": 0.9655,
+      "creative_synthesis": 0.0049,
+      "systems_ops": 0.0049
+    },
+    "node_2": {
+      "coding": 0.6825,
+      "mathematics": 0.0035,
+      "formal_reasoning": 0.0035,
+      "retrieval_qa": 0.0035,
+      "science_tech": 0.0035,
+      "structured_data": 0.2966,
+      "creative_synthesis": 0.0035,
+      "systems_ops": 0.0035
+    },
+    "node_2.1": {
+      "coding": 0.0017,
+      "mathematics": 0.0017,
+      "formal_reasoning": 0.0017,
+      "retrieval_qa": 0.0017,
+      "science_tech": 0.0017,
+      "structured_data": 0.9884,
+      "creative_synthesis": 0.0017,
+      "systems_ops": 0.0017
+    },
+    "node_2.2": {
+      "coding": 0.919,
+      "mathematics": 0.0047,
+      "formal_reasoning": 0.0142,
+      "retrieval_qa": 0.0047,
+      "science_tech": 0.0047,
+      "structured_data": 0.0433,
+      "creative_synthesis": 0.0047,
+      "systems_ops": 0.0047
+    }
+  },
+  "v3_task_colors": {
+    "node_1": {
+      "dominant_color": "cyan",
+      "dominant_domain": "structured_data",
+      "active_colors": [
+        "cyan"
+      ],
+      "active_domains": [
+        "structured_data"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue",
+        "cyan"
+      ],
+      "active_domains": [
+        "coding",
+        "structured_data"
+      ],
+      "spans_multiple_colors": true,
+      "color_count": 2
+    },
+    "node_2.1": {
+      "dominant_color": "cyan",
+      "dominant_domain": "structured_data",
+      "active_colors": [
+        "cyan"
+      ],
+      "active_domains": [
+        "structured_data"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_2.2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    }
+  }
+}

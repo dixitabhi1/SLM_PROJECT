@@ -14,11 +14,11 @@ import time
 from typing import Dict, List, Any, Optional
 from ..models.base import BaseModelRunner
 from ..instrumentation.logger import ExperimentLogger
-from ..v2.decomposer.decomposer import DecomposerSLM_v2
+from .decomposer.decomposer import DecomposerSLM_v3
 from ..v2.analyser.agent_analyser import AgentAnalyserSLM
 from ..v2.colorer.agent_colorer import AgentColorerSLM
 from ..v2.scheduling.scheduling_slm import SchedulingSLM
-from ..v2.aggregator.two_stage_aggregator import TwoStageAggregator
+from .aggregator.two_stage_aggregator import TwoStageAggregator_v3
 from .analyser.task_analyser import TaskAnalyserSLM_v3
 from .colorer.task_colorer import TaskColorerSLM_v3
 from .matching.matching_slm import MatchingSLM_v3
@@ -33,14 +33,14 @@ class SLMPipeline_v3:
         max_depth: int = 3,
         max_concurrent_slms: int = 4
     ):
-        self.decomposer = DecomposerSLM_v2(decomposer_runner)
+        self.decomposer = DecomposerSLM_v3(decomposer_runner)
         self.task_analyser = TaskAnalyserSLM_v3()
         self.agent_analyser = AgentAnalyserSLM()
         self.task_colorer = TaskColorerSLM_v3()
         self.agent_colorer = AgentColorerSLM()
         self.matching = MatchingSLM_v3(max_depth=max_depth)
         self.scheduling = SchedulingSLM(pool_runners=pool_runners, logger=logger, max_concurrent_slms=max_concurrent_slms)
-        self.aggregator = TwoStageAggregator(aggregator_runner, logger=logger)
+        self.aggregator = TwoStageAggregator_v3(aggregator_runner, logger=logger)
         self.logger = logger
         self.max_depth = max_depth
 
@@ -148,12 +148,10 @@ class SLMPipeline_v3:
                         prompt_tokens=rd_resp.prompt_tokens,
                         completion_tokens=rd_resp.completion_tokens,
                         input_data=task,
-                        output_data={"child_subtasks": re_decomp["subtasks"]},
                         output_data={"child_subtasks": re_decomp["child_subtasks"]},
                         extra_metadata={"depth": current_depth + 1, "parent_task_id": task_id}
                     )
 
-                for child in re_decomp["subtasks"]:
                 for child in re_decomp["child_subtasks"]:
                     pending_queue.append(child)
             else:

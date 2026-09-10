@@ -25,6 +25,7 @@ LEXICAL_PATTERNS_V3 = {
         r"\bpython\b", r"\bcode\b", r"\bfunction\b", r"\bclass\b", r"\balgorithm\b",
         r"\bimplement\b", r"\bscript\b", r"\bdebug\b", r"\brefactor\b", r"\bdata structure\b",
         r"\bheap\b", r"\btree\b", r"\bgraph\b", r"\btrie\b", r"\bhash\b", r"\bunit test\b",
+        r"\borm\b", r"\bapi\b", r"\bbackend\b",
         r"\btype annotations\b", r"\bcomplexity\b", r"\btime complexity\b", r"\bspace complexity\b"
     ],
     "mathematics": [
@@ -54,6 +55,7 @@ LEXICAL_PATTERNS_V3 = {
     "structured_data": [
         r"\bsql\b", r"\bdatabase\b", r"\btable\b", r"\bschema\b", r"\brelational\b",
         r"\bjson\b", r"\byaml\b", r"\bprotobuf\b", r"\bast\b", r"\bparquet\b",
+        r"\borm\b", r"\bentity\b", r"\bdata model\b",
         r"\bjoin\b", r"\bindex\b", r"\bforeign key\b", r"\bquery\b", r"\bdata transformation\b"
     ],
     "creative_synthesis": [
@@ -77,7 +79,7 @@ class TaskAnalyserSLM_v3:
     def __init__(self, model_runner: Optional[BaseModelRunner] = None):
         self.runner = model_runner
 
-    def analyse_skill_vector(self, task_text: str, prior_capability_tag: str = "") -> Dict[str, float]:
+    def analyse_skill_vector(self, task_text: str, prior_capability_tag: str = "", temperature: float = 1.8) -> Dict[str, float]:
         """
         Computes 8D normalized skill vector:
         s = <coding, mathematics, formal_reasoning, retrieval_qa, science_tech, structured_data, creative_synthesis, systems_ops>.
@@ -96,7 +98,6 @@ class TaskAnalyserSLM_v3:
             raw_scores[prior_capability_tag] += 3.5
 
         # Normalize with temperature-scaled softmax
-        temperature = 1.0
         scaled = {k: v / temperature for k, v in raw_scores.items()}
         max_s = max(scaled.values())
         exp_s = {k: math.exp(v - max_s) for k, v in scaled.items()}
