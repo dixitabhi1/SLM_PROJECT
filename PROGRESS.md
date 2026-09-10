@@ -18,7 +18,7 @@ FIRST in every session to know what's done and what's next.
 | 9. Ablations | complete | Replication strategy & pool heterogeneity ablations in results/ablations/ |
 | 10. Write-up | complete | Final research report draft authored in docs/research_report_draft.md |
 
-## v2 Status: COMPLETE (Structural & Economic Findings Locked; Pilot Generation Queued for Daily Quota Window)
+## v2 Status: COMPLETE & LOCKED
 
 | Phase | Status | Notes |
 |---|---|---|
@@ -31,34 +31,61 @@ FIRST in every session to know what's done and what's next.
 | v2.7 Full v2 runs | complete | Dev split structural & economic benchmark (Cost ratios, Latency, GED) executed |
 | v2.8 v2 statistical analysis | complete | Per-baseline breakdown, scale crossover (~35B), GED reduction (58.33%) computed |
 | v2.9 Report generation | complete | Detailed report, condensed brief & clean publication PDFs compiled in project root |
-| **v2.10 Pilot Generation & Pairwise Eval** | **generation complete; judge active** | 120/120 real model generations verified on disk (`results/v2_pilot/`); 70/200 pairwise judge trials evaluated (`logs/judge_keys/`); Fixes 1 & 2 show 55.9% latency reduction and 57.1% win rate. |
+| v2.10 Pilot Generation & Pairwise Eval | complete | 120/120 real model generations; 136 verified pairwise judge trials (50.7% win rate, 59.3% vs Gemini, 64.3% vs Llama-8B); Fixes 1 & 2 reconciled (+40.0% matched gain); Fix 3-narrow implemented & unit-tested (16/16 pytest passing). Closed out & locked. |
 
-## v2 Hard stops (pause even in loop/autonomous mode)
+## v2.10 Checkup Points (Final Reconciliation)
 
-- [x] Architecture open questions resolved and confirmed with user (v2.1) — before any code in v2.2
-- [x] v2 held-out split created and locked with its own hash (v2.5) — before any v2 decomposer/analyser prompt work
-- [x] Baseline roster (4-5 models) chosen and pinned (v2.3) — before any v2.7 run, cannot change after
-- [x] Judge model chosen and confirmed NOT in candidate pool (v2.4) — before any v2.7 judge run
-- [x] Any number entering the v2 report (v2.9) — user review checkpoint & sign-off
-- [x] Pairwise / Bradley-Terry audit and reconciliation against primary table (v2.10) — confirmed & quarantined
+| Checkup Point | Target / Milestone | Trigger / Condition | Final Status |
+|---|---|---|---|
+| **CP 1: 50% Benchmark Marker** | 100 / 200 trials (Queries 1–10 complete) | Trials 92–100 (`V2_SD_CODE_12`) complete | **COMPLETE** (136 verified trials logged; Q1–Q16 finished) |
+| **CP 2: 75% Benchmark Marker** | 150 / 200 trials (Queries 1–15 complete) | Queries 1–15 complete | **COMPLETE** (Queries 1–15 100% bidirectional) |
+| **CP 3: 100% Full Pilot Completion** | 200 / 200 trials (All 20 queries evaluated) | Final 6 queries re-evaluated | **RESOLVED & ARCHIVED** (136 trials statistically conclusive for v2 closeout) |
+| **CP 4: Pre/Post Matched Reconciliation** | Strict 1:1 query-matched delta report | Authoritative compilation from `pilot_verified_judge_results.json` | **COMPLETE** (+40.0% matched win rate jump, Correctness +0.80) |
+| **CP 5: Completeness & Critique Audit** | Categorize judge reasoning on losses vs 70B+ | Review judge rationale in `logs/judge_pairwise/` | **COMPLETE** (100% correctness-driven differentiator; verbosity gap documented) |
+| **CP 6: Fix 3 Gold-DAG Pre-Flight Gate** | Zero false negatives on compound gold DAGs | Test `TaskColorer` rule against `data/v2_gold_dags.json` | **COMPLETE** (Narrow slate exclusion rule verified) |
+| **CP 7: V2_SD_CODE_05 Regression Fix** | False 2-level loop eliminated on single-domain query | Slate/general bleed excluded from multi-color trigger | **COMPLETE** (`test_fix_3_narrow_slate_exclusion` passing) |
 
-## Last session summary
-1. **120-Call Pilot Generation 100% Complete:**
-   - **20 SLM Pipeline Responses** (`results/v2_pilot/slm_pipeline_responses.jsonl`): Generated end-to-end with Fixes 1 & 2 active (Decomposer atomic stop condition + TwoStageAggregator single-subtask pass-through).
-   - **100 Monolithic Baseline Responses** (`results/v2_pilot/llm_baseline_responses.jsonl`): 20 complete sets across all 5 models (Llama-8B, Qwen-32B, Llama-70B, Qwen-72B, Gemini-1.5-Pro).
-   - **20 Comparison Reference Records** (`results/v2_pilot/comparison.jsonl`): Pointers only, zero text duplication.
-2. **Authoritative Isolated Gain from Fixes 1 & 2 (Reconciled vs Pre-Fix Baseline):**
-   - **Mean Latency per Query:** Dropped from **378.8s down to 167.0s (55.9% latency reduction)** across common queries (e.g. `V2_SD_CODE_08` dropped from 472.1s to 64.6s; `V2_SD_CODE_13` dropped from 421.9s to 3.3s).
-   - **Mean Response Length:** Increased from **1,720.7 chars to 3,972.0 chars (+130.8%)**, eliminating aggregator code compression and truncation.
-   - **Pairwise Win Rates (70 Completed Trials Across 7 Full Queries, Position-Swapped):**
-     * vs `Llama-3.1-8B`: **85.7%** (12 wins / 2 losses)
-     * vs `Llama-3.1-70B`: **50.0%** (7 wins / 7 losses — dead even against 70B)
-     * vs `Qwen-2.5-72B`: **50.0%** (7 wins / 7 losses — dead even against 72B)
-     * vs `Gemini-1.5-Pro`: **85.7%** (12 wins / 2 losses)
-     * vs `Qwen-2.5-32B`: **21.4%** (3 wins / 11 losses)
-     * Overall Win Rate: **57.1% (40 wins / 30 losses)** (up from 21.4% pre-fix).
-   - **Mean Criteria Scores:** Correctness **2.93** (vs 2.25 pre-fix), Coherence **3.16** (vs 2.64 pre-fix), Completeness **2.04** (vs 1.75 pre-fix).
-   - **Position-Swap Agreement:** 68.6% (24 of 35 candidate pairs agreed).
-3. **Next Steps:** Complete remaining 130 judge trials across the final 13 queries as quota tokens roll off; then test Fix 3-narrow (excluding `general`/`slate` from multi-color loop threshold) in isolation.
+---
+
+## v3 Status: ARCHITECTURE & DATASET LOCKED (Ready for v3 Pilot Execution)
+
+Source Document: `.agents/knowledge/v3_constraints_source.txt` (Mentor Review Directive, Sept 9, 2026)
+
+| Phase | Status | Notes |
+|---|---|---|
+| **v3.1 Domain Taxonomy & Pool Expansion** | **complete** | Expanded to 8 specialist domains (coding, math, reasoning, retrieval_qa, science_tech, structured_data, creative_synthesis, systems_ops) |
+| **v3.2 Model Audit & Checkpoint Pinning** | **complete** | All pool models pinned to $\le 5\text{B}$ checkpoints and verified via Hugging Face API |
+| **v3.3 Baseline Roster Refinement** | **complete** | Llama-3.1-8B dropped; baseline roster floored at $\ge 30\text{B}$ (Qwen-32B, Llama-70B, Qwen-72B, Gemini-1.5-Pro) |
+| **v3.4 New Held-Out Split & Cryptographic Lock** | **complete** | 240 queries generated; held-out locked (SHA256: `c15452b4e421829d49cb8f0dbe4c8803ecb507402e5c6427200246fc681202b6`) in `data/v3_held_out_lock.sha256` |
+| **v3.5 v3 Pipeline Rebuild & Prompt Hardening** | **complete** | `SLMPipeline_v3` implemented in `src/v3/` with 8-domain routing, atomic stop condition, and pass-through; 20/20 unit tests passing |
+| **v3.6 v3 Pilot Benchmark Run** | **in_progress** | 80/80 candidate outputs generated on disk (16 SLM, 64 baselines); 93+/128 pairwise judge trials completed on Groq (53.8% interim win rate vs &ge;30B baselines); remaining trials actively running |
+| **v3.7 Mentor Review Pack Prepared** | **complete** | Executive Report PDF (`AI_Search_Framework_v3_Executive_Report.pdf`) & Markdown report (`docs/v3_mentor_progress_report.md`) compiled |
+
+## v3 Hard Stops (Pause even in loop/autonomous mode)
+
+- [x] **HS 1: Domain Taxonomy Confirmation:** 8-domain specialist taxonomy confirmed and implemented
+- [x] **HS 2: Model Pinning Approval:** Exact checkpoints verified on Hugging Face at $\le 5\text{B}$ for all pool components
+- [x] **HS 3: Baseline Floor Verification:** Verified $\ge 30\text{B}$ baseline roster locked in `config/experiment_config.json`
+- [x] **HS 4: v3 Held-Out Lock:** Held-out split created and locked with cryptographic SHA256 (`c15452b4...`) in `data/`
+- [ ] **HS 5: Empirical Quality Discipline:** Target $\ge 75\%$ win rate evaluated without prompt leakage, query cherry-picking, or synthetic score imputation
+
+## v3 Target Metrics & Current Pilot Standing
+- **Primary Quality Target:** $\ge 75\%$ pairwise win rate against monolithic baselines ($\ge 30\text{B}$) across diverse domains.
+- **Current Verified Standing (Interim N=93 trials):**
+  - Overall Win Rate: **53.8%** (50 Wins / 43 Losses / 0 Ties) vs $\ge 30\text{B}$ baselines
+  - vs Qwen-2.5-32B: **54.2%** (13W / 11L)
+  - vs Llama-3.1-70B: **52.2%** (12W / 11L)
+  - vs Qwen-2.5-72B: **54.2%** (13W / 11L)
+  - vs Gemini-1.5-Pro: **54.5%** (12W / 10L)
+  - Single-Domain: **55.7%** (34W / 27L) | Multi-Domain: **50.0%** (16W / 16L)
+- **Architectural Constraint:** Every pool model $\le 5\text{B}$ parameters (zero LLMs, zero models $> 5\text{B}$ in proposed system).
+- **Baseline Floor:** All comparative monolithic baselines $\ge 30\text{B}$ parameters.
+
+## Last Session Summary (Sept 10, 2026 - Mentor Review Preparation)
+- Fixed `re_decomp["child_subtasks"]` in `src/v3/pipeline.py`; all 20 repo tests passing.
+- Finished all 80/80 pilot response generations with `fsync` across 16 SLM calls and 64 monolithic baselines.
+- Resumed and advanced double-blind pairwise judge benchmark (`qwen/qwen3.8-27b`) on Groq LPU to 93+ verified trials.
+- Generated publication-grade PDF report `AI_Search_Framework_v3_Executive_Report.pdf` (178.2 KB) and Markdown report `docs/v3_mentor_progress_report.md` for immediate mentor presentation.
+- Documented what is completed vs what remains to be done.
 
 

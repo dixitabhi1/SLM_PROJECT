@@ -1,0 +1,2442 @@
+{
+  "V3_SD_CODI_01": {
+    "query_id": "V3_SD_CODI_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CODI_02": {
+    "query_id": "V3_SD_CODI_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CODI_03": {
+    "query_id": "V3_SD_CODI_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CODI_04": {
+    "query_id": "V3_SD_CODI_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CODI_05": {
+    "query_id": "V3_SD_CODI_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Implement an advanced algorithmic module #5 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+        "capability": "coding",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_MATH_01": {
+    "query_id": "V3_SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+        "capability": "mathematics",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_MATH_02": {
+    "query_id": "V3_SD_MATH_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+        "capability": "mathematics",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_MATH_03": {
+    "query_id": "V3_SD_MATH_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #3, showing all intermediate algebraic steps.",
+        "capability": "mathematics",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_MATH_04": {
+    "query_id": "V3_SD_MATH_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #4, showing all intermediate algebraic steps.",
+        "capability": "mathematics",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_MATH_05": {
+    "query_id": "V3_SD_MATH_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #5, showing all intermediate algebraic steps.",
+        "capability": "mathematics",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_FORM_01": {
+    "query_id": "V3_SD_FORM_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_FORM_02": {
+    "query_id": "V3_SD_FORM_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #2, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_FORM_03": {
+    "query_id": "V3_SD_FORM_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #3, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_FORM_04": {
+    "query_id": "V3_SD_FORM_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #4, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_FORM_05": {
+    "query_id": "V3_SD_FORM_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Perform formal deductive verification of logical problem #5, state validity conditions, identify fallacies, and construct symbolic proofs.",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_RETR_01": {
+    "query_id": "V3_SD_RETR_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #1.",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_RETR_02": {
+    "query_id": "V3_SD_RETR_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #2.",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_RETR_03": {
+    "query_id": "V3_SD_RETR_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #3.",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_RETR_04": {
+    "query_id": "V3_SD_RETR_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #4.",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_RETR_05": {
+    "query_id": "V3_SD_RETR_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #5.",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SCIE_01": {
+    "query_id": "V3_SD_SCIE_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #1.",
+        "capability": "science_tech",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SCIE_02": {
+    "query_id": "V3_SD_SCIE_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #2.",
+        "capability": "science_tech",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SCIE_03": {
+    "query_id": "V3_SD_SCIE_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #3.",
+        "capability": "science_tech",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SCIE_04": {
+    "query_id": "V3_SD_SCIE_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #4.",
+        "capability": "science_tech",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SCIE_05": {
+    "query_id": "V3_SD_SCIE_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #5.",
+        "capability": "science_tech",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_STRU_01": {
+    "query_id": "V3_SD_STRU_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Construct an optimized relational database schema #1 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+        "capability": "structured_data",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_STRU_02": {
+    "query_id": "V3_SD_STRU_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Construct an optimized relational database schema #2 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+        "capability": "structured_data",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_STRU_03": {
+    "query_id": "V3_SD_STRU_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Construct an optimized relational database schema #3 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+        "capability": "structured_data",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_STRU_04": {
+    "query_id": "V3_SD_STRU_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Construct an optimized relational database schema #4 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+        "capability": "structured_data",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_STRU_05": {
+    "query_id": "V3_SD_STRU_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Construct an optimized relational database schema #5 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+        "capability": "structured_data",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CREA_01": {
+    "query_id": "V3_SD_CREA_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #1, ensuring stylistic harmonization.",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CREA_02": {
+    "query_id": "V3_SD_CREA_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #2, ensuring stylistic harmonization.",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CREA_03": {
+    "query_id": "V3_SD_CREA_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #3, ensuring stylistic harmonization.",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CREA_04": {
+    "query_id": "V3_SD_CREA_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #4, ensuring stylistic harmonization.",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_CREA_05": {
+    "query_id": "V3_SD_CREA_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #5, ensuring stylistic harmonization.",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SYST_01": {
+    "query_id": "V3_SD_SYST_01",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #1.",
+        "capability": "systems_ops",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SYST_02": {
+    "query_id": "V3_SD_SYST_02",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #2.",
+        "capability": "systems_ops",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SYST_03": {
+    "query_id": "V3_SD_SYST_03",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #3.",
+        "capability": "systems_ops",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SYST_04": {
+    "query_id": "V3_SD_SYST_04",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #4.",
+        "capability": "systems_ops",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_SD_SYST_05": {
+    "query_id": "V3_SD_SYST_05",
+    "complexity_tier": "single_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #5.",
+        "capability": "systems_ops",
+        "dependencies": []
+      }
+    ]
+  },
+  "V3_TD_01": {
+    "query_id": "V3_TD_01",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_01",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_01",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_02": {
+    "query_id": "V3_TD_02",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_02",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_02",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_03": {
+    "query_id": "V3_TD_03",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_03",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_03",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_04": {
+    "query_id": "V3_TD_04",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_04",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_04",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_05": {
+    "query_id": "V3_TD_05",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_05",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_05",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_11": {
+    "query_id": "V3_TD_11",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_11",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: structured_data synthesis for V3_TD_11",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_12": {
+    "query_id": "V3_TD_12",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_12",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: structured_data synthesis for V3_TD_12",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_13": {
+    "query_id": "V3_TD_13",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_13",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: structured_data synthesis for V3_TD_13",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_14": {
+    "query_id": "V3_TD_14",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_14",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: structured_data synthesis for V3_TD_14",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_15": {
+    "query_id": "V3_TD_15",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: coding analysis for V3_TD_15",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: structured_data synthesis for V3_TD_15",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_21": {
+    "query_id": "V3_TD_21",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: formal_reasoning analysis for V3_TD_21",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_21",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_22": {
+    "query_id": "V3_TD_22",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: formal_reasoning analysis for V3_TD_22",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_22",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_23": {
+    "query_id": "V3_TD_23",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: formal_reasoning analysis for V3_TD_23",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_23",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_24": {
+    "query_id": "V3_TD_24",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: formal_reasoning analysis for V3_TD_24",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_24",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_25": {
+    "query_id": "V3_TD_25",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: formal_reasoning analysis for V3_TD_25",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_25",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_31": {
+    "query_id": "V3_TD_31",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: retrieval_qa analysis for V3_TD_31",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: formal_reasoning synthesis for V3_TD_31",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_32": {
+    "query_id": "V3_TD_32",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: retrieval_qa analysis for V3_TD_32",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: formal_reasoning synthesis for V3_TD_32",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_33": {
+    "query_id": "V3_TD_33",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: retrieval_qa analysis for V3_TD_33",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: formal_reasoning synthesis for V3_TD_33",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_34": {
+    "query_id": "V3_TD_34",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: retrieval_qa analysis for V3_TD_34",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: formal_reasoning synthesis for V3_TD_34",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_35": {
+    "query_id": "V3_TD_35",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: retrieval_qa analysis for V3_TD_35",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: formal_reasoning synthesis for V3_TD_35",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_41": {
+    "query_id": "V3_TD_41",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: science_tech analysis for V3_TD_41",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_41",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_42": {
+    "query_id": "V3_TD_42",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: science_tech analysis for V3_TD_42",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_42",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_43": {
+    "query_id": "V3_TD_43",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: science_tech analysis for V3_TD_43",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_43",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_44": {
+    "query_id": "V3_TD_44",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: science_tech analysis for V3_TD_44",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_44",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_45": {
+    "query_id": "V3_TD_45",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: science_tech analysis for V3_TD_45",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: mathematics synthesis for V3_TD_45",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_51": {
+    "query_id": "V3_TD_51",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: systems_ops analysis for V3_TD_51",
+        "capability": "systems_ops",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_51",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_52": {
+    "query_id": "V3_TD_52",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: systems_ops analysis for V3_TD_52",
+        "capability": "systems_ops",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_52",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_53": {
+    "query_id": "V3_TD_53",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: systems_ops analysis for V3_TD_53",
+        "capability": "systems_ops",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_53",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_54": {
+    "query_id": "V3_TD_54",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: systems_ops analysis for V3_TD_54",
+        "capability": "systems_ops",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_54",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_55": {
+    "query_id": "V3_TD_55",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: systems_ops analysis for V3_TD_55",
+        "capability": "systems_ops",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: coding synthesis for V3_TD_55",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_61": {
+    "query_id": "V3_TD_61",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: structured_data analysis for V3_TD_61",
+        "capability": "structured_data",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: retrieval_qa synthesis for V3_TD_61",
+        "capability": "retrieval_qa",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_62": {
+    "query_id": "V3_TD_62",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: structured_data analysis for V3_TD_62",
+        "capability": "structured_data",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: retrieval_qa synthesis for V3_TD_62",
+        "capability": "retrieval_qa",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_63": {
+    "query_id": "V3_TD_63",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: structured_data analysis for V3_TD_63",
+        "capability": "structured_data",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: retrieval_qa synthesis for V3_TD_63",
+        "capability": "retrieval_qa",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_64": {
+    "query_id": "V3_TD_64",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: structured_data analysis for V3_TD_64",
+        "capability": "structured_data",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: retrieval_qa synthesis for V3_TD_64",
+        "capability": "retrieval_qa",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_65": {
+    "query_id": "V3_TD_65",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: structured_data analysis for V3_TD_65",
+        "capability": "structured_data",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: retrieval_qa synthesis for V3_TD_65",
+        "capability": "retrieval_qa",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_71": {
+    "query_id": "V3_TD_71",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: creative_synthesis analysis for V3_TD_71",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: science_tech synthesis for V3_TD_71",
+        "capability": "science_tech",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_72": {
+    "query_id": "V3_TD_72",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: creative_synthesis analysis for V3_TD_72",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: science_tech synthesis for V3_TD_72",
+        "capability": "science_tech",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_73": {
+    "query_id": "V3_TD_73",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: creative_synthesis analysis for V3_TD_73",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: science_tech synthesis for V3_TD_73",
+        "capability": "science_tech",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_74": {
+    "query_id": "V3_TD_74",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: creative_synthesis analysis for V3_TD_74",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: science_tech synthesis for V3_TD_74",
+        "capability": "science_tech",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_TD_75": {
+    "query_id": "V3_TD_75",
+    "complexity_tier": "two_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Part 1: creative_synthesis analysis for V3_TD_75",
+        "capability": "creative_synthesis",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Part 2: science_tech synthesis for V3_TD_75",
+        "capability": "science_tech",
+        "dependencies": [
+          "node_1"
+        ]
+      }
+    ]
+  },
+  "V3_CD_01": {
+    "query_id": "V3_CD_01",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_01",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_01",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_01",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_02": {
+    "query_id": "V3_CD_02",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_02",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_02",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_02",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_03": {
+    "query_id": "V3_CD_03",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_03",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_03",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_03",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_04": {
+    "query_id": "V3_CD_04",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_04",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_04",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_04",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_05": {
+    "query_id": "V3_CD_05",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_05",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_05",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_05",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_06": {
+    "query_id": "V3_CD_06",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_06",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_06",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_06",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_07": {
+    "query_id": "V3_CD_07",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_07",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_07",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_07",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_08": {
+    "query_id": "V3_CD_08",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_08",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_08",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_08",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_09": {
+    "query_id": "V3_CD_09",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_09",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_09",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_09",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_10": {
+    "query_id": "V3_CD_10",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: coding extraction for V3_CD_10",
+        "capability": "coding",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_10",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: formal_reasoning implementation for V3_CD_10",
+        "capability": "formal_reasoning",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_21": {
+    "query_id": "V3_CD_21",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_21",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_21",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_21",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_22": {
+    "query_id": "V3_CD_22",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_22",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_22",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_22",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_23": {
+    "query_id": "V3_CD_23",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_23",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_23",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_23",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_24": {
+    "query_id": "V3_CD_24",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_24",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_24",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_24",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_25": {
+    "query_id": "V3_CD_25",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_25",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_25",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_25",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_26": {
+    "query_id": "V3_CD_26",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_26",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_26",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_26",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_27": {
+    "query_id": "V3_CD_27",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_27",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_27",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_27",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_28": {
+    "query_id": "V3_CD_28",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_28",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_28",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_28",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_29": {
+    "query_id": "V3_CD_29",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_29",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_29",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_29",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_30": {
+    "query_id": "V3_CD_30",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: retrieval_qa extraction for V3_CD_30",
+        "capability": "retrieval_qa",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: coding derivation for V3_CD_30",
+        "capability": "coding",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: systems_ops implementation for V3_CD_30",
+        "capability": "systems_ops",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_41": {
+    "query_id": "V3_CD_41",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_41",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_41",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_41",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_42": {
+    "query_id": "V3_CD_42",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_42",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_42",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_42",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_43": {
+    "query_id": "V3_CD_43",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_43",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_43",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_43",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_44": {
+    "query_id": "V3_CD_44",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_44",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_44",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_44",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_45": {
+    "query_id": "V3_CD_45",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_45",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_45",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_45",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_46": {
+    "query_id": "V3_CD_46",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_46",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_46",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_46",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_47": {
+    "query_id": "V3_CD_47",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_47",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_47",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_47",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_48": {
+    "query_id": "V3_CD_48",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_48",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_48",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_48",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_49": {
+    "query_id": "V3_CD_49",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_49",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_49",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_49",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_50": {
+    "query_id": "V3_CD_50",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: science_tech extraction for V3_CD_50",
+        "capability": "science_tech",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: mathematics derivation for V3_CD_50",
+        "capability": "mathematics",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: structured_data implementation for V3_CD_50",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_61": {
+    "query_id": "V3_CD_61",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_61",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_61",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_61",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_62": {
+    "query_id": "V3_CD_62",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_62",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_62",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_62",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_63": {
+    "query_id": "V3_CD_63",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_63",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_63",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_63",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_64": {
+    "query_id": "V3_CD_64",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_64",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_64",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_64",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_65": {
+    "query_id": "V3_CD_65",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_65",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_65",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_65",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_66": {
+    "query_id": "V3_CD_66",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_66",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_66",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_66",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_67": {
+    "query_id": "V3_CD_67",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_67",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_67",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_67",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_68": {
+    "query_id": "V3_CD_68",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_68",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_68",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_68",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_69": {
+    "query_id": "V3_CD_69",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_69",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_69",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_69",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  },
+  "V3_CD_70": {
+    "query_id": "V3_CD_70",
+    "complexity_tier": "three_plus_domain",
+    "subtasks": [
+      {
+        "id": "node_1",
+        "text": "Stage 1: formal_reasoning extraction for V3_CD_70",
+        "capability": "formal_reasoning",
+        "dependencies": []
+      },
+      {
+        "id": "node_2",
+        "text": "Stage 2: structured_data derivation for V3_CD_70",
+        "capability": "structured_data",
+        "dependencies": [
+          "node_1"
+        ]
+      },
+      {
+        "id": "node_3",
+        "text": "Stage 3: creative_synthesis implementation for V3_CD_70",
+        "capability": "creative_synthesis",
+        "dependencies": [
+          "node_1",
+          "node_2"
+        ]
+      }
+    ]
+  }
+}

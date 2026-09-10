@@ -1,0 +1,963 @@
+[
+  {
+    "id": "V3_SD_CODI_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #3, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #4, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #2, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #3, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_RETR_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #1.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_RETR_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #2.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_RETR_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #3.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SCIE_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "science_tech"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #1.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SCIE_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "science_tech"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #2.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SCIE_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "science_tech"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #3.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_STRU_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Construct an optimized relational database schema #1 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_STRU_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Construct an optimized relational database schema #2 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_STRU_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Construct an optimized relational database schema #3 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CREA_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #1, ensuring stylistic harmonization.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CREA_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #2, ensuring stylistic harmonization.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CREA_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Synthesize a comprehensive technical report and executive overview for multi-disciplinary architecture #3, ensuring stylistic harmonization.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SYST_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #1.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SYST_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #2.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SYST_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Configure a secure POSIX shell environment, Docker containerization pipeline, and Linux network socket management script for infrastructure system #3.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_01",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #1, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_02",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #2, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_03",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #3, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_04",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #4, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_11",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #11, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_12",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #12, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_13",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #13, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_14",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #14, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_21",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "formal_reasoning",
+      "coding"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical state invariants and implement verified concurrency engine for compound engineering problem #21, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_22",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "formal_reasoning",
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical state invariants and implement verified concurrency engine for compound engineering problem #22, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_23",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "formal_reasoning",
+      "coding"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical state invariants and implement verified concurrency engine for compound engineering problem #23, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_24",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "formal_reasoning",
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical state invariants and implement verified concurrency engine for compound engineering problem #24, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_31",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval_qa",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory RFC standards and construct formal deductive compliance proof for compound engineering problem #31, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_32",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval_qa",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve regulatory RFC standards and construct formal deductive compliance proof for compound engineering problem #32, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_33",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "retrieval_qa",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve regulatory RFC standards and construct formal deductive compliance proof for compound engineering problem #33, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_41",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "science_tech",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate quantum Hamiltonian equations and compute eigenvalue matrix solutions for compound engineering problem #41, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_42",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "science_tech",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Formulate quantum Hamiltonian equations and compute eigenvalue matrix solutions for compound engineering problem #42, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_43",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "science_tech",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate quantum Hamiltonian equations and compute eigenvalue matrix solutions for compound engineering problem #43, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_51",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "systems_ops",
+      "coding"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Construct Linux network socket handler and implement asynchronous Python event loop for compound engineering problem #51, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_52",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "systems_ops",
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Construct Linux network socket handler and implement asynchronous Python event loop for compound engineering problem #52, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_53",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "systems_ops",
+      "coding"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Construct Linux network socket handler and implement asynchronous Python event loop for compound engineering problem #53, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_61",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "structured_data",
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Extract technical specifications and construct relational SQL query schema for compound engineering problem #61, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_62",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "structured_data",
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Extract technical specifications and construct relational SQL query schema for compound engineering problem #62, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_63",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "structured_data",
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Extract technical specifications and construct relational SQL query schema for compound engineering problem #63, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_71",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "creative_synthesis",
+      "science_tech"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze thermodynamic efficiency models and author comprehensive engineering report for compound engineering problem #71, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_72",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "creative_synthesis",
+      "science_tech"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze thermodynamic efficiency models and author comprehensive engineering report for compound engineering problem #72, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_73",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "creative_synthesis",
+      "science_tech"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze thermodynamic efficiency models and author comprehensive engineering report for compound engineering problem #73, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_01",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #1, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_02",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #2, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_03",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #3, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_04",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #4, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_05",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #5, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_06",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #6, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_07",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #7, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_21",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #21, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_22",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #22, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_23",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #23, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_24",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #24, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_25",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #25, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_26",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #26, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_27",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #27, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_41",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "science_tech",
+      "mathematics",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #41, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_42",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "science_tech",
+      "mathematics",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #42, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_43",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "science_tech",
+      "mathematics",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #43, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_44",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "science_tech",
+      "mathematics",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #44, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_45",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "science_tech",
+      "mathematics",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #45, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_46",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "science_tech",
+      "mathematics",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #46, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_47",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "science_tech",
+      "mathematics",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #47, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_61",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "formal_reasoning",
+      "structured_data",
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #61, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_62",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "formal_reasoning",
+      "structured_data",
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #62, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_63",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "formal_reasoning",
+      "structured_data",
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #63, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_64",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "formal_reasoning",
+      "structured_data",
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #64, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_65",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "formal_reasoning",
+      "structured_data",
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #65, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_66",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "formal_reasoning",
+      "structured_data",
+      "creative_synthesis"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #66, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  }
+]

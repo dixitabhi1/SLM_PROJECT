@@ -1,0 +1,277 @@
+{
+  "run_id": "slm_pipe_v3_V3_CD_61_42",
+  "system_type": "slm_pipeline_v3",
+  "query_id": "V3_CD_61",
+  "query_text": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #61, fulfilling all domain requirements.",
+  "complexity_tier": "three_plus_domain",
+  "seed": 42,
+  "git_commit": "a415644657e516c21d87d36a618c0c701ee0cff0",
+  "timestamp_start_utc": "2026-09-09T18:49:08.862509+00:00",
+  "timestamp_end_utc": "2026-09-09T18:53:01.359627+00:00",
+  "total_wall_clock_latency_ms": 232496.87490001088,
+  "simulated_parallel_latency_ms": 119720.6995000015,
+  "total_prompt_tokens": 6604,
+  "total_completion_tokens": 4032,
+  "total_tokens": 10636,
+  "total_cost_usd": 0.00108506,
+  "stages": {
+    "decomposition_initial": [
+      {
+        "stage_name": "decomposition_initial",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 447516.5160233,
+        "end_time_rel_s": 447571.6803982,
+        "latency_ms": 55164.37489999225,
+        "prompt_tokens": 340,
+        "completion_tokens": 232,
+        "total_tokens": 572,
+        "cost_usd": 3.5560000000000005e-05,
+        "confidence_score": null,
+        "input": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #61, fulfilling all domain requirements.",
+        "output": {
+          "initial_tasks": [
+            {
+              "id": "node_1",
+              "text": "Formulate formal relational integrity invariants for multi-disciplinary challenge #61, defining constraints, dependencies, and consistency rules.",
+              "capability": "math",
+              "dependencies": [],
+              "depth": 0
+            },
+            {
+              "id": "node_2",
+              "text": "Design normalized SQL schemas for multi-disciplinary challenge #61, ensuring adherence to the integrity invariants defined in node_1.",
+              "capability": "coding",
+              "dependencies": [
+                "node_1"
+              ],
+              "depth": 0
+            },
+            {
+              "id": "node_3",
+              "text": "Synthesize an executive architectural overview for multi-disciplinary challenge #61, summarizing the schema design and integrity constraints from node_1 and node_2.",
+              "capability": "general",
+              "dependencies": [
+                "node_1",
+                "node_2"
+              ],
+              "depth": 0
+            }
+          ]
+        },
+        "extra_metadata": {
+          "depth": 0
+        }
+      }
+    ],
+    "pool_structured_data_node_1": [
+      {
+        "stage_name": "pool_structured_data_node_1",
+        "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 447571.6835366,
+        "end_time_rel_s": 447573.9492234,
+        "latency_ms": 2265.6868000049144,
+        "prompt_tokens": 59,
+        "completion_tokens": 950,
+        "total_tokens": 1009,
+        "cost_usd": 0.00019885,
+        "confidence_score": null,
+        "input": "Task: Formulate formal relational integrity invariants for multi-disciplinary challenge #61, defining constraints, dependencies, and consistency rules.",
+        "output": "```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"description\": \"Formulate formal relational integrity invariants for multi-disciplinary challenge #61, defining constraints, dependencies, and consistency rules.\",\n  \"invariants\": [\n    {\n      \"id\": \"INV-001\",\n      \"name\": \"Primary Key Uniqueness\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 entity E \u2208 Schema, \u2203! pk(E) such that pk(E) is unique across all instances of E\",\n      \"scope\": \"all_entities\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"No two distinct records in any table may share the same primary key value.\"\n    },\n    {\n      \"id\": \"INV-002\",\n      \"name\": \"Referential Integrity\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 foreign_key fk in table T referencing table R, fk.value \u2208 {pk(R) | R is a valid instance}\",\n      \"scope\": \"foreign_keys\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Every foreign key value must correspond to an existing primary key in the referenced table, or be NULL if nullable.\"\n    },\n    {\n      \"id\": \"INV-003\",\n      \"name\": \"Domain Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A in table T, A.value \u2208 Domain(A)\",\n      \"scope\": \"attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"All attribute values must conform to their defined data types and value ranges.\"\n    },\n    {\n      \"id\": \"INV-004\",\n      \"name\": \"Not Null Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A marked NOT NULL in table T, A.value \u2260 NULL\",\n      \"scope\": \"non_nullable_attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"Attributes designated as non-nullable must always contain a valid value.\"\n    },\n    {\n      \"id\": \"INV-005\",\n      \"name\": \"Functional Dependency Consistency\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 functional dependency X \u2192 Y in schema, \u2200 tuples t1, t2 in relation R, if t1[X] = t2[X] then t1[Y] = t2[Y]\",\n      \"scope\": \"functional_dependencies\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Determinant attributes must uniquely determine dependent attributes across all tuples.\"\n    },\n    {\n      \"id\": \"INV-006\",\n      \"name\": \"Transitive Dependency Elimination\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 attributes X, Y, Z, if X \u2192 Y and Y \u2192 Z, then X \u2192 Z must not hold unless Y is a superkey\",\n      \"scope\": \"normalization\",\n      \"dependencies\": [\"INV-005\"],\n      \"consistency_rule\": \"Schema must be in at least 3NF to eliminate transitive dependencies.\"\n    },\n    {\n      \"id\": \"INV-007\",\n      \"name\": \"Cross-Disciplinary Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 shared_entity SE across disciplines D1, D2, ..., Dn, \u2200 attribute A of SE, A.value is consistent across all disciplinary views\",\n      \"scope\": \"shared_entities\",\n      \"dependencies\": [\"INV-001\", \"INV-002\"],\n      \"consistency_rule\": \"Shared entities must maintain identical attribute values across all disciplinary sub-schemas.\"\n    },\n    {\n      \"id\": \"INV-008\",\n      \"name\": \"Temporal Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 time-stamped record R, R.timestamp \u2208 [T_start, T_end] and R.timestamp is monotonically non-decreasing within a session\",\n      \"scope\": \"temporal_data\",\n      \"dependencies\": [\"INV-003\"],\n      \"",
+        "extra_metadata": {
+          "node_id": "node_1",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_coding_node_2": [
+      {
+        "stage_name": "pool_coding_node_2",
+        "model_name": "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 447573.9494312,
+        "end_time_rel_s": 447634.7197748,
+        "latency_ms": 60770.34360001562,
+        "prompt_tokens": 1018,
+        "completion_tokens": 950,
+        "total_tokens": 1968,
+        "cost_usd": 0.0001269,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"description\": \"Formulate formal relational integrity invariants for multi-disciplinary challenge #61, defining constraints, dependencies, and consistency rules.\",\n  \"invariants\": [\n    {\n      \"id\": \"INV-001\",\n      \"name\": \"Primary Key Uniqueness\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 entity E \u2208 Schema, \u2203! pk(E) such that pk(E) is unique across all instances of E\",\n      \"scope\": \"all_entities\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"No two distinct records in any table may share the same primary key value.\"\n    },\n    {\n      \"id\": \"INV-002\",\n      \"name\": \"Referential Integrity\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 foreign_key fk in table T referencing table R, fk.value \u2208 {pk(R) | R is a valid instance}\",\n      \"scope\": \"foreign_keys\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Every foreign key value must correspond to an existing primary key in the referenced table, or be NULL if nullable.\"\n    },\n    {\n      \"id\": \"INV-003\",\n      \"name\": \"Domain Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A in table T, A.value \u2208 Domain(A)\",\n      \"scope\": \"attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"All attribute values must conform to their defined data types and value ranges.\"\n    },\n    {\n      \"id\": \"INV-004\",\n      \"name\": \"Not Null Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A marked NOT NULL in table T, A.value \u2260 NULL\",\n      \"scope\": \"non_nullable_attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"Attributes designated as non-nullable must always contain a valid value.\"\n    },\n    {\n      \"id\": \"INV-005\",\n      \"name\": \"Functional Dependency Consistency\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 functional dependency X \u2192 Y in schema, \u2200 tuples t1, t2 in relation R, if t1[X] = t2[X] then t1[Y] = t2[Y]\",\n      \"scope\": \"functional_dependencies\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Determinant attributes must uniquely determine dependent attributes across all tuples.\"\n    },\n    {\n      \"id\": \"INV-006\",\n      \"name\": \"Transitive Dependency Elimination\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 attributes X, Y, Z, if X \u2192 Y and Y \u2192 Z, then X \u2192 Z must not hold unless Y is a superkey\",\n      \"scope\": \"normalization\",\n      \"dependencies\": [\"INV-005\"],\n      \"consistency_rule\": \"Schema must be in at least 3NF to eliminate transitive dependencies.\"\n    },\n    {\n      \"id\": \"INV-007\",\n      \"name\": \"Cross-Disciplinary Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 shared_entity SE across disciplines D1, D2, ..., Dn, \u2200 attribute A of SE, A.value is consistent across all disciplinary views\",\n      \"scope\": \"shared_entities\",\n      \"dependencies\": [\"INV-001\", \"INV-002\"],\n      \"consistency_rule\": \"Shared entities must maintain identical attribute values across all disciplinary sub-schemas.\"\n    },\n    {\n      \"id\": \"INV-008\",\n      \"name\": \"Temporal Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 time-stamped record R, R.timestamp \u2208 [T_start, T_end] and R.timestamp is monotonically non-decreasing within a session\",\n      \"scope\": \"temporal_data\",\n      \"dependencies\": [\"INV-003\"],\n      \"\n\nTask: Design normalized SQL schemas for multi-disciplinary challenge #61, ensuring adherence to the integrity invariants defined in node_1.",
+        "output": "```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"description\": \"Design normalized SQL schemas for multi-disciplinary challenge #61, ensuring adherence to the integrity invariants defined in node_1.\",\n  \"schemas\": [\n    {\n      \"table_name\": \"disciplines\",\n      \"description\": \"Master table for all disciplines involved in the challenge.\",\n      \"columns\": [\n        {\n          \"name\": \"discipline_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"name\",\n          \"type\": \"VARCHAR(255)\",\n          \"constraints\": [\"NOT NULL\", \"UNIQUE\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"description\",\n          \"type\": \"TEXT\",\n          \"constraints\": [\"NULLABLE\"],\n          \"invariants\": [\"INV-003\"]\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"constraints\": [\"NOT NULL\", \"DEFAULT CURRENT_TIMESTAMP\"],\n          \"invariants\": [\"INV-003\", \"INV-004\", \"INV-008\"]\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_disciplines_name\",\n          \"columns\": [\"name\"],\n          \"type\": \"UNIQUE\"\n        }\n      ]\n    },\n    {\n      \"table_name\": \"entities\",\n      \"description\": \"Core entities shared across disciplines.\",\n      \"columns\": [\n        {\n          \"name\": \"entity_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_name\",\n          \"type\": \"VARCHAR(255)\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_type\",\n          \"type\": \"VARCHAR(100)\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"constraints\": [\"NOT NULL\", \"DEFAULT CURRENT_TIMESTAMP\"],\n          \"invariants\": [\"INV-003\", \"INV-004\", \"INV-008\"]\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_entities_name_type\",\n          \"columns\": [\"entity_name\", \"entity_type\"],\n          \"type\": \"UNIQUE\"\n        }\n      ]\n    },\n    {\n      \"table_name\": \"disciplinary_views\",\n      \"description\": \"Discipline-specific views of shared entities, ensuring cross-disciplinary consistency.\",\n      \"columns\": [\n        {\n          \"name\": \"view_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"NOT NULL\", \"FOREIGN KEY REFERENCES entities(entity_id)\"],\n          \"invariants\": [\"INV-002\", \"INV-004\"]\n        },\n        {\n          \"name\": \"discipline_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"NOT NULL\", \"FOREIGN KEY REFERENCES disciplines(discipline_id)\"],\n          \"invariants\": [\"INV-002\", \"INV-004\"]\n        },\n        {\n          \"name\": \"view_attributes\",\n          \"type\": \"JSONB\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\",",
+        "extra_metadata": {
+          "node_id": "node_2",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "pool_structured_data_node_3": [
+      {
+        "stage_name": "pool_structured_data_node_3",
+        "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 447634.7199469,
+        "end_time_rel_s": 447691.4057918,
+        "latency_ms": 56685.844900028314,
+        "prompt_tokens": 1984,
+        "completion_tokens": 950,
+        "total_tokens": 2934,
+        "cost_usd": 0.0004876,
+        "confidence_score": null,
+        "input": "[Prerequisite node_1]:\n```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"description\": \"Formulate formal relational integrity invariants for multi-disciplinary challenge #61, defining constraints, dependencies, and consistency rules.\",\n  \"invariants\": [\n    {\n      \"id\": \"INV-001\",\n      \"name\": \"Primary Key Uniqueness\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 entity E \u2208 Schema, \u2203! pk(E) such that pk(E) is unique across all instances of E\",\n      \"scope\": \"all_entities\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"No two distinct records in any table may share the same primary key value.\"\n    },\n    {\n      \"id\": \"INV-002\",\n      \"name\": \"Referential Integrity\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 foreign_key fk in table T referencing table R, fk.value \u2208 {pk(R) | R is a valid instance}\",\n      \"scope\": \"foreign_keys\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Every foreign key value must correspond to an existing primary key in the referenced table, or be NULL if nullable.\"\n    },\n    {\n      \"id\": \"INV-003\",\n      \"name\": \"Domain Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A in table T, A.value \u2208 Domain(A)\",\n      \"scope\": \"attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"All attribute values must conform to their defined data types and value ranges.\"\n    },\n    {\n      \"id\": \"INV-004\",\n      \"name\": \"Not Null Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A marked NOT NULL in table T, A.value \u2260 NULL\",\n      \"scope\": \"non_nullable_attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"Attributes designated as non-nullable must always contain a valid value.\"\n    },\n    {\n      \"id\": \"INV-005\",\n      \"name\": \"Functional Dependency Consistency\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 functional dependency X \u2192 Y in schema, \u2200 tuples t1, t2 in relation R, if t1[X] = t2[X] then t1[Y] = t2[Y]\",\n      \"scope\": \"functional_dependencies\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Determinant attributes must uniquely determine dependent attributes across all tuples.\"\n    },\n    {\n      \"id\": \"INV-006\",\n      \"name\": \"Transitive Dependency Elimination\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 attributes X, Y, Z, if X \u2192 Y and Y \u2192 Z, then X \u2192 Z must not hold unless Y is a superkey\",\n      \"scope\": \"normalization\",\n      \"dependencies\": [\"INV-005\"],\n      \"consistency_rule\": \"Schema must be in at least 3NF to eliminate transitive dependencies.\"\n    },\n    {\n      \"id\": \"INV-007\",\n      \"name\": \"Cross-Disciplinary Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 shared_entity SE across disciplines D1, D2, ..., Dn, \u2200 attribute A of SE, A.value is consistent across all disciplinary views\",\n      \"scope\": \"shared_entities\",\n      \"dependencies\": [\"INV-001\", \"INV-002\"],\n      \"consistency_rule\": \"Shared entities must maintain identical attribute values across all disciplinary sub-schemas.\"\n    },\n    {\n      \"id\": \"INV-008\",\n      \"name\": \"Temporal Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 time-stamped record R, R.timestamp \u2208 [T_start, T_end] and R.timestamp is monotonically non-decreasing within a session\",\n      \"scope\": \"temporal_data\",\n      \"dependencies\": [\"INV-003\"],\n      \"\n\n[Prerequisite node_2]:\n```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"description\": \"Design normalized SQL schemas for multi-disciplinary challenge #61, ensuring adherence to the integrity invariants defined in node_1.\",\n  \"schemas\": [\n    {\n      \"table_name\": \"disciplines\",\n      \"description\": \"Master table for all disciplines involved in the challenge.\",\n      \"columns\": [\n        {\n          \"name\": \"discipline_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"name\",\n          \"type\": \"VARCHAR(255)\",\n          \"constraints\": [\"NOT NULL\", \"UNIQUE\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"description\",\n          \"type\": \"TEXT\",\n          \"constraints\": [\"NULLABLE\"],\n          \"invariants\": [\"INV-003\"]\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"constraints\": [\"NOT NULL\", \"DEFAULT CURRENT_TIMESTAMP\"],\n          \"invariants\": [\"INV-003\", \"INV-004\", \"INV-008\"]\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_disciplines_name\",\n          \"columns\": [\"name\"],\n          \"type\": \"UNIQUE\"\n        }\n      ]\n    },\n    {\n      \"table_name\": \"entities\",\n      \"description\": \"Core entities shared across disciplines.\",\n      \"columns\": [\n        {\n          \"name\": \"entity_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_name\",\n          \"type\": \"VARCHAR(255)\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_type\",\n          \"type\": \"VARCHAR(100)\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"constraints\": [\"NOT NULL\", \"DEFAULT CURRENT_TIMESTAMP\"],\n          \"invariants\": [\"INV-003\", \"INV-004\", \"INV-008\"]\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_entities_name_type\",\n          \"columns\": [\"entity_name\", \"entity_type\"],\n          \"type\": \"UNIQUE\"\n        }\n      ]\n    },\n    {\n      \"table_name\": \"disciplinary_views\",\n      \"description\": \"Discipline-specific views of shared entities, ensuring cross-disciplinary consistency.\",\n      \"columns\": [\n        {\n          \"name\": \"view_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"NOT NULL\", \"FOREIGN KEY REFERENCES entities(entity_id)\"],\n          \"invariants\": [\"INV-002\", \"INV-004\"]\n        },\n        {\n          \"name\": \"discipline_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"NOT NULL\", \"FOREIGN KEY REFERENCES disciplines(discipline_id)\"],\n          \"invariants\": [\"INV-002\", \"INV-004\"]\n        },\n        {\n          \"name\": \"view_attributes\",\n          \"type\": \"JSONB\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\",\n\nTask: Synthesize an executive architectural overview for multi-disciplinary challenge #61, summarizing the schema design and integrity constraints from node_1 and node_2.",
+        "output": "```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"document_type\": \"executive_architectural_overview\",\n  \"title\": \"Architectural Overview: Multi-Disciplinary Challenge #61\",\n  \"summary\": \"This document synthesizes the relational integrity invariants and normalized SQL schema design for Multi-Disciplinary Challenge #61. The architecture is built upon a foundation of strict relational integrity, ensuring data consistency, referential accuracy, and cross-disciplinary alignment through a normalized, UUID-keyed data model.\",\n  \"integrity_framework\": {\n    \"source\": \"node_1\",\n    \"core_principles\": [\n      {\n        \"invariant_id\": \"INV-001\",\n        \"name\": \"Primary Key Uniqueness\",\n        \"impact\": \"Establishes a unique identity for every record across all entities, serving as the bedrock for all other constraints.\"\n      },\n      {\n        \"invariant_id\": \"INV-002\",\n        \"name\": \"Referential Integrity\",\n        \"impact\": \"Guarantees that all relationships between tables are valid, preventing orphaned records and ensuring data lineage.\"\n      },\n      {\n        \"invariant_id\": \"INV-003\",\n        \"name\": \"Domain Constraint\",\n        \"impact\": \"Enforces data type and value range compliance, ensuring that all stored data is semantically valid.\"\n      },\n      {\n        \"invariant_id\": \"INV-004\",\n        \"name\": \"Not Null Constraint\",\n        \"impact\": \"Mandates the presence of critical data, preventing incomplete records that could compromise analytical integrity.\"\n      },\n      {\n        \"invariant_id\": \"INV-005\",\n        \"name\": \"Functional Dependency Consistency\",\n        \"impact\": \"Ensures that determinant attributes consistently determine dependent attributes, supporting reliable data derivation.\"\n      },\n      {\n        \"invariant_id\": \"INV-006\",\n        \"name\": \"Transitive Dependency Elimination\",\n        \"impact\": \"Enforces 3NF normalization, reducing data redundancy and update anomalies.\"\n      },\n      {\n        \"invariant_id\": \"INV-007\",\n        \"name\": \"Cross-Disciplinary Consistency\",\n        \"impact\": \"Ensures that shared entities maintain identical attribute values across all disciplinary views, preventing data divergence.\"\n      },\n      {\n        \"invariant_id\": \"INV-008\",\n        \"name\": \"Temporal Consistency\",\n        \"impact\": \"Guarantees that time-stamped records are within valid ranges and monotonically non-decreasing, supporting reliable temporal analysis.\"\n      }\n    ]\n  },\n  \"schema_design\": {\n    \"source\": \"node_2\",\n    \"normalization_level\": \"3NF\",\n    \"key_strategy\": \"UUID-based primary keys for distributed and multi-disciplinary compatibility\",\n    \"core_tables\": [\n      {\n        \"table_name\": \"disciplines\",\n        \"purpose\": \"Master reference table for all disciplines involved in the challenge.\",\n        \"key_columns\": [\n          \"discipline_id (UUID, PK)\",\n          \"name (VARCHAR(255), UNIQUE, NOT NULL)\"\n        ],\n        \"integrity_enforcement\": [\n          \"INV-001: Unique discipline_id\",\n          \"INV-003: Valid data types for name and description\",\n          \"INV-004: Non-nullable discipline_id and name\",\n          \"INV-008: Temporal consistency on created_at\"\n        ]\n      },\n      {\n        \"table_name\": \"entities\",\n        \"purpose\": \"Core shared entities that are referenced across multiple disciplines.\",\n        \"key_columns\": [\n          \"entity_id (UUID, PK)\",\n          \"entity_name (VARCHAR(255), NOT NULL)\",\n          \"entity_type (VARCHAR(100), NOT NULL)\"\n        ],\n        \"integrity_enforcement\": [\n          \"INV-001: Unique entity_id\",\n          \"INV-003: Valid data types for entity_name and entity_type\",\n          \"INV-004: Non-nullable core attributes\",\n          \"INV-008: Temporal consistency on created_at\",",
+        "extra_metadata": {
+          "node_id": "node_3",
+          "mode": "single_agent",
+          "depth": 0
+        }
+      }
+    ],
+    "global_aggregator_harmonized_synthesis": [
+      {
+        "stage_name": "global_aggregator_harmonized_synthesis",
+        "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+        "model_revision": "main",
+        "start_time_rel_s": 447691.405916,
+        "end_time_rel_s": 447749.01287,
+        "latency_ms": 57606.95399995893,
+        "prompt_tokens": 3203,
+        "completion_tokens": 950,
+        "total_tokens": 4153,
+        "cost_usd": 0.00023615000000000002,
+        "confidence_score": null,
+        "input": {
+          "original_query": "Formulate formal relational integrity invariants, design normalized SQL schemas, and synthesize executive architectural overview for multi-disciplinary challenge #61, fulfilling all domain requirements.",
+          "subtask_results": {
+            "node_1": "```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"description\": \"Formulate formal relational integrity invariants for multi-disciplinary challenge #61, defining constraints, dependencies, and consistency rules.\",\n  \"invariants\": [\n    {\n      \"id\": \"INV-001\",\n      \"name\": \"Primary Key Uniqueness\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 entity E \u2208 Schema, \u2203! pk(E) such that pk(E) is unique across all instances of E\",\n      \"scope\": \"all_entities\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"No two distinct records in any table may share the same primary key value.\"\n    },\n    {\n      \"id\": \"INV-002\",\n      \"name\": \"Referential Integrity\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 foreign_key fk in table T referencing table R, fk.value \u2208 {pk(R) | R is a valid instance}\",\n      \"scope\": \"foreign_keys\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Every foreign key value must correspond to an existing primary key in the referenced table, or be NULL if nullable.\"\n    },\n    {\n      \"id\": \"INV-003\",\n      \"name\": \"Domain Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A in table T, A.value \u2208 Domain(A)\",\n      \"scope\": \"attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"All attribute values must conform to their defined data types and value ranges.\"\n    },\n    {\n      \"id\": \"INV-004\",\n      \"name\": \"Not Null Constraint\",\n      \"type\": \"constraint\",\n      \"formal_definition\": \"\u2200 attribute A marked NOT NULL in table T, A.value \u2260 NULL\",\n      \"scope\": \"non_nullable_attributes\",\n      \"dependencies\": [],\n      \"consistency_rule\": \"Attributes designated as non-nullable must always contain a valid value.\"\n    },\n    {\n      \"id\": \"INV-005\",\n      \"name\": \"Functional Dependency Consistency\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 functional dependency X \u2192 Y in schema, \u2200 tuples t1, t2 in relation R, if t1[X] = t2[X] then t1[Y] = t2[Y]\",\n      \"scope\": \"functional_dependencies\",\n      \"dependencies\": [\"INV-001\"],\n      \"consistency_rule\": \"Determinant attributes must uniquely determine dependent attributes across all tuples.\"\n    },\n    {\n      \"id\": \"INV-006\",\n      \"name\": \"Transitive Dependency Elimination\",\n      \"type\": \"dependency\",\n      \"formal_definition\": \"\u2200 attributes X, Y, Z, if X \u2192 Y and Y \u2192 Z, then X \u2192 Z must not hold unless Y is a superkey\",\n      \"scope\": \"normalization\",\n      \"dependencies\": [\"INV-005\"],\n      \"consistency_rule\": \"Schema must be in at least 3NF to eliminate transitive dependencies.\"\n    },\n    {\n      \"id\": \"INV-007\",\n      \"name\": \"Cross-Disciplinary Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 shared_entity SE across disciplines D1, D2, ..., Dn, \u2200 attribute A of SE, A.value is consistent across all disciplinary views\",\n      \"scope\": \"shared_entities\",\n      \"dependencies\": [\"INV-001\", \"INV-002\"],\n      \"consistency_rule\": \"Shared entities must maintain identical attribute values across all disciplinary sub-schemas.\"\n    },\n    {\n      \"id\": \"INV-008\",\n      \"name\": \"Temporal Consistency\",\n      \"type\": \"consistency_rule\",\n      \"formal_definition\": \"\u2200 time-stamped record R, R.timestamp \u2208 [T_start, T_end] and R.timestamp is monotonically non-decreasing within a session\",\n      \"scope\": \"temporal_data\",\n      \"dependencies\": [\"INV-003\"],\n      \"",
+            "node_2": "```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"description\": \"Design normalized SQL schemas for multi-disciplinary challenge #61, ensuring adherence to the integrity invariants defined in node_1.\",\n  \"schemas\": [\n    {\n      \"table_name\": \"disciplines\",\n      \"description\": \"Master table for all disciplines involved in the challenge.\",\n      \"columns\": [\n        {\n          \"name\": \"discipline_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"name\",\n          \"type\": \"VARCHAR(255)\",\n          \"constraints\": [\"NOT NULL\", \"UNIQUE\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"description\",\n          \"type\": \"TEXT\",\n          \"constraints\": [\"NULLABLE\"],\n          \"invariants\": [\"INV-003\"]\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"constraints\": [\"NOT NULL\", \"DEFAULT CURRENT_TIMESTAMP\"],\n          \"invariants\": [\"INV-003\", \"INV-004\", \"INV-008\"]\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_disciplines_name\",\n          \"columns\": [\"name\"],\n          \"type\": \"UNIQUE\"\n        }\n      ]\n    },\n    {\n      \"table_name\": \"entities\",\n      \"description\": \"Core entities shared across disciplines.\",\n      \"columns\": [\n        {\n          \"name\": \"entity_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_name\",\n          \"type\": \"VARCHAR(255)\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_type\",\n          \"type\": \"VARCHAR(100)\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\", \"INV-004\"]\n        },\n        {\n          \"name\": \"created_at\",\n          \"type\": \"TIMESTAMP\",\n          \"constraints\": [\"NOT NULL\", \"DEFAULT CURRENT_TIMESTAMP\"],\n          \"invariants\": [\"INV-003\", \"INV-004\", \"INV-008\"]\n        }\n      ],\n      \"indexes\": [\n        {\n          \"name\": \"idx_entities_name_type\",\n          \"columns\": [\"entity_name\", \"entity_type\"],\n          \"type\": \"UNIQUE\"\n        }\n      ]\n    },\n    {\n      \"table_name\": \"disciplinary_views\",\n      \"description\": \"Discipline-specific views of shared entities, ensuring cross-disciplinary consistency.\",\n      \"columns\": [\n        {\n          \"name\": \"view_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"PRIMARY KEY\", \"NOT NULL\"],\n          \"invariants\": [\"INV-001\", \"INV-004\"]\n        },\n        {\n          \"name\": \"entity_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"NOT NULL\", \"FOREIGN KEY REFERENCES entities(entity_id)\"],\n          \"invariants\": [\"INV-002\", \"INV-004\"]\n        },\n        {\n          \"name\": \"discipline_id\",\n          \"type\": \"UUID\",\n          \"constraints\": [\"NOT NULL\", \"FOREIGN KEY REFERENCES disciplines(discipline_id)\"],\n          \"invariants\": [\"INV-002\", \"INV-004\"]\n        },\n        {\n          \"name\": \"view_attributes\",\n          \"type\": \"JSONB\",\n          \"constraints\": [\"NOT NULL\"],\n          \"invariants\": [\"INV-003\",",
+            "node_3": "```json\n{\n  \"task_id\": \"multi-disciplinary_challenge_61\",\n  \"document_type\": \"executive_architectural_overview\",\n  \"title\": \"Architectural Overview: Multi-Disciplinary Challenge #61\",\n  \"summary\": \"This document synthesizes the relational integrity invariants and normalized SQL schema design for Multi-Disciplinary Challenge #61. The architecture is built upon a foundation of strict relational integrity, ensuring data consistency, referential accuracy, and cross-disciplinary alignment through a normalized, UUID-keyed data model.\",\n  \"integrity_framework\": {\n    \"source\": \"node_1\",\n    \"core_principles\": [\n      {\n        \"invariant_id\": \"INV-001\",\n        \"name\": \"Primary Key Uniqueness\",\n        \"impact\": \"Establishes a unique identity for every record across all entities, serving as the bedrock for all other constraints.\"\n      },\n      {\n        \"invariant_id\": \"INV-002\",\n        \"name\": \"Referential Integrity\",\n        \"impact\": \"Guarantees that all relationships between tables are valid, preventing orphaned records and ensuring data lineage.\"\n      },\n      {\n        \"invariant_id\": \"INV-003\",\n        \"name\": \"Domain Constraint\",\n        \"impact\": \"Enforces data type and value range compliance, ensuring that all stored data is semantically valid.\"\n      },\n      {\n        \"invariant_id\": \"INV-004\",\n        \"name\": \"Not Null Constraint\",\n        \"impact\": \"Mandates the presence of critical data, preventing incomplete records that could compromise analytical integrity.\"\n      },\n      {\n        \"invariant_id\": \"INV-005\",\n        \"name\": \"Functional Dependency Consistency\",\n        \"impact\": \"Ensures that determinant attributes consistently determine dependent attributes, supporting reliable data derivation.\"\n      },\n      {\n        \"invariant_id\": \"INV-006\",\n        \"name\": \"Transitive Dependency Elimination\",\n        \"impact\": \"Enforces 3NF normalization, reducing data redundancy and update anomalies.\"\n      },\n      {\n        \"invariant_id\": \"INV-007\",\n        \"name\": \"Cross-Disciplinary Consistency\",\n        \"impact\": \"Ensures that shared entities maintain identical attribute values across all disciplinary views, preventing data divergence.\"\n      },\n      {\n        \"invariant_id\": \"INV-008\",\n        \"name\": \"Temporal Consistency\",\n        \"impact\": \"Guarantees that time-stamped records are within valid ranges and monotonically non-decreasing, supporting reliable temporal analysis.\"\n      }\n    ]\n  },\n  \"schema_design\": {\n    \"source\": \"node_2\",\n    \"normalization_level\": \"3NF\",\n    \"key_strategy\": \"UUID-based primary keys for distributed and multi-disciplinary compatibility\",\n    \"core_tables\": [\n      {\n        \"table_name\": \"disciplines\",\n        \"purpose\": \"Master reference table for all disciplines involved in the challenge.\",\n        \"key_columns\": [\n          \"discipline_id (UUID, PK)\",\n          \"name (VARCHAR(255), UNIQUE, NOT NULL)\"\n        ],\n        \"integrity_enforcement\": [\n          \"INV-001: Unique discipline_id\",\n          \"INV-003: Valid data types for name and description\",\n          \"INV-004: Non-nullable discipline_id and name\",\n          \"INV-008: Temporal consistency on created_at\"\n        ]\n      },\n      {\n        \"table_name\": \"entities\",\n        \"purpose\": \"Core shared entities that are referenced across multiple disciplines.\",\n        \"key_columns\": [\n          \"entity_id (UUID, PK)\",\n          \"entity_name (VARCHAR(255), NOT NULL)\",\n          \"entity_type (VARCHAR(100), NOT NULL)\"\n        ],\n        \"integrity_enforcement\": [\n          \"INV-001: Unique entity_id\",\n          \"INV-003: Valid data types for entity_name and entity_type\",\n          \"INV-004: Non-nullable core attributes\",\n          \"INV-008: Temporal consistency on created_at\","
+          }
+        },
+        "output": "# Multi-Disciplinary Challenge #61: Relational Integrity, Schema Design, and Architectural Overview\n\nThis document presents the comprehensive data architecture for Multi-Disciplinary Challenge #61. It synthesizes formal relational integrity invariants, normalized SQL schema designs, and an executive architectural overview. The system is engineered to enforce strict data consistency, referential accuracy, and cross-disciplinary alignment through a normalized, UUID-keyed data model.\n\n## 1. Formal Relational Integrity Invariants\n\nThe foundation of the data model is established by a set of formal invariants that define constraints, dependencies, and consistency rules. These invariants ensure that the database remains in a valid state under all operations.\n\n### 1.1 Core Constraints\n\n**INV-001: Primary Key Uniqueness**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ entity } E \\in \\text{Schema}, \\exists! \\text{ pk}(E) \\text{ such that } \\text{pk}(E) \\text{ is unique across all instances of } E$\n*   **Scope:** All entities\n*   **Consistency Rule:** No two distinct records in any table may share the same primary key value.\n\n**INV-002: Referential Integrity**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ foreign\\_key } fk \\text{ in table } T \\text{ referencing table } R, fk.\\text{value} \\in \\{ \\text{pk}(R) \\mid R \\text{ is a valid instance} \\}$\n*   **Scope:** Foreign keys\n*   **Dependencies:** INV-001\n*   **Consistency Rule:** Every foreign key value must correspond to an existing primary key in the referenced table, or be NULL if nullable.\n\n**INV-003: Domain Constraint**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ attribute } A \\text{ in table } T, A.\\text{value} \\in \\text{Domain}(A)$\n*   **Scope:** Attributes\n*   **Consistency Rule:** All attribute values must conform to their defined data types and value ranges.\n\n**INV-004: Not Null Constraint**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ attribute } A \\text{ marked NOT NULL in table } T, A.\\text{value} \\neq \\text{NULL}$\n*   **Scope:** Non-nullable attributes\n*   **Consistency Rule:** Attributes designated as non-nullable must always contain a valid value.\n\n### 1.2 Dependency and Normalization Rules\n\n**INV-005: Functional Dependency Consistency**\n*   **Type:** Dependency\n*   **Formal Definition:** $\\forall \\text{ functional dependency } X \\rightarrow Y \\text{ in schema}, \\forall \\text{ tuples } t_1, t_2 \\text{ in relation } R, \\text{if } t_1[X] = t_2[X] \\text{ then } t_1[Y] = t_2[Y]$\n*   **Scope:** Functional dependencies\n*   **Dependencies:** INV-001\n*   **Consistency Rule:** Determinant attributes must uniquely determine dependent attributes across all tuples.\n\n**INV-006: Transitive Dependency Elimination**\n*   **Type:** Dependency\n*   **Formal Definition:** $\\forall \\text{ attributes } X, Y, Z, \\text{if } X \\rightarrow Y \\text{ and } Y \\rightarrow Z, \\text{then } X \\rightarrow Z \\text{ must not hold unless } Y \\text{ is a superkey}$\n*   **Scope:** Normalization\n*   **Dependencies:** INV-005\n*   **Consistency Rule:** Schema must be in at least 3NF to eliminate transitive dependencies.\n\n### 1.3 Cross-Disciplinary and Temporal Consistency\n\n**INV-007: Cross-Disciplinary Consistency**\n*   **Type:** Consistency Rule\n*   **Formal Definition:** $\\forall \\text{ shared\\_entity } SE \\text{ across disciplines } D_1, D_2, \\dots, D_n, \\forall \\text{ attribute } A \\text{ of } SE, A.\\text{value} \\text{ is consistent across",
+        "extra_metadata": {
+          "node_count": 3,
+          "stage": "global_terminal_aggregation",
+          "stylistic_harmonization_enabled": true
+        }
+      }
+    ]
+  },
+  "dispatch_trace": [
+    {
+      "node_id": "node_1",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "structured_data"
+      ],
+      "dependencies": [],
+      "latency_ms": 2265.7087000552565
+    },
+    {
+      "node_id": "node_2",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "coding"
+      ],
+      "dependencies": [
+        "node_1"
+      ],
+      "latency_ms": 60770.36419999786
+    },
+    {
+      "node_id": "node_3",
+      "depth": 0,
+      "is_collaboration": false,
+      "team": [
+        "structured_data"
+      ],
+      "dependencies": [
+        "node_1",
+        "node_2"
+      ],
+      "latency_ms": 56685.863799997605
+    }
+  ],
+  "final_response": "# Multi-Disciplinary Challenge #61: Relational Integrity, Schema Design, and Architectural Overview\n\nThis document presents the comprehensive data architecture for Multi-Disciplinary Challenge #61. It synthesizes formal relational integrity invariants, normalized SQL schema designs, and an executive architectural overview. The system is engineered to enforce strict data consistency, referential accuracy, and cross-disciplinary alignment through a normalized, UUID-keyed data model.\n\n## 1. Formal Relational Integrity Invariants\n\nThe foundation of the data model is established by a set of formal invariants that define constraints, dependencies, and consistency rules. These invariants ensure that the database remains in a valid state under all operations.\n\n### 1.1 Core Constraints\n\n**INV-001: Primary Key Uniqueness**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ entity } E \\in \\text{Schema}, \\exists! \\text{ pk}(E) \\text{ such that } \\text{pk}(E) \\text{ is unique across all instances of } E$\n*   **Scope:** All entities\n*   **Consistency Rule:** No two distinct records in any table may share the same primary key value.\n\n**INV-002: Referential Integrity**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ foreign\\_key } fk \\text{ in table } T \\text{ referencing table } R, fk.\\text{value} \\in \\{ \\text{pk}(R) \\mid R \\text{ is a valid instance} \\}$\n*   **Scope:** Foreign keys\n*   **Dependencies:** INV-001\n*   **Consistency Rule:** Every foreign key value must correspond to an existing primary key in the referenced table, or be NULL if nullable.\n\n**INV-003: Domain Constraint**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ attribute } A \\text{ in table } T, A.\\text{value} \\in \\text{Domain}(A)$\n*   **Scope:** Attributes\n*   **Consistency Rule:** All attribute values must conform to their defined data types and value ranges.\n\n**INV-004: Not Null Constraint**\n*   **Type:** Constraint\n*   **Formal Definition:** $\\forall \\text{ attribute } A \\text{ marked NOT NULL in table } T, A.\\text{value} \\neq \\text{NULL}$\n*   **Scope:** Non-nullable attributes\n*   **Consistency Rule:** Attributes designated as non-nullable must always contain a valid value.\n\n### 1.2 Dependency and Normalization Rules\n\n**INV-005: Functional Dependency Consistency**\n*   **Type:** Dependency\n*   **Formal Definition:** $\\forall \\text{ functional dependency } X \\rightarrow Y \\text{ in schema}, \\forall \\text{ tuples } t_1, t_2 \\text{ in relation } R, \\text{if } t_1[X] = t_2[X] \\text{ then } t_1[Y] = t_2[Y]$\n*   **Scope:** Functional dependencies\n*   **Dependencies:** INV-001\n*   **Consistency Rule:** Determinant attributes must uniquely determine dependent attributes across all tuples.\n\n**INV-006: Transitive Dependency Elimination**\n*   **Type:** Dependency\n*   **Formal Definition:** $\\forall \\text{ attributes } X, Y, Z, \\text{if } X \\rightarrow Y \\text{ and } Y \\rightarrow Z, \\text{then } X \\rightarrow Z \\text{ must not hold unless } Y \\text{ is a superkey}$\n*   **Scope:** Normalization\n*   **Dependencies:** INV-005\n*   **Consistency Rule:** Schema must be in at least 3NF to eliminate transitive dependencies.\n\n### 1.3 Cross-Disciplinary and Temporal Consistency\n\n**INV-007: Cross-Disciplinary Consistency**\n*   **Type:** Consistency Rule\n*   **Formal Definition:** $\\forall \\text{ shared\\_entity } SE \\text{ across disciplines } D_1, D_2, \\dots, D_n, \\forall \\text{ attribute } A \\text{ of } SE, A.\\text{value} \\text{ is consistent across",
+  "config_snapshot": {
+    "version": "3.0.0"
+  },
+  "loop_events": [],
+  "v3_task_skill_vectors": {
+    "node_1": {
+      "coding": 0.0695,
+      "mathematics": 0.0695,
+      "formal_reasoning": 0.0695,
+      "retrieval_qa": 0.0695,
+      "science_tech": 0.0695,
+      "structured_data": 0.5135,
+      "creative_synthesis": 0.0695,
+      "systems_ops": 0.0695
+    },
+    "node_2": {
+      "coding": 0.7121,
+      "mathematics": 0.0215,
+      "formal_reasoning": 0.0215,
+      "retrieval_qa": 0.0215,
+      "science_tech": 0.0215,
+      "structured_data": 0.1589,
+      "creative_synthesis": 0.0215,
+      "systems_ops": 0.0215
+    },
+    "node_3": {
+      "coding": 0.0481,
+      "mathematics": 0.0481,
+      "formal_reasoning": 0.0481,
+      "retrieval_qa": 0.0481,
+      "science_tech": 0.0481,
+      "structured_data": 0.3556,
+      "creative_synthesis": 0.3556,
+      "systems_ops": 0.0481
+    }
+  },
+  "v3_task_colors": {
+    "node_1": {
+      "dominant_color": "cyan",
+      "dominant_domain": "structured_data",
+      "active_colors": [
+        "cyan"
+      ],
+      "active_domains": [
+        "structured_data"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_2": {
+      "dominant_color": "blue",
+      "dominant_domain": "coding",
+      "active_colors": [
+        "blue"
+      ],
+      "active_domains": [
+        "coding"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 1
+    },
+    "node_3": {
+      "dominant_color": "cyan",
+      "dominant_domain": "structured_data",
+      "active_colors": [
+        "cyan",
+        "rose"
+      ],
+      "active_domains": [
+        "structured_data",
+        "creative_synthesis"
+      ],
+      "spans_multiple_colors": false,
+      "color_count": 2
+    }
+  }
+}
