@@ -50,6 +50,25 @@ class TwoStageAggregator:
         """
         Global terminal fusion across all completed subtasks with stylistic harmonization.
         """
+        if len(subtask_results) == 1:
+            single_output = next(iter(subtask_results.values()))
+            if self.logger:
+                now_t = time.perf_counter()
+                self.logger.record_stage(
+                    record=run_record,
+                    stage_name="global_aggregator_passthrough",
+                    model_name="passthrough_bypass",
+                    model_revision="main",
+                    start_time_s=now_t,
+                    end_time_s=now_t,
+                    prompt_tokens=0,
+                    completion_tokens=0,
+                    input_data={"original_query": original_query, "subtask_results": subtask_results},
+                    output_data=single_output,
+                    extra_metadata={"node_count": 1, "bypassed": True, "reason": "single_subtask_direct_passthrough"}
+                )
+            return single_output
+
         context_blocks = []
         for node_id, output_text in subtask_results.items():
             context_blocks.append(f"### Subtask Result [{node_id}]:\n{output_text.strip()}")

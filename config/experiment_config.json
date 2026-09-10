@@ -1,6 +1,6 @@
 {
-  "experiment_id": "ai_search_framework_v2",
-  "version": "2.0.0",
+  "experiment_id": "ai_search_framework_v3",
+  "version": "3.0.0",
   "seed": 42,
   "hardware": {
     "device": "auto",
@@ -21,9 +21,9 @@
     },
     "pool": {
       "coding": {
-        "name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "name": "Qwen/Qwen2.5-Coder-3B-Instruct",
         "revision": "main",
-        "size_params": "7.6B",
+        "size_params": "3.09B",
         "capability": "coding",
         "color": "blue",
         "provider": "vllm_local",
@@ -31,70 +31,95 @@
         "max_tokens": 2048,
         "temperature": 0.0
       },
-      "math": {
-        "name": "Qwen/Qwen2.5-Math-7B-Instruct",
+      "mathematics": {
+        "name": "Qwen/Qwen2.5-Math-1.5B-Instruct",
         "revision": "main",
-        "size_params": "7.6B",
-        "capability": "math",
+        "size_params": "1.54B",
+        "capability": "mathematics",
         "color": "green",
         "provider": "vllm_local",
         "endpoint": "http://localhost:8003/v1",
         "max_tokens": 2048,
         "temperature": 0.0
       },
-      "reasoning": {
+      "formal_reasoning": {
         "name": "microsoft/Phi-3.5-mini-instruct",
         "revision": "main",
-        "size_params": "3.8B",
-        "capability": "reasoning",
+        "size_params": "3.82B",
+        "capability": "formal_reasoning",
         "color": "purple",
         "provider": "vllm_local",
         "endpoint": "http://localhost:8004/v1",
         "max_tokens": 2048,
         "temperature": 0.0
       },
-      "retrieval": {
+      "retrieval_qa": {
         "name": "meta-llama/Llama-3.2-3B-Instruct",
         "revision": "main",
-        "size_params": "3.2B",
-        "capability": "retrieval",
+        "size_params": "3.21B",
+        "capability": "retrieval_qa",
         "color": "amber",
         "provider": "vllm_local",
         "endpoint": "http://localhost:8005/v1",
         "max_tokens": 2048,
         "temperature": 0.0
       },
-      "general": {
-        "name": "meta-llama/Llama-3.1-8B-Instruct",
+      "science_tech": {
+        "name": "Qwen/Qwen2.5-3B-Instruct",
         "revision": "main",
-        "size_params": "8.0B",
-        "capability": "general",
-        "color": "slate",
+        "size_params": "3.09B",
+        "capability": "science_tech",
+        "color": "teal",
         "provider": "vllm_local",
         "endpoint": "http://localhost:8006/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      },
+      "structured_data": {
+        "name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "main",
+        "size_params": "1.54B",
+        "capability": "structured_data",
+        "color": "cyan",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8007/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      },
+      "creative_synthesis": {
+        "name": "meta-llama/Llama-3.2-3B-Instruct",
+        "revision": "main",
+        "size_params": "3.21B",
+        "capability": "creative_synthesis",
+        "color": "rose",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8008/v1",
+        "max_tokens": 2048,
+        "temperature": 0.0
+      },
+      "systems_ops": {
+        "name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "main",
+        "size_params": "1.54B",
+        "capability": "systems_ops",
+        "color": "orange",
+        "provider": "vllm_local",
+        "endpoint": "http://localhost:8009/v1",
         "max_tokens": 2048,
         "temperature": 0.0
       }
     },
     "aggregator_global": {
-      "name": "meta-llama/Llama-3.1-8B-Instruct",
+      "name": "meta-llama/Llama-3.2-3B-Instruct",
       "revision": "main",
-      "size_params": "8.0B",
+      "size_params": "3.21B",
       "type": "slm_aggregator",
       "provider": "vllm_local",
-      "endpoint": "http://localhost:8006/v1",
+      "endpoint": "http://localhost:8008/v1",
       "max_tokens": 2048,
       "temperature": 0.0
     },
     "multi_llm_baseline_roster": {
-      "llama_8b": {
-        "name": "meta-llama/Llama-3.1-8B-Instruct",
-        "revision": "main",
-        "tier": "small_baseline_8B",
-        "size_params": "8.0B",
-        "provider": "vllm_local",
-        "endpoint": "http://localhost:8010/v1"
-      },
       "qwen_32b": {
         "name": "Qwen/Qwen2.5-32B-Instruct",
         "revision": "main",
@@ -129,11 +154,11 @@
       }
     },
     "judge": {
-      "name": "claude-3-5-sonnet-20241022",
-      "revision": "2024-10-22",
+      "name": "qwen/qwen3.8-27b",
+      "revision": "groq-dense",
       "tier": "independent_judge",
-      "provider": "anthropic_api",
-      "notes": "Strictly independent: not in SLM candidate pool and not in baseline roster"
+      "provider": "groq_api",
+      "notes": "Dense non-reasoning evaluator, temperature=0.0, strict JSON schema"
     }
   },
   "feedback_loop": {
@@ -141,15 +166,19 @@
     "multi_color_threshold": 0.22,
     "color_taxonomy": {
       "coding": "blue",
-      "math": "green",
-      "reasoning": "purple",
-      "retrieval": "amber",
-      "general": "slate"
+      "mathematics": "green",
+      "formal_reasoning": "purple",
+      "retrieval_qa": "amber",
+      "science_tech": "teal",
+      "structured_data": "cyan",
+      "creative_synthesis": "rose",
+      "systems_ops": "orange"
     }
   },
   "evaluation": {
     "non_inferiority_margin": 0.20,
     "alpha": 0.025,
-    "ci_confidence": 0.95
+    "ci_confidence": 0.95,
+    "target_win_rate": 0.75
   }
 }

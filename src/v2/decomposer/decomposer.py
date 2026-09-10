@@ -11,6 +11,11 @@ from ...models.base import BaseModelRunner, ModelResponse
 DECOMPOSER_V2_SYSTEM_PROMPT = """You are an expert AI task decomposition model.
 Your task is to decompose compound queries into focused, single-domain subtasks for specialized SLMs.
 
+Atomic Stop Condition:
+- If the user query is already focused and self-contained within a single domain (e.g. writing a complete algorithmic module or script, solving a mathematical derivation, performing a factual retrieval, or analyzing a single logical problem), do NOT artificially fragment it into multiple subtasks.
+- In such cases, emit exactly ONE root subtask ("node_1") containing the complete, unmodified original instruction.
+- Only decompose queries that genuinely span multiple distinct capability domains (e.g. retrieval + coding, math derivation + software implementation).
+
 Domain Categories:
 - coding: algorithms, python scripts, debugging, implementations
 - math: formulas, equations, calculus, proofs, numerical derivations
@@ -24,7 +29,7 @@ Output strictly valid JSON with no markdown wrapping:
     {
       "id": "node_1",
       "text": "Subtask instruction",
-      "capability": "math",
+      "capability": "coding",
       "dependencies": []
     }
   ]

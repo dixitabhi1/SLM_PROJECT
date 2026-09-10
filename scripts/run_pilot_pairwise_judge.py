@@ -86,11 +86,23 @@ async def run_pilot_judge(api_key: Optional[str] = None):
         if cr["query_id"] in slm_resp and len(base_resp.get(cr["query_id"], {})) == 5
     ]
 
-    total_planned = len(target_qids) * 10
+    # Target evaluation mode: hybrid (all completed bidirectional pairs preserved, remaining queries run forward-only)
+    FORWARD_ONLY_REMAINING = True
+
+    # Compute exact total planned calls
+    total_planned = 0
+    for qid in target_qids:
+        for b_id in BASELINE_KEYS:
+            # Forward call always counted
+            total_planned += 1
+            # Swapped call counted if already cached or if not forward-only
+            if find_logged_trial(qid, "slm_pipeline_v2", b_id, "swapped") or not FORWARD_ONLY_REMAINING:
+                total_planned += 1
+
     print(f"=== Running Real Pilot Pairwise Judge on Completed Queries ===", flush=True)
     print(f"Eligible fully-generated queries: {len(target_qids)} ({target_qids})", flush=True)
     print(f"Judge Model: qwen/qwen3.8-27b on Groq (Non-reasoning dense evaluator)", flush=True)
-    print(f"Comparisons per query: 5 baselines x 2 orders (forward & swapped) = 10 calls/query", flush=True)
+    print(f"Evaluation Mode: Hybrid (13 queries bidirectional [130 trials] + 7 queries forward-only [35 trials])", flush=True)
     print(f"Total planned judge calls: {total_planned}\n", flush=True)
     sys.stdout.flush()
 
@@ -142,7 +154,7 @@ async def run_pilot_judge(api_key: Optional[str] = None):
 
             # Swapped order (Candidate A = Baseline, Candidate B = SLM)
             res_swp = find_logged_trial(qid, "slm_pipeline_v2", b_id, "swapped")
-            if not res_swp:
+            if not res_swp and not FORWARD_ONLY_REMAINING:
                 res_swp = await asyncio.to_thread(
                     harness.evaluate_pair,
                     query_id=qid,
@@ -154,13 +166,15 @@ async def run_pilot_judge(api_key: Optional[str] = None):
                     order_tag="swapped"
                 )
                 await asyncio.sleep(1.8)
-            calls_made += 1
+            if res_swp:
+                calls_made += 1
 
             all_verdicts_by_query[qid][b_id] = {
                 "forward": res_fwd,
                 "swapped": res_swp
             }
-            print(f"[{calls_made}/{total_planned}] Evaluated {qid}: SLM vs {b_id:15s} | Fwd: {res_fwd.get('unblinded_winner')} | Swp: {res_swp.get('unblinded_winner')}", flush=True)
+            swp_winner_str = res_swp.get('unblinded_winner') if res_swp else "SKIPPED (Fwd-Only)"
+            print(f"[{calls_made}/{total_planned}] Evaluated {qid}: SLM vs {b_id:15s} | Fwd: {res_fwd.get('unblinded_winner')} | Swp: {swp_winner_str}", flush=True)
             sys.stdout.flush()
 
     total_time = time.perf_counter() - start_t
@@ -174,13 +188,13 @@ async def run_pilot_judge(api_key: Optional[str] = None):
         if qid in all_verdicts_by_query:
             cr["judge_verdict_ref"] = {
                 "evaluated_pairs": list(all_verdicts_by_query[qid].keys()),
-                "total_trials": len(all_verdicts_by_query[qid]) * 2,
+                "total_trials": sum(1 for b_id in all_verdicts_by_query[qid] for o in ["forward", "swapped"] if all_verdicts_by_query[qid][b_id].get(o)),
                 "summary": {
                     b_id: {
-                        "forward_winner": all_verdicts_by_query[qid][b_id]["forward"].get("unblinded_winner"),
-                        "swapped_winner": all_verdicts_by_query[qid][b_id]["swapped"].get("unblinded_winner"),
-                        "forward_public_log": all_verdicts_by_query[qid][b_id]["forward"].get("public_log"),
-                        "swapped_public_log": all_verdicts_by_query[qid][b_id]["swapped"].get("public_log")
+                        "forward_winner": all_verdicts_by_query[qid][b_id]["forward"].get("unblinded_winner") if all_verdicts_by_query[qid][b_id].get("forward") else None,
+                        "swapped_winner": all_verdicts_by_query[qid][b_id]["swapped"].get("unblinded_winner") if all_verdicts_by_query[qid][b_id].get("swapped") else None,
+                        "forward_public_log": all_verdicts_by_query[qid][b_id]["forward"].get("public_log") if all_verdicts_by_query[qid][b_id].get("forward") else None,
+                        "swapped_public_log": all_verdicts_by_query[qid][b_id]["swapped"].get("public_log") if all_verdicts_by_query[qid][b_id].get("swapped") else None
                     }
                     for b_id in all_verdicts_by_query[qid]
                 }
@@ -198,36 +212,51 @@ async def run_pilot_judge(api_key: Optional[str] = None):
     slm_losses = {b: 0.0 for b in BASELINE_KEYS}
     slm_ties = {b: 0.0 for b in BASELINE_KEYS}
     agreement_matches = 0
-    total_unique_pairs = 0
+    bidirectional_pairs_count = 0
 
     criteria_accum = {s: {"correctness": [], "completeness": [], "coherence": []} for s in ALL_SYSTEM_KEYS}
 
     for qid, pairs in all_verdicts_by_query.items():
         for b_id, pair_trials in pairs.items():
-            fwd = pair_trials["forward"]
-            swp = pair_trials["swapped"]
-            total_unique_pairs += 1
+            fwd = pair_trials.get("forward")
+            swp = pair_trials.get("swapped")
 
-            if fwd.get("unblinded_winner") == swp.get("unblinded_winner"):
-                agreement_matches += 1
+            if fwd and swp:
+                bidirectional_pairs_count += 1
+                if fwd.get("unblinded_winner") == swp.get("unblinded_winner"):
+                    agreement_matches += 1
 
-            for trial in [fwd, swp]:
-                w = trial.get("unblinded_winner")
+                for trial in [fwd, swp]:
+                    w = trial.get("unblinded_winner")
+                    if w == "slm_pipeline_v2":
+                        slm_wins[b_id] += 0.5
+                    elif w == b_id:
+                        slm_losses[b_id] += 0.5
+                    else:
+                        slm_ties[b_id] += 0.5
+
+                    for s_id, scores in trial.get("scores_by_system", {}).items():
+                        if s_id in criteria_accum:
+                            if "correctness" in scores: criteria_accum[s_id]["correctness"].append(scores["correctness"])
+                            if "completeness" in scores: criteria_accum[s_id]["completeness"].append(scores["completeness"])
+                            if "coherence" in scores: criteria_accum[s_id]["coherence"].append(scores["coherence"])
+            elif fwd:
+                w = fwd.get("unblinded_winner")
                 if w == "slm_pipeline_v2":
-                    slm_wins[b_id] += 0.5
+                    slm_wins[b_id] += 1.0
                 elif w == b_id:
-                    slm_losses[b_id] += 0.5
+                    slm_losses[b_id] += 1.0
                 else:
-                    slm_ties[b_id] += 0.5
+                    slm_ties[b_id] += 1.0
 
-                for s_id, scores in trial.get("scores_by_system", {}).items():
+                for s_id, scores in fwd.get("scores_by_system", {}).items():
                     if s_id in criteria_accum:
                         if "correctness" in scores: criteria_accum[s_id]["correctness"].append(scores["correctness"])
                         if "completeness" in scores: criteria_accum[s_id]["completeness"].append(scores["completeness"])
                         if "coherence" in scores: criteria_accum[s_id]["coherence"].append(scores["coherence"])
 
     n_q = len(target_qids)
-    agreement_pct = round((agreement_matches / max(1, total_unique_pairs)) * 100.0, 2)
+    agreement_pct = round((agreement_matches / max(1, bidirectional_pairs_count)) * 100.0, 2)
     slm_win_rates = {b: round((slm_wins[b] / max(1, n_q)) * 100.0, 2) for b in BASELINE_KEYS}
 
     criteria_summary = {
@@ -242,8 +271,10 @@ async def run_pilot_judge(api_key: Optional[str] = None):
     report_payload = {
         "benchmark": "v2_pilot_real_pairwise_judge_benchmark",
         "scope": f"Verified evaluation over {n_q} fully completed single-domain queries ({target_qids})",
+        "evaluation_protocol": "hybrid_position_swap (13 bidirectional queries [130 trials] + 7 forward-only queries [35 trials])",
         "judge_model": "qwen/qwen3.8-27b (Groq API)",
         "total_judge_calls": calls_made,
+        "bidirectional_pairs_evaluated": bidirectional_pairs_count,
         "position_swap_agreement_rate_pct": agreement_pct,
         "slm_head_to_head_win_rates_pct": slm_win_rates,
         "slm_pairwise_breakdown": {

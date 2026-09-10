@@ -32,8 +32,9 @@ class TaskColorerSLM:
         dominant_domain = max(skill_vector.items(), key=lambda x: x[1])[0]
         dominant_color = COLOR_TAXONOMY[dominant_domain]
 
-        # Multi-color check: spans > 1 distinct color class
-        spans_multiple = len(active_colors) > 1
+        # Multi-color check: spans > 1 distinct color class (Fix 3-narrow: exclude slate/general from triggering multi-color split)
+        non_slate_active_colors = [c for c in active_colors if c != "slate"]
+        spans_multiple = len(non_slate_active_colors) > 1
 
         return {
             "dominant_color": dominant_color,

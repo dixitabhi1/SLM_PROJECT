@@ -96,3 +96,26 @@ def test_v2_pipeline_e2e_run():
 
     asyncio.run(_test())
 
+def test_fix_3_narrow_slate_exclusion():
+    colorer = TaskColorerSLM()
+
+    # Case 1: Coding with conversational General/Slate bleed exceeding threshold
+    # Coding = 0.6019, General = 0.3651 (both > 0.22 threshold)
+    s_bleed = {"coding": 0.6019, "general": 0.3651, "math": 0.0330, "reasoning": 0.0, "retrieval": 0.0}
+    c_bleed = colorer.color_task(s_bleed)
+    assert "blue" in c_bleed["active_colors"]
+    assert "slate" in c_bleed["active_colors"]
+    # Fix 3-narrow MUST ensure spans_multiple_colors is False so no false decomposition loop is triggered
+    assert c_bleed["spans_multiple_colors"] is False
+
+    # Case 2: Genuine multi-specialist compound task (Coding + Math)
+    s_compound = {"coding": 0.45, "math": 0.40, "general": 0.15, "reasoning": 0.0, "retrieval": 0.0}
+    c_compound = colorer.color_task(s_compound)
+    assert c_compound["spans_multiple_colors"] is True
+
+    # Case 3: Genuine compound task with General bleed (Coding + Math + General)
+    s_compound_bleed = {"coding": 0.40, "math": 0.35, "general": 0.25, "reasoning": 0.0, "retrieval": 0.0}
+    c_compound_bleed = colorer.color_task(s_compound_bleed)
+    assert c_compound_bleed["spans_multiple_colors"] is True
+
+

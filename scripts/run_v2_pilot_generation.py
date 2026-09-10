@@ -195,9 +195,20 @@ async def run_pilot_generation(api_key: Optional[str] = None):
             slm_dur_s = time.perf_counter() - slm_t0
             final_resp = pipe_record.get("response", "") or pipe_record.get("final_response", "")
 
-            # Extract token usage from recorded stages
-            total_prompt_tok = sum(s.get("prompt_tokens", 0) for s in pipe_record.get("stages", []))
-            total_comp_tok = sum(s.get("completion_tokens", 0) for s in pipe_record.get("stages", []))
+            # Extract token usage from recorded stages safely
+            stages_list = []
+            raw_stages = pipe_record.get("stages", [])
+            if isinstance(raw_stages, dict):
+                for s_list in raw_stages.values():
+                    if isinstance(s_list, list):
+                        stages_list.extend(s_list)
+                    elif isinstance(s_list, dict):
+                        stages_list.append(s_list)
+            elif isinstance(raw_stages, list):
+                stages_list = raw_stages
+
+            total_prompt_tok = sum(s.get("prompt_tokens", 0) for s in stages_list if isinstance(s, dict))
+            total_comp_tok = sum(s.get("completion_tokens", 0) for s in stages_list if isinstance(s, dict))
 
             slm_record = {
                 "query_id": qid,
@@ -205,7 +216,7 @@ async def run_pilot_generation(api_key: Optional[str] = None):
                 "model_identifier": "src/v2/pipeline.py (Decomposed SLM Pool + Two-Stage Aggregator)",
                 "status": "SUCCESS" if final_resp and not final_resp.startswith("[Error") else "FAILED",
                 "response_text": final_resp,
-                "stages_executed": [s.get("stage_name") for s in pipe_record.get("stages", [])],
+                "stages_executed": [s.get("stage_name") for s in stages_list if isinstance(s, dict)],
                 "total_subtasks": len(pipe_record.get("v2_task_colors", {})),
                 "loop_events_count": len(pipe_record.get("loop_events", [])),
                 "prompt_tokens": total_prompt_tok,
