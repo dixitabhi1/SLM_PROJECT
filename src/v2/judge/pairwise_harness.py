@@ -23,8 +23,10 @@ Evaluation Criteria:
 3. Coherence (1-5): Logical structure, readability, unified authoritative voice, and seamless synthesis.
 
 Instructions:
+- Evaluate both candidates objectively.
 - Evaluate both candidates objectively without position bias. Do NOT favor Candidate B simply because it appears second; evaluate Candidate A and Candidate B with equal critical rigor.
 - Assign integer criteria scores (1-5) to both Candidate A and Candidate B.
+- Select the winning candidate ("Candidate A", "Candidate B", or "Tie").
 - Select the winning candidate ("Candidate A", "Candidate B", or "Tie"). If both candidates provide comparable quality, declare "Tie".
 - State the primary differentiator and concise, rigorous reasoning.
 
@@ -268,7 +270,9 @@ class PairwiseLLMJudgeHarness:
                         except Exception:
                             wait_s = 15.0
                     print(f"[{self.judge_model_name}] Groq 429 Rate Limit. Waiting {wait_s:.1f}s before retry {attempt+1}/6...", flush=True)
-                    time.sleep(wait_s)
+                    end_wait = time.time() + wait_s
+                    while time.time() < end_wait:
+                        time.sleep(min(1.0, max(0.05, end_wait - time.time())))
                 else:
                     time.sleep(1.5)
             except Exception as e:

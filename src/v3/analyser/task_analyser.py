@@ -98,6 +98,7 @@ class TaskAnalyserSLM_v3:
             raw_scores[prior_capability_tag] += 3.5
 
         # Normalize with temperature-scaled softmax
+        temperature = 1.0
         scaled = {k: v / temperature for k, v in raw_scores.items()}
         max_s = max(scaled.values())
         exp_s = {k: math.exp(v - max_s) for k, v in scaled.items()}
