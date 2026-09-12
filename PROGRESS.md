@@ -72,21 +72,21 @@ Source Document: `.agents/knowledge/v3_constraints_source.txt` (Mentor Review Di
 - [x] **HS 4: v3 Held-Out Lock:** Held-out split created and locked with cryptographic SHA256 (`c15452b4...`) in `data/`
 - [ ] **HS 5: Empirical Quality Discipline:** Target $\ge 75\%$ win rate evaluated without prompt leakage, query cherry-picking, or synthetic score imputation
 
-## v3 Target Metrics & Pilot Standings (Interim N=126 Verified Trials)
+## v3 Target Metrics & Pilot Standings (Interim N=127 Verified Trials)
 - **Primary Quality Target:** $\ge 75\%$ pairwise win rate against monolithic baselines ($\ge 30\text{B}$) across diverse domains.
-- **Pilot Findings (N=126 Trials across 15+ Queries x 4 Baselines x 2 Orders):**
-  - Overall Win Rate: **50.8%** (64 Wins / 62 Losses / 0 Ties) vs $\ge 30\text{B}$ baselines
+- **Pilot Findings (N=127 Trials across 15+ Queries x 4 Baselines x 2 Orders):**
+  - Overall Win Rate: **50.4%** (64 Wins / 63 Losses / 0 Ties) vs $\ge 30\text{B}$ baselines
   - vs Qwen-2.5-32B: **50.0%** (16W / 16L) — *100% complete (32/32)*
   - vs Llama-3.1-70B: **50.0%** (16W / 16L) — *100% complete (32/32)*
   - vs Qwen-2.5-72B: **50.0%** (16W / 16L) — *100% complete (32/32)*
-  - vs Gemini-1.5-Pro: **53.3%** (16W / 14L) — *30/32 complete*
-  - Two-Domain Compound Tasks: **53.3%** (16W / 14L)
+  - vs Gemini-1.5-Pro: **51.6%** (16W / 15L) — *31/32 complete*
+  - Two-Domain Compound Tasks: **51.6%** (16W / 15L)
   - Single-Domain Specialists: **50.0%** (32W / 32L)
   - Multi-Domain Compound Tasks: **50.0%** (16W / 16L)
-  - Order Consistency: **87.3%** (55/63 symmetric pairs agree identically)
+  - Order Consistency: **85.9%** (55/64 symmetric pairs agree identically)
 - **Architectural Constraint:** Every pool model $\le 5\text{B}$ parameters (zero LLMs, zero models $> 5\text{B}$ in proposed system).
 - **Baseline Floor:** All comparative monolithic baselines $\ge 30\text{B}$ parameters.
-- **Pending Trials:** 2 trials remaining (Gemini-1.5-Pro forward & swapped on `V3_TD_31`). Background process actively managing API pacing/backoff.
+- **Pending Trials:** 1 final trial remaining (`V3_TD_31` vs Gemini-1.5-Pro swapped). Background process actively managing API pacing/backoff.
 - **Architectural Upgrades Validated (Phase v3.8):**
   - Upgraded DecomposerSLM_v3 to native 8-domain taxonomy, eliminating false single-node collapses on compound tasks.
   - Upgraded TwoStageAggregator_v3 to synthesize complete architectural framing, raising quality criteria scores from 2 to 4.

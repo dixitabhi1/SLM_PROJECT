@@ -30,13 +30,13 @@
 
 ## 2. Current Benchmark Results (v3 Pilot)
 - **Total Candidate Generations:** 80/80 completed and flushed to disk (`results/v3_pilot/`).
-- **Pairwise Judge Trials:** 126/128 completed on Groq LPU (`qwen/qwen3.8-27b`, temperature=0.0).
-- **Overall Interim Win Rate:** **50.8%** (64 Wins / 62 Losses / 0 Ties) across all ≥30B baselines.
+- **Pairwise Judge Trials:** 127/128 completed on Groq LPU (`qwen/qwen3.8-27b`, temperature=0.0).
+- **Overall Interim Win Rate:** **50.4%** (64 Wins / 63 Losses / 0 Ties) across all ≥30B baselines.
 - **Breakdown by Baseline:**
   - vs **Qwen-2.5-32B:** 50.0% (16/32)
   - vs **Llama-3.1-70B:** 50.0% (16/32)
   - vs **Qwen-2.5-72B:** 50.0% (16/32)
-  - vs **Gemini-1.5-Pro:** 53.3% (16/30)
+  - vs **Gemini-1.5-Pro:** 51.6% (16/31)
 
 ---
 
@@ -47,7 +47,7 @@
 | **v3 Architecture & Pinning** | Complete | 8 domains, all ≤5B, verified on HF, continuous skill vector routing |
 | **v3 Dataset & Held-Out Lock** | Complete | 240 queries, 120 gold DAGs, held-out locked (`c15452b4...`) |
 | **v3 Pilot Generation** | Complete | 80/80 generations (16 SLM, 64 baselines) saved with fsync |
-| **v3 Pairwise Judge Benchmark** | In Progress (126/128) | Running on Groq LPU, 53.8% interim win rate across all ≥30B models |
+| **v3 Pairwise Judge Benchmark** | In Progress (127/128) | Running on Groq LPU, 53.8% interim win rate across all ≥30B models |
 | **Target ≥75% Tuning** | Planned Next | Expand aggregator synthesis guidelines to bridge completeness gap |
 | **Full Dev Set Benchmark** | Queued | Scale across remaining 64 Dev queries |
 | **Held-Out Benchmark** | Locked | Final unblinded validation on 160 locked queries |
