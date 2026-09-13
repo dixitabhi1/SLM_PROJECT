@@ -19,6 +19,26 @@ env/
 Thumbs.db
 Desktop.ini
 
-
+# Secrets & Environment
 .env
 *.env
+
+# High-churn per-call execution & evaluation logs
+# Keep aggregated summary tables (CSV, JSON summary, PDF reports) tracked; exclude individual per-call churn
+results/**/pipeline_logs/
+results/v3_pilot/pipeline_logs/
+results/*_before_fixes/
+results/*_invalidated_proxy_run/
+logs/runs/
+logs/test_runs/
+logs/test_judge/
+logs/test_keys/
+logs/judge_pairwise/
+logs/judge_keys/
+logs/judge_pairwise_*/
+logs/judge_keys_*/
+logs/v3_judge_pairwise/
+logs/v3_judge_keys/
+logs/v3_judge_pairwise_*/
+logs/v3_judge_keys_*/
+logs/v3_smoke_test/
