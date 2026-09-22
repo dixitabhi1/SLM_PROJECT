@@ -65,6 +65,36 @@ summary and not the agent's memory of them.
    (file path + run ID), the same way a paper would cite a results
    table — this is for the user's own traceability, not external
    publication citation.
+9. **Zero synthetic score imputation.** Never fill missing evaluation
+   trials with imputed, averaged, or mirrored scores.
+10. **Symmetric judge evaluation.** Every pairwise comparison must
+    evaluate both forward and swapped positions to detect positional bias.
+11. **Cryptographic separation of evaluation keys.** Candidate identity
+    unblinding keys must be kept in separate directories from public judge logs.
+12. **Model host and catalog verification.** Never assume a model exists
+    on an inference endpoint without verifying its published catalog status.
+13. **Distinct-model pre-flight verification requirement.** Before any
+    generation or evaluation run begins, the runner MUST execute an
+    automated pre-flight assertion verifying that every system in the
+    roster (all pool specialists, the aggregator, and every comparative
+    baseline) maps to a genuinely distinct `api_model_name`/endpoint, and
+    that no pool/pipeline component matches any baseline's model. The runner
+    must fail loudly and abort immediately if this check fails. Single-model
+    proxies or shared model fallbacks are strictly prohibited.
+14. **Editor tab and background write lock discipline.** Do not keep
+    `PROGRESS.md`, result JSONLs, or any auto-updated run files open in
+    an active editor tab while a background generation or judge task is
+    actively running. This prevents IDE in-memory buffer desync, auto-save
+    file collisions, and `.git/index` write contention. Git commands
+    must never be executed concurrently while background file-writing
+    tasks are active.
+15. **Compound-query decomposition non-collapse assertion.** The pipeline
+    runner MUST execute an automated pre-flight assertion verifying that
+    any query tagged as compound (`three_plus_domain`, `compound_dag`, or
+    `compound`) produces >= 2 distinct subtask nodes. If the decomposer
+    collapses a compound query to a single node, the runner must fail loudly
+    and refuse to proceed to generation. Single-node collapse on compound
+    queries is strictly prohibited.
 
 ## Skills available in this project
 
@@ -109,3 +139,29 @@ Set these once, in Antigravity Settings (Cmd/Ctrl+,):
 - Never let looping cause a phase to be silently skipped or reordered.
   If Phase N's deliverable (per the Implementation Plan) isn't complete,
   do not start Phase N+1's work.
+
+## Autonomous Audit Loop Protocol (post-Step B)
+
+From this point forward, operate in a self-auditing loop: after any generation, judging, or scoring step, automatically apply the following checks before reporting or advancing — do not wait to be asked.
+
+- **Raw-file score/label concordance check** on every judge trial (`selected_candidate` matches the higher score sum; flag and correct any mismatch).
+- **Baseline truncation diagnostic** — any SLM win where the comparator's judge reasoning mentions "cut off," "truncated," or similar is void by default; state this explicitly, never average it in.
+- **No-blending rule** — never report a combined/pooled score across queries with different truncation/validity status. Report each query's audited number separately.
+- **Temperature/sampling confound check** — if any non-zero temperature fired during a run, confirm the result isn't a sampling artifact before crediting it as a real gain.
+- **Positional swap consistency** — report this rate every time a judging pass runs, not only when it happens to be high.
+- **Reconciliation rule** — any derived or aggregate statistic must trace to a stated inclusion/exclusion rule, applied consistently across all trials, never decided case-by-case after seeing the result.
+- **Three-Dimensional Evaluation Paradigm** — in addition to binary win-rate, every comparative evaluation against cross-tier baselines MUST report continuous **Mean Quality Proximity ($P_{\text{mean}} = \frac{1}{N}\sum (1 - \frac{|Q_S - Q_L|}{4}) \times 100\%$)** and **Mean Signed Quality Delta ($\overline{\Delta Q} = \frac{1}{N}\sum (Q_S - Q_L)$)** with 95% Confidence Intervals alongside cost/compute ratios. Win rate alone must never be presented as the sole quality metric against frontier baselines.
+
+Continue looping through subsequent steps automatically once each step's audit passes clean. Hard stops (pause and wait for my explicit confirmation) remain limited to: locking a new held-out dataset, pinning a new baseline/judge model, spending beyond an already-approved compute/API budget, any request to relax an existing constraint (e.g. ≤5B → 8B), and anything going into a mentor-facing report. Everything else — generation, judging, the seven checks above, and reporting the outcome — proceeds without waiting for a prompt at each step.
+
+If a self-audit check ever fails (label mismatch, truncation confound, blending violation, etc.), log it in PROGRESS.md as an incident the same way the mid-session hand-edit was logged earlier in this project, fix it, and continue the loop — never silently drop or bury the finding.
+
+## Phase F: Accuracy-Focused Specialist Fine-Tuning Initiative
+
+This initiative is clearly distinct from the closed v1–Step B study (which evaluated frozen baseline models under prompting and external tools). Phase F explores parameter adaptation: whether targeted LoRA/QLoRA domain fine-tuning of individual $\le 5\text{B}$ specialists on verified ground-truth corpora closes the quality gap toward the 65–70% target against frontier baselines.
+
+### Phase F Hard Stops (Pause and wait for explicit confirmation)
+1. **F-HS 1 (Compute Feasibility & Budget Confirmation):** Confirm real compute feasibility, VRAM headroom, and dollar cost before spending anything or launching training runs.
+2. **F-HS 2 (Individual Specialist Fine-Tuning Gate):** Obtain explicit confirmation before fine-tuning each individual specialist model.
+3. **F-HS 3 (Report Accuracy Claim Gate):** Symmetrical double-blind evaluation and Autonomous Audit Loop pass before any accuracy claim enters a mentor report.
+

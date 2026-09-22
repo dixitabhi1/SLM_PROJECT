@@ -1,0 +1,56 @@
+{
+  "timestamp": 1789943396.9246995,
+  "target_metric": "mean_composite_quality_score",
+  "target_threshold": 3.5,
+  "target_percentage": 70.0,
+  "step6_baselines": {
+    "V3_CD_01": 1.722,
+    "V3_CD_41": 2.056,
+    "target_pair": 1.889
+  },
+  "step_a_audited_baselines": {
+    "V3_CD_01": 1.667,
+    "V3_CD_41": 2.333,
+    "target_pair": 2.0
+  },
+  "step_b_scores": {
+    "V3_CD_01": 2.3333333333333335,
+    "V3_CD_41": 3.888888888888889,
+    "target_pair": 3.111111111111111
+  },
+  "deltas_vs_step_a": {
+    "V3_CD_01": 0.6663333333333334,
+    "V3_CD_41": 1.5558888888888887,
+    "target_pair": 1.1111111111111112
+  },
+  "trials_count": 12,
+  "scales": [
+    {
+      "label": "~20B Baseline (openai/gpt-oss-20b)",
+      "baseline_id": "gpt_20b",
+      "win_rate": 25.0,
+      "slm_wins": 1,
+      "baseline_wins": 3,
+      "ties": 0,
+      "total_trials": 4
+    },
+    {
+      "label": "~32B Baseline (gemini-2.5-flash)",
+      "baseline_id": "gemini_32b",
+      "win_rate": 50.0,
+      "slm_wins": 2,
+      "baseline_wins": 2,
+      "ties": 0,
+      "total_trials": 4
+    },
+    {
+      "label": "120B Baseline (openai/gpt-oss-120b)",
+      "baseline_id": "gpt_120b",
+      "win_rate": 50.0,
+      "slm_wins": 2,
+      "baseline_wins": 2,
+      "ties": 0,
+      "total_trials": 4
+    }
+  ]
+}

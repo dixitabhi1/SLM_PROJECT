@@ -1,0 +1,139 @@
+{
+  "completed_queries": 9,
+  "total_queries": 15,
+  "pct_complete": 60.0,
+  "elapsed_sec": 9936.5,
+  "avg_sec_per_query": 1104.1,
+  "remaining_queries": 6,
+  "estimated_remaining_time": "1h 50m",
+  "estimated_completion_utc": "2026-09-23T00:04:16Z",
+  "timestamp_utc": "2026-09-22T22:13:51Z",
+  "comparators": [
+    "120b",
+    "72b"
+  ],
+  "recent_120b": [
+    {
+      "query_id": "V3_SD_MATH_01",
+      "complexity_tier": "single_domain",
+      "comparator": "gpt_120b",
+      "slm_cqs": 1.3333,
+      "base_cqs": 5.0,
+      "quality_proximity_pct": 8.33,
+      "quality_delta": -3.6667,
+      "fwd_winner": "gpt_120b",
+      "swp_winner": "gpt_120b",
+      "consistent": true
+    },
+    {
+      "query_id": "V3_TD_01",
+      "complexity_tier": "two_domain",
+      "comparator": "gpt_120b",
+      "slm_cqs": 2.3333,
+      "base_cqs": 4.1667,
+      "quality_proximity_pct": 54.165,
+      "quality_delta": -1.8333999999999997,
+      "fwd_winner": "gpt_120b",
+      "swp_winner": "gpt_120b",
+      "consistent": true
+    },
+    {
+      "query_id": "V3_TD_02",
+      "complexity_tier": "two_domain",
+      "comparator": "gpt_120b",
+      "slm_cqs": 2.0,
+      "base_cqs": 4.0,
+      "quality_proximity_pct": 50.0,
+      "quality_delta": -2.0,
+      "fwd_winner": "gpt_120b",
+      "swp_winner": "gpt_120b",
+      "consistent": true
+    },
+    {
+      "query_id": "V3_TD_03",
+      "complexity_tier": "two_domain",
+      "comparator": "gpt_120b",
+      "slm_cqs": 1.16665,
+      "base_cqs": 2.16665,
+      "quality_proximity_pct": 75.0,
+      "quality_delta": -1.0000000000000002,
+      "fwd_winner": "gpt_120b",
+      "swp_winner": null,
+      "consistent": false
+    },
+    {
+      "query_id": "V3_TD_04",
+      "complexity_tier": "two_domain",
+      "comparator": "gpt_120b",
+      "slm_cqs": 0.0,
+      "base_cqs": 0.0,
+      "quality_proximity_pct": 100.0,
+      "quality_delta": 0.0,
+      "fwd_winner": null,
+      "swp_winner": null,
+      "consistent": true
+    }
+  ],
+  "recent_72b": [
+    {
+      "query_id": "V3_SD_MATH_01",
+      "complexity_tier": "single_domain",
+      "comparator": "qwen_72b",
+      "slm_cqs": 1.3333,
+      "base_cqs": 5.0,
+      "quality_proximity_pct": 8.33,
+      "quality_delta": -3.6667,
+      "fwd_winner": "qwen_72b",
+      "swp_winner": "qwen_72b",
+      "consistent": true
+    },
+    {
+      "query_id": "V3_TD_01",
+      "complexity_tier": "two_domain",
+      "comparator": "qwen_72b",
+      "slm_cqs": 3.6667,
+      "base_cqs": 2.6667,
+      "quality_proximity_pct": 75.0,
+      "quality_delta": 1.0,
+      "fwd_winner": "SLMPipeline_v5",
+      "swp_winner": "SLMPipeline_v5",
+      "consistent": true
+    },
+    {
+      "query_id": "V3_TD_02",
+      "complexity_tier": "two_domain",
+      "comparator": "qwen_72b",
+      "slm_cqs": 2.6666499999999997,
+      "base_cqs": 3.5,
+      "quality_proximity_pct": 79.16499999999999,
+      "quality_delta": -0.8333500000000003,
+      "fwd_winner": "SLMPipeline_v5",
+      "swp_winner": "qwen_72b",
+      "consistent": false
+    },
+    {
+      "query_id": "V3_TD_03",
+      "complexity_tier": "two_domain",
+      "comparator": "qwen_72b",
+      "slm_cqs": 2.1667,
+      "base_cqs": 3.6667,
+      "quality_proximity_pct": 62.5,
+      "quality_delta": -1.5,
+      "fwd_winner": "SLMPipeline_v5",
+      "swp_winner": "qwen_72b",
+      "consistent": false
+    },
+    {
+      "query_id": "V3_TD_04",
+      "complexity_tier": "two_domain",
+      "comparator": "qwen_72b",
+      "slm_cqs": 1.0,
+      "base_cqs": 1.5,
+      "quality_proximity_pct": 87.5,
+      "quality_delta": -0.5,
+      "fwd_winner": null,
+      "swp_winner": "qwen_72b",
+      "consistent": false
+    }
+  ]
+}

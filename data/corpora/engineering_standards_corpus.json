@@ -1,0 +1,68 @@
+[
+  {
+    "id": "MDO-AUGMENTED-LAGRANGIAN",
+    "title": "Multidisciplinary Design Optimization (MDO) Formulation, Augmented Lagrangian Loss, and Convergence Proof",
+    "domain": "mathematics",
+    "tags": ["mdo", "optimization", "augmented_lagrangian", "convergence_proof", "primal_dual", "multi_disciplinary"],
+    "summary": "Formulates coupled multidisciplinary optimization (MDO) across disciplinary states, derives a scalar augmented Lagrangian loss function enforcing coupling consistency residuals and inequality constraints, and outlines a rigorous convergence proof sketch under Lipschitz gradient and convexity conditions.",
+    "mathematical_formulation": {
+      "problem_statement": "Consider two coupled disciplines A and S with shared design vector x in R^n and coupling state variables y in R^m satisfying equilibrium equations y = f_A(x) and y = f_S(x). The global MDO problem minimizes objective J(x) subject to consistency residual c(x) := f_A(x) - f_S(x) = 0, inequality constraints g_i(x) <= 0 (i=1..p), and equality constraints h_j(x) = 0 (j=1..q).",
+      "loss_equation": "L(x, lambda, mu, nu; rho, sigma) = J(x) + lambda^T c(x) + (rho / 2) ||c(x)||_2^2 + sum_{i=1}^p [ mu_i g_i(x) + (sigma_i / 2) [max(0, g_i(x))]^2 ] + sum_{j=1}^q nu_j h_j(x)",
+      "dual_updates": "lambda^{k+1} = lambda^k + rho c(x^k); mu_i^{k+1} = max(0, mu_i^k + sigma_i g_i(x^k)); nu_j^{k+1} = nu_j^k + tau h_j(x^k)",
+      "convergence_lemma": "Under L-Lipschitz continuous gradient of J, f_A, f_S, g_i and bounded level sets, projected gradient descent with step size alpha in (0, 1/L_total) satisfies the descent lemma: L(x^{k+1}) <= L(x^k) - (1 / (2*alpha)) ||x^{k+1} - x^k||_2^2, ensuring monotonic decrease and asymptotic convergence to a KKT stationary point."
+    },
+    "python_template": "import numpy as np\nfrom scipy.optimize import minimize\n\ndef multidisciplinary_augmented_lagrangian(x, lambda_val, mu_val, rho=10.0, sigma=10.0):\n    # Discipline A: f_A(x) = 0.5 * x[0]**2 + x[1]\n    # Discipline S: f_S(x) = 2.0 * x[0] - x[1]**2\n    # Consistency residual: c(x) = f_A(x) - f_S(x)\n    c = (0.5 * x[0]**2 + x[1]) - (2.0 * x[0] - x[1]**2)\n    g = x[0] + x[1] - 1.0  # Inequality constraint g(x) <= 0\n    J = (x[0] - 1.0)**2 + (x[1] - 2.0)**2  # Objective\n    \n    loss = J + lambda_val * c + 0.5 * rho * (c**2) + mu_val * g + 0.5 * sigma * (max(0.0, g)**2)\n    return loss\n"
+  },
+  {
+    "id": "PDE-KRONECKER-DIFFUSION",
+    "title": "2D Continuous Diffusion Equation, Kronecker Product Laplacian Stencil, and Vectorized Parquet Export",
+    "domain": "science_tech",
+    "tags": ["diffusion_pde", "laplacian_matrix", "kronecker_product", "cfl_condition", "parquet_export", "scipy_sparse"],
+    "summary": "Formulates the continuous 2D diffusion partial differential equation (PDE), discretizes the spatial domain using second-order central differences via Kronecker tensor products of 1D Laplacian stencils, proves explicit scheme CFL stability conditions, and implements vectorized multi-step snapshot storage into Apache Parquet columnar format.",
+    "mathematical_formulation": {
+      "pde_equation": "du/dt = alpha * (d^2u/dx^2 + d^2u/dy^2) on Omega = [0, L_x] x [0, L_y] with Dirichlet or Neumann boundary conditions.",
+      "discrete_laplacian": "L_2D = (I_Ny (x) D_xx) + (D_yy (x) I_Nx), where D_xx is tridiagonal(1, -2, 1) / dx^2 and (x) denotes the Kronecker tensor product (scipy.sparse.kron).",
+      "stability_criterion": "For the explicit Forward-Time Central-Space (FTCS) Euler scheme: dt <= 1 / (2 * alpha * (1/dx^2 + 1/dy^2)). Exceeding this bound triggers exponential numerical divergence.",
+      "sparse_representation": "scipy.sparse.kron(scipy.sparse.eye(Ny), D_xx, format='csr') + scipy.sparse.kron(D_yy, scipy.sparse.eye(Nx), format='csr')"
+    },
+    "python_template": "import numpy as np\nimport scipy.sparse as sp\nimport pandas as pd\nimport pyarrow as pa\nimport pyarrow.parquet as pq\n\ndef build_2d_kronecker_laplacian(Nx, Ny, dx, dy):\n    main_x = -2.0 * np.ones(Nx)\n    off_x = np.ones(Nx - 1)\n    Dxx = (sp.diags([off_x, main_x, off_x], [-1, 0, 1], shape=(Nx, Nx)) / (dx**2)).tocsr()\n    \n    main_y = -2.0 * np.ones(Ny)\n    off_y = np.ones(Ny - 1)\n    Dyy = (sp.diags([off_y, main_y, off_y], [-1, 0, 1], shape=(Ny, Ny)) / (dy**2)).tocsr()\n    \n    L = sp.kron(sp.eye(Ny), Dxx, format='csr') + sp.kron(Dyy, sp.eye(Nx), format='csr')\n    return L\n"
+  },
+  {
+    "id": "FOL-RELATIONAL-INVARIANTS",
+    "title": "Formal Relational Database Specification, First-Order Logic Invariants, and Multi-Tenant Isolation Pipeline",
+    "domain": "structured_data",
+    "tags": ["relational_database", "first_order_logic", "invariants", "multi_tenant", "postgresql", "transaction_isolation"],
+    "summary": "Defines a formal relational model with strict mathematical First-Order Logic (FOL) invariants for multi-tenant isolation, generates compliant PostgreSQL DDL with composite foreign keys and check constraints, and implements atomic transactional pipelines with rollback verification.",
+    "mathematical_formulation": {
+      "formal_glossary": "Relations R_T (Tenants), R_O (Organizations), R_U (Users), R_A (Accounts), R_TX (Transactions). Domain D_T = UUID, D_M = Numeric(18,4).",
+      "invariants": [
+        "Isolation Invariant: forall u in R_U, exists o in R_O : (u.org_id = o.id and u.tenant_id = o.tenant_id)",
+        "Zero-Leakage Invariant: forall tx in R_TX : tx.tenant_id = tx.source_account.tenant_id = tx.dest_account.tenant_id",
+        "Balance Invariant: forall a in R_A : a.balance >= 0 and a.balance = a.initial_balance + sum(credits) - sum(debits)"
+      ],
+      "sql_ddl_features": "Composite primary and foreign keys (tenant_id, id), CHECK constraints, Row-Level Security (ALTER TABLE ... ENABLE ROW LEVEL SECURITY), and EXCLUSION constraints."
+    },
+    "python_template": "import psycopg2\nimport uuid\n\nSQL_SCHEMA = \"\"\"\nCREATE TABLE tenants (\n    id UUID PRIMARY KEY,\n    name VARCHAR(255) NOT NULL,\n    created_at TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE organizations (\n    tenant_id UUID REFERENCES tenants(id) ON DELETE CASCADE,\n    id UUID NOT NULL,\n    name VARCHAR(255) NOT NULL,\n    PRIMARY KEY (tenant_id, id)\n);\n\nCREATE TABLE accounts (\n    tenant_id UUID NOT NULL,\n    id UUID NOT NULL,\n    org_id UUID NOT NULL,\n    balance NUMERIC(18,4) NOT NULL CHECK (balance >= 0),\n    PRIMARY KEY (tenant_id, id),\n    FOREIGN KEY (tenant_id, org_id) REFERENCES organizations(tenant_id, id) ON DELETE CASCADE\n);\n\"\"\"\n"
+  },
+  {
+    "id": "SEC-LINUX-SOCKETS",
+    "title": "Linux Socket Layer Security Mechanisms, Kernel Hardening, and Sandboxed Runtime Architecture",
+    "domain": "systems_ops",
+    "tags": ["rfc", "linux_socket", "cve", "sandbox", "capabilities", "kernel_vulnerability"],
+    "summary": "Details Linux socket kernel security primitives, official RFC transport protocols (RFC 8446 TLS 1.3, RFC 9293 TCP), mitigations for DCCP socket double-free (CVE-2017-6074) and privilege escalations (CVE-2023-32233), and architecture for privilege-separated sandboxed runtimes.",
+    "mathematical_formulation": {
+      "socket_primitives": [
+        "SO_BINDTODEVICE: Restricts socket packet transmission and binding strictly to a pinned physical or virtual interface (e.g. eth0, veth0).",
+        "SO_PASSCRED: Enables atomic reception of SCM_CREDENTIALS containing PID, UID, and GID for Unix domain socket peer authentication.",
+        "SO_RCVTIMEO / SO_SNDTIMEO: Enforces deterministic socket I/O timeouts preventing resource exhaustion attacks and infinite blocking loops."
+      ],
+      "cve_mitigations": [
+        "CVE-2017-6074: DCCP socket double-free in net/dccp/input.c. Mitigated by disabling DCCP via 'install dccp /bin/true' in modprobe.d and kernel upgrade.",
+        "CVE-2023-32233: Netfilter nf_tables UAF privilege escalation. Mitigated by restricting unprivileged user namespaces ('sysctl -w kernel.unprivileged_userns_clone=0')."
+      ],
+      "sandboxing_primitives": "Process isolation via Linux seccomp-bpf, prctl(PR_SET_NO_NEW_PRIVS), network namespaces (unshare -n), and dropped capabilities (CAP_NET_RAW, CAP_NET_ADMIN)."
+    },
+    "python_template": "import socket\nimport select\nimport os\n\ndef create_secure_socket_server(host='127.0.0.1', port=8443, timeout=5.0):\n    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)\n    s.settimeout(timeout)\n    s.bind((host, port))\n    s.listen(5)\n    return s\n"
+  }
+]
+

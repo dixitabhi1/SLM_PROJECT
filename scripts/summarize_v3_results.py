@@ -16,7 +16,7 @@ SLM_FILE = os.path.join(PILOT_DIR, "slm_pipeline_responses.jsonl")
 BASELINE_FILE = os.path.join(PILOT_DIR, "llm_baseline_responses.jsonl")
 COMPARISON_FILE = os.path.join(PILOT_DIR, "comparison.jsonl")
 
-BASELINES_V3 = ["qwen_32b", "llama_70b", "qwen_72b", "gemini_frontier"]
+BASELINES_V3 = ["gpt_120b"]
 
 def analyze_judge_results():
     if not os.path.exists(KEY_LOG_DIR):

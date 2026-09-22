@@ -1,0 +1,194 @@
+{
+  "timestamp_utc": "2026-09-21 12:11:55",
+  "total_queries": 10,
+  "total_trials": 20,
+  "concordance_rate_pct": 85.0,
+  "swap_consistency_pct": 40.0,
+  "truncation_free_pct": 80.0,
+  "ft_wins": 12,
+  "base_wins": 8,
+  "ties": 0,
+  "ft_win_rate_pct": 60.0,
+  "trials": [
+    {
+      "query_id": "CODE_QA_SECURE_SOCKETS_0045",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SECURE_SOCKETS_0045_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992434741.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SECURE_SOCKETS_0045_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992434741.json"
+    },
+    {
+      "query_id": "CODE_QA_SECURE_SOCKETS_0045",
+      "order": "swapped",
+      "winner": "phi3.5_coder_base",
+      "concordance": false,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SECURE_SOCKETS_0045_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992437492.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SECURE_SOCKETS_0045_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992437492.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0099",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": false,
+      "truncation_flagged": true,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0099_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992440732.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0099_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992440732.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0099",
+      "order": "swapped",
+      "winner": "phi3.5_coder_base",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0099_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992468322.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0099_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992468322.json"
+    },
+    {
+      "query_id": "CODE_QA_NUMERICAL_OPTIMIZATION_0185",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_NUMERICAL_OPTIMIZATION_0185_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992471808.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_NUMERICAL_OPTIMIZATION_0185_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992471808.json"
+    },
+    {
+      "query_id": "CODE_QA_NUMERICAL_OPTIMIZATION_0185",
+      "order": "swapped",
+      "winner": "phi3.5_coder_base",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_NUMERICAL_OPTIMIZATION_0185_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992500984.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_NUMERICAL_OPTIMIZATION_0185_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992500984.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0124",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0124_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992507152.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0124_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992507152.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0124",
+      "order": "swapped",
+      "winner": "phi3.5_coder_base",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0124_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992532367.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0124_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992532367.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0122",
+      "order": "forward",
+      "winner": "phi3.5_coder_base",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0122_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992536885.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0122_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992536885.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0122",
+      "order": "swapped",
+      "winner": "phi3.5_coder_base",
+      "concordance": true,
+      "truncation_flagged": true,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0122_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992551116.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0122_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992551116.json"
+    },
+    {
+      "query_id": "CODE_QA_DATABASE_ISOLATION_0168",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_DATABASE_ISOLATION_0168_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992578530.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_DATABASE_ISOLATION_0168_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992578530.json"
+    },
+    {
+      "query_id": "CODE_QA_DATABASE_ISOLATION_0168",
+      "order": "swapped",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_DATABASE_ISOLATION_0168_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992596541.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_DATABASE_ISOLATION_0168_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992596541.json"
+    },
+    {
+      "query_id": "CODE_QA_SECURE_SOCKETS_0010",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SECURE_SOCKETS_0010_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992614832.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SECURE_SOCKETS_0010_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992614832.json"
+    },
+    {
+      "query_id": "CODE_QA_SECURE_SOCKETS_0010",
+      "order": "swapped",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": true,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SECURE_SOCKETS_0010_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992629655.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SECURE_SOCKETS_0010_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992629655.json"
+    },
+    {
+      "query_id": "CODE_QA_NUMERICAL_OPTIMIZATION_0177",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_NUMERICAL_OPTIMIZATION_0177_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992632511.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_NUMERICAL_OPTIMIZATION_0177_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992632511.json"
+    },
+    {
+      "query_id": "CODE_QA_NUMERICAL_OPTIMIZATION_0177",
+      "order": "swapped",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_NUMERICAL_OPTIMIZATION_0177_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992647599.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_NUMERICAL_OPTIMIZATION_0177_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992647599.json"
+    },
+    {
+      "query_id": "CODE_QA_NUMERICAL_OPTIMIZATION_0198",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_NUMERICAL_OPTIMIZATION_0198_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992665635.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_NUMERICAL_OPTIMIZATION_0198_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992665635.json"
+    },
+    {
+      "query_id": "CODE_QA_NUMERICAL_OPTIMIZATION_0198",
+      "order": "swapped",
+      "winner": "phi3.5_coder_base",
+      "concordance": true,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_NUMERICAL_OPTIMIZATION_0198_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992681817.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_NUMERICAL_OPTIMIZATION_0198_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992681817.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0114",
+      "order": "forward",
+      "winner": "phi3.5_coder_ft",
+      "concordance": false,
+      "truncation_flagged": false,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0114_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992707197.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0114_phi3.5_coder_ft_vs_phi3.5_coder_base_forward_1789992707197.json"
+    },
+    {
+      "query_id": "CODE_QA_SANDBOXED_EXECUTION_0114",
+      "order": "swapped",
+      "winner": "phi3.5_coder_base",
+      "concordance": true,
+      "truncation_flagged": true,
+      "public_log": "logs/phase_f_judge_pairwise\\judge_CODE_QA_SANDBOXED_EXECUTION_0114_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992712853.json",
+      "key_log": "logs/phase_f_judge_keys\\key_CODE_QA_SANDBOXED_EXECUTION_0114_phi3.5_coder_ft_vs_phi3.5_coder_base_swapped_1789992712853.json"
+    }
+  ]
+}

@@ -72,3 +72,9 @@ Plan, Key Risks).
    in from the start rather than retrofitting it.
 3. If asked to add a feature not in the TRD's component table (TRD §2),
    flag that it's outside the current spec before implementing it.
+4. **Distinct-model pre-flight verification (Mandatory):** Before any
+   pipeline execution or benchmark begins, run an automated assertion
+   verifying that every specialist pool member, decomposer, and aggregator
+   maps to a genuinely distinct endpoint/model checkpoint, and that NO
+   pipeline component shares an endpoint or model with any comparative baseline.
+   Abort immediately and loudly if any model identity collision is detected.

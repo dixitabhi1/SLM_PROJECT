@@ -1,0 +1,42 @@
+[
+  {
+    "id": "SCIENCE-PDE-2D-DIFFUSION",
+    "title": "Continuous 2D Diffusion PDE Discretization, Finite Difference Stencils, and Numerical Stability",
+    "domain": "science_tech",
+    "tags": ["diffusion_pde", "heat_transfer", "central_differences", "stability", "cfl_condition", "crank_nicolson"],
+    "summary": "Formulates the continuous 2D isotropic thermodynamic diffusion equation on spatial domain Omega = [0, Lx] x [0, Ly], discretizes the spatial domain using second-order central difference stencils, performs Von Neumann stability analysis to derive the explicit Euler CFL stability bound, and formulates unconditionally stable semi-implicit Crank-Nicolson integration.",
+    "mathematical_formulation": {
+      "governing_pde": "du/dt = alpha * grad^2(u) = alpha * (d^2u/dx^2 + d^2u/dy^2) on Omega = [0, L_x] x [0, L_y], subject to boundary conditions u|_{\\partial \\Omega} = 0 (Dirichlet) or du/dn|_{\\partial \\Omega} = 0 (Neumann).",
+      "spatial_central_differences": "At interior grid point (x_i, y_j) with grid spacing Delta_x = L_x/(N_x+1) and Delta_y = L_y/(N_y+1): d^2u/dx^2 \\approx (u_{i+1,j} - 2 u_{i,j} + u_{i-1,j}) / Delta_x^2 + O(Delta_x^2) and d^2u/dy^2 \\approx (u_{i,j+1} - 2 u_{i,j} + u_{i,j-1}) / Delta_y^2 + O(Delta_y^2).",
+      "explicit_cfl_stability_criterion": "Von Neumann Fourier mode substitution u_{i,j}^n = G^n exp(I(k_x i Delta_x + k_y j Delta_y)) yields amplification factor G = 1 - 4 alpha Delta_t [ sin^2(k_x Delta_x / 2)/Delta_x^2 + sin^2(k_y Delta_y / 2)/Delta_y^2 ]. Stability requirement |G| <= 1 dictates the strict CFL time-step ceiling: Delta_t <= 1 / (2 * alpha * (1/Delta_x^2 + 1/Delta_y^2)). Violating this threshold causes exponential unphysical numerical oscillation and divergence.",
+      "crank_nicolson_formulation": "Semi-implicit second-order accurate in time: (I - 0.5 * alpha * Delta_t * L_2D) u^{n+1} = (I + 0.5 * alpha * Delta_t * L_2D) u^n. Unconditionally A-stable for all Delta_t > 0."
+    }
+  },
+  {
+    "id": "SCIENCE-KRONECKER-LAPLACIAN-SPARSE",
+    "title": "Kronecker Tensor Product Construction of 2D Discrete Laplacian Sparse Matrices",
+    "domain": "science_tech",
+    "tags": ["kronecker_product", "sparse_laplacian", "tensor_sum", "matrix_dimensions", "scipy_sparse", "stencil"],
+    "summary": "Rigorous derivation and construction of the discrete 2D Laplacian operator as a Kronecker tensor sum of 1D central difference operators. Establishes exact matrix dimensions, sparse block-tridiagonal structure, and row-major 2D-to-1D index flattening.",
+    "mathematical_formulation": {
+      "1d_discrete_operators": "Let N_x and N_y be the number of interior grid points along the x and y axes. The 1D second-order discrete Laplacian operators are symmetric tridiagonal matrices: D_xx = (1 / Delta_x^2) * tridiag(1, -2, 1) in R^{N_x x N_x} and D_yy = (1 / Delta_y^2) * tridiag(1, -2, 1) in R^{N_y x N_y}.",
+      "kronecker_sum_assembly": "Under row-major grid flattening where 2D grid index (i, j) maps to 1D state index k = j * N_x + i (for i in 0..N_x-1, j in 0..N_y-1), the discrete 2D Laplacian operator L_2D in R^{(N_x * N_y) x (N_x * N_y)} is given by the Kronecker sum: L_2D = (I_{N_y} \\otimes D_xx) + (D_yy \\otimes I_{N_x}), where \\otimes denotes the Kronecker matrix product and I_M is the M x M identity matrix.",
+      "dimensional_rigor_proof": "Dim(I_{N_y}) = (N_y x N_y), Dim(D_xx) = (N_x x N_x) ==> Dim(I_{N_y} \\otimes D_xx) = (N_y * N_x) x (N_y * N_x). Dim(D_yy) = (N_y x N_y), Dim(I_{N_x}) = (N_x x N_x) ==> Dim(D_yy \\otimes I_{N_x}) = (N_y * N_x) x (N_y * N_x). Both terms possess identical dimensions (N_x N_y x N_x N_y), enabling valid matrix addition. Notice that (I_{N_y} \\otimes D_xx) applies the x-derivative across each row independently, while (D_yy \\otimes I_{N_x}) applies the y-derivative across columns.",
+      "sparse_csr_structure": "L_2D is a symmetric, negative-definite, block-tridiagonal sparse matrix with at most 5 non-zero entries per row. Optimal assembly in Python: scipy.sparse.kron(sp.eye(Ny), D_xx, format='csr') + scipy.sparse.kron(D_yy, sp.eye(Nx), format='csr')."
+    }
+  },
+  {
+    "id": "SCIENCE-MDO-AUGMENTED-LAGRANGIAN",
+    "title": "Multidisciplinary Design Optimization (MDO) Coupled Consistency and KKT Convergence Theory",
+    "domain": "science_tech",
+    "tags": ["mdo", "augmented_lagrangian", "kkt_convergence", "primal_dual", "lipschitz", "disciplinary_equilibrium"],
+    "summary": "Formulates coupled multidisciplinary optimization across disciplinary states, derives the scalar augmented Lagrangian loss enforcing coupling consistency residuals and inequality constraints, and proves asymptotic convergence to a KKT stationary point under Lipschitz gradient continuity.",
+    "mathematical_formulation": {
+      "coupled_problem_statement": "Consider design vector x in R^n and coupled disciplinary states y_A = f_A(x, y_S) and y_S = f_S(x, y_A). Global MDO minimizes objective J(x) subject to multidisciplinary consistency residual c(x) := f_A(x) - f_S(x) = 0 and inequality constraints g_i(x) <= 0 (i=1..p).",
+      "augmented_lagrangian_loss": "L(x, lambda, mu; rho, sigma) = J(x) + lambda^T c(x) + (rho / 2) ||c(x)||_2^2 + sum_{i=1}^p [ mu_i g_i(x) + (sigma_i / 2) [max(0, g_i(x))]^2 ], where lambda in R^m is the dual multiplier vector for equality consistency, mu in R_+^p is the dual multiplier vector for inequalities, and rho, sigma > 0 are penalty parameters.",
+      "dual_multiplier_updates": "At outer iteration k+1: lambda^{k+1} = lambda^k + rho c(x^k); mu_i^{k+1} = max(0, mu_i^k + sigma_i g_i(x^k)). Dual updates guarantee that if x^k converges to x*, the multipliers converge to the optimal Lagrange multipliers satisfying first-order KKT necessary conditions: grad_x L(x*, lambda*, mu*) = 0, c(x*) = 0, g_i(x*) <= 0, mu_i* >= 0, mu_i* g_i(x*) = 0.",
+      "convergence_lemma": "Under L_total-Lipschitz continuous gradient of J, f_A, f_S, g and bounded level sets, minimizing the Augmented Lagrangian with step size alpha in (0, 1/L_total) guarantees strict monotonic decrease: L(x^{k+1}) <= L(x^k) - (1 / (2*alpha)) ||x^{k+1} - x^k||_2^2, ensuring asymptotic convergence to an active KKT stationary point."
+    }
+  }
+]
+

@@ -1,0 +1,270 @@
+[
+  {
+    "id": "V3_SD_CODI_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #3, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #4, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #2, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #3, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_RETR_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #1.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_RETR_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #2.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_RETR_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "retrieval_qa"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Retrieve and synthesize factual specifications, RFC standard protocols, and regulatory framework requirements for technical domain #3.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SCIE_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "science_tech"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #1.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SCIE_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "science_tech"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #2.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_SCIE_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "science_tech"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze physical and thermodynamic principles, semiconductor bandgap states, and quantum optical transitions for technical system #3.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_STRU_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Construct an optimized relational database schema #1 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_STRU_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Construct an optimized relational database schema #2 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_STRU_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Construct an optimized relational database schema #3 with SQL queries, indexes, foreign key constraints, and JSON transformation pipelines.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_01",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #1, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_02",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #2, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_03",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #3, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_04",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #4, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  }
+]

@@ -96,6 +96,97 @@ class StatisticalAnalyzer:
         }
 
     # -------------------------------------------------------------
+    # 2b. Three-Dimensional Evaluation: Quality Proximity (P) & Signed Delta (ΔQ)
+    # -------------------------------------------------------------
+    def compute_quality_proximity(
+        self,
+        slm_scores: List[float],
+        baseline_scores: List[float],
+        scale_min: float = 1.0,
+        scale_max: float = 5.0
+    ) -> Dict[str, Any]:
+        """
+        Computes Quality Proximity (P) and Signed Quality Delta (ΔQ) between paired SLM and LLM CQS scores.
+        
+        Mathematical Formulation:
+          Max possible difference = scale_max - scale_min = 4.0
+          Per-query proximity: P_i = 1.0 - (|Q_S,i - Q_L,i| / (scale_max - scale_min))
+          Per-query delta:     ΔQ_i = Q_S,i - Q_L,i
+          Mean proximity (%):  P_mean = (1/N) * sum(P_i) * 100%
+          Mean delta:          Mean_ΔQ = (1/N) * sum(ΔQ_i)
+        """
+        n = len(slm_scores)
+        if n != len(baseline_scores) or n == 0:
+            return {"error": "Invalid sample sizes for quality proximity computation."}
+
+        max_diff = scale_max - scale_min
+        if max_diff <= 0:
+            return {"error": "Invalid scale range: scale_max must be greater than scale_min."}
+
+        proximities = []
+        deltas = []
+        for s, b in zip(slm_scores, baseline_scores):
+            diff = abs(s - b)
+            p_val = max(0.0, min(1.0, 1.0 - (diff / max_diff)))
+            proximities.append(p_val)
+            deltas.append(s - b)
+
+        mean_p = statistics.mean(proximities)
+        mean_p_pct = mean_p * 100.0
+
+        mean_delta = statistics.mean(deltas)
+
+        std_p = statistics.stdev(proximities) if n > 1 else 0.0
+        se_p = std_p / math.sqrt(n)
+
+        std_delta = statistics.stdev(deltas) if n > 1 else 0.0
+        se_delta = std_delta / math.sqrt(n)
+
+        # t critical value for 95% CI (two-tailed, df = n - 1)
+        df = max(1, n - 1)
+        try:
+            import scipy.stats as st
+            t_crit = float(st.t.ppf(0.975, df))
+        except Exception:
+            t_crit = 1.96 if df >= 30 else (2.05 if df >= 15 else 2.23)
+
+        ci_p_lower = max(0.0, (mean_p - t_crit * se_p) * 100.0)
+        ci_p_upper = min(100.0, (mean_p + t_crit * se_p) * 100.0)
+
+        ci_delta_lower = mean_delta - t_crit * se_delta
+        ci_delta_upper = mean_delta + t_crit * se_delta
+
+        mean_slm = statistics.mean(slm_scores)
+        mean_base = statistics.mean(baseline_scores)
+
+        # Win rate in this paired cohort
+        slm_wins = sum(1 for s, b in zip(slm_scores, baseline_scores) if s > b)
+        base_wins = sum(1 for s, b in zip(slm_scores, baseline_scores) if b > s)
+        ties = sum(1 for s, b in zip(slm_scores, baseline_scores) if abs(s - b) < 1e-4)
+
+        return {
+            "n": n,
+            "mean_slm_cqs": round(mean_slm, 4),
+            "mean_baseline_cqs": round(mean_base, 4),
+            "mean_quality_proximity_pct": round(mean_p_pct, 2),
+            "proximity_ci_95_lower_pct": round(ci_p_lower, 2),
+            "proximity_ci_95_upper_pct": round(ci_p_upper, 2),
+            "std_proximity": round(std_p, 4),
+            "se_proximity": round(se_p, 4),
+            "mean_quality_delta": round(mean_delta, 4),
+            "delta_ci_95_lower": round(ci_delta_lower, 4),
+            "delta_ci_95_upper": round(ci_delta_upper, 4),
+            "std_delta": round(std_delta, 4),
+            "se_delta": round(se_delta, 4),
+            "slm_wins": slm_wins,
+            "baseline_wins": base_wins,
+            "ties": ties,
+            "slm_win_rate_pct": round((slm_wins / n) * 100.0, 2),
+            "per_query_proximity": [round(p, 4) for p in proximities],
+            "per_query_delta": [round(d, 4) for d in deltas]
+        }
+
+    # -------------------------------------------------------------
     # 3. Decomposition Accuracy: Graph Edit Distance (RQ5)
     # -------------------------------------------------------------
     def compute_graph_edit_distance(self, gen_dag: Dict[str, Any], gold_dag: Dict[str, Any]) -> Dict[str, Any]:

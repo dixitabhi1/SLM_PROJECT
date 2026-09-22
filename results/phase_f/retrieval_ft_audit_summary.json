@@ -1,0 +1,197 @@
+{
+  "total_queries_evaluated": 11,
+  "ft_wins": 4,
+  "base_wins": 4,
+  "ties_or_inconsistent": 3,
+  "ft_win_rate_pct": 36.36363636363637,
+  "swap_consistency_pct": 72.72727272727273,
+  "trials": [
+    {
+      "query_id": "V3_CD_21_NODE1",
+      "category": "v3_cd_21_node1_held_out",
+      "forward": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "base_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0026",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "base_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0024",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "tie_or_inconsistent",
+      "swap_consistent": false,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0020",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "base_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0012",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "tie_or_inconsistent",
+      "swap_consistent": false,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0005",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "base_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0046",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "ft_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0027",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "ft_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0010",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "ft_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0030",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_base",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "tie_or_inconsistent",
+      "swap_consistent": false,
+      "truncation_flagged": false
+    },
+    {
+      "query_id": "RET_QA_0017",
+      "category": "tls_standards",
+      "forward": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "swapped": {
+        "winner": "phi3.5_finetuned",
+        "sum_a": 0,
+        "sum_b": 0
+      },
+      "pair_outcome": "ft_win",
+      "swap_consistent": true,
+      "truncation_flagged": false
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+# V4 RESEARCH & ISOLATED INTERVENTION PLAN SOURCE DOCUMENT
+Date: September 14, 2026
+Status: Active Ground-Truth Contract for Version 4 (v4 Targeted Interventions)
+
+================================================================================
+V4 PROBLEM STATEMENT & METHODOLOGY (RECORDED VERBATIM)
+================================================================================
+
+v3 diagnosed the failure as specialist parametric confabulation (not routing, not aggregation)
+at the 1.5–3.2B tier. v4 tests two targeted, isolated fixes before concluding on the full ≤5B class:
+(1) true ≤5B model capacity,
+(2) retrieval-tool grounding for the factual specialist,
+(3) mechanical verification for the coding specialist —
+tested individually, then combined, in that order.
+
+================================================================================
+PHASED EXECUTION STEPS
+================================================================================
+
+Step 1: True ≤5B Model Capacity Evaluation
+Identify and verify real, available ≤5B checkpoints (e.g. Phi-3.5-mini 3.8B) beyond the 1.5–3.2B tier
+already tested. Re-run the same 4 compound queries plus 4 single/two-domain queries from the v3 pilot,
+changing only model size — everything else (routing, aggregator, judge) held identical to v3.
+Report win rate and specialist output quality, and whether hallucination patterns (RFC mislabeling,
+phantom files) persist at this size.
+
+Step 2: Retrieval-Tool Grounding for Factual Specialist
+Independent of Step 1's outcome, wire a real retrieval tool (a genuine search call or a small pinned
+reference corpus — not another LLM) for the retrieval_qa specialist only. Do not touch any other specialist.
+Re-run only the queries that previously failed due to factual hallucination (V3_CD_21 Node 1).
+Report whether cited facts (RFC numbers, etc.) are now accurate and traceable to a real source,
+not just plausible-sounding.
+
+Step 3: Mechanical Verification Gate for Coding Specialist
+Independent of Steps 1–2, add a mechanical verification gate for the coding specialist — real syntax
+check and/or execution of generated code/tests, not a review by another model. On failure, retry once
+with the error fed back, then flag if still failing — never silently pass broken code to aggregation.
+Re-run only the coding-heavy failures (V3_CD_21 Node 3, V3_CD_41 Nodes 2–3).
+Report before/after code correctness.
+
+Step 4: Composite Re-Run & Comparative Evaluation
+Only after all three are individually measured, combine whichever fixes showed real improvement and
+re-run the original 4 compound queries (V3_CD_01/21/41/61) plus judge evaluation, using the same
+real-generation, real-judge, full-traceability discipline as every prior phase — no shortcuts,
+no mock modes, pre-flight distinct-model check still enforced.
+
+Step 5: Decomposer Calibration & Non-Collapse Assertion
+Prompt calibration with few-shot multi-node examples + standing automated assertion
+requiring >= 2 subtask nodes for compound queries (Hard Rule 15). Eliminates single-node collapse.
+
+Step 6: Deterministic Template Aggregation & Multi-Domain Reference Grounding (Phase v5.1)
+Diagnosed in Step 4b: The generative 3B aggregator (llama3.2:cpu) suffered severe domain drift
+(e.g., SSH X11 on V3_CD_21, fabricating fake mechanical verification on V3_CD_01).
+Mechanism implemented in Step 6:
+1. DeterministicTemplateAggregator (src/v5/aggregator/template_aggregator.py): Bounded 2-paragraph
+   executive overview via SLM + deterministic verbatim Markdown section assembly (Math, Standards,
+   Verified Python, Invariants). Eliminates generative rewrite drift.
+2. EngineeringReferenceGrounding (src/v5/tools/engineering_retrieval_tool.py): Reference templates
+   for MDO, diffusion PDEs, Linux sockets, and relational schemas.
+3. GroundedVerifiedCodingRunner (src/v5/specialists/grounded_verified_coding_runner.py): Reference
+   template fallback on double execution failure.
+4. Infrastructure Polish: Ollama socket timeout extended from 300s to 700s, returning clean empty
+   ModelResponse on exception rather than leaking error strings into response text.
+
+================================================================================
+DISCIPLINE & REPORTING PROTOCOL
+================================================================================
+
+- Hard-stop checkpoints between each step: pause and report results back before advancing.
+- Update PROGRESS.md with v4.1–v4.4 phases.
+- Update feedback-loop-decomposition and slm-pipeline-architecture skills to document retrieval-tool
+  and verification-gate additions once validated.
+- Produce a final v4 report only after Step 4, following the same evidence-traced, no-overclaiming standard.
+================================================================================
+END OF V4 SPECIFICATION CONTRACT
+================================================================================
+

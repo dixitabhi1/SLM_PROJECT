@@ -57,8 +57,7 @@ class APIGroqModelRunner(BaseModelRunner):
             messages[-1]["content"] = prompt
 
         requested_max_tokens = kwargs.get("max_tokens", self.max_tokens)
-        safe_max_tokens = min(requested_max_tokens, 1024, max(384, 6500 - approx_prompt_tokens))
-        safe_max_tokens = min(requested_max_tokens, 950, max(256, 6500 - approx_prompt_tokens))
+        safe_max_tokens = min(requested_max_tokens, 2048, max(512, 7500 - approx_prompt_tokens))
 
         body = {
             "model": self.api_model_name,
@@ -87,7 +86,8 @@ class APIGroqModelRunner(BaseModelRunner):
                 end_t = time.perf_counter()
                 latency_ms = (end_t - start_t) * 1000.0
 
-                text = data["choices"][0]["message"]["content"]
+                msg = data["choices"][0]["message"]
+                text = msg.get("content") or msg.get("reasoning") or ""
                 in_tok = data.get("usage", {}).get("prompt_tokens", len(prompt.split()) * 2)
                 out_tok = data.get("usage", {}).get("completion_tokens", len(text.split()) * 2)
 
@@ -105,19 +105,26 @@ class APIGroqModelRunner(BaseModelRunner):
                 err_content = e.read().decode("utf-8", errors="ignore")
                 last_err = f"HTTPError {e.code}: {err_content[:200]}"
                 if e.code == 429:
-                    wait_s = 15.0
+                    wait_s = 5.0
                     if "try again in" in err_content:
                         try:
                             raw = err_content.split("try again in")[1].split(".")[0].strip()
-                            if "m" in raw:
+                            raw = raw.rstrip(".")
+                            if "ms" in raw:
+                                ms_val = float(raw.replace("ms", "").strip())
+                                wait_s = (ms_val / 1000.0) + 0.5
+                            elif "m" in raw:
                                 parts = raw.split("m")
                                 mins = float(parts[0])
-                                secs = float(parts[1].rstrip("s")) if len(parts) > 1 and parts[1] else 0.0
-                                wait_s = mins * 60.0 + secs + 3.0
+                                secs_str = parts[1].rstrip("s").strip() if len(parts) > 1 else "0"
+                                secs = float(secs_str) if secs_str else 0.0
+                                wait_s = mins * 60.0 + secs + 1.0
                             else:
-                                wait_s = float(raw.rstrip("s")) + 2.0
+                                secs_val = float(raw.rstrip("s").strip())
+                                wait_s = secs_val + 1.0
                         except Exception:
-                            wait_s = 15.0
+                            wait_s = 5.0
+                    wait_s = max(0.5, min(wait_s, 30.0))
                     print(f"[{self.api_model_name}] Groq 429 Rate Limit. Sleeping {wait_s:.1f}s before retry {attempt+1}/6...")
                     print(f"[{self.api_model_name}] Groq 429 Rate Limit. Sleeping {wait_s:.1f}s before retry {attempt+1}/6...", flush=True)
                     await asyncio.sleep(wait_s)

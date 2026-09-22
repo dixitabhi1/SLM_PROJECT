@@ -53,3 +53,8 @@ just once at setup.
 - If using an API: run many trials per query and report variance
   explicitly — don't report a single-trial latency number as if it
   were representative (TRD §8 threats-to-validity table).
+- **Distinct-model pre-flight verification (Mandatory):** Before running
+  any baseline evaluations, an automated assertion must verify that every
+  baseline model resolves to a distinct `api_model_name`/endpoint that does
+  NOT collide with any other baseline and does NOT collide with any pool
+  specialist or aggregator. Refuse to execute if two baselines share an endpoint.

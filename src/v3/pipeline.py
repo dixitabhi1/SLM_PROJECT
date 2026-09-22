@@ -33,6 +33,9 @@ class SLMPipeline_v3:
         max_depth: int = 3,
         max_concurrent_slms: int = 4
     ):
+        self.decomposer_runner = decomposer_runner
+        self.pool_runners = pool_runners
+        self.aggregator_runner = aggregator_runner
         self.decomposer = DecomposerSLM_v3(decomposer_runner)
         self.task_analyser = TaskAnalyserSLM_v3()
         self.agent_analyser = AgentAnalyserSLM()
@@ -80,6 +83,14 @@ class SLMPipeline_v3:
         
         active_tasks = init_res["subtasks"]
         d_resp = init_res["model_response"]
+
+        # --- Hard Rule 15 Standing Automated Pre-Flight Assertion ---
+        # A pipeline must never proceed to generation if a known-compound query collapses into < 2 distinct subtask nodes.
+        if complexity_tier in ["three_plus_domain", "compound_dag", "compound"]:
+            assert len(active_tasks) >= 2, (
+                f"[HARD RULE 15 VIOLATION] Known compound query '{query_id}' collapsed into {len(active_tasks)} node(s). "
+                f"Decomposer must emit >= 2 distinct subtask nodes for compound queries! Subtasks: {active_tasks}"
+            )
 
         if self.logger:
             self.logger.record_stage(

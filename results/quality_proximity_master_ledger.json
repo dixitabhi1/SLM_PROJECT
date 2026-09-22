@@ -1,0 +1,396 @@
+{
+  "timestamp_utc": "2026-09-22T23:25:00Z",
+  "evaluation_framework": "Three-Dimensional Evaluation Paradigm (Win Rate, Quality Proximity, Cost/Compute)",
+  "formula": {
+    "proximity_definition": "P_i = 1 - (|Q_S,i - Q_L,i| / 4.0)",
+    "mean_proximity": "P_mean = (1/N) * sum(P_i) * 100%",
+    "signed_delta": "\u0394Q_i = Q_S,i - Q_L,i",
+    "mean_delta": "Mean_\u0394Q = (1/N) * sum(\u0394Q_i)"
+  },
+  "cohorts": {
+    "v2_pilot_single_domain_all_baselines": {
+      "cohort_name": "Phase v2 Pilot (Single Domain, vs 8B-70B-Gemini)",
+      "total_trials": 136,
+      "total_queries": 14,
+      "slm_wins": 66,
+      "baseline_wins": 67,
+      "ties": 3,
+      "slm_win_rate_pct": 48.53,
+      "mean_slm_cqs": 2.576,
+      "mean_baseline_cqs": 2.6054,
+      "mean_quality_proximity_pct": 62.5,
+      "proximity_ci_95": [
+        59.88,
+        65.12
+      ],
+      "mean_quality_delta": -0.0294,
+      "delta_ci_95": [
+        -0.3054,
+        0.2465
+      ],
+      "swap_consistency_pct": 0.0,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "v2_pilot_vs_gemini_frontier": {
+      "cohort_name": "Phase v2 Pilot vs gemini_frontier",
+      "total_trials": 27,
+      "total_queries": 14,
+      "slm_wins": 16,
+      "baseline_wins": 11,
+      "ties": 0,
+      "slm_win_rate_pct": 59.26,
+      "mean_slm_cqs": 2.6914,
+      "mean_baseline_cqs": 2.3827,
+      "mean_quality_proximity_pct": 60.8,
+      "proximity_ci_95": [
+        54.55,
+        67.06
+      ],
+      "mean_quality_delta": 0.3086,
+      "delta_ci_95": [
+        -0.3597,
+        0.9769
+      ],
+      "swap_consistency_pct": 53.85,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "v2_pilot_vs_llama_70b": {
+      "cohort_name": "Phase v2 Pilot vs llama_70b",
+      "total_trials": 27,
+      "total_queries": 14,
+      "slm_wins": 12,
+      "baseline_wins": 15,
+      "ties": 0,
+      "slm_win_rate_pct": 44.44,
+      "mean_slm_cqs": 2.5062,
+      "mean_baseline_cqs": 2.679,
+      "mean_quality_proximity_pct": 59.88,
+      "proximity_ci_95": [
+        53.95,
+        65.8
+      ],
+      "mean_quality_delta": -0.1728,
+      "delta_ci_95": [
+        -0.8584,
+        0.5127
+      ],
+      "swap_consistency_pct": 38.46,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "v2_pilot_vs_llama_8b": {
+      "cohort_name": "Phase v2 Pilot vs llama_8b",
+      "total_trials": 28,
+      "total_queries": 14,
+      "slm_wins": 17,
+      "baseline_wins": 10,
+      "ties": 1,
+      "slm_win_rate_pct": 60.71,
+      "mean_slm_cqs": 2.7262,
+      "mean_baseline_cqs": 2.4286,
+      "mean_quality_proximity_pct": 61.61,
+      "proximity_ci_95": [
+        54.95,
+        68.27
+      ],
+      "mean_quality_delta": 0.2976,
+      "delta_ci_95": [
+        -0.3542,
+        0.9495
+      ],
+      "swap_consistency_pct": 57.14,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "v2_pilot_vs_qwen_32b": {
+      "cohort_name": "Phase v2 Pilot vs qwen_32b",
+      "total_trials": 27,
+      "total_queries": 14,
+      "slm_wins": 11,
+      "baseline_wins": 15,
+      "ties": 1,
+      "slm_win_rate_pct": 40.74,
+      "mean_slm_cqs": 2.5309,
+      "mean_baseline_cqs": 2.8025,
+      "mean_quality_proximity_pct": 66.05,
+      "proximity_ci_95": [
+        59.85,
+        72.25
+      ],
+      "mean_quality_delta": -0.2716,
+      "delta_ci_95": [
+        -0.8625,
+        0.3193
+      ],
+      "swap_consistency_pct": 61.54,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "v2_pilot_vs_qwen_72b": {
+      "cohort_name": "Phase v2 Pilot vs qwen_72b",
+      "total_trials": 27,
+      "total_queries": 14,
+      "slm_wins": 10,
+      "baseline_wins": 16,
+      "ties": 1,
+      "slm_win_rate_pct": 37.04,
+      "mean_slm_cqs": 2.4198,
+      "mean_baseline_cqs": 2.7407,
+      "mean_quality_proximity_pct": 64.2,
+      "proximity_ci_95": [
+        58.8,
+        69.59
+      ],
+      "mean_quality_delta": -0.321,
+      "delta_ci_95": [
+        -0.9236,
+        0.2816
+      ],
+      "swap_consistency_pct": 46.15,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "v3_pilot_compound_vs_120b": {
+      "cohort_name": "Phase v3 Pilot (Compound DAGs vs 120B)",
+      "total_trials": 32,
+      "total_queries": 16,
+      "slm_wins": 1,
+      "baseline_wins": 31,
+      "ties": 0,
+      "slm_win_rate_pct": 3.12,
+      "mean_slm_cqs": 2.1667,
+      "mean_baseline_cqs": 4.0312,
+      "mean_quality_proximity_pct": 50.78,
+      "proximity_ci_95": [
+        43.37,
+        58.19
+      ],
+      "mean_quality_delta": -1.8646,
+      "delta_ci_95": [
+        -2.2408,
+        -1.4884
+      ],
+      "swap_consistency_pct": 81.25,
+      "truncation_flagged_trials": 22,
+      "truncation_free_rate_pct": 31.25
+    },
+    "v5_1_ladder_vs_20b": {
+      "cohort_name": "Phase v5.1 Council vs 20B Baseline",
+      "total_trials": 8,
+      "total_queries": 4,
+      "slm_wins": 2,
+      "baseline_wins": 6,
+      "ties": 0,
+      "slm_win_rate_pct": 25.0,
+      "mean_slm_cqs": 1.8333,
+      "mean_baseline_cqs": 3.125,
+      "mean_quality_proximity_pct": 51.04,
+      "proximity_ci_95": [
+        36.89,
+        65.19
+      ],
+      "mean_quality_delta": -1.2917,
+      "delta_ci_95": [
+        -2.7238,
+        0.1405
+      ],
+      "swap_consistency_pct": 75.0,
+      "truncation_flagged_trials": 5,
+      "truncation_free_rate_pct": 37.5
+    },
+    "v5_1_ladder_vs_32b": {
+      "cohort_name": "Phase v5.1 Council vs 32B Baseline",
+      "total_trials": 8,
+      "total_queries": 4,
+      "slm_wins": 0,
+      "baseline_wins": 8,
+      "ties": 0,
+      "slm_win_rate_pct": 0.0,
+      "mean_slm_cqs": 1.7917,
+      "mean_baseline_cqs": 3.7917,
+      "mean_quality_proximity_pct": 50.0,
+      "proximity_ci_95": [
+        37.1,
+        62.9
+      ],
+      "mean_quality_delta": -2.0,
+      "delta_ci_95": [
+        -2.516,
+        -1.484
+      ],
+      "swap_consistency_pct": 100.0,
+      "truncation_flagged_trials": 7,
+      "truncation_free_rate_pct": 12.5
+    },
+    "v5_1_ladder_vs_120b": {
+      "cohort_name": "Phase v5.1 Council vs 120B Baseline",
+      "total_trials": 8,
+      "total_queries": 4,
+      "slm_wins": 0,
+      "baseline_wins": 8,
+      "ties": 0,
+      "slm_win_rate_pct": 0.0,
+      "mean_slm_cqs": 1.7083,
+      "mean_baseline_cqs": 3.8333,
+      "mean_quality_proximity_pct": 46.88,
+      "proximity_ci_95": [
+        35.14,
+        58.61
+      ],
+      "mean_quality_delta": -2.125,
+      "delta_ci_95": [
+        -2.5946,
+        -1.6554
+      ],
+      "swap_consistency_pct": 100.0,
+      "truncation_flagged_trials": 6,
+      "truncation_free_rate_pct": 25.0
+    },
+    "phase_f_retrieval_specialist_ft_vs_base": {
+      "cohort_name": "Phase F Retrieval Specialist (FT vs Base)",
+      "total_trials": 20,
+      "total_queries": 10,
+      "slm_wins": 11,
+      "baseline_wins": 9,
+      "ties": 0,
+      "slm_win_rate_pct": 55.0,
+      "mean_slm_cqs": 3.6167,
+      "mean_baseline_cqs": 3.2833,
+      "mean_quality_proximity_pct": 54.17,
+      "proximity_ci_95": [
+        48.3,
+        60.03
+      ],
+      "mean_quality_delta": 0.3333,
+      "delta_ci_95": [
+        -0.5636,
+        1.2302
+      ],
+      "swap_consistency_pct": 70.0,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "phase_f_coding_specialist_ft_vs_base": {
+      "cohort_name": "Phase F Coding Specialist (FT vs Base)",
+      "total_trials": 20,
+      "total_queries": 10,
+      "slm_wins": 10,
+      "baseline_wins": 7,
+      "ties": 3,
+      "slm_win_rate_pct": 50.0,
+      "mean_slm_cqs": 2.25,
+      "mean_baseline_cqs": 2.1,
+      "mean_quality_proximity_pct": 74.58,
+      "proximity_ci_95": [
+        66.63,
+        82.53
+      ],
+      "mean_quality_delta": 0.15,
+      "delta_ci_95": [
+        -0.4281,
+        0.7281
+      ],
+      "swap_consistency_pct": 40.0,
+      "truncation_flagged_trials": 4,
+      "truncation_free_rate_pct": 80.0
+    },
+    "phase_f_pipeline_v3_cd_21_all_baselines": {
+      "cohort_name": "Phase F Pipeline on V3_CD_21 (vs 20B/32B/120B)",
+      "total_trials": 6,
+      "total_queries": 1,
+      "slm_wins": 2,
+      "baseline_wins": 4,
+      "ties": 0,
+      "slm_win_rate_pct": 33.33,
+      "mean_slm_cqs": 2.5556,
+      "mean_baseline_cqs": 2.6667,
+      "mean_quality_proximity_pct": 52.78,
+      "proximity_ci_95": [
+        36.49,
+        69.06
+      ],
+      "mean_quality_delta": -0.1111,
+      "delta_ci_95": [
+        -2.3745,
+        2.1523
+      ],
+      "swap_consistency_pct": 0.0,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "phase_f_pipeline_v3_cd_21_vs_gpt_20b": {
+      "cohort_name": "Phase F Pipeline V3_CD_21 vs gpt_20b",
+      "total_trials": 2,
+      "total_queries": 1,
+      "slm_wins": 2,
+      "baseline_wins": 0,
+      "ties": 0,
+      "slm_win_rate_pct": 100.0,
+      "mean_slm_cqs": 3.6667,
+      "mean_baseline_cqs": 1.0,
+      "mean_quality_proximity_pct": 33.33,
+      "proximity_ci_95": [
+        33.33,
+        33.33
+      ],
+      "mean_quality_delta": 2.6667,
+      "delta_ci_95": [
+        2.6667,
+        2.6667
+      ],
+      "swap_consistency_pct": 100.0,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "phase_f_pipeline_v3_cd_21_vs_gemini_32b": {
+      "cohort_name": "Phase F Pipeline V3_CD_21 vs gemini_32b",
+      "total_trials": 2,
+      "total_queries": 1,
+      "slm_wins": 0,
+      "baseline_wins": 2,
+      "ties": 0,
+      "slm_win_rate_pct": 0.0,
+      "mean_slm_cqs": 2.0,
+      "mean_baseline_cqs": 3.6667,
+      "mean_quality_proximity_pct": 58.33,
+      "proximity_ci_95": [
+        58.33,
+        58.33
+      ],
+      "mean_quality_delta": -1.6667,
+      "delta_ci_95": [
+        -1.6667,
+        -1.6667
+      ],
+      "swap_consistency_pct": 100.0,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    },
+    "phase_f_pipeline_v3_cd_21_vs_gpt_120b": {
+      "cohort_name": "Phase F Pipeline V3_CD_21 vs gpt_120b",
+      "total_trials": 2,
+      "total_queries": 1,
+      "slm_wins": 0,
+      "baseline_wins": 2,
+      "ties": 0,
+      "slm_win_rate_pct": 0.0,
+      "mean_slm_cqs": 2.0,
+      "mean_baseline_cqs": 3.3333,
+      "mean_quality_proximity_pct": 66.67,
+      "proximity_ci_95": [
+        66.67,
+        66.67
+      ],
+      "mean_quality_delta": -1.3333,
+      "delta_ci_95": [
+        -1.3333,
+        -1.3333
+      ],
+      "swap_consistency_pct": 100.0,
+      "truncation_flagged_trials": 0,
+      "truncation_free_rate_pct": 100.0
+    }
+  }
+}

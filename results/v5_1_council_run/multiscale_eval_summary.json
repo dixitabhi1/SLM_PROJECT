@@ -1,0 +1,86 @@
+{
+  "timestamp": 1789906977.1488879,
+  "scales": [
+    {
+      "label": "~20B Baseline (openai/gpt-oss-20b)",
+      "baseline_id": "gpt_20b",
+      "win_rate": 37.5,
+      "slm_wins": 3,
+      "baseline_wins": 5,
+      "ties": 0,
+      "total_trials": 8,
+      "by_query": {
+        "V3_CD_01": [
+          "slm_council_v5_1",
+          "gpt_20b"
+        ],
+        "V3_CD_21": [
+          "slm_council_v5_1",
+          "slm_council_v5_1"
+        ],
+        "V3_CD_41": [
+          "gpt_20b",
+          "gpt_20b"
+        ],
+        "V3_CD_61": [
+          "gpt_20b",
+          "gpt_20b"
+        ]
+      }
+    },
+    {
+      "label": "~32B Baseline (gemini-2.5-flash)",
+      "baseline_id": "gemini_32b",
+      "win_rate": 0.0,
+      "slm_wins": 0,
+      "baseline_wins": 8,
+      "ties": 0,
+      "total_trials": 8,
+      "by_query": {
+        "V3_CD_01": [
+          "gemini_32b",
+          "gemini_32b"
+        ],
+        "V3_CD_21": [
+          "gemini_32b",
+          "gemini_32b"
+        ],
+        "V3_CD_41": [
+          "gemini_32b",
+          "gemini_32b"
+        ],
+        "V3_CD_61": [
+          "gemini_32b",
+          "gemini_32b"
+        ]
+      }
+    },
+    {
+      "label": "120B Baseline (openai/gpt-oss-120b)",
+      "baseline_id": "gpt_120b",
+      "win_rate": 0.0,
+      "slm_wins": 0,
+      "baseline_wins": 8,
+      "ties": 0,
+      "total_trials": 8,
+      "by_query": {
+        "V3_CD_01": [
+          "gpt_120b",
+          "gpt_120b"
+        ],
+        "V3_CD_21": [
+          "gpt_120b",
+          "gpt_120b"
+        ],
+        "V3_CD_41": [
+          "gpt_120b",
+          "gpt_120b"
+        ],
+        "V3_CD_61": [
+          "gpt_120b",
+          "gpt_120b"
+        ]
+      }
+    }
+  ]
+}

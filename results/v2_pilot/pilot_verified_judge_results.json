@@ -1,0 +1,80 @@
+{
+  "benchmark": "v2_pilot_real_pairwise_judge_benchmark",
+  "scope": "Verified evaluation over 20 fully completed single-domain queries (['V2_SD_CODE_01', 'V2_SD_CODE_08', 'V2_SD_CODE_02', 'V2_SD_CODE_04', 'V2_SD_CODE_05', 'V2_SD_CODE_03', 'V2_SD_CODE_09', 'V2_SD_CODE_10', 'V2_SD_CODE_11', 'V2_SD_CODE_12', 'V2_SD_CODE_13', 'V2_SD_CODE_14', 'V2_SD_CODE_15', 'V2_SD_CODE_16', 'V2_SD_CODE_17', 'V2_SD_CODE_06', 'V2_SD_CODE_07', 'V2_SD_CODE_18', 'V2_SD_MATH_01', 'V2_SD_MATH_02'])",
+  "evaluation_protocol": "hybrid_position_swap (13 bidirectional queries [130 trials] + 7 forward-only queries [35 trials])",
+  "judge_model": "qwen/qwen3.8-27b (Groq API)",
+  "total_judge_calls": 166,
+  "bidirectional_pairs_evaluated": 66,
+  "position_swap_agreement_rate_pct": 51.52,
+  "slm_head_to_head_win_rates_pct": {
+    "llama_8b": 45.0,
+    "qwen_32b": 32.5,
+    "llama_70b": 30.0,
+    "qwen_72b": 27.5,
+    "gemini_frontier": 40.0
+  },
+  "slm_pairwise_breakdown": {
+    "llama_8b": {
+      "slm_wins": 9.0,
+      "baseline_wins": 5.0,
+      "ties": 6.0,
+      "slm_win_rate_pct": 45.0
+    },
+    "qwen_32b": {
+      "slm_wins": 6.5,
+      "baseline_wins": 7.5,
+      "ties": 6.0,
+      "slm_win_rate_pct": 32.5
+    },
+    "llama_70b": {
+      "slm_wins": 6.0,
+      "baseline_wins": 8.0,
+      "ties": 6.0,
+      "slm_win_rate_pct": 30.0
+    },
+    "qwen_72b": {
+      "slm_wins": 5.5,
+      "baseline_wins": 8.5,
+      "ties": 6.0,
+      "slm_win_rate_pct": 27.5
+    },
+    "gemini_frontier": {
+      "slm_wins": 8.0,
+      "baseline_wins": 6.0,
+      "ties": 6.0,
+      "slm_win_rate_pct": 40.0
+    }
+  },
+  "criteria_performance": {
+    "slm_pipeline_v2": {
+      "mean_correctness": 2.801,
+      "mean_completeness": 1.941,
+      "mean_coherence": 2.985
+    },
+    "llama_8b": {
+      "mean_correctness": 2.536,
+      "mean_completeness": 1.893,
+      "mean_coherence": 2.857
+    },
+    "qwen_32b": {
+      "mean_correctness": 2.926,
+      "mean_completeness": 2.185,
+      "mean_coherence": 3.296
+    },
+    "llama_70b": {
+      "mean_correctness": 2.815,
+      "mean_completeness": 1.926,
+      "mean_coherence": 3.296
+    },
+    "qwen_72b": {
+      "mean_correctness": 2.963,
+      "mean_completeness": 2.037,
+      "mean_coherence": 3.222
+    },
+    "gemini_frontier": {
+      "mean_correctness": 2.481,
+      "mean_completeness": 1.704,
+      "mean_coherence": 2.963
+    }
+  }
+}

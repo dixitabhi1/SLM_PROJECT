@@ -42,3 +42,21 @@ logs/v3_judge_keys/
 logs/v3_judge_pairwise_*/
 logs/v3_judge_keys_*/
 logs/v3_smoke_test/
+logs/*_judge_keys*/
+logs/*_judge_pairwise*/
+logs/100_query_*/
+logs/phase_f_*/
+logs/step_*_*/
+logs/v4_*_*/
+logs/v5_*_*/
+
+# Local fine-tuning models, checkpoints, and weights
+models/
+*.gguf
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# Temporary scratch scripts and debug files
+scratch/

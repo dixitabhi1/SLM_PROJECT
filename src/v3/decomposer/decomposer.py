@@ -18,15 +18,24 @@ from typing import Dict, List, Any, Optional, Tuple
 from ...models.base import BaseModelRunner, ModelResponse
 
 DECOMPOSER_V3_SYSTEM_PROMPT = """You are an expert AI task decomposition model for an 8-specialist Small Language Model pipeline.
-Your task is to decompose compound queries into focused, single-domain subtasks for specialized SLMs.
+Your task is to decompose technical user queries into focused, single-domain subtasks for specialized SLMs.
 
-Atomic Stop Condition:
-- If the user query is already focused and self-contained within a single domain (e.g. writing a single algorithmic module, solving a purely mathematical derivation, performing a factual retrieval, or analyzing a single logical problem), do NOT artificially fragment it.
-- In such cases, emit exactly ONE root subtask ("node_1") containing the complete, unmodified original instruction.
-- Only decompose queries that genuinely span multiple distinct capability domains (e.g. database schema design + Python ORM code, scientific formula derivation + software implementation, RFC retrieval + architecture reasoning).
+Decomposition Rules:
+1. Compound Multi-Domain Queries (MUST DECOMPOSE):
+   - When a query contains multiple distinct objectives or clauses spanning DIFFERENT capability domains (e.g. "Retrieve RFC standards [retrieval_qa] AND evaluate vulnerabilities [formal_reasoning] AND write Python code [coding]", or "Simulate thermodynamics [science_tech] AND solve differential matrices [coding] AND export parquet datasets [structured_data]"), you MUST decompose it into 2 to 4 distinct subtask nodes.
+   - Each subtask must be assigned strictly to its matching specialist domain.
+   - Specify DAG dependencies so downstream subtasks depend on upstream outputs.
+   - NEVER collapse a multi-domain compound query into a single monolithic node.
+
+2. Atomic Single-Domain Queries (STRICT PROHIBITION AGAINST INTRA-DOMAIN FRAGMENTATION):
+   - If a query is focused within a SINGLE specialist domain, you MUST NOT fragment it into multiple subtasks, even if it contains multiple steps, clauses, or instructions (e.g. "derive X and prove Y and show steps", or "state conditions and identify fallacies and prove theorem", or "implement function with type annotations, complexity guarantees, and unit tests").
+   - ALL steps belonging to the SAME domain must be kept together in exactly ONE root subtask ("node_1").
+   - NEVER emit multiple nodes with the same capability domain (e.g. do NOT emit two "mathematics" nodes, two "coding" nodes, or two "formal_reasoning" nodes). Emitting duplicate domain nodes is strictly forbidden.
+   - Do NOT invent unrequested deliverables (such as separate documentation, architecture summaries, or reporting). Unit tests, complexity guarantees, and type annotations are integral parts of the "coding" domain and MUST remain inside node_1.
+   - Intra-domain work is handled completely by that domain's specialist model.
 
 Specialist Domain Categories (Strict 8-Domain Pool):
-1. coding: Python/C++ code, algorithms, data structures, scripts, debugging, unit tests.
+1. coding: Python/C++ code, algorithms, data structures, scripts, debugging, unit tests, type annotations, docstrings.
 2. mathematics: algebraic derivations, calculus, linear algebra, proofs, probability, numerical optimization.
 3. formal_reasoning: logical verification, trade-off analysis, counterfactual reasoning, constraint validation.
 4. retrieval_qa: factual knowledge, RFCs, API specifications, compliance standards, technical documentation.
@@ -35,23 +44,103 @@ Specialist Domain Categories (Strict 8-Domain Pool):
 7. creative_synthesis: high-level architecture overviews, executive summaries, technical reports.
 8. systems_ops: shell scripting, Docker/k8s, process management, POSIX, networking, concurrency.
 
-Output strictly valid JSON with no markdown wrapping:
+FEW-SHOT EXAMPLES:
+
+Example 1 (Compound Query - Multi-Domain):
+User: "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #21."
+Output:
 {
   "subtasks": [
     {
       "id": "node_1",
-      "text": "Specific domain instruction",
-      "capability": "structured_data",
+      "text": "Retrieve official security RFC standards and Linux socket vulnerability specifications.",
+      "capability": "retrieval_qa",
       "dependencies": []
     },
     {
       "id": "node_2",
-      "text": "Dependent domain instruction",
-      "capability": "coding",
+      "text": "Evaluate Linux socket vulnerabilities, security controls, and kernel-level mitigations.",
+      "capability": "formal_reasoning",
       "dependencies": ["node_1"]
+    },
+    {
+      "id": "node_3",
+      "text": "Implement a sandboxed Python runtime for secure socket communication.",
+      "capability": "coding",
+      "dependencies": ["node_1", "node_2"]
     }
   ]
 }
+
+Example 2 (Compound Query - Multi-Domain):
+User: "Simulate physical thermodynamic diffusion, solve partial differential matrices, and export relational parquet datasets for multi-disciplinary challenge #41."
+Output:
+{
+  "subtasks": [
+    {
+      "id": "node_1",
+      "text": "Define physical thermodynamic diffusion principles, boundary conditions, and continuous governing equations.",
+      "capability": "science_tech",
+      "dependencies": []
+    },
+    {
+      "id": "node_2",
+      "text": "Construct discrete Laplacian partial differential matrices and implement numerical time-stepping in Python.",
+      "capability": "coding",
+      "dependencies": ["node_1"]
+    },
+    {
+      "id": "node_3",
+      "text": "Export simulation trajectory to relational Parquet dataset format with schema validation.",
+      "capability": "structured_data",
+      "dependencies": ["node_2"]
+    }
+  ]
+}
+
+Example 3 (Atomic Query - Single Domain Mathematics):
+User: "Derive the closed-form analytical solution and prove convergence properties for mathematical formula #1, showing all intermediate algebraic steps."
+Output:
+{
+  "subtasks": [
+    {
+      "id": "node_1",
+      "text": "Derive the closed-form analytical solution and prove convergence properties for mathematical formula #1, showing all intermediate algebraic steps.",
+      "capability": "mathematics",
+      "dependencies": []
+    }
+  ]
+}
+
+Example 4 (Atomic Query - Single Domain Formal Reasoning):
+User: "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs."
+Output:
+{
+  "subtasks": [
+    {
+      "id": "node_1",
+      "text": "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs.",
+      "capability": "formal_reasoning",
+      "dependencies": []
+    }
+  ]
+}
+
+Example 5 (Atomic Query - Single Domain Coding):
+User: "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests."
+Output:
+{
+  "subtasks": [
+    {
+      "id": "node_1",
+      "text": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+      "capability": "coding",
+      "dependencies": []
+    }
+  ]
+}
+
+Output strictly valid JSON with no markdown wrapping:
 """
 
 RE_DECOMPOSER_V3_SYSTEM_PROMPT = """You are an expert subtask refinement model for an 8-specialist SLM pipeline.
@@ -91,6 +180,23 @@ class DecomposerSLM_v3:
             temperature=0.0
         )
         dag, is_valid = self._parse_dag_json(resp.text, fallback_prefix="node", default_query=query_text, depth=0)
+
+        # Architectural Guard against Intra-Domain Over-Fragmentation (Fix 1 from v2):
+        # If all subtasks emitted belong to the exact same capability domain,
+        # collapse them into a single coherent atomic task for that specialist.
+        if dag.get("subtasks"):
+            caps = [s.get("capability", "coding") for s in dag["subtasks"]]
+            if len(set(caps)) == 1 and len(dag["subtasks"]) > 1:
+                dag["subtasks"] = [
+                    {
+                        "id": "node_1",
+                        "text": query_text,
+                        "capability": caps[0],
+                        "dependencies": [],
+                        "depth": 0
+                    }
+                ]
+
         return {
             "subtasks": dag["subtasks"],
             "is_schema_valid": is_valid,
@@ -153,12 +259,22 @@ class DecomposerSLM_v3:
         }
 
     def _parse_dag_json(self, raw_text: str, fallback_prefix: str, default_query: str, depth: int) -> Tuple[Dict[str, Any], bool]:
-        cleaned = re.sub(r"^```json\s*", "", raw_text.strip(), flags=re.IGNORECASE)
-        cleaned = re.sub(r"^```\s*", "", cleaned)
-        cleaned = re.sub(r"```$", "", cleaned.strip())
+        text = raw_text.strip()
+        # Check for code blocks first
+        match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", text, flags=re.IGNORECASE)
+        if match:
+            candidate = match.group(1).strip()
+        else:
+            # Find outermost curly braces
+            start = text.find("{")
+            end = text.rfind("}")
+            if start != -1 and end != -1 and end > start:
+                candidate = text[start:end+1].strip()
+            else:
+                candidate = text
 
         try:
-            parsed = json.loads(cleaned)
+            parsed = json.loads(candidate)
             if isinstance(parsed, dict) and "subtasks" in parsed and isinstance(parsed["subtasks"], list) and len(parsed["subtasks"]) > 0:
                 for idx, sub in enumerate(parsed["subtasks"]):
                     if not isinstance(sub, dict):

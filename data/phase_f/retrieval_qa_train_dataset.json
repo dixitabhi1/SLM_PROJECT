@@ -1,0 +1,2676 @@
+[
+  {
+    "sample_id": "RET_QA_0032",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: What is 0-RTT Early Data in RFC 8446 and what security consideration applies to it?",
+    "response": "In RFC 8446, 0-RTT Early Data allows a client resuming a previous session to transmit application data alongside the initial ClientHello. A crucial security consideration specified in RFC 8446 is that 0-RTT data is vulnerable to replay attacks, requiring server-side replay defense mechanisms.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0022",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: How does RFC 8446 enforce Forward Secrecy across all connections?",
+    "response": "RFC 8446 enforces Forward Secrecy by requiring Ephemeral Diffie-Hellman Key Exchange (ECDHE or DHE) for all key exchange operations. Static RSA key exchange is completely removed, ensuring that compromise of the server private key cannot compromise past recorded session traffic.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0013",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What RFC obsoleted RFC 5246?",
+    "response": "RFC 5246 was officially obsoleted by RFC 8446 ('The Transport Layer Security (TLS) Protocol Version 1.3'), published by the IETF on the Standards Track.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0004",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What AEAD cipher suites are exclusively permitted in RFC 8446 (TLS 1.3)?",
+    "response": "RFC 8446 permits only Authenticated Encryption with Associated Data (AEAD) ciphers. The permitted suites include AES-128-GCM, AES-256-GCM, ChaCha20-Poly1305, and AES-CCM suites. Non-AEAD and CBC-mode ciphers are strictly prohibited.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0040",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: State the official standards body, status, and title for RFC 8446.",
+    "response": "Official details for RFC 8446:\n- Standards Body: IETF (Internet Engineering Task Force)\n- Status: Standards Track\n- Title: The Transport Layer Security (TLS) Protocol Version 1.3\n- Obsoletes: RFC 5246 and RFC 2246.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0039",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: Explain Encrypted Server Name Indication (ESNI/ECH) in the context of RFC 8446.",
+    "response": "RFC 8446 architecture incorporates Encrypted Server Name Indication (ESNI), now developed as Encrypted Client Hello (ECH). It encrypts the target server hostname within the ClientHello, preventing eavesdroppers on the network path from discovering which specific domain or service the client is accessing.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0011",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "In IETF RFC 8446, how does key exchange differ from RFC 5246?",
+    "response": "In RFC 8446 (TLS 1.3), key exchange mandates ephemeral Diffie-Hellman (ECDHE/DHE) to guarantee forward secrecy, whereas RFC 5246 (TLS 1.2) permitted static RSA key transport where a single private key compromise could decrypt past captured sessions.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0025",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: What AEAD cipher suites are exclusively permitted in RFC 8446 (TLS 1.3)?",
+    "response": "RFC 8446 permits only Authenticated Encryption with Associated Data (AEAD) ciphers. The permitted suites include AES-128-GCM, AES-256-GCM, ChaCha20-Poly1305, and AES-CCM suites. Non-AEAD and CBC-mode ciphers are strictly prohibited.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0036",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: How does RFC 8446 protect server certificate privacy during the handshake?",
+    "response": "Unlike TLS 1.2 where the server certificate was sent in plaintext, RFC 8446 specifies that handshake messages following the ServerHello\u2014including the server certificate (Certificate) and CertificateVerify\u2014are encrypted using keys derived from the ephemeral Diffie-Hellman exchange.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0001",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What RFC defines the Transport Layer Security (TLS) 1.3 protocol, and what earlier RFCs did it obsolete?",
+    "response": "According to RFC 8446, TLS 1.3 is defined as a Standards Track Internet protocol. RFC 8446 explicitly obsoletes RFC 5246 (TLS 1.2) and RFC 2246 (TLS 1.0). It updates the transport security architecture by eliminating legacy cryptographic suites and streamlining the handshake.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0044",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: Why were CBC-mode ciphers removed in RFC 8446?",
+    "response": "CBC-mode ciphers were removed in RFC 8446 because their reliance on mac-then-encrypt constructions and padding validation repeatedly exposed implementations to padding oracle and side-channel attacks (e.g., Lucky Thirteen). RFC 8446 replaced them exclusively with AEAD ciphers.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0019",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: Which obsolete cryptographic algorithms are deprecated and removed in RFC 8446 (TLS 1.3)?",
+    "response": "Under RFC 8446 (TLS 1.3), deprecated and removed cryptographic primitives include RC4, SHA-1, MD5, static RSA key exchange, and all CBC-mode ciphers. RFC 8446 mandates modern Authenticated Encryption with Associated Data (AEAD) and removes ciphers susceptible to padding oracle attacks.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0034",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: How does RFC 8446 protect server certificate privacy during the handshake?",
+    "response": "Unlike TLS 1.2 where the server certificate was sent in plaintext, RFC 8446 specifies that handshake messages following the ServerHello\u2014including the server certificate (Certificate) and CertificateVerify\u2014are encrypted using keys derived from the ephemeral Diffie-Hellman exchange.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0049",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: Explain why static RSA key exchange is disallowed under RFC 8446.",
+    "response": "RFC 8446 disallows static RSA key exchange because it does not provide Forward Secrecy. If the server's long-term private RSA key is ever exposed, all past sessions recorded by an attacker can be decrypted retroactively. Ephemeral ECDHE/DHE prevents this.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0042",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: State the official standards body, status, and title for RFC 8446.",
+    "response": "Official details for RFC 8446:\n- Standards Body: IETF (Internet Engineering Task Force)\n- Status: Standards Track\n- Title: The Transport Layer Security (TLS) Protocol Version 1.3\n- Obsoletes: RFC 5246 and RFC 2246.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0031",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: What is 0-RTT Early Data in RFC 8446 and what security consideration applies to it?",
+    "response": "In RFC 8446, 0-RTT Early Data allows a client resuming a previous session to transmit application data alongside the initial ClientHello. A crucial security consideration specified in RFC 8446 is that 0-RTT data is vulnerable to replay attacks, requiring server-side replay defense mechanisms.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0029",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: Compare the connection latency of TLS 1.3 per RFC 8446 to earlier TLS versions.",
+    "response": "Per RFC 8446, TLS 1.3 reduces standard handshake latency to a 1-RTT (one round-trip time) exchange, compared to 2-RTT in TLS 1.2 (RFC 5246). Furthermore, RFC 8446 introduces an optional 0-RTT Early Data resumption mechanism for clients reconnecting to a known server.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0021",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: Which obsolete cryptographic algorithms are deprecated and removed in RFC 8446 (TLS 1.3)?",
+    "response": "Under RFC 8446 (TLS 1.3), deprecated and removed cryptographic primitives include RC4, SHA-1, MD5, static RSA key exchange, and all CBC-mode ciphers. RFC 8446 mandates modern Authenticated Encryption with Associated Data (AEAD) and removes ciphers susceptible to padding oracle attacks.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0023",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: How does RFC 8446 enforce Forward Secrecy across all connections?",
+    "response": "RFC 8446 enforces Forward Secrecy by requiring Ephemeral Diffie-Hellman Key Exchange (ECDHE or DHE) for all key exchange operations. Static RSA key exchange is completely removed, ensuring that compromise of the server private key cannot compromise past recorded session traffic.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0043",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: Why were CBC-mode ciphers removed in RFC 8446?",
+    "response": "CBC-mode ciphers were removed in RFC 8446 because their reliance on mac-then-encrypt constructions and padding validation repeatedly exposed implementations to padding oracle and side-channel attacks (e.g., Lucky Thirteen). RFC 8446 replaced them exclusively with AEAD ciphers.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0047",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: In IETF RFC 8446, how does key exchange differ from RFC 5246?",
+    "response": "In RFC 8446 (TLS 1.3), key exchange mandates ephemeral Diffie-Hellman (ECDHE/DHE) to guarantee forward secrecy, whereas RFC 5246 (TLS 1.2) permitted static RSA key transport where a single private key compromise could decrypt past captured sessions.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0037",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: Explain Encrypted Server Name Indication (ESNI/ECH) in the context of RFC 8446.",
+    "response": "RFC 8446 architecture incorporates Encrypted Server Name Indication (ESNI), now developed as Encrypted Client Hello (ECH). It encrypts the target server hostname within the ClientHello, preventing eavesdroppers on the network path from discovering which specific domain or service the client is accessing.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0033",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: What is 0-RTT Early Data in RFC 8446 and what security consideration applies to it?",
+    "response": "In RFC 8446, 0-RTT Early Data allows a client resuming a previous session to transmit application data alongside the initial ClientHello. A crucial security consideration specified in RFC 8446 is that 0-RTT data is vulnerable to replay attacks, requiring server-side replay defense mechanisms.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0045",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: Why were CBC-mode ciphers removed in RFC 8446?",
+    "response": "CBC-mode ciphers were removed in RFC 8446 because their reliance on mac-then-encrypt constructions and padding validation repeatedly exposed implementations to padding oracle and side-channel attacks (e.g., Lucky Thirteen). RFC 8446 replaced them exclusively with AEAD ciphers.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0014",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What hash algorithm does TLS 1.3 mandate for its handshake signature schemes?",
+    "response": "Under RFC 8446, TLS 1.3 requires modern cryptographic hash algorithms (SHA-256, SHA-384) in combination with EdDSA, ECDSA, or RSA-PSS, completely deprecating MD5 and SHA-1.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0050",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: Explain why static RSA key exchange is disallowed under RFC 8446.",
+    "response": "RFC 8446 disallows static RSA key exchange because it does not provide Forward Secrecy. If the server's long-term private RSA key is ever exposed, all past sessions recorded by an attacker can be decrypted retroactively. Ephemeral ECDHE/DHE prevents this.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0048",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: In IETF RFC 8446, how does key exchange differ from RFC 5246?",
+    "response": "In RFC 8446 (TLS 1.3), key exchange mandates ephemeral Diffie-Hellman (ECDHE/DHE) to guarantee forward secrecy, whereas RFC 5246 (TLS 1.2) permitted static RSA key transport where a single private key compromise could decrypt past captured sessions.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0003",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "How does RFC 8446 enforce Forward Secrecy across all connections?",
+    "response": "RFC 8446 enforces Forward Secrecy by requiring Ephemeral Diffie-Hellman Key Exchange (ECDHE or DHE) for all key exchange operations. Static RSA key exchange is completely removed, ensuring that compromise of the server private key cannot compromise past recorded session traffic.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0028",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: Compare the connection latency of TLS 1.3 per RFC 8446 to earlier TLS versions.",
+    "response": "Per RFC 8446, TLS 1.3 reduces standard handshake latency to a 1-RTT (one round-trip time) exchange, compared to 2-RTT in TLS 1.2 (RFC 5246). Furthermore, RFC 8446 introduces an optional 0-RTT Early Data resumption mechanism for clients reconnecting to a known server.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0038",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: Explain Encrypted Server Name Indication (ESNI/ECH) in the context of RFC 8446.",
+    "response": "RFC 8446 architecture incorporates Encrypted Server Name Indication (ESNI), now developed as Encrypted Client Hello (ECH). It encrypts the target server hostname within the ClientHello, preventing eavesdroppers on the network path from discovering which specific domain or service the client is accessing.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0006",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What is 0-RTT Early Data in RFC 8446 and what security consideration applies to it?",
+    "response": "In RFC 8446, 0-RTT Early Data allows a client resuming a previous session to transmit application data alongside the initial ClientHello. A crucial security consideration specified in RFC 8446 is that 0-RTT data is vulnerable to replay attacks, requiring server-side replay defense mechanisms.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0035",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: How does RFC 8446 protect server certificate privacy during the handshake?",
+    "response": "Unlike TLS 1.2 where the server certificate was sent in plaintext, RFC 8446 specifies that handshake messages following the ServerHello\u2014including the server certificate (Certificate) and CertificateVerify\u2014are encrypted using keys derived from the ephemeral Diffie-Hellman exchange.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0007",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "How does RFC 8446 protect server certificate privacy during the handshake?",
+    "response": "Unlike TLS 1.2 where the server certificate was sent in plaintext, RFC 8446 specifies that handshake messages following the ServerHello\u2014including the server certificate (Certificate) and CertificateVerify\u2014are encrypted using keys derived from the ephemeral Diffie-Hellman exchange.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0009",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "State the official standards body, status, and title for RFC 8446.",
+    "response": "Official details for RFC 8446:\n- Standards Body: IETF (Internet Engineering Task Force)\n- Status: Standards Track\n- Title: The Transport Layer Security (TLS) Protocol Version 1.3\n- Obsoletes: RFC 5246 and RFC 2246.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0015",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Describe the 1-RTT handshake flow specified in RFC 8446.",
+    "response": "In RFC 8446, the client sends ClientHello with supported key shares (ECDHE). The server responds with ServerHello and its key share, immediately establishing encryption keys. The server then sends encrypted extensions, certificate, and Finished in 1 round trip.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0016",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Please specify: What RFC defines the Transport Layer Security (TLS) 1.3 protocol, and what earlier RFCs did it obsolete?",
+    "response": "According to RFC 8446, TLS 1.3 is defined as a Standards Track Internet protocol. RFC 8446 explicitly obsoletes RFC 5246 (TLS 1.2) and RFC 2246 (TLS 1.0). It updates the transport security architecture by eliminating legacy cryptographic suites and streamlining the handshake.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0018",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: What RFC defines the Transport Layer Security (TLS) 1.3 protocol, and what earlier RFCs did it obsolete?",
+    "response": "According to RFC 8446, TLS 1.3 is defined as a Standards Track Internet protocol. RFC 8446 explicitly obsoletes RFC 5246 (TLS 1.2) and RFC 2246 (TLS 1.0). It updates the transport security architecture by eliminating legacy cryptographic suites and streamlining the handshake.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0002",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Which obsolete cryptographic algorithms are deprecated and removed in RFC 8446 (TLS 1.3)?",
+    "response": "Under RFC 8446 (TLS 1.3), deprecated and removed cryptographic primitives include RC4, SHA-1, MD5, static RSA key exchange, and all CBC-mode ciphers. RFC 8446 mandates modern Authenticated Encryption with Associated Data (AEAD) and removes ciphers susceptible to padding oracle attacks.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0008",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain Encrypted Server Name Indication (ESNI/ECH) in the context of RFC 8446.",
+    "response": "RFC 8446 architecture incorporates Encrypted Server Name Indication (ESNI), now developed as Encrypted Client Hello (ECH). It encrypts the target server hostname within the ClientHello, preventing eavesdroppers on the network path from discovering which specific domain or service the client is accessing.",
+    "doc_ids": [
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0041",
+    "category": "tls_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an engineering standards perspective: State the official standards body, status, and title for RFC 8446.",
+    "response": "Official details for RFC 8446:\n- Standards Body: IETF (Internet Engineering Task Force)\n- Status: Standards Track\n- Title: The Transport Layer Security (TLS) Protocol Version 1.3\n- Obsoletes: RFC 5246 and RFC 2246.",
+    "doc_ids": [
+      "RFC-8446",
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0059",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Standards audit: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0076",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0081",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an IETF compliance standpoint: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0082",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Summarize the standard: What negotiation capability was added in RFC 5246 for signatures?",
+    "response": "RFC 5246 added configurable signature and hash algorithm negotiation via the signature_algorithms extension, enabling clients and servers to explicitly negotiate allowed hash/signature pairings.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0061",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What does RFC 5246 mandate regarding: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0067",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: What pseudorandom function (PRF) improvement did RFC 5246 introduce over earlier TLS versions?",
+    "response": "RFC 5246 replaced the dual MD5/SHA-1 PRF from TLS 1.0/1.1 with a PRF based on SHA-256, allowing cipher suites to specify their own PRF hash algorithms.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0055",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Summarize the standard: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0074",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC specification query: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0054",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What negotiation capability was added in RFC 5246 for signatures?",
+    "response": "RFC 5246 added configurable signature and hash algorithm negotiation via the signature_algorithms extension, enabling clients and servers to explicitly negotiate allowed hash/signature pairings.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0079",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What does RFC 5246 mandate regarding: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0072",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "From an IETF compliance standpoint: What pseudorandom function (PRF) improvement did RFC 5246 introduce over earlier TLS versions?",
+    "response": "RFC 5246 replaced the dual MD5/SHA-1 PRF from TLS 1.0/1.1 with a PRF based on SHA-256, allowing cipher suites to specify their own PRF hash algorithms.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0080",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Protocol specification: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0084",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Detail the exact mechanism: What negotiation capability was added in RFC 5246 for signatures?",
+    "response": "RFC 5246 added configurable signature and hash algorithm negotiation via the signature_algorithms extension, enabling clients and servers to explicitly negotiate allowed hash/signature pairings.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0052",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What pseudorandom function (PRF) improvement did RFC 5246 introduce over earlier TLS versions?",
+    "response": "RFC 5246 replaced the dual MD5/SHA-1 PRF from TLS 1.0/1.1 with a PRF based on SHA-256, allowing cipher suites to specify their own PRF hash algorithms.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0053",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0073",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Summarize the standard: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0057",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Detail the exact mechanism: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0069",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Review RFC 5246: What pseudorandom function (PRF) improvement did RFC 5246 introduce over earlier TLS versions?",
+    "response": "RFC 5246 replaced the dual MD5/SHA-1 PRF from TLS 1.0/1.1 with a PRF based on SHA-256, allowing cipher suites to specify their own PRF hash algorithms.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0062",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Protocol specification: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0070",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What does RFC 5246 mandate regarding: What pseudorandom function (PRF) improvement did RFC 5246 introduce over earlier TLS versions?",
+    "response": "RFC 5246 replaced the dual MD5/SHA-1 PRF from TLS 1.0/1.1 with a PRF based on SHA-256, allowing cipher suites to specify their own PRF hash algorithms.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0071",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Protocol specification: What pseudorandom function (PRF) improvement did RFC 5246 introduce over earlier TLS versions?",
+    "response": "RFC 5246 replaced the dual MD5/SHA-1 PRF from TLS 1.0/1.1 with a PRF based on SHA-256, allowing cipher suites to specify their own PRF hash algorithms.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0077",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Standards audit: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0060",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Review RFC 5246: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0068",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Standards audit: What pseudorandom function (PRF) improvement did RFC 5246 introduce over earlier TLS versions?",
+    "response": "RFC 5246 replaced the dual MD5/SHA-1 PRF from TLS 1.0/1.1 with a PRF based on SHA-256, allowing cipher suites to specify their own PRF hash algorithms.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0056",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC specification query: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0075",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Detail the exact mechanism: How did RFC 5246 advance AEAD cipher adoption?",
+    "response": "RFC 5246 introduced standard support for Authenticated Encryption with Associated Data (AEAD) cipher suites, such as AES-GCM, laying the groundwork for the AEAD-only mandate later codified in RFC 8446.",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0058",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: What is the official title and status of RFC 5246?",
+    "response": "RFC 5246 is titled 'The Transport Layer Security (TLS) Protocol Version 1.2', published by the IETF as a Proposed Standard. It was subsequently obsoleted by RFC 8446 (TLS 1.3).",
+    "doc_ids": [
+      "RFC-5246",
+      "RFC-8446"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0085",
+    "category": "tls_12_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: What negotiation capability was added in RFC 5246 for signatures?",
+    "response": "RFC 5246 added configurable signature and hash algorithm negotiation via the signature_algorithms extension, enabling clients and servers to explicitly negotiate allowed hash/signature pairings.",
+    "doc_ids": [
+      "RFC-5246"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0113",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "IPsec architecture audit: Explain the function of the Peer Authorization Database (PAD) defined in RFC 4301.",
+    "response": "The Peer Authorization Database (PAD) in RFC 4301 provides the crucial link between the security protocol (IKE) and the SPD. It validates the authenticated identity of an IKE peer and determines what IP addresses and traffic selectors that peer is authorized to negotiate SAs for.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0117",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding IPsec: Explain the function of the Peer Authorization Database (PAD) defined in RFC 4301.",
+    "response": "The Peer Authorization Database (PAD) in RFC 4301 provides the crucial link between the security protocol (IKE) and the SPD. It validates the authenticated identity of an IKE peer and determines what IP addresses and traffic selectors that peer is authorized to negotiate SAs for.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0135",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding IPsec: Distinguish Encapsulating Security Payload (ESP) from Authentication Header (AH) in RFC 4301.",
+    "response": "In RFC 4301, ESP (RFC 4303) provides confidentiality, data origin authentication, connectionless integrity, and anti-replay service. In contrast, AH (RFC 4302) provides data integrity, origin authentication, and anti-replay, but provides zero confidentiality/encryption.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0095",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "IPsec architecture audit: What RFC specifies the base Security Architecture for the Internet Protocol (IPsec)?",
+    "response": "RFC 4301, 'Security Architecture for the Internet Protocol', is the IETF Standards Track specification defining IPsec. It obsoletes RFC 2401 and defines the interaction of the SPD, SAD, PAD, and traffic selectors.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0097",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain in detail: What RFC specifies the base Security Architecture for the Internet Protocol (IPsec)?",
+    "response": "RFC 4301, 'Security Architecture for the Internet Protocol', is the IETF Standards Track specification defining IPsec. It obsoletes RFC 2401 and defines the interaction of the SPD, SAD, PAD, and traffic selectors.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0116",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: Explain the function of the Peer Authorization Database (PAD) defined in RFC 4301.",
+    "response": "The Peer Authorization Database (PAD) in RFC 4301 provides the crucial link between the security protocol (IKE) and the SPD. It validates the authenticated identity of an IKE peer and determines what IP addresses and traffic selectors that peer is authorized to negotiate SAs for.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0093",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What RFC did RFC 4301 obsolete?",
+    "response": "RFC 4301 officially obsoleted RFC 2401, modernizing the IPsec architecture, refining the SPD/PAD data model, and improving multi-SA bundle handling.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0105",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding IPsec: What is the role of the Security Policy Database (SPD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Policy Database (SPD) specifies the policies that determine the disposition of all IP traffic arriving at or departing from a host or security gateway: whether traffic is discarded (DISCARD), bypassed without IPsec (BYPASS), or processed by IPsec (PROTECT).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0094",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security query: What RFC specifies the base Security Architecture for the Internet Protocol (IPsec)?",
+    "response": "RFC 4301, 'Security Architecture for the Internet Protocol', is the IETF Standards Track specification defining IPsec. It obsoletes RFC 2401 and defines the interaction of the SPD, SAD, PAD, and traffic selectors.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0118",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security query: What three parameters uniquely identify a Security Association (SA) under RFC 4301?",
+    "response": "Per RFC 4301, a Security Association (SA) is uniquely identified by a triad: (1) the Security Parameter Index (SPI), (2) the IP destination address, and (3) the security protocol identifier (either AH per RFC 4302 or ESP per RFC 4303).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0123",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding IPsec: What three parameters uniquely identify a Security Association (SA) under RFC 4301?",
+    "response": "Per RFC 4301, a Security Association (SA) is uniquely identified by a triad: (1) the Security Parameter Index (SPI), (2) the IP destination address, and (3) the security protocol identifier (either AH per RFC 4302 or ESP per RFC 4303).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0130",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security query: Distinguish Encapsulating Security Payload (ESP) from Authentication Header (AH) in RFC 4301.",
+    "response": "In RFC 4301, ESP (RFC 4303) provides confidentiality, data origin authentication, connectionless integrity, and anti-replay service. In contrast, AH (RFC 4302) provides data integrity, origin authentication, and anti-replay, but provides zero confidentiality/encryption.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0098",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: What RFC specifies the base Security Architecture for the Internet Protocol (IPsec)?",
+    "response": "RFC 4301, 'Security Architecture for the Internet Protocol', is the IETF Standards Track specification defining IPsec. It obsoletes RFC 2401 and defines the interaction of the SPD, SAD, PAD, and traffic selectors.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0133",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain in detail: Distinguish Encapsulating Security Payload (ESP) from Authentication Header (AH) in RFC 4301.",
+    "response": "In RFC 4301, ESP (RFC 4303) provides confidentiality, data origin authentication, connectionless integrity, and anti-replay service. In contrast, AH (RFC 4302) provides data integrity, origin authentication, and anti-replay, but provides zero confidentiality/encryption.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0127",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain in detail: Compare Transport Mode and Tunnel Mode as specified in RFC 4301.",
+    "response": "Per RFC 4301, Transport Mode provides protection primarily between end-hosts, inserting the IPsec header directly after the original IP header without encapsulating the outer packet. Tunnel Mode encapsulates the entire original IP packet within a new outer IP header, making it the required mode for security gateways.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0092",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Distinguish Encapsulating Security Payload (ESP) from Authentication Header (AH) in RFC 4301.",
+    "response": "In RFC 4301, ESP (RFC 4303) provides confidentiality, data origin authentication, connectionless integrity, and anti-replay service. In contrast, AH (RFC 4302) provides data integrity, origin authentication, and anti-replay, but provides zero confidentiality/encryption.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0134",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: Distinguish Encapsulating Security Payload (ESP) from Authentication Header (AH) in RFC 4301.",
+    "response": "In RFC 4301, ESP (RFC 4303) provides confidentiality, data origin authentication, connectionless integrity, and anti-replay service. In contrast, AH (RFC 4302) provides data integrity, origin authentication, and anti-replay, but provides zero confidentiality/encryption.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0108",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 4301 verification: What is the role of the Security Association Database (SAD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Association Database (SAD) contains the parameters and cryptographic state for all active Security Associations (SAs), including encryption/integrity keys, sequence numbers, anti-replay windows, and lifetime limits.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0114",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 4301 verification: Explain the function of the Peer Authorization Database (PAD) defined in RFC 4301.",
+    "response": "The Peer Authorization Database (PAD) in RFC 4301 provides the crucial link between the security protocol (IKE) and the SPD. It validates the authenticated identity of an IKE peer and determines what IP addresses and traffic selectors that peer is authorized to negotiate SAs for.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0104",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: What is the role of the Security Policy Database (SPD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Policy Database (SPD) specifies the policies that determine the disposition of all IP traffic arriving at or departing from a host or security gateway: whether traffic is discarded (DISCARD), bypassed without IPsec (BYPASS), or processed by IPsec (PROTECT).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0131",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "IPsec architecture audit: Distinguish Encapsulating Security Payload (ESP) from Authentication Header (AH) in RFC 4301.",
+    "response": "In RFC 4301, ESP (RFC 4303) provides confidentiality, data origin authentication, connectionless integrity, and anti-replay service. In contrast, AH (RFC 4302) provides data integrity, origin authentication, and anti-replay, but provides zero confidentiality/encryption.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0099",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding IPsec: What RFC specifies the base Security Architecture for the Internet Protocol (IPsec)?",
+    "response": "RFC 4301, 'Security Architecture for the Internet Protocol', is the IETF Standards Track specification defining IPsec. It obsoletes RFC 2401 and defines the interaction of the SPD, SAD, PAD, and traffic selectors.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0090",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What three parameters uniquely identify a Security Association (SA) under RFC 4301?",
+    "response": "Per RFC 4301, a Security Association (SA) is uniquely identified by a triad: (1) the Security Parameter Index (SPI), (2) the IP destination address, and (3) the security protocol identifier (either AH per RFC 4302 or ESP per RFC 4303).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0129",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding IPsec: Compare Transport Mode and Tunnel Mode as specified in RFC 4301.",
+    "response": "Per RFC 4301, Transport Mode provides protection primarily between end-hosts, inserting the IPsec header directly after the original IP header without encapsulating the outer packet. Tunnel Mode encapsulates the entire original IP packet within a new outer IP header, making it the required mode for security gateways.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0111",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding IPsec: What is the role of the Security Association Database (SAD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Association Database (SAD) contains the parameters and cryptographic state for all active Security Associations (SAs), including encryption/integrity keys, sequence numbers, anti-replay windows, and lifetime limits.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0125",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "IPsec architecture audit: Compare Transport Mode and Tunnel Mode as specified in RFC 4301.",
+    "response": "Per RFC 4301, Transport Mode provides protection primarily between end-hosts, inserting the IPsec header directly after the original IP header without encapsulating the outer packet. Tunnel Mode encapsulates the entire original IP packet within a new outer IP header, making it the required mode for security gateways.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0088",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What is the role of the Security Association Database (SAD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Association Database (SAD) contains the parameters and cryptographic state for all active Security Associations (SAs), including encryption/integrity keys, sequence numbers, anti-replay windows, and lifetime limits.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0128",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: Compare Transport Mode and Tunnel Mode as specified in RFC 4301.",
+    "response": "Per RFC 4301, Transport Mode provides protection primarily between end-hosts, inserting the IPsec header directly after the original IP header without encapsulating the outer packet. Tunnel Mode encapsulates the entire original IP packet within a new outer IP header, making it the required mode for security gateways.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0089",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain the function of the Peer Authorization Database (PAD) defined in RFC 4301.",
+    "response": "The Peer Authorization Database (PAD) in RFC 4301 provides the crucial link between the security protocol (IKE) and the SPD. It validates the authenticated identity of an IKE peer and determines what IP addresses and traffic selectors that peer is authorized to negotiate SAs for.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0106",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security query: What is the role of the Security Association Database (SAD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Association Database (SAD) contains the parameters and cryptographic state for all active Security Associations (SAs), including encryption/integrity keys, sequence numbers, anti-replay windows, and lifetime limits.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0100",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security query: What is the role of the Security Policy Database (SPD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Policy Database (SPD) specifies the policies that determine the disposition of all IP traffic arriving at or departing from a host or security gateway: whether traffic is discarded (DISCARD), bypassed without IPsec (BYPASS), or processed by IPsec (PROTECT).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0121",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain in detail: What three parameters uniquely identify a Security Association (SA) under RFC 4301?",
+    "response": "Per RFC 4301, a Security Association (SA) is uniquely identified by a triad: (1) the Security Parameter Index (SPI), (2) the IP destination address, and (3) the security protocol identifier (either AH per RFC 4302 or ESP per RFC 4303).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0126",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 4301 verification: Compare Transport Mode and Tunnel Mode as specified in RFC 4301.",
+    "response": "Per RFC 4301, Transport Mode provides protection primarily between end-hosts, inserting the IPsec header directly after the original IP header without encapsulating the outer packet. Tunnel Mode encapsulates the entire original IP packet within a new outer IP header, making it the required mode for security gateways.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0103",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain in detail: What is the role of the Security Policy Database (SPD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Policy Database (SPD) specifies the policies that determine the disposition of all IP traffic arriving at or departing from a host or security gateway: whether traffic is discarded (DISCARD), bypassed without IPsec (BYPASS), or processed by IPsec (PROTECT).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0110",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical review: What is the role of the Security Association Database (SAD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Association Database (SAD) contains the parameters and cryptographic state for all active Security Associations (SAs), including encryption/integrity keys, sequence numbers, anti-replay windows, and lifetime limits.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0115",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain in detail: Explain the function of the Peer Authorization Database (PAD) defined in RFC 4301.",
+    "response": "The Peer Authorization Database (PAD) in RFC 4301 provides the crucial link between the security protocol (IKE) and the SPD. It validates the authenticated identity of an IKE peer and determines what IP addresses and traffic selectors that peer is authorized to negotiate SAs for.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0096",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 4301 verification: What RFC specifies the base Security Architecture for the Internet Protocol (IPsec)?",
+    "response": "RFC 4301, 'Security Architecture for the Internet Protocol', is the IETF Standards Track specification defining IPsec. It obsoletes RFC 2401 and defines the interaction of the SPD, SAD, PAD, and traffic selectors.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0101",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "IPsec architecture audit: What is the role of the Security Policy Database (SPD) in RFC 4301?",
+    "response": "In RFC 4301, the Security Policy Database (SPD) specifies the policies that determine the disposition of all IP traffic arriving at or departing from a host or security gateway: whether traffic is discarded (DISCARD), bypassed without IPsec (BYPASS), or processed by IPsec (PROTECT).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0132",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 4301 verification: Distinguish Encapsulating Security Payload (ESP) from Authentication Header (AH) in RFC 4301.",
+    "response": "In RFC 4301, ESP (RFC 4303) provides confidentiality, data origin authentication, connectionless integrity, and anti-replay service. In contrast, AH (RFC 4302) provides data integrity, origin authentication, and anti-replay, but provides zero confidentiality/encryption.",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0120",
+    "category": "ipsec_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 4301 verification: What three parameters uniquely identify a Security Association (SA) under RFC 4301?",
+    "response": "Per RFC 4301, a Security Association (SA) is uniquely identified by a triad: (1) the Security Parameter Index (SPI), (2) the IP destination address, and (3) the security protocol identifier (either AH per RFC 4302 or ESP per RFC 4303).",
+    "doc_ids": [
+      "RFC-4301"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0179",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network engineering inquiry: What is the official STD number assigned to RFC 9293?",
+    "response": "RFC 9293 is officially designated as IETF Internet Standard STD 7, representing the authoritative standard for TCP.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0158",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network engineering inquiry: Describe the TCP connection establishment handshake specified in RFC 9293.",
+    "response": "RFC 9293 specifies the classic three-way handshake: (1) Client sends SYN with its initial sequence number, entering SYN_SENT. (2) Server responds with SYN-ACK acknowledging client ISN and sending server ISN, entering SYN_RCVD. (3) Client sends ACK, entering ESTABLISHED.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0162",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding RFC 9293: Describe the TCP connection establishment handshake specified in RFC 9293.",
+    "response": "RFC 9293 specifies the classic three-way handshake: (1) Client sends SYN with its initial sequence number, entering SYN_SENT. (2) Server responds with SYN-ACK acknowledging client ISN and sending server ISN, entering SYN_RCVD. (3) Client sends ACK, entering ESTABLISHED.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0148",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding RFC 9293: What is the current standard specification for TCP and what RFC does it replace?",
+    "response": "The current standard specification for the Transmission Control Protocol (TCP) is RFC 9293, designated as IETF Internet Standard STD 7. RFC 9293 obsoleted the historic RFC 793 and consolidated four decades of TCP maintenance and security updates.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0156",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "TCP protocol question: Describe the TCP connection establishment handshake specified in RFC 9293.",
+    "response": "RFC 9293 specifies the classic three-way handshake: (1) Client sends SYN with its initial sequence number, entering SYN_SENT. (2) Server responds with SYN-ACK acknowledging client ISN and sending server ISN, entering SYN_RCVD. (3) Client sends ACK, entering ESTABLISHED.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0138",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Describe the TCP connection establishment handshake specified in RFC 9293.",
+    "response": "RFC 9293 specifies the classic three-way handshake: (1) Client sends SYN with its initial sequence number, entering SYN_SENT. (2) Server responds with SYN-ACK acknowledging client ISN and sending server ISN, entering SYN_RCVD. (3) Client sends ACK, entering ESTABLISHED.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0142",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "TCP protocol question: What is the current standard specification for TCP and what RFC does it replace?",
+    "response": "The current standard specification for the Transmission Control Protocol (TCP) is RFC 9293, designated as IETF Internet Standard STD 7. RFC 9293 obsoleted the historic RFC 793 and consolidated four decades of TCP maintenance and security updates.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0155",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding RFC 9293: How does RFC 9293 mitigate off-path blind TCP spoofing and reset attacks?",
+    "response": "RFC 9293 mitigates blind off-path spoofing and reset attacks by mandating randomized Initial Sequence Numbers (ISNs) generated using cryptographic PRNGs rather than simple linear clocks, and by enforcing strict sequence number and ACK validation checks.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0173",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "STD 7 specification check: Explain the TCP SYN Cookie defense referenced in RFC 9293.",
+    "response": "TCP SYN Cookies defend against SYN-flood denial-of-service attacks by encoding the connection state and cryptographic hash directly into the server's Initial Sequence Number (ISN). This allows the server to verify the connection upon receiving the client's final ACK without allocating memory state during the SYN phase.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0166",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "STD 7 specification check: What is the purpose of the TIME_WAIT state in RFC 9293?",
+    "response": "In RFC 9293, the TIME_WAIT state (2 * MSL) ensures that delayed duplicate segments from the closing connection have expired before the socket 4-tuple can be reused, and guarantees that the final ACK was received by the remote peer.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0167",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: What is the purpose of the TIME_WAIT state in RFC 9293?",
+    "response": "In RFC 9293, the TIME_WAIT state (2 * MSL) ensures that delayed duplicate segments from the closing connection have expired before the socket 4-tuple can be reused, and guarantees that the final ACK was received by the remote peer.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0178",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 9293 analysis: What is the official STD number assigned to RFC 9293?",
+    "response": "RFC 9293 is officially designated as IETF Internet Standard STD 7, representing the authoritative standard for TCP.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0171",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 9293 analysis: Explain the TCP SYN Cookie defense referenced in RFC 9293.",
+    "response": "TCP SYN Cookies defend against SYN-flood denial-of-service attacks by encoding the connection state and cryptographic hash directly into the server's Initial Sequence Number (ISN). This allows the server to verify the connection upon receiving the client's final ACK without allocating memory state during the SYN phase.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0144",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network engineering inquiry: What is the current standard specification for TCP and what RFC does it replace?",
+    "response": "The current standard specification for the Transmission Control Protocol (TCP) is RFC 9293, designated as IETF Internet Standard STD 7. RFC 9293 obsoleted the historic RFC 793 and consolidated four decades of TCP maintenance and security updates.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0177",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "TCP protocol question: What is the official STD number assigned to RFC 9293?",
+    "response": "RFC 9293 is officially designated as IETF Internet Standard STD 7, representing the authoritative standard for TCP.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0159",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "STD 7 specification check: Describe the TCP connection establishment handshake specified in RFC 9293.",
+    "response": "RFC 9293 specifies the classic three-way handshake: (1) Client sends SYN with its initial sequence number, entering SYN_SENT. (2) Server responds with SYN-ACK acknowledging client ISN and sending server ISN, entering SYN_RCVD. (3) Client sends ACK, entering ESTABLISHED.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0170",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "TCP protocol question: Explain the TCP SYN Cookie defense referenced in RFC 9293.",
+    "response": "TCP SYN Cookies defend against SYN-flood denial-of-service attacks by encoding the connection state and cryptographic hash directly into the server's Initial Sequence Number (ISN). This allows the server to verify the connection upon receiving the client's final ACK without allocating memory state during the SYN phase.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0150",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 9293 analysis: How does RFC 9293 mitigate off-path blind TCP spoofing and reset attacks?",
+    "response": "RFC 9293 mitigates blind off-path spoofing and reset attacks by mandating randomized Initial Sequence Numbers (ISNs) generated using cryptographic PRNGs rather than simple linear clocks, and by enforcing strict sequence number and ACK validation checks.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0141",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What is the official STD number assigned to RFC 9293?",
+    "response": "RFC 9293 is officially designated as IETF Internet Standard STD 7, representing the authoritative standard for TCP.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0149",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "TCP protocol question: How does RFC 9293 mitigate off-path blind TCP spoofing and reset attacks?",
+    "response": "RFC 9293 mitigates blind off-path spoofing and reset attacks by mandating randomized Initial Sequence Numbers (ISNs) generated using cryptographic PRNGs rather than simple linear clocks, and by enforcing strict sequence number and ACK validation checks.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0145",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "STD 7 specification check: What is the current standard specification for TCP and what RFC does it replace?",
+    "response": "The current standard specification for the Transmission Control Protocol (TCP) is RFC 9293, designated as IETF Internet Standard STD 7. RFC 9293 obsoleted the historic RFC 793 and consolidated four decades of TCP maintenance and security updates.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0139",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What is the purpose of the TIME_WAIT state in RFC 9293?",
+    "response": "In RFC 9293, the TIME_WAIT state (2 * MSL) ensures that delayed duplicate segments from the closing connection have expired before the socket 4-tuple can be reused, and guarantees that the final ACK was received by the remote peer.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0157",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 9293 analysis: Describe the TCP connection establishment handshake specified in RFC 9293.",
+    "response": "RFC 9293 specifies the classic three-way handshake: (1) Client sends SYN with its initial sequence number, entering SYN_SENT. (2) Server responds with SYN-ACK acknowledging client ISN and sending server ISN, entering SYN_RCVD. (3) Client sends ACK, entering ESTABLISHED.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0153",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: How does RFC 9293 mitigate off-path blind TCP spoofing and reset attacks?",
+    "response": "RFC 9293 mitigates blind off-path spoofing and reset attacks by mandating randomized Initial Sequence Numbers (ISNs) generated using cryptographic PRNGs rather than simple linear clocks, and by enforcing strict sequence number and ACK validation checks.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0143",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "RFC 9293 analysis: What is the current standard specification for TCP and what RFC does it replace?",
+    "response": "The current standard specification for the Transmission Control Protocol (TCP) is RFC 9293, designated as IETF Internet Standard STD 7. RFC 9293 obsoleted the historic RFC 793 and consolidated four decades of TCP maintenance and security updates.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0136",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What is the current standard specification for TCP and what RFC does it replace?",
+    "response": "The current standard specification for the Transmission Control Protocol (TCP) is RFC 9293, designated as IETF Internet Standard STD 7. RFC 9293 obsoleted the historic RFC 793 and consolidated four decades of TCP maintenance and security updates.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0152",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "STD 7 specification check: How does RFC 9293 mitigate off-path blind TCP spoofing and reset attacks?",
+    "response": "RFC 9293 mitigates blind off-path spoofing and reset attacks by mandating randomized Initial Sequence Numbers (ISNs) generated using cryptographic PRNGs rather than simple linear clocks, and by enforcing strict sequence number and ACK validation checks.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0169",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding RFC 9293: What is the purpose of the TIME_WAIT state in RFC 9293?",
+    "response": "In RFC 9293, the TIME_WAIT state (2 * MSL) ensures that delayed duplicate segments from the closing connection have expired before the socket 4-tuple can be reused, and guarantees that the final ACK was received by the remote peer.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0165",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network engineering inquiry: What is the purpose of the TIME_WAIT state in RFC 9293?",
+    "response": "In RFC 9293, the TIME_WAIT state (2 * MSL) ensures that delayed duplicate segments from the closing connection have expired before the socket 4-tuple can be reused, and guarantees that the final ACK was received by the remote peer.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0175",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Protocol audit: Explain the TCP SYN Cookie defense referenced in RFC 9293.",
+    "response": "TCP SYN Cookies defend against SYN-flood denial-of-service attacks by encoding the connection state and cryptographic hash directly into the server's Initial Sequence Number (ISN). This allows the server to verify the connection upon receiving the client's final ACK without allocating memory state during the SYN phase.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0160",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: Describe the TCP connection establishment handshake specified in RFC 9293.",
+    "response": "RFC 9293 specifies the classic three-way handshake: (1) Client sends SYN with its initial sequence number, entering SYN_SENT. (2) Server responds with SYN-ACK acknowledging client ISN and sending server ISN, entering SYN_RCVD. (3) Client sends ACK, entering ESTABLISHED.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0140",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain the TCP SYN Cookie defense referenced in RFC 9293.",
+    "response": "TCP SYN Cookies defend against SYN-flood denial-of-service attacks by encoding the connection state and cryptographic hash directly into the server's Initial Sequence Number (ISN). This allows the server to verify the connection upon receiving the client's final ACK without allocating memory state during the SYN phase.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0174",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: Explain the TCP SYN Cookie defense referenced in RFC 9293.",
+    "response": "TCP SYN Cookies defend against SYN-flood denial-of-service attacks by encoding the connection state and cryptographic hash directly into the server's Initial Sequence Number (ISN). This allows the server to verify the connection upon receiving the client's final ACK without allocating memory state during the SYN phase.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0163",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "TCP protocol question: What is the purpose of the TIME_WAIT state in RFC 9293?",
+    "response": "In RFC 9293, the TIME_WAIT state (2 * MSL) ensures that delayed duplicate segments from the closing connection have expired before the socket 4-tuple can be reused, and guarantees that the final ACK was received by the remote peer.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0146",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: What is the current standard specification for TCP and what RFC does it replace?",
+    "response": "The current standard specification for the Transmission Control Protocol (TCP) is RFC 9293, designated as IETF Internet Standard STD 7. RFC 9293 obsoleted the historic RFC 793 and consolidated four decades of TCP maintenance and security updates.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0176",
+    "category": "tcp_standards",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding RFC 9293: Explain the TCP SYN Cookie defense referenced in RFC 9293.",
+    "response": "TCP SYN Cookies defend against SYN-flood denial-of-service attacks by encoding the connection state and cryptographic hash directly into the server's Initial Sequence Number (ISN). This allows the server to verify the connection upon receiving the client's final ACK without allocating memory state during the SYN phase.",
+    "doc_ids": [
+      "RFC-9293"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0184",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What CVSS score is assigned to CVE-2023-32233?",
+    "response": "CVE-2023-32233 has a CVSS v3 score of 7.8 (High severity), reflecting local privilege escalation from unprivileged user to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0217",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What caused the double-free flaw in CVE-2017-6074?",
+    "response": "CVE-2017-6074 was caused by improper socket buffer (skb) accounting when handling IP_PKTOPTIONS in net/dccp/input.c. An sk_buff was freed during DCCP packet processing but the socket options pointer remained active, leading to a second free upon socket closure.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0246",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding DCCP: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0224",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel flaw review: Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0238",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux privilege escalation inquiry: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0207",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux netfilter security query: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0239",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "CVE-2017-6074 technical check: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0205",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "CVE-2023-32233 review: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0234",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: What caused the double-free flaw in CVE-2017-6074?",
+    "response": "CVE-2017-6074 was caused by improper socket buffer (skb) accounting when handling IP_PKTOPTIONS in net/dccp/input.c. An sk_buff was freed during DCCP packet processing but the socket options pointer remained active, leading to a second free upon socket closure.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0210",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding netfilter vulnerability: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0213",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Vulnerability analysis: What CVSS score is assigned to CVE-2023-32233?",
+    "response": "CVE-2023-32233 has a CVSS v3 score of 7.8 (High severity), reflecting local privilege escalation from unprivileged user to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0201",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding netfilter vulnerability: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0203",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel security advisory: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0183",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0181",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What is CVE-2023-32233 and which Linux kernel subsystem does it affect?",
+    "response": "CVE-2023-32233 is a high-severity (CVSS 7.8) Use-After-Free (UAF) vulnerability in the Linux kernel netfilter subsystem, specifically in net/netfilter/nf_tables_api.c. It allows an unprivileged local user to escalate privileges to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0218",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0199",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical triage: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0240",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer security query: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0182",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0202",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Security audit: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0185",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel security advisory: What is CVE-2023-32233 and which Linux kernel subsystem does it affect?",
+    "response": "CVE-2023-32233 is a high-severity (CVSS 7.8) Use-After-Free (UAF) vulnerability in the Linux kernel netfilter subsystem, specifically in net/netfilter/nf_tables_api.c. It allows an unprivileged local user to escalate privileges to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0195",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Vulnerability analysis: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0196",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "CVE-2023-32233 review: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0250",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Modprobe mitigation audit: What kernel patch resolved CVE-2017-6074?",
+    "response": "The kernel patch for CVE-2017-6074 corrected skb destruction and refcounting in net/dccp/input.c, ensuring that socket option buffers are not prematurely freed or double-freed during dccp_rcv_state_process.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0221",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "CVE-2017-6074 technical check: Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0237",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Regarding DCCP: What caused the double-free flaw in CVE-2017-6074?",
+    "response": "CVE-2017-6074 was caused by improper socket buffer (skb) accounting when handling IP_PKTOPTIONS in net/dccp/input.c. An sk_buff was freed during DCCP packet processing but the socket options pointer remained active, leading to a second free upon socket closure.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0209",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Describe: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0204",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Vulnerability analysis: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0222",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer security query: Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0242",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel flaw review: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0206",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Mitigation check: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0200",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Describe: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0226",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Security advisory: Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0193",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Security audit: What is CVE-2023-32233 and which Linux kernel subsystem does it affect?",
+    "response": "CVE-2023-32233 is a high-severity (CVSS 7.8) Use-After-Free (UAF) vulnerability in the Linux kernel netfilter subsystem, specifically in net/netfilter/nf_tables_api.c. It allows an unprivileged local user to escalate privileges to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0225",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0227",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel vulnerability analysis: Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0229",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux privilege escalation inquiry: What caused the double-free flaw in CVE-2017-6074?",
+    "response": "CVE-2017-6074 was caused by improper socket buffer (skb) accounting when handling IP_PKTOPTIONS in net/dccp/input.c. An sk_buff was freed during DCCP packet processing but the socket options pointer remained active, leading to a second free upon socket closure.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0215",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Mitigation check: What CVSS score is assigned to CVE-2023-32233?",
+    "response": "CVE-2023-32233 has a CVSS v3 score of 7.8 (High severity), reflecting local privilege escalation from unprivileged user to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0194",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel security advisory: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0208",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Technical triage: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0219",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What kernel patch resolved CVE-2017-6074?",
+    "response": "The kernel patch for CVE-2017-6074 corrected skb destruction and refcounting in net/dccp/input.c, ensuring that socket option buffers are not prematurely freed or double-freed during dccp_rcv_state_process.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0236",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel vulnerability analysis: What caused the double-free flaw in CVE-2017-6074?",
+    "response": "CVE-2017-6074 was caused by improper socket buffer (skb) accounting when handling IP_PKTOPTIONS in net/dccp/input.c. An sk_buff was freed during DCCP packet processing but the socket options pointer remained active, leading to a second free upon socket closure.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0214",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "CVE-2023-32233 review: What CVSS score is assigned to CVE-2023-32233?",
+    "response": "CVE-2023-32233 has a CVSS v3 score of 7.8 (High severity), reflecting local privilege escalation from unprivileged user to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0244",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Security advisory: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0247",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux privilege escalation inquiry: What kernel patch resolved CVE-2017-6074?",
+    "response": "The kernel patch for CVE-2017-6074 corrected skb destruction and refcounting in net/dccp/input.c, ensuring that socket option buffers are not prematurely freed or double-freed during dccp_rcv_state_process.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0216",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0249",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer security query: What kernel patch resolved CVE-2017-6074?",
+    "response": "The kernel patch for CVE-2017-6074 corrected skb destruction and refcounting in net/dccp/input.c, ensuring that socket option buffers are not prematurely freed or double-freed during dccp_rcv_state_process.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0223",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Modprobe mitigation audit: Describe CVE-2017-6074, its affected source file, and impact.",
+    "response": "CVE-2017-6074 is a high-severity (CVSS 7.8) double-free vulnerability in the Linux kernel Datagram Congestion Control Protocol (DCCP) implementation, located in net/dccp/input.c (dccp_rcv_state_process / IP_PKTOPTIONS). It allows local unprivileged users to overwrite kernel memory and gain root.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0245",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Kernel vulnerability analysis: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0197",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Mitigation check: Explain the vulnerability mechanism of CVE-2023-32233 in nf_tables.",
+    "response": "In CVE-2023-32233, an unprivileged user with access to user namespaces sends crafted netfilter batch requests that manipulate anonymous sets. Due to flawed set element lifetime accounting in net/netfilter/nf_tables_api.c, elements are freed while still referenced, causing a Use-After-Free condition.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0189",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux netfilter security query: What is CVE-2023-32233 and which Linux kernel subsystem does it affect?",
+    "response": "CVE-2023-32233 is a high-severity (CVSS 7.8) Use-After-Free (UAF) vulnerability in the Linux kernel netfilter subsystem, specifically in net/netfilter/nf_tables_api.c. It allows an unprivileged local user to escalate privileges to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0243",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain: How can a system administrator mitigate CVE-2017-6074 without immediate reboot?",
+    "response": "CVE-2017-6074 can be mitigated without a kernel reboot by blacklisting and disabling the DCCP kernel module: creating a modprobe rule 'install dccp /bin/true' in /etc/modprobe.d/dccp.conf, or unloading the module via 'rmmod dccp'.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0248",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "CVE-2017-6074 technical check: What kernel patch resolved CVE-2017-6074?",
+    "response": "The kernel patch for CVE-2017-6074 corrected skb destruction and refcounting in net/dccp/input.c, ensuring that socket option buffers are not prematurely freed or double-freed during dccp_rcv_state_process.",
+    "doc_ids": [
+      "CVE-2017-6074"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0191",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Describe: What is CVE-2023-32233 and which Linux kernel subsystem does it affect?",
+    "response": "CVE-2023-32233 is a high-severity (CVSS 7.8) Use-After-Free (UAF) vulnerability in the Linux kernel netfilter subsystem, specifically in net/netfilter/nf_tables_api.c. It allows an unprivileged local user to escalate privileges to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0211",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Security audit: What are the primary mitigations for CVE-2023-32233?",
+    "response": "Mitigations for CVE-2023-32233 include: (1) Updating the Linux kernel past version 6.3.2 where nf_tables_api.c was patched. (2) Disabling unprivileged user namespaces via sysctl: 'sysctl -w kernel.unprivileged_userns_clone=0' to prevent unprivileged users from accessing netfilter configuration.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0188",
+    "category": "kernel_vulnerabilities",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Mitigation check: What is CVE-2023-32233 and which Linux kernel subsystem does it affect?",
+    "response": "CVE-2023-32233 is a high-severity (CVSS 7.8) Use-After-Free (UAF) vulnerability in the Linux kernel netfilter subsystem, specifically in net/netfilter/nf_tables_api.c. It allows an unprivileged local user to escalate privileges to root.",
+    "doc_ids": [
+      "CVE-2023-32233"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0275",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Hardening audit: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0298",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "POSIX networking standard: How does SO_BINDTODEVICE prevent multi-homed interface bypass attacks?",
+    "response": "On multi-homed systems, the Linux routing engine may accept packets on one interface even if routed through another (weak host model). SO_BINDTODEVICE forces packet transmission and receipt to occur strictly on the bound device, enforcing interface isolation.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0281",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux socket security: How do Linux Network Namespaces (CLONE_NEWNET) isolate network traffic?",
+    "response": "The CLONE_NEWNET flag creates a completely isolated network namespace with its own network devices, IP routing tables, firewall rules (iptables/nftables), and socket listings, preventing unauthorized processes from observing or tampering with network traffic.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0267",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Hardening audit: What is SO_PASSCRED in Linux and how is peer identity authenticated?",
+    "response": "SO_PASSCRED is a socket option for UNIX domain sockets (AF_UNIX) that enables atomic passing of SCM_CREDENTIALS containing the sender's pid, uid, and gid. The operating system kernel verifies these credentials, preventing spoofing in local IPC.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0287",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer hardening: How do Linux Network Namespaces (CLONE_NEWNET) isolate network traffic?",
+    "response": "The CLONE_NEWNET flag creates a completely isolated network namespace with its own network devices, IP routing tables, firewall rules (iptables/nftables), and socket listings, preventing unauthorized processes from observing or tampering with network traffic.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0295",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer hardening: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0296",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security controls: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0289",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux socket security: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0251",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What does SO_BINDTODEVICE do and why is it essential for network socket hardening?",
+    "response": "SO_BINDTODEVICE is a Linux socket option that binds a socket exclusively to a specific network interface (e.g., 'eth0'). It prevents cross-interface packet leaking and routing bypass, ensuring packets are only sent and received via the designated interface even if alternate routes exist.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0274",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "POSIX networking standard: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0271",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer hardening: What is SO_PASSCRED in Linux and how is peer identity authenticated?",
+    "response": "SO_PASSCRED is a socket option for UNIX domain sockets (AF_UNIX) that enables atomic passing of SCM_CREDENTIALS containing the sender's pid, uid, and gid. The operating system kernel verifies these credentials, preventing spoofing in local IPC.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0252",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "What is SO_PASSCRED in Linux and how is peer identity authenticated?",
+    "response": "SO_PASSCRED is a socket option for UNIX domain sockets (AF_UNIX) that enables atomic passing of SCM_CREDENTIALS containing the sender's pid, uid, and gid. The operating system kernel verifies these credentials, preventing spoofing in local IPC.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0290",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "POSIX networking standard: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0268",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket API options: What is SO_PASSCRED in Linux and how is peer identity authenticated?",
+    "response": "SO_PASSCRED is a socket option for UNIX domain sockets (AF_UNIX) that enables atomic passing of SCM_CREDENTIALS containing the sender's pid, uid, and gid. The operating system kernel verifies these credentials, preventing spoofing in local IPC.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0297",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux socket security: How does SO_BINDTODEVICE prevent multi-homed interface bypass attacks?",
+    "response": "On multi-homed systems, the Linux routing engine may accept packets on one interface even if routed through another (weak host model). SO_BINDTODEVICE forces packet transmission and receipt to occur strictly on the bound device, enforcing interface isolation.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0253",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0258",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "POSIX networking standard: What does SO_BINDTODEVICE do and why is it essential for network socket hardening?",
+    "response": "SO_BINDTODEVICE is a Linux socket option that binds a socket exclusively to a specific network interface (e.g., 'eth0'). It prevents cross-interface packet leaking and routing bypass, ensuring packets are only sent and received via the designated interface even if alternate routes exist.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0265",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux socket security: What is SO_PASSCRED in Linux and how is peer identity authenticated?",
+    "response": "SO_PASSCRED is a socket option for UNIX domain sockets (AF_UNIX) that enables atomic passing of SCM_CREDENTIALS containing the sender's pid, uid, and gid. The operating system kernel verifies these credentials, preventing spoofing in local IPC.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0282",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "POSIX networking standard: How do Linux Network Namespaces (CLONE_NEWNET) isolate network traffic?",
+    "response": "The CLONE_NEWNET flag creates a completely isolated network namespace with its own network devices, IP routing tables, firewall rules (iptables/nftables), and socket listings, preventing unauthorized processes from observing or tampering with network traffic.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0256",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "How does SO_BINDTODEVICE prevent multi-homed interface bypass attacks?",
+    "response": "On multi-homed systems, the Linux routing engine may accept packets on one interface even if routed through another (weak host model). SO_BINDTODEVICE forces packet transmission and receipt to occur strictly on the bound device, enforcing interface isolation.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0264",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security controls: What does SO_BINDTODEVICE do and why is it essential for network socket hardening?",
+    "response": "SO_BINDTODEVICE is a Linux socket option that binds a socket exclusively to a specific network interface (e.g., 'eth0'). It prevents cross-interface packet leaking and routing bypass, ensuring packets are only sent and received via the designated interface even if alternate routes exist.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0259",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Hardening audit: What does SO_BINDTODEVICE do and why is it essential for network socket hardening?",
+    "response": "SO_BINDTODEVICE is a Linux socket option that binds a socket exclusively to a specific network interface (e.g., 'eth0'). It prevents cross-interface packet leaking and routing bypass, ensuring packets are only sent and received via the designated interface even if alternate routes exist.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0279",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer hardening: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0285",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain the mechanism: How do Linux Network Namespaces (CLONE_NEWNET) isolate network traffic?",
+    "response": "The CLONE_NEWNET flag creates a completely isolated network namespace with its own network devices, IP routing tables, firewall rules (iptables/nftables), and socket listings, preventing unauthorized processes from observing or tampering with network traffic.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0263",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket layer hardening: What does SO_BINDTODEVICE do and why is it essential for network socket hardening?",
+    "response": "SO_BINDTODEVICE is a Linux socket option that binds a socket exclusively to a specific network interface (e.g., 'eth0'). It prevents cross-interface packet leaking and routing bypass, ensuring packets are only sent and received via the designated interface even if alternate routes exist.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0266",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "POSIX networking standard: What is SO_PASSCRED in Linux and how is peer identity authenticated?",
+    "response": "SO_PASSCRED is a socket option for UNIX domain sockets (AF_UNIX) that enables atomic passing of SCM_CREDENTIALS containing the sender's pid, uid, and gid. The operating system kernel verifies these credentials, preventing spoofing in local IPC.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0291",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Hardening audit: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0272",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security controls: What is SO_PASSCRED in Linux and how is peer identity authenticated?",
+    "response": "SO_PASSCRED is a socket option for UNIX domain sockets (AF_UNIX) that enables atomic passing of SCM_CREDENTIALS containing the sender's pid, uid, and gid. The operating system kernel verifies these credentials, preventing spoofing in local IPC.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0276",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket API options: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0294",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "System engineering check: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0257",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux socket security: What does SO_BINDTODEVICE do and why is it essential for network socket hardening?",
+    "response": "SO_BINDTODEVICE is a Linux socket option that binds a socket exclusively to a specific network interface (e.g., 'eth0'). It prevents cross-interface packet leaking and routing bypass, ensuring packets are only sent and received via the designated interface even if alternate routes exist.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0300",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket API options: How does SO_BINDTODEVICE prevent multi-homed interface bypass attacks?",
+    "response": "On multi-homed systems, the Linux routing engine may accept packets on one interface even if routed through another (weak host model). SO_BINDTODEVICE forces packet transmission and receipt to occur strictly on the bound device, enforcing interface isolation.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0292",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Socket API options: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0254",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "How do Linux Network Namespaces (CLONE_NEWNET) isolate network traffic?",
+    "response": "The CLONE_NEWNET flag creates a completely isolated network namespace with its own network devices, IP routing tables, firewall rules (iptables/nftables), and socket listings, preventing unauthorized processes from observing or tampering with network traffic.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0280",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Network security controls: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0277",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain the mechanism: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0299",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Hardening audit: How does SO_BINDTODEVICE prevent multi-homed interface bypass attacks?",
+    "response": "On multi-homed systems, the Linux routing engine may accept packets on one interface even if routed through another (weak host model). SO_BINDTODEVICE forces packet transmission and receipt to occur strictly on the bound device, enforcing interface isolation.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0273",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Linux socket security: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0278",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "System engineering check: Distinguish CAP_NET_RAW and CAP_NET_BIND_SERVICE Linux capabilities.",
+    "response": "CAP_NET_RAW allows a process to create raw sockets (SOCK_RAW), packet sockets, and bind to any address. CAP_NET_BIND_SERVICE allows a process to bind to privileged TCP/UDP ports (< 1024) without requiring full root privileges.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  },
+  {
+    "sample_id": "RET_QA_0293",
+    "category": "socket_security",
+    "system": "You are an expert technical standards and security retrieval assistant. Ground all answers strictly in official IETF RFCs and Linux kernel vulnerability specifications.",
+    "prompt": "Explain the mechanism: Which POSIX capability is required to listen on port 443 without root?",
+    "response": "Binding to port 443 (a privileged port < 1024) without running as root requires the Linux capability CAP_NET_BIND_SERVICE.",
+    "doc_ids": [
+      "SEC-LINUX-SOCKETS"
+    ],
+    "split": "train"
+  }
+]

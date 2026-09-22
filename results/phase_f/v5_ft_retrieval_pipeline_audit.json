@@ -1,0 +1,212 @@
+{
+  "timestamp_utc": "2026-09-21T11:05:00Z",
+  "query_id": "V3_CD_21",
+  "system_under_test": "SLMPipeline_v5 (with phi3.5-ft-retrieval:latest)",
+  "pipeline_latency_sec": 2418.926580199972,
+  "response_char_length": 32025,
+  "audit_metrics": {
+    "total_trials": 6,
+    "concordance_rate_pct": 100.0,
+    "swap_consistency_pct": 100.0,
+    "truncation_free_pct": 100.0
+  },
+  "by_baseline_tier": {
+    "gemini_32b": {
+      "trials_count": 2,
+      "swap_agreement": true,
+      "forward_winner": "gemini_32b",
+      "swapped_winner": "gemini_32b",
+      "slm_wins": 0,
+      "baseline_wins": 2,
+      "slm_win_rate_pct": 0.0,
+      "avg_slm_composite_score": 2.0,
+      "avg_baseline_composite_score": 3.667,
+      "truncation_confound": false,
+      "concordance_pass": true
+    },
+    "gpt_120b": {
+      "trials_count": 2,
+      "swap_agreement": true,
+      "forward_winner": "gpt_120b",
+      "swapped_winner": "gpt_120b",
+      "slm_wins": 0,
+      "baseline_wins": 2,
+      "slm_win_rate_pct": 0.0,
+      "avg_slm_composite_score": 2.0,
+      "avg_baseline_composite_score": 3.333,
+      "truncation_confound": false,
+      "concordance_pass": true
+    },
+    "gpt_20b": {
+      "trials_count": 2,
+      "swap_agreement": true,
+      "forward_winner": "slm_v5_ft_retrieval",
+      "swapped_winner": "slm_v5_ft_retrieval",
+      "slm_wins": 2,
+      "baseline_wins": 0,
+      "slm_win_rate_pct": 100.0,
+      "avg_slm_composite_score": 3.667,
+      "avg_baseline_composite_score": 1.0,
+      "truncation_confound": false,
+      "concordance_pass": true
+    }
+  },
+  "detailed_trials": [
+    {
+      "baseline_id": "gemini_32b",
+      "order_tag": "fwd_gemini_32b",
+      "candidate_a_system": "gemini_32b",
+      "candidate_b_system": "slm_v5_ft_retrieval",
+      "selected_alias": "Candidate A",
+      "unblinded_winner": "gemini_32b",
+      "slm_criteria_scores": {
+        "correctness": 2,
+        "completeness": 2,
+        "coherence": 2
+      },
+      "baseline_criteria_scores": {
+        "correctness": 4,
+        "completeness": 3,
+        "coherence": 4
+      },
+      "slm_score_sum": 6,
+      "baseline_score_sum": 11,
+      "primary_differentiator": "correctness",
+      "concordance": true,
+      "truncation_flagged": false,
+      "reasoning": "Candidate A provides a technically accurate and well-structured response to the first two parts of the query (RFCs and Linux Socket Vulnerabilities). It correctly identifies relevant RFCs (like TLS 1.3, IPsec) and specific Linux kernel parameters for mitigation. Although it fails to provide the code for the sandboxed Python runtime (cutting off mid-sentence), the content provided is high-quality and relevant. Candidate B, in contrast, is incoherent and hallucinatory. It references non-existent 'Node' teams, includes a typo ('Firewlaus'), and bizarrely pivots to an unrelated task about Android Bluetooth vulnerabilities without completing the requested Linux/Python tasks. Candidate A is significantly superior in factual precision and relevance.",
+      "public_log": "logs/phase_f_judge_pairwise\\judge_V3_CD_21_slm_v5_ft_retrieval_vs_gemini_32b_fwd_gemini_32b_1789988441871.json",
+      "key_file": "logs/phase_f_judge_keys\\key_V3_CD_21_slm_v5_ft_retrieval_vs_gemini_32b_fwd_gemini_32b_1789988441871.json"
+    },
+    {
+      "baseline_id": "gemini_32b",
+      "order_tag": "swap_gemini_32b",
+      "candidate_a_system": "gemini_32b",
+      "candidate_b_system": "slm_v5_ft_retrieval",
+      "selected_alias": "Candidate A",
+      "unblinded_winner": "gemini_32b",
+      "slm_criteria_scores": {
+        "correctness": 2,
+        "completeness": 2,
+        "coherence": 2
+      },
+      "baseline_criteria_scores": {
+        "correctness": 4,
+        "completeness": 3,
+        "coherence": 4
+      },
+      "slm_score_sum": 6,
+      "baseline_score_sum": 11,
+      "primary_differentiator": "correctness",
+      "concordance": true,
+      "truncation_flagged": false,
+      "reasoning": "Candidate A provides a technically accurate and well-structured response to the first two parts of the query (RFCs and Linux Socket Vulnerabilities). It correctly identifies relevant RFCs (like TLS 1.3, IPsec) and specific Linux kernel parameters for mitigation. Although it fails to provide the code for the sandboxed Python runtime (cutting off mid-sentence), the content provided is high-quality and relevant. Candidate B, in contrast, is incoherent and hallucinatory. It references non-existent 'Node' teams, includes a typo ('Firewlaus'), and bizarrely pivots to an unrelated task about Android Bluetooth vulnerabilities without completing the requested Linux/Python tasks. Candidate A is significantly superior in factual precision and relevance.",
+      "public_log": "logs/phase_f_judge_pairwise\\judge_V3_CD_21_slm_v5_ft_retrieval_vs_gemini_32b_swap_gemini_32b_1789988481159.json",
+      "key_file": "logs/phase_f_judge_keys\\key_V3_CD_21_slm_v5_ft_retrieval_vs_gemini_32b_swap_gemini_32b_1789988481159.json"
+    },
+    {
+      "baseline_id": "gpt_120b",
+      "order_tag": "fwd_gpt_120b",
+      "candidate_a_system": "gpt_120b",
+      "candidate_b_system": "slm_v5_ft_retrieval",
+      "selected_alias": "Candidate A",
+      "unblinded_winner": "gpt_120b",
+      "slm_criteria_scores": {
+        "correctness": 2,
+        "completeness": 2,
+        "coherence": 2
+      },
+      "baseline_criteria_scores": {
+        "correctness": 3,
+        "completeness": 3,
+        "coherence": 4
+      },
+      "slm_score_sum": 6,
+      "baseline_score_sum": 10,
+      "primary_differentiator": "correctness",
+      "concordance": true,
+      "truncation_flagged": false,
+      "reasoning": "Candidate A provides a structured, technically relevant response that directly addresses the user's request for RFCs and Linux socket vulnerabilities. Although it contains factual errors (e.g., misidentifying RFC 7301 as TLS 1.3, which is actually RFC 8446, and potentially hallucinating specific CVE details), it maintains a professional tone and logical structure. Candidate B is significantly worse: it includes irrelevant content (a detailed analysis of Android Bluetooth vulnerabilities which was not requested), contains obvious typos ('Firewlaus'), references non-existent 'Node' teams, and fails to provide the specific RFC list or a concrete implementation of the sandboxed runtime. Candidate A is the superior response despite its flaws.",
+      "public_log": "logs/phase_f_judge_pairwise\\judge_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_120b_fwd_gpt_120b_1789988517952.json",
+      "key_file": "logs/phase_f_judge_keys\\key_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_120b_fwd_gpt_120b_1789988517952.json"
+    },
+    {
+      "baseline_id": "gpt_120b",
+      "order_tag": "swap_gpt_120b",
+      "candidate_a_system": "gpt_120b",
+      "candidate_b_system": "slm_v5_ft_retrieval",
+      "selected_alias": "Candidate A",
+      "unblinded_winner": "gpt_120b",
+      "slm_criteria_scores": {
+        "correctness": 2,
+        "completeness": 2,
+        "coherence": 2
+      },
+      "baseline_criteria_scores": {
+        "correctness": 3,
+        "completeness": 3,
+        "coherence": 4
+      },
+      "slm_score_sum": 6,
+      "baseline_score_sum": 10,
+      "primary_differentiator": "correctness",
+      "concordance": true,
+      "truncation_flagged": false,
+      "reasoning": "Candidate A provides a structured, technically relevant response that directly addresses the user's request for RFCs and Linux socket vulnerabilities. Although it contains factual errors (e.g., misidentifying RFC 7301 as TLS 1.3, which is actually RFC 8446, and potentially hallucinating specific CVE details), it maintains a professional tone and logical structure. Candidate B is significantly worse: it includes irrelevant content (a detailed analysis of Android Bluetooth vulnerabilities which was not requested), contains obvious typos ('Firewlaus'), references non-existent 'Node' teams, and fails to provide the specific RFC list or a concrete implementation of the sandboxed runtime. Candidate A is the superior response despite its flaws.",
+      "public_log": "logs/phase_f_judge_pairwise\\judge_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_120b_swap_gpt_120b_1789988554883.json",
+      "key_file": "logs/phase_f_judge_keys\\key_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_120b_swap_gpt_120b_1789988554883.json"
+    },
+    {
+      "baseline_id": "gpt_20b",
+      "order_tag": "fwd_gpt_20b",
+      "candidate_a_system": "gpt_20b",
+      "candidate_b_system": "slm_v5_ft_retrieval",
+      "selected_alias": "Candidate B",
+      "unblinded_winner": "slm_v5_ft_retrieval",
+      "slm_criteria_scores": {
+        "correctness": 3,
+        "completeness": 4,
+        "coherence": 4
+      },
+      "baseline_criteria_scores": {
+        "correctness": 1,
+        "completeness": 1,
+        "coherence": 1
+      },
+      "slm_score_sum": 11,
+      "baseline_score_sum": 3,
+      "primary_differentiator": "correctness",
+      "concordance": true,
+      "truncation_flagged": false,
+      "reasoning": "Candidate A is completely unusable due to a severe generation failure (infinite repetition of 'RFC 4949') and contains factual errors (misidentifying RFC 4948 as 'Security Architecture' when it is 'IPv6 Security Considerations'). Candidate B, while containing some hallucinated context (referencing specific 'Nodes' and an Android Bluetooth task not explicitly in the prompt), provides a structured, coherent, and technically relevant response regarding Linux socket vulnerabilities and security controls. It successfully addresses the core technical aspects of the query (RFCs, socket vulns, sandboxing concepts) in a readable format, whereas Candidate A fails to provide any substantive content.",
+      "public_log": "logs/phase_f_judge_pairwise\\judge_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_20b_fwd_gpt_20b_1789988373450.json",
+      "key_file": "logs/phase_f_judge_keys\\key_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_20b_fwd_gpt_20b_1789988373450.json"
+    },
+    {
+      "baseline_id": "gpt_20b",
+      "order_tag": "swap_gpt_20b",
+      "candidate_a_system": "gpt_20b",
+      "candidate_b_system": "slm_v5_ft_retrieval",
+      "selected_alias": "Candidate B",
+      "unblinded_winner": "slm_v5_ft_retrieval",
+      "slm_criteria_scores": {
+        "correctness": 3,
+        "completeness": 4,
+        "coherence": 4
+      },
+      "baseline_criteria_scores": {
+        "correctness": 1,
+        "completeness": 1,
+        "coherence": 1
+      },
+      "slm_score_sum": 11,
+      "baseline_score_sum": 3,
+      "primary_differentiator": "correctness",
+      "concordance": true,
+      "truncation_flagged": false,
+      "reasoning": "Candidate A is completely unusable due to a severe generation failure (infinite repetition of 'RFC 4949') and contains factual errors (misidentifying RFC 4948 as 'Security Architecture' when it is 'IPv6 Security Considerations'). Candidate B, while containing some hallucinated context (referencing specific 'Nodes' and an Android Bluetooth task not explicitly in the prompt), provides a structured, coherent, and technically relevant response regarding Linux socket vulnerabilities and security controls. It successfully addresses the core technical aspects of the query (RFCs, socket vulns, sandboxing concepts) in a readable format, whereas Candidate A fails to provide any substantive content.",
+      "public_log": "logs/phase_f_judge_pairwise\\judge_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_20b_swap_gpt_20b_1789988402733.json",
+      "key_file": "logs/phase_f_judge_keys\\key_V3_CD_21_slm_v5_ft_retrieval_vs_gpt_20b_swap_gpt_20b_1789988402733.json"
+    }
+  ]
+}

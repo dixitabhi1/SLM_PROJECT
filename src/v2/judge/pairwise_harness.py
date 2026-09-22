@@ -85,14 +85,29 @@ class PairwiseLLMJudgeHarness:
             cand_a_sys = system_b_id
             cand_b_sys = system_a_id
 
-        def _trim_for_judge(text: str, max_chars: int = 7000) -> str:
+        cand_a_trimmed = False
+        cand_b_trimmed = False
+        trimmed_info = {}
+
+        def _trim_for_judge(text: str, cand_label: str, system_name: str, max_chars: int = 11000) -> Tuple[str, bool]:
             text = text.strip()
             if len(text) <= max_chars:
-                return text
-            return text[:5000] + "\n\n...[Implementation Details Continued]...\n\n" + text[-1500:]
+                return text, False
+            # Find a natural section or paragraph boundary before max_chars to avoid severing code blocks
+            cutoff = max_chars
+            last_break = text.rfind("\n\n", max_chars - 2500, max_chars)
+            if last_break != -1:
+                cutoff = last_break
+            print(f"[Judge Warning] Response for {system_name} ({cand_label}, {len(text)} chars) exceeded max_chars ({max_chars}). Non-destructive end-trimming applied at character {cutoff}.", flush=True)
+            trimmed_text = text[:cutoff] + f"\n\n...[Remaining {len(text) - cutoff} characters trimmed at natural section boundary for context limit]..."
+            return trimmed_text, True
 
-        cand_a_formatted = _trim_for_judge(candidate_a_text)
-        cand_b_formatted = _trim_for_judge(candidate_b_text)
+        cand_a_formatted, cand_a_trimmed = _trim_for_judge(candidate_a_text, "Candidate A", cand_a_sys)
+        cand_b_formatted, cand_b_trimmed = _trim_for_judge(candidate_b_text, "Candidate B", cand_b_sys)
+        if cand_a_trimmed:
+            trimmed_info["Candidate A"] = {"system": cand_a_sys, "original_length": len(candidate_a_text)}
+        if cand_b_trimmed:
+            trimmed_info["Candidate B"] = {"system": cand_b_sys, "original_length": len(candidate_b_text)}
 
         user_prompt = (
             f"User Query:\n{query_text}\n\n"
@@ -118,7 +133,9 @@ class PairwiseLLMJudgeHarness:
                 "status": "FAILED",
                 "error_detail": error_msg,
                 "latency_ms": latency_ms,
-                "timestamp_ms": timestamp_ms
+                "timestamp_ms": timestamp_ms,
+                "trimmed": bool(trimmed_info),
+                "trim_details": trimmed_info if trimmed_info else None
             }
             public_file = os.path.join(judge_log_dir, f"judge_{query_id}_{pair_key}_{order_tag}_{timestamp_ms}.json")
             with open(public_file, "w", encoding="utf-8") as f:
@@ -167,6 +184,20 @@ class PairwiseLLMJudgeHarness:
         if "Candidate B" in crit_scores:
             scores_by_system[cand_b_sys] = crit_scores["Candidate B"]
 
+        # Compute Quality Proximity (P) and Signed Delta (ΔQ) per Three-Dimensional Framework
+        cqs_a = None
+        cqs_b = None
+        quality_proximity = None
+        quality_delta_a_minus_b = None
+        if "Candidate A" in crit_scores and "Candidate B" in crit_scores:
+            sc_a = crit_scores["Candidate A"]
+            sc_b = crit_scores["Candidate B"]
+            cqs_a = round((sc_a.get("correctness", 0) + sc_a.get("completeness", 0) + sc_a.get("coherence", 0)) / 3.0, 4)
+            cqs_b = round((sc_b.get("correctness", 0) + sc_b.get("completeness", 0) + sc_b.get("coherence", 0)) / 3.0, 4)
+            diff = abs(cqs_a - cqs_b)
+            quality_proximity = round(max(0.0, min(1.0, 1.0 - (diff / 4.0))), 4)
+            quality_delta_a_minus_b = round(cqs_a - cqs_b, 4)
+
         public_record = {
             "query_id": query_id,
             "judge_model": self.judge_model_name,
@@ -175,12 +206,18 @@ class PairwiseLLMJudgeHarness:
             "candidates_shown": ["Candidate A", "Candidate B"],
             "selected_candidate": selected_alias,
             "criteria_scores": crit_scores,
+            "cqs_candidate_a": cqs_a,
+            "cqs_candidate_b": cqs_b,
+            "quality_proximity": quality_proximity,
+            "quality_delta_a_minus_b": quality_delta_a_minus_b,
             "primary_differentiator": parsed.get("primary_differentiator", "correctness"),
             "reasoning": parsed.get("reasoning", ""),
             "prompt_tokens": in_tok,
             "completion_tokens": out_tok,
             "latency_ms": latency_ms,
-            "timestamp_ms": timestamp_ms
+            "timestamp_ms": timestamp_ms,
+            "trimmed": bool(trimmed_info),
+            "trim_details": trimmed_info if trimmed_info else None
         }
         public_file = os.path.join(judge_log_dir, f"judge_{query_id}_{pair_key}_{order_tag}_{timestamp_ms}.json")
         with open(public_file, "w", encoding="utf-8") as f:
@@ -196,6 +233,12 @@ class PairwiseLLMJudgeHarness:
             "selected_alias": selected_alias,
             "unblinded_winner": unblinded_winner,
             "scores_by_system": scores_by_system,
+            "cqs_candidate_a": cqs_a,
+            "cqs_candidate_b": cqs_b,
+            "quality_proximity": quality_proximity,
+            "quality_delta_a_minus_b": quality_delta_a_minus_b,
+            "trimmed": bool(trimmed_info),
+            "trim_details": trimmed_info if trimmed_info else None,
             "public_log_file": public_file,
             "timestamp_ms": timestamp_ms
         }
@@ -212,6 +255,10 @@ class PairwiseLLMJudgeHarness:
             "selected_alias": selected_alias,
             "unblinded_winner": unblinded_winner,
             "scores_by_system": scores_by_system,
+            "cqs_candidate_a": cqs_a,
+            "cqs_candidate_b": cqs_b,
+            "quality_proximity": quality_proximity,
+            "quality_delta_a_minus_b": quality_delta_a_minus_b,
             "reasoning": parsed.get("reasoning", ""),
             "public_log": public_file,
             "key_log": key_file,
@@ -232,7 +279,7 @@ class PairwiseLLMJudgeHarness:
             ],
             "response_format": {"type": "json_object"},
             "temperature": 0.0,
-            "max_tokens": 160
+            "max_tokens": 2048
         }
 
         req = urllib.request.Request(
@@ -255,20 +302,26 @@ class PairwiseLLMJudgeHarness:
                 err_content = e.read().decode("utf-8", errors="ignore")
                 last_err = f"HTTPError {e.code}: {err_content[:200]}"
                 if e.code == 429:
-                    wait_s = 15.0
+                    wait_s = 5.0 * (attempt + 1)
                     if "try again in" in err_content:
                         try:
                             raw = err_content.split("try again in")[1].split("Need more tokens")[0].strip()
-                            raw = raw.rstrip(".").rstrip("s").strip()
-                            if "m" in raw:
+                            raw = raw.rstrip(".")
+                            if "ms" in raw:
+                                ms_val = float(raw.replace("ms", "").strip())
+                                wait_s = (ms_val / 1000.0) + 0.5
+                            elif "m" in raw:
                                 parts = raw.split("m")
                                 mins = float(parts[0])
-                                secs = float(parts[1]) if len(parts) > 1 and parts[1] else 0.0
-                                wait_s = mins * 60.0 + secs + 2.0
+                                secs_str = parts[1].rstrip("s").strip() if len(parts) > 1 else "0"
+                                secs = float(secs_str) if secs_str else 0.0
+                                wait_s = mins * 60.0 + secs + 1.0
                             else:
-                                wait_s = float(raw) + 2.0
+                                secs_val = float(raw.rstrip("s").strip())
+                                wait_s = secs_val + 1.0
                         except Exception:
-                            wait_s = 15.0
+                            wait_s = 5.0 * (attempt + 1)
+                    wait_s = max(0.5, min(wait_s, 30.0))
                     print(f"[{self.judge_model_name}] Groq 429 Rate Limit. Waiting {wait_s:.1f}s before retry {attempt+1}/6...", flush=True)
                     end_wait = time.time() + wait_s
                     while time.time() < end_wait:

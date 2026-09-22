@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AI Search Framework - Final Executive Summary</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 12mm 12mm 12mm 12mm;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    line-height: 1.4;
+    font-size: 8.5pt;
+  }
+  h1 {
+    font-size: 15pt;
+    color: #1e3a8a;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 3px;
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+  h2 {
+    font-size: 11pt;
+    color: #1e40af;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 2px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+  .callout {
+    background-color: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    font-size: 8pt;
+  }
+  .callout-warn {
+    background-color: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    font-size: 8pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-size: 7.5pt;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 3px 5px;
+    text-align: left;
+  }
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+  }
+  code {
+    font-family: Consolas, monospace;
+    font-size: 7.5pt;
+    background-color: #f1f5f9;
+    padding: 1px 2px;
+  }
+</style>
+</head>
+<body>
+
+<h1>AI Search Framework: Executive Summary & Scientific Findings</h1>
+<div style="font-size:9pt; color:#475569; font-weight:600; margin-bottom:6px;">
+Authoritative Briefing on the All-SLM Architecture vs. Multi-Scale Baselines | September 21, 2026
+</div>
+
+<div class="callout">
+  <strong>Definitive Research Finding:</strong> With all architectural bugs, single-node decomposer collapse, generative aggregator drift, and output truncation artifacts systematically diagnosed and resolved, <strong>small language models (&le;5B) hit an insurmountable parametric capacity ceiling on compound multi-domain engineering tasks against &ge;32B frontier baselines.</strong>
+  Across 24 double-blind trials in Step 6 and 12 trials in Step B: <strong>0.0% Win Rate vs &ge;32B baselines</strong> on un-truncated trials.
+  <br><br>
+  <strong>Essential Context on the ~20B Tier:</strong> The SLM pipeline's wins vs ~20B occurred solely when the 20B model entered unprompted infinite token repetition loops on RFC citations. When the 20B baseline generated coherent text without looping, the 20B model achieved a <strong>100% win rate (6/6 trials)</strong> and the SLM won <strong>0.0%</strong>.
+</div>
+
+<div class="callout-warn">
+  <strong>Step B Audited Findings & General Rule Truncation Diagnostics:</strong><br>
+  &bull; <strong>Authentic Audited Gain on <code>V3_CD_01</code> (+0.166 pts / +3.3%):</strong> Multi-turn execution feedback with sandboxed traceback injection raised composite quality from 1.667 (33.3%) to <strong>1.833 (36.7%)</strong> on clean, un-truncated trials vs 32B and 120B.<br>
+  &bull; <strong>Voiding of <code>V3_CD_41</code> Truncation Delta:</strong> All 5 SLM wins on <code>V3_CD_41</code> coincided with comparator baselines cutting off mid-code. Under the General Rule, these trials are completely voided.<br>
+  &bull; <strong>No-Blending Rule:</strong> Blending <code>V3_CD_01</code> with the voided <code>V3_CD_41</code> score (which would yield a spurious 62.2% pair score) is strictly prohibited. Across Step A and Step B, the only reproducible gain is the +0.166 pt coding improvement.
+</div>
+
+<h2>Multi-Scale Baseline Ladder (Step 6 Benchmark)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Baseline Tier</th>
+      <th>Model</th>
+      <th>Host Platform</th>
+      <th>Win Rate</th>
+      <th>Swap Agreement</th>
+      <th>Core Finding / Differentiator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tier 1 (~20B)</strong></td>
+      <td><code>openai/gpt-oss-20b</code></td>
+      <td>Groq LPU</td>
+      <td><strong>25.0% (2/8)</strong></td>
+      <td>100.0% (audited)</td>
+      <td>Wins came solely from 20B infinite token loop on 1 query; 0% (0/6) when 20B was functional</td>
+    </tr>
+    <tr>
+      <td><strong>Tier 2 (~32B)</strong></td>
+      <td><code>gemini-2.5-flash</code></td>
+      <td>Google AI Studio</td>
+      <td><strong>0.0% (0/8)</strong></td>
+      <td>100.0%</td>
+      <td>Frontier mathematical rigor and continuous stencil superiority</td>
+    </tr>
+    <tr>
+      <td><strong>Tier 3 (120B)</strong></td>
+      <td><code>openai/gpt-oss-120b</code></td>
+      <td>Groq LPU</td>
+      <td><strong>0.0% (0/8)</strong></td>
+      <td>100.0%</td>
+      <td>Monolithic multi-variable synthesis superiority</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Chronological Progression Across Research Phases</h2>
+<ul>
+  <li><strong>v1–v2:</strong> Established 180-query stratified benchmark; audited and eradicated synthetic score imputation and proxy shortcuts; enacted Hard Rule 13 (distinct-roster preflight).</li>
+  <li><strong>v3:</strong> Deployed Vulkan SLMs on RTX 3050; 9.4% win rate; isolated verbatim specialist confabulations (RFC mislabeling, phantom <code>data.csv</code>).</li>
+  <li><strong>v4 (Steps 1–5):</strong> Proved isolated tools succeed (Retrieval Grounding: 100% win rate; Mechanical Code Verification: 66.7% win rate), but composite pipeline collapsed (0%) due to 3B aggregator domain drift and single-node decomposer collapse. Enacted Hard Rule 15.</li>
+  <li><strong>Step 6:</strong> Deployed Deterministic Template Aggregation, eliminating generative drift. Audited against 3-tier scaling ladder.</li>
+  <li><strong>Step A & Step B:</strong> Expanded grounding (+0.333 pts on Step A pair); introduced multi-turn execution retry feedback (+0.166 pts on clean <code>V3_CD_01</code>). Voided truncation artifacts on <code>V3_CD_41</code>.</li>
+</ul>
+
+<h2>Actionable Decision Framework for Mentor Review</h2>
+<ul>
+  <li><strong>Pathway A (Accept Parametric Ceiling - Recommended):</strong> Formally close the study as a rigorous empirical negative result demarcating the limits of &le;5B models on compound engineering tasks against &ge;32B baselines and functioning 20B models.</li>
+  <li><strong>Pathway B (Request Authorization to Relax &le;5B Constraint to Test 7B–8B):</strong> Testing genuine 7B–8B models (Llama-3.1-8B, Qwen-2.5-7B) is an explicit request to relax the mentor's operative &le;5B constraint, requiring formal new mentor authorization and cloud compute credits to test if 8B capacity bridges the gap to 32B.</li>
+  <li><strong>Pathway C (Isolated &le;5B Aggregator Test):</strong> Test a stronger &le;5B model (e.g. Qwen-2.5-3B) as aggregator alone, isolating aggregation quality from specialist generation.</li>
+</ul>
+
+<div style="font-size:7.5pt; color:#64748b; margin-top:8px; text-align:right;">
+AI Search Framework &mdash; Executive Summary | September 21, 2026
+</div>
+
+</body>
+</html>

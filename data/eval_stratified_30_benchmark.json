@@ -1,0 +1,362 @@
+[
+  {
+    "id": "V3_SD_CODI_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #1 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #2 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #3 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_CODI_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Implement an advanced algorithmic module #4 in Python with full type annotations, O(1)/O(log N) complexity guarantees, and comprehensive edge-case unit tests.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #1, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #2, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_03",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #3, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_MATH_04",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive the closed-form analytical solution and prove convergence properties for mathematical formulation #4, showing all intermediate algebraic steps.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_01",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #1, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_SD_FORM_02",
+    "complexity_tier": "single_domain",
+    "domains": [
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Perform formal deductive verification of logical problem #2, state validity conditions, identify fallacies, and construct symbolic proofs.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_01",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #1, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_02",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #2, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_03",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #3, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_04",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "mathematics"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Derive quantitative formulation and implement vectorized Python simulation for compound engineering problem #4, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_11",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #11, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_12",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #12, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_13",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #13, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_14",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "coding",
+      "structured_data"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Design relational database schema and implement Python ORM access layer for compound engineering problem #14, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_21",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "formal_reasoning",
+      "coding"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Analyze theoretical state invariants and implement verified concurrency engine for compound engineering problem #21, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_TD_22",
+    "complexity_tier": "two_domain",
+    "domains": [
+      "formal_reasoning",
+      "coding"
+    ],
+    "triggers_feedback_loop": false,
+    "query": "Analyze theoretical state invariants and implement verified concurrency engine for compound engineering problem #22, thoroughly addressing both domain constraints.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_01",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #1, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_02",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #2, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_03",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #3, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_04",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #4, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_05",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #5, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_06",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #6, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_07",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "coding",
+      "mathematics",
+      "formal_reasoning"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Derive mathematical optimization loss, prove theoretical convergence, and implement an end-to-end Python benchmark for multi-disciplinary challenge #7, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_21",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #21, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_22",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #22, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  },
+  {
+    "id": "V3_CD_23",
+    "complexity_tier": "three_plus_domain",
+    "domains": [
+      "retrieval_qa",
+      "coding",
+      "systems_ops"
+    ],
+    "triggers_feedback_loop": true,
+    "query": "Retrieve security RFC standards, evaluate Linux socket vulnerabilities, and implement a sandboxed Python runtime for multi-disciplinary challenge #23, fulfilling all domain requirements.",
+    "gold_dag_available": true,
+    "split": "dev"
+  }
+]

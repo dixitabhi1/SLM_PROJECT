@@ -23,8 +23,17 @@ import time
 from typing import Dict, List, Any, Optional, Set, Tuple
 
 sys.path.insert(0, os.path.abspath("."))
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 from src.models.groq_runner import APIGroqModelRunner
+from src.models.ollama_runner import OllamaModelRunner
 from src.v3.pipeline import SLMPipeline_v3
+from src.v3.preflight import verify_distinct_roster_preflight
 from src.instrumentation.logger import ExperimentLogger
 
 PILOT_DIR = "results/v3_pilot"
@@ -32,12 +41,9 @@ SLM_FILE = os.path.join(PILOT_DIR, "slm_pipeline_responses.jsonl")
 BASELINE_FILE = os.path.join(PILOT_DIR, "llm_baseline_responses.jsonl")
 COMPARISON_FILE = os.path.join(PILOT_DIR, "comparison.jsonl")
 
-# Baseline Roster strictly floored at >= 30B (8B removed)
+# Finalized Single Monolithic Baseline (Floor >= 30B: openai/gpt-oss-120b)
 BASELINE_CONFIGS_V3 = [
-    ("qwen_32b", "Qwen/Qwen2.5-32B-Instruct"),
-    ("llama_70b", "meta-llama/Llama-3.1-70B-Instruct"),
-    ("qwen_72b", "Qwen/Qwen2.5-72B-Instruct"),
-    ("gemini_frontier", "gemini-1.5-pro")
+    ("gpt_120b", "openai/gpt-oss-120b")
 ]
 
 def ensure_pilot_dirs():
@@ -97,7 +103,6 @@ def get_v3_pilot_queries() -> List[Dict[str, Any]]:
     with open(dev_path, "r", encoding="utf-8") as f:
         dev_queries = json.load(f)
 
-    # Select representative 16 queries across all 8 domains and tiers
     selected_ids = [
         # 8 Single-Domain (1 per domain)
         "V3_SD_CODI_01", "V3_SD_MATH_01", "V3_SD_FORM_01", "V3_SD_RETR_01",
@@ -118,29 +123,45 @@ def get_v3_pilot_queries() -> List[Dict[str, Any]]:
 
     return pilot_queries
 
-def build_v3_slm_pipeline(api_key: str) -> SLMPipeline_v3:
+def build_v3_slm_pipeline() -> SLMPipeline_v3:
     """
-    Instantiates real v3 pipeline with 8 domain specialists (all <=5B).
+    Instantiates genuine v3 pipeline with 4-specialist local pool (all <=3.2B)
+    running GPU-accelerated on RTX 3050 via Ollama Vulkan.
     """
-    decomposer_runner = APIGroqModelRunner(
-        logical_model_name="meta-llama/Llama-3.2-3B-Instruct",
-        api_model_name="qwen/qwen3.8-27b",
-        api_key=api_key
+    decomposer_runner = OllamaModelRunner(
+        logical_model_name="llama3.2-3b",
+        api_model_name="llama3.2:3b"
+    )
+    coder_runner = OllamaModelRunner(
+        logical_model_name="qwen2.5-coder-3b",
+        api_model_name="qwen2.5-coder:3b"
+    )
+    math_runner = OllamaModelRunner(
+        logical_model_name="deepseek-r1-1.5b",
+        api_model_name="deepseek-r1:1.5b",
+        max_tokens=2048
+    )
+    retrieval_runner = OllamaModelRunner(
+        logical_model_name="qwen2.5-1.5b",
+        api_model_name="qwen2.5:1.5b"
+    )
+    synthesis_runner = OllamaModelRunner(
+        logical_model_name="llama3.2-3b",
+        api_model_name="llama3.2:3b"
     )
     pool_runners = {
-        "coding": APIGroqModelRunner("Qwen/Qwen2.5-Coder-3B-Instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key),
-        "mathematics": APIGroqModelRunner("Qwen/Qwen2.5-Math-1.5B-Instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key),
-        "formal_reasoning": APIGroqModelRunner("microsoft/Phi-3.5-mini-instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key),
-        "retrieval_qa": APIGroqModelRunner("meta-llama/Llama-3.2-3B-Instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key),
-        "science_tech": APIGroqModelRunner("Qwen/Qwen2.5-3B-Instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key),
-        "structured_data": APIGroqModelRunner("Qwen/Qwen2.5-Coder-1.5B-Instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key),
-        "creative_synthesis": APIGroqModelRunner("meta-llama/Llama-3.2-3B-Instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key),
-        "systems_ops": APIGroqModelRunner("Qwen/Qwen2.5-Coder-1.5B-Instruct", api_model_name="qwen/qwen3.8-27b", api_key=api_key)
+        "coding": coder_runner,
+        "mathematics": math_runner,
+        "formal_reasoning": math_runner,
+        "retrieval_qa": retrieval_runner,
+        "science_tech": coder_runner,
+        "structured_data": coder_runner,
+        "creative_synthesis": synthesis_runner,
+        "systems_ops": coder_runner
     }
-    aggregator_runner = APIGroqModelRunner(
-        logical_model_name="meta-llama/Llama-3.2-3B-Instruct",
-        api_model_name="qwen/qwen3.8-27b",
-        api_key=api_key
+    aggregator_runner = OllamaModelRunner(
+        logical_model_name="llama3.2-3b",
+        api_model_name="llama3.2:3b"
     )
 
     logger = ExperimentLogger(log_dir=os.path.join(PILOT_DIR, "pipeline_logs"))
@@ -151,7 +172,7 @@ def build_v3_slm_pipeline(api_key: str) -> SLMPipeline_v3:
         aggregator_runner=aggregator_runner,
         logger=logger,
         max_depth=3,
-        max_concurrent_slms=4
+        max_concurrent_slms=2
     )
 
 async def run_v3_pilot_generation(api_key: Optional[str] = None):
@@ -167,23 +188,38 @@ async def run_v3_pilot_generation(api_key: Optional[str] = None):
 
     queries = get_v3_pilot_queries()
     n_queries = len(queries)
-    total_calls = n_queries * (1 + len(BASELINE_CONFIGS_V3)) # 16 * 5 = 80 calls
+    total_calls = n_queries * (1 + len(BASELINE_CONFIGS_V3)) # 16 * 2 = 32 calls
 
     completed_slm, completed_baselines, completed_comparisons = load_resumable_state()
 
-    print(f"=== v3 Pilot Generation (16 Stratified Queries x 5 Systems = {total_calls} Calls) ===")
-    print(f"Proposed Architecture: SLMPipeline_v3 (8 Domains, <=5B Parameter Cap, Fixes 1-3 Active)")
-    print(f"Comparative Baselines: 4 Monolithic Models (Floor >= 30B, Llama-3.1-8B dropped)")
+    print(f"=== v3 Pilot Generation (16 Stratified Queries x 2 Systems = {total_calls} Calls) ===")
+    print(f"Proposed Architecture: SLMPipeline_v3 (4-Specialist Local Pool <=3.2B on RTX 3050)")
+    print(f"Comparative Baseline: openai/gpt-oss-120b (Monolithic, 120B on Groq LPU)")
     print(f"Target Directory: {PILOT_DIR}/")
     print(f"Resumable State: SLM completed={len(completed_slm)}, Baselines completed={len(completed_baselines)}, Comparison refs={len(completed_comparisons)}")
     print(f"Immediate fsync persistence enabled on all writes.\n")
 
-    slm_pipeline = build_v3_slm_pipeline(api_key=api_key)
+    slm_pipeline = build_v3_slm_pipeline()
 
     baseline_runners = {
-        b_id: APIGroqModelRunner(logical_model_name=b_name, api_model_name="qwen/qwen3.8-27b", api_key=api_key)
+        b_id: APIGroqModelRunner(
+            logical_model_name=b_name,
+            api_model_name=b_name,
+            api_key=api_key,
+            max_tokens=2048
+        )
         for b_id, b_name in BASELINE_CONFIGS_V3
     }
+
+    # Permanent Pre-Flight Model Roster Verification (Hard Rule 13)
+    pipeline_components = {
+        "decomposer": slm_pipeline.decomposer_runner,
+        "coding_specialist": slm_pipeline.pool_runners["coding"],
+        "math_specialist": slm_pipeline.pool_runners["mathematics"],
+        "retrieval_specialist": slm_pipeline.pool_runners["retrieval_qa"],
+        "aggregator": slm_pipeline.aggregator_runner
+    }
+    verify_distinct_roster_preflight(pipeline_components, baseline_runners)
 
     start_all = time.perf_counter()
     calls_made = 0
@@ -205,12 +241,12 @@ async def run_v3_pilot_generation(api_key: Optional[str] = None):
                 config={"version": "3.0.0"}
             )
             dur_s = time.perf_counter() - t0
-            resp_text = pipe_res.get("response", "")
+            resp_text = pipe_res.get("response", "") or pipe_res.get("final_response", "")
 
             slm_record = {
                 "query_id": qid,
                 "system_type": "all_slm_pipeline_v3",
-                "model_identifier": "src/v3/pipeline.py (8-Specialist Pool <=5B)",
+                "model_identifier": "src/v3/pipeline.py (4-Specialist Local Pool <=3.2B on RTX 3050)",
                 "status": "SUCCESS" if resp_text and not resp_text.startswith("[Error") else "FAILED",
                 "response_text": resp_text,
                 "complexity_tier": tier,
