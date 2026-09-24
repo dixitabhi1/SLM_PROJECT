@@ -4,6 +4,12 @@
 
 [NOTE: This document adds to, and does not replace, the existing foundational methodology (PRD_source.txt, TRD_source.txt, Implementation_Plan_source.txt). The earlier <=5B parameter lineage and the new 5-8B parameter protocol coexist as separately tracked experimental lineages. Historical <=5B findings remain fully valid and audited.]
 
+[NOTE ON POOL-SIZE DEVIATION / PROJECT OWNER'S EXPLICIT SPECIFICATION]:
+A noted departure from the mentor's written specification (which specifies a 5–8B parameter range per component) has been explicitly established by the project owner:
+- The SLM pool may include models as small as 3–4B parameters (e.g., 3.8B), and is not strictly bounded to the 5–8B floor.
+- The upper bound (no SLM may exceed 8B parameters) and the mandatory fairness constraint (the baseline LLM parameter count must strictly exceed the combined participating SLM pool parameter count: sum(P_SLM) < P_Baseline) remain completely unchanged and strictly enforced across all trials.
+- This departure is the project owner's explicit choice, distinct from the mentor's literal wording, and is formally recorded here for full scientific traceability if raised during mentor review.
+
 ================================================================================
 List of Experiments to perform
 ================================================================================
@@ -20,7 +26,7 @@ The quality scores used for Quality Proximity and related metrics will be obtain
 --------------------------------------------------------------------------------
 2. Experimental Setup
 For the initial experiments:
-- The SLM pool should consist of models in the 5–8B parameter range.
+- The SLM pool should consist of models in the 5–8B parameter range (with the project owner's authorized deviation permitting models down to 3–4B, retaining the <=8B ceiling and fairness constraint).
 - The baseline LLM should initially be approximately 70B parameters.
 - The baseline LLM should initially be used without fine-tuning where computationally practical.
 - Later, the baseline size can be increased (e.g., 120B) to investigate the limits of the SLM pool.

@@ -97,10 +97,18 @@ summary and not the agent's memory of them.
     queries is strictly prohibited.
 16. **Mentor Experiment Protocol (E1–E4) Operational Governance.**
     When executing experiments under the Mentor Experiment Protocol (`mentor_experiment_protocol_source.txt`), the following rules strictly apply:
-    (a) **SLM Pool Sizing:** The SLM pool component constraint is 5–8B parameters per component (supersedes the earlier ≤5B rule for this new protocol only; both constraints coexist as separate tracked lineages, and the validity of prior ≤5B results is preserved).
+    (a) **SLM Pool Sizing:** The SLM pool component constraint is 5–8B parameters per component (supersedes the earlier ≤5B rule for this new protocol only; both constraints coexist as separate tracked lineages, and the validity of prior ≤5B results is preserved). By explicit project owner choice, the pool may include models down to 3–4B (e.g., 3.8B), not strictly bounded to the 5–8B floor, while the <=8B ceiling and fairness constraint remain strictly enforced.
     (b) **Fairness Constraint Pre-Flight Check:** The baseline LLM parameter count must exceed the SLM pool's *combined* parameter sum participating in the comparison (sum(P_SLM) < P_Baseline). This must be asserted and verified before execution against all comparative baseline tiers.
     (c) **Dual-Framework Independent Judging:** Both the established 1–5 criteria-based framework (Correctness, Completeness, Coherence) and the new 1–10 holistic framework must be evaluated and logged independently for every judge trial. Never convert or map scores from one framework into the other.
     (d) **First-Class Draw Accounting:** Draws (QS = QL) are a distinct, first-class outcome category and must be logged and reported separately. Never fold draws into win or loss counts.
+17. **Exact-Model Identity and Local-Only Execution Constraint for Fine-Tuning.**
+    No experiment may proceed if it depends on a fine-tuned SLM that has not actually been fine-tuned as that specific model. Concretely:
+    (a) **Strict Model Identity:** If an experiment (E2, E3, E4) calls for a fine-tuned version of a specific pool specialist, that exact model (same architecture, same parameter count, same checkpoint identity as used in E1) must be the one fine-tuned — never substitute a different model, different size, or a fine-tune borrowed from an earlier unrelated phase (e.g. substituting `phi3.5-ft-coding` for a fine-tuned `Qwen2.5-Coder-7B`).
+    (b) **Local Compute Only:** Fine-tuning must be performed via local compute only — no cloud/Colab/external GPU services for any experiment under this protocol, even if local training is slower or hits VRAM constraints. If local hardware cannot fit the target model's fine-tuning (checked via the same feasibility math used in Phase F0), the experiment is blocked and reported as blocked — it is not resolved by moving to cloud compute or by substituting a smaller/different model.
+    (c) **Pre-Reporting Verification Gate:** Before any fine-tuning-dependent experiment reports results, the runner must verify:
+        - The fine-tuned model's checkpoint identity matches the pool member it's replacing exactly.
+        - The pool's combined parameter sum is unchanged from the non-fine-tuned baseline experiment (fine-tuning changes weights, not parameter count).
+        - Training happened on local hardware, logged with the same telemetry rigor as Phase F (VRAM, loss curve, checkpoint safety).
 
 ## Skills available in this project
 

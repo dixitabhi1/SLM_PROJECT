@@ -509,7 +509,7 @@ Source Document: `.agents/knowledge/mentor_experiment_protocol_source.txt` (Verb
 | Experiment | Configuration | Skill-Matching SLM | Baseline LLM | Status | Notes |
 |---|---|---|---|---|---|
 | **E1** | Fixed 5–8B SLM Pool (No FT) | Inference-only (No FT) | Non-FT 4-Tier Ladder (20B, 32B, 72B, 120B) | **COMPLETE & AUDITED** | 64 symmetrical double-blind trials; fairness verified (15.64B < 20B/32B/72B/120B); dual-framework judging (1–5 & 1–10); results saved in results/mentor_protocol/e1/ |
-| **E2** | Query-Dependent SLM FT | Inference-only (No FT) | Non-FT 4-Tier Ladder | **COMPLETE & AUDITED** | 64 symmetrical double-blind trials; fairness verified (11.85B < 20B/32B/72B/120B); targeted QLoRA coding specialist (`phi3.5-ft-coding`); consistent positive QP gains across all 4 tiers; results saved in results/mentor_protocol/e2/ |
+| **E2** | Query-Dependent SLM FT | Inference-only (No FT) | Non-FT 4-Tier Ladder | **BLOCKED (Hard Rule 17)** | Target specialist `Qwen2.5-Coder-7B` fine-tuning exceeds local 6.0GB VRAM (6.78GB required vs 5.05GB free, -1.73GB deficit). Confounded run discarded per Hard Rule 17. |
 | **E3** | All SLMs Fine-Tuned | Inference-only (No FT) | FT Baseline (or Non-FT if compute constrained) | **PENDING (Gated by E3-HS 1)** | Entire 5–8B SLM pool fine-tuned on verified domain corpora |
 | **E4-A** | Repeat E1–E3 | Fine-Tuned Skill-Matching SLM | Corresponding Baseline | **PENDING (Gated by E4-HS 1)** | Quantifies impact of fine-tuning the router / skill-matching model vs non-FT router |
 | **E4-B** | Full Co-Adapted System | Fine-Tuned Skill-Matching SLM | Fine-Tuned Baseline | **PENDING (Gated by E4-HS 1)** | Full end-to-end co-adaptation evaluation |
@@ -517,51 +517,39 @@ Source Document: `.agents/knowledge/mentor_experiment_protocol_source.txt` (Verb
 ### Mentor Protocol Hard Stops (Pause and verify before proceeding)
 
 - [x] **E1-HS 1: Baseline Pre-Flight & Fairness Verification:** Verified live endpoint availability of all 4 baseline tiers (20B, 32B, 72B, 120B) and verified fairness constraint ($\sum P_{\text{SLM}} = 15.64\text{B} < 20.0\text{B} < 32.0\text{B} < 72.7\text{B} < 120.0\text{B}$) across all queries.
-- [x] **E2-HS 1: Query-Dependent FT Gate:** Deployed verified local QLoRA coding specialist (`phi3.5-ft-coding:latest`, 3.82B params on RTX 3050 GPU); confirmed fairness ($\sum P_{\text{SLM}} = 11.85\text{B} < 20\text{B} < 32\text{B} < 72\text{B} < 120\text{B}$).
+- [!] **E2-HS 1: Query-Dependent FT Gate:** **HARDWARE BLOCKED (Hard Rule 17)**. Target specialist `Qwen/Qwen2.5-Coder-7B-Instruct` requires 6.78 GB minimum VRAM for 4-bit QLoRA fine-tuning, exceeding local RTX 3050 6GB GPU (5.05 GB free VRAM) by 1.73 GB. Per Hard Rule 17(b), cloud compute and model substitution are prohibited.
 - [ ] **E3-HS 1: Full-Pool FT Gate:** Obtain explicit confirmation on compute feasibility and multi-model training budget before fine-tuning the entire SLM pool.
 - [ ] **E4-HS 1: Router FT Gate:** Obtain explicit confirmation before fine-tuning the skill-matching / router SLM.
 - [x] **MP-HS 5: Dual-Framework Evaluation & Audit Gate (E1):** All 64 E1 trials independently judged under 1–5 criteria and 1–10 holistic scales with first-class draws; 100% concordance, 75.0%–87.5% swap consistency; all 10 Data Preservation fields preserved in `results/mentor_protocol/e1/e1_preserved_data.jsonl`.
-- [x] **MP-HS 6: Dual-Framework Evaluation & Audit Gate (E2):** All 64 E2 trials independently judged under 1–5 criteria and 1–10 holistic scales with first-class draws; 100% concordance, 75.0%–100.0% swap consistency; zero synthetic fallback ties; all 10 Data Preservation fields preserved in `results/mentor_protocol/e2/e2_preserved_data.jsonl`.
+- [!] **MP-HS 6: Dual-Framework Evaluation & Audit Gate (E2):** **DISCARDED & BLOCKED**. Earlier E2 run discarded due to Hard Rule 17 model-swap defect (`phi3.5-ft-coding` substituted for `Qwen2.5-Coder-7B`). Corrected run is blocked on local hardware.
 
-### Experiment 2 (E2) Empirical Results Summary (N=64 Double-Blind Symmetrical Trials)
+---
 
-**Experimental Setup & Fairness Confirmation:**
-- **SLM Pool**: Query-Dependent Fine-Tuned Pool (`phi3.5-ft-coding:latest` 3.82B on local RTX 3050 GPU + `meta-llama/Llama-3.1-8B-Instruct` 8.03B general specialist). Combined participating parameters: **11.85B**.
-- **Baselines**: 4-tier un-adapted ladder (20B: `openai/gpt-oss-20b`, 32B: `gemini-2.5-flash`, 72B: `Qwen/Qwen2.5-72B-Instruct`, 120B: `openai/gpt-oss-120b`). All $> 11.85\text{B}$ (Fairness: 0.59x vs 20B, 0.37x vs 32B, 0.16x vs 72B, 0.10x vs 120B).
-- **Judge Model**: `qwen/qwen3.8-27b` (dense evaluator on Groq Cloud).
-- **Dataset**: Identical 8 canonical multi-domain queries covering all 8 domain pairings (100% paired-trial fidelity against E1).
+### Experiment 2 (E2) Operational Audit & Hard Rule 17 Governance Action
 
-#### Overleaf Master Results Table (Experiment E2)
+1. **Defect Identification & Invalidation**:
+   - The initial E2 evaluation executed with a model-swap defect: `phi3.5-ft-coding:latest` (3.82B parameters, trained during Phase F) was substituted as the coding specialist in place of a fine-tuned `Qwen/Qwen2.5-Coder-7B-Instruct` (the actual coding specialist used in E1).
+   - This substituted both architecture and parameter count (reducing participating pool size from 15.64B to 11.85B), creating an uncontrolled confound between model identity change and fine-tuning effect.
+   - **Action Taken**: Under newly enacted **Hard Rule 17**, all initial E2 artifacts (`results/mentor_protocol/e2/*`, `docs/experiment_2_report.*`, `AI_Search_Framework_Experiment_2_Report.pdf`) have been **completely discarded**.
 
-| Baseline Tier | Baseline Model | Baseline Params | Framework Mode | SLM Wins ($Q_S > Q_L$) | Draws ($Q_S = Q_L$) | LLM Wins ($Q_L > Q_S$) | Effective SLM Win ($Q_S \ge Q_L$) | Quality Proximity [95% CI] | SLM Score | LLM Score | Mean $\Delta Q$ [95% CI] | Matched $\Delta Q$ Gain vs E1 |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **3 (18.8%)** | **1 (6.2%)** | 12 (75.0%) | **4 (25.00%)** | **0.6528 [0.5387, 0.7669]** | 2.06 | 4.81 | -2.75 [-4.06, -1.44] | **-0.125** |
-| | | | 1–5 Criteria | **1 (6.2%)** | **3 (18.8%)** | 12 (75.0%) | **4 (25.00%)** | **62.50% [49.94%, 75.06%]** | 1.81 | 3.23 | -1.42 [-1.99, -0.85] | **-0.312** |
-| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **1 (6.2%)** | **0 (0.0%)** | 15 (93.8%) | **1 (6.25%)** | **0.5000 [0.4009, 0.5991]** | 1.94 | 6.19 | -4.25 [-5.46, -3.04] | **+0.500** |
-| | | | 1–5 Criteria | **1 (6.2%)** | **0 (0.0%)** | 15 (93.8%) | **1 (6.25%)** | **47.40% [37.05%, 57.74%]** | 1.92 | 3.90 | -1.98 [-2.55, -1.41] | **+0.167** |
-| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **1 (6.2%)** | **0 (0.0%)** | 15 (93.8%) | **1 (6.25%)** | **0.6389 [0.5625, 0.7153]** | 2.50 | 5.62 | -3.12 [-3.97, -2.28] | **+0.625** |
-| | | | 1–5 Criteria | **1 (6.2%)** | **0 (0.0%)** | 15 (93.8%) | **1 (6.25%)** | **63.54% [55.29%, 71.78%]** | 2.06 | 3.48 | -1.42 [-1.80, -1.04] | **+0.292** |
-| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **0 (0.0%)** | **0 (0.0%)** | 16 (100.0%) | **0 (0.00%)** | **0.4514 [0.3402, 0.5626]** | 1.56 | 6.50 | -4.94 [-5.94, -3.94] | **+0.312** |
-| | | | 1–5 Criteria | **0 (0.0%)** | **0 (0.0%)** | 16 (100.0%) | **0 (0.00%)** | **40.62% [32.87%, 48.38%]** | 1.71 | 4.08 | -2.38 [-2.69, -2.06] | **-0.083** |
+2. **Phase F0 Hardware Feasibility Audit on Target Model (`Qwen2.5-Coder-7B`)**:
+   - **Target Model Architecture**: `Qwen/Qwen2.5-Coder-7B-Instruct` (7,615,283,200 parameters; 152,064 vocab size; 28 layers, hidden dimension 3,584).
+   - **4-bit QLoRA VRAM Footprint**:
+     - Embeddings & LM Head (kept in 16-bit float due to high 152k vocab): $1.09\text{B} \times 2\text{ bytes} = 2.18\text{ GB}$.
+     - 28 Transformer Layers (4-bit NF4): $6.53\text{B} \times 0.5\text{ bytes} = 3.26\text{ GB}$.
+     - Quantization state & runtime dequantization: $\approx 0.18\text{ GB}$.
+     - **Base Model VRAM Footprint**: **5.26 GB** (exceeds free VRAM before training begins).
+     - CUDA context / PyTorch overhead: 0.45 GB.
+     - LoRA Adapter ($r=16, \alpha=32$ on 7 projection matrices, 40.4M params) + Gradients: 0.15 GB.
+     - Optimizer States (Paged 8-bit AdamW): 0.08 GB.
+     - Minimum Backward Activations (batch size 1, sequence length 512, gradient checkpointing): 0.85 GB.
+     - **Total Minimum Required VRAM**: **6.78 GB**.
+   - **Local Hardware Capacity**: NVIDIA GeForce RTX 3050 Laptop GPU (6.00 GB total VRAM, **5.05 GB free usable VRAM**).
+   - **Feasibility Verdict**: **HARD FAIL — Deficit of -1.73 GB (CUDA OOM)**.
 
-#### Matched Gain Analysis (E1 Control vs. E2 Query-Dependent FT)
-
-$$\Delta \text{Gain} = \overline{\Delta Q}_{\text{E2}} - \overline{\Delta Q}_{\text{E1}} \qquad QP_{\text{Gain}} = QP_{\text{E2}} - QP_{\text{E1}}$$
-
-| Baseline Tier | Baseline Model | E1 Holistic $QP$ | E2 Holistic $QP$ | $\Delta QP$ Gain | E1 Holistic $\overline{\Delta Q}$ | E2 Holistic $\overline{\Delta Q}$ | Matched $\Delta Q$ Gain | Empirical Interpretation |
-|---|---|---|---|---|---|---|---|---|
-| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 0.6389 | **0.6528** | **+0.0139 (+1.39%)** | -2.63 | -2.75 | -0.125 | Robust parity; effective win rate matches E1 at 25.0% |
-| **Tier 2 (~32B)** | `gemini-2.5-flash` | 0.4722 | **0.5000** | **+0.0278 (+2.78%)** | -4.75 | -4.25 | **+0.500** | First pure win recorded (6.25%); $\Delta Q$ closes by +0.500 |
-| **Tier 3 (~72B)** | `Qwen2.5-72B-Instruct` | 0.5833 | **0.6389** | **+0.0556 (+5.56%)** | -3.75 | -3.12 | **+0.625** | Largest gain (+5.56% QP); pure win recorded (6.25%); $\Delta Q$ closes by +0.625 |
-| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 0.4167 | **0.4514** | **+0.0347 (+3.47%)** | -5.25 | -4.94 | **+0.312** | Proximity to 120B frontier rises from 41.7% to 45.1%; gap closes by +0.312 |
-
-#### Autonomous Audit Loop Pass Verification (E2)
-- **Score/Label Concordance**: **100.0%** across all 64 trials (0 mismatches).
-- **Truncation Artifacts**: **0 trials voided** due to truncation.
-- **Symmetrical Swap Consistency**: 75.0% (vs 20B), 87.5% (vs 32B), 87.5% (vs 72B), 100.0% (vs 120B).
-- **Hard Rule 9 Compliance**: 0 synthetic fallback ties; 100% genuine judge scoring.
-- **Data Preservation**: 100% compliance with all 10 mandated data fields preserved in `results/mentor_protocol/e2/e2_preserved_data.jsonl`.
-- **Publication Reports**: Authored `docs/experiment_2_report.md`, `docs/experiment_2_report.html`, and compiled `AI_Search_Framework_Experiment_2_Report.pdf` (1 page, 153.6 KB).
+3. **Mandatory Enforcement of Hard Rule 17(b)**:
+   - Rule 17(b) mandates: *"If local hardware cannot fit the target model's fine-tuning (checked via the same feasibility math used in Phase F0), the experiment is blocked and reported as blocked — it is not resolved by moving to cloud compute or by substituting a smaller/different model."*
+   - Therefore, Experiment 2 with a fine-tuned `Qwen2.5-Coder-7B` cannot proceed on current local hardware and is formally **BLOCKED**. No external cloud GPUs or surrogate models may be used.
 
 ### Experiment 1 (E1) Empirical Results Summary (N=64 Double-Blind Symmetrical Trials)
 
