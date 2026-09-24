@@ -500,8 +500,53 @@ Parameter adaptation definitively proves that:
 - Executed the benchmark across 24 technical queries, completing 96 double-blind symmetrical judge trials.
 - Audited results: Proximity to 72B is 41.15% (peaking at 76.04% on Two-Domain problems) vs 35.94% to 120B, definitively proving the parametric capacity gradient and the power of multi-domain decomposition.
 - Compiled publication-grade report `AI_Search_Framework_100_Query_Evaluation_Report.pdf` (strictly 2 pages / $\le 4$ page budget, 572.1 KB).
+---
 
+## Mentor Protocol (E1–E4) — Tracked Phases & Status
 
+Source Document: `.agents/knowledge/mentor_experiment_protocol_source.txt` (Verbatim Source: `List_of_Experiments_to_perform.pdf`)
+
+| Experiment | Configuration | Skill-Matching SLM | Baseline LLM | Status | Notes |
+|---|---|---|---|---|---|
+| **E1** | Fixed 5–8B SLM Pool (No FT) | Inference-only (No FT) | Non-FT 4-Tier Ladder (20B, 32B, 72B, 120B) | **COMPLETE & AUDITED** | 64 symmetrical double-blind trials; fairness verified (15.64B < 20B/32B/72B/120B); dual-framework judging (1–5 & 1–10); results saved in results/mentor_protocol/e1/ |
+| **E2** | Query-Dependent SLM FT | Inference-only (No FT) | Non-FT 4-Tier Ladder | **PENDING (Gated by E2-HS 1)** | Fine-tune only the specialist SLM matching query domain |
+| **E3** | All SLMs Fine-Tuned | Inference-only (No FT) | FT Baseline (or Non-FT if compute constrained) | **PENDING (Gated by E3-HS 1)** | Entire 5–8B SLM pool fine-tuned on verified domain corpora |
+| **E4-A** | Repeat E1–E3 | Fine-Tuned Skill-Matching SLM | Corresponding Baseline | **PENDING (Gated by E4-HS 1)** | Quantifies impact of fine-tuning the router / skill-matching model vs non-FT router |
+| **E4-B** | Full Co-Adapted System | Fine-Tuned Skill-Matching SLM | Fine-Tuned Baseline | **PENDING (Gated by E4-HS 1)** | Full end-to-end co-adaptation evaluation |
+
+### Mentor Protocol Hard Stops (Pause and verify before proceeding)
+
+- [x] **E1-HS 1: Baseline Pre-Flight & Fairness Verification:** Verified live endpoint availability of all 4 baseline tiers (20B, 32B, 72B, 120B) and verified fairness constraint ($\sum P_{\text{SLM}} = 15.64\text{B} < 20.0\text{B} < 32.0\text{B} < 72.7\text{B} < 120.0\text{B}$) across all queries.
+- [ ] **E2-HS 1: Query-Dependent FT Gate:** Obtain explicit confirmation on compute feasibility, training data curation, and hyperparameters before fine-tuning any query-dependent specialist.
+- [ ] **E3-HS 1: Full-Pool FT Gate:** Obtain explicit confirmation on compute feasibility and multi-model training budget before fine-tuning the entire SLM pool.
+- [ ] **E4-HS 1: Router FT Gate:** Obtain explicit confirmation before fine-tuning the skill-matching / router SLM.
+- [x] **MP-HS 5: Dual-Framework Evaluation & Audit Gate (E1):** All 64 E1 trials independently judged under 1–5 criteria and 1–10 holistic scales with first-class draws; 100% concordance, 75.0%–87.5% swap consistency; all 10 Data Preservation fields preserved in `results/mentor_protocol/e1/e1_preserved_data.jsonl`.
+
+### Experiment 1 (E1) Empirical Results Summary (N=64 Double-Blind Symmetrical Trials)
+
+**Experimental Setup & Fairness Confirmation:**
+- **SLM Pool**: Fixed non-fine-tuned pool (`Qwen/Qwen2.5-Coder-7B-Instruct` 7.61B + `meta-llama/Llama-3.1-8B-Instruct` 8.03B). Combined participating parameters: **15.64B**.
+- **Baselines**: 4-tier ladder (20B: `openai/gpt-oss-20b`, 32B: `gemini-2.5-flash`, 72B: `Qwen/Qwen2.5-72B-Instruct`, 120B: `openai/gpt-oss-120b`). All $> 15.64\text{B}$.
+- **Judge Model**: `qwen/qwen3.8-27b` (dense evaluator on Groq Cloud).
+- **Dataset**: 8 canonical multi-domain two-domain queries covering all 8 domain combinations.
+
+#### Overleaf Master Results Table (Experiment E1)
+
+| Baseline Tier | Model | Param | Framework | SLM Wins | LLM Wins | Draws | Quality Proximity | SLM Score | LLM Score | Mean $\Delta Q$ [95% CI] |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **4 (25.0%)** | 12 (75.0%) | **0 (0.0%)** | **0.6389 [0.5215, 0.7563]** | 2.19 | 4.81 | -2.63 [-4.12, -1.13] |
+| | | | 1–5 Criteria | **4 (25.0%)** | 11 (68.8%) | **1 (6.2%)** | **64.06% [52.63%, 75.49%]** | 2.00 | 3.10 | -1.10 [-1.79, -0.42] |
+| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **0.4722 [0.3697, 0.5747]** | 2.00 | 6.75 | -4.75 [-5.67, -3.83] |
+| | | | 1–5 Criteria | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **46.35% [37.04%, 55.66%]** | 1.96 | 4.10 | -2.15 [-2.52, -1.77] |
+| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **0.5833 [0.4601, 0.7066]** | 2.31 | 6.06 | -3.75 [-4.86, -2.64] |
+| | | | 1–5 Criteria | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **57.29% [45.39%, 69.19%]** | 2.04 | 3.75 | -1.71 [-2.18, -1.23] |
+| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **0.4167 [0.3033, 0.5300]** | 1.88 | 7.13 | -5.25 [-6.27, -4.23] |
+| | | | 1–5 Criteria | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **42.71% [32.09%, 53.32%]** | 1.90 | 4.19 | -2.29 [-2.72, -1.87] |
+
+#### Key Empirical Insights from E1 (Baseline Prior to Fine-Tuning):
+1. **Competitive Proximity at ~20B**: Against the non-fine-tuned ~20B model (`openai/gpt-oss-20b`), the fixed SLM pool achieves **63.89% Holistic Quality Proximity** ($QP = 0.6389$) and a **25.0% Win Rate** (4 wins / 12 losses / 0 draws).
+2. **Parametric Capacity Gap at Frontier Scales**: Without fine-tuning, the fixed 5–8B pool experiences a sharp quality delta when confronted with 32B–120B baselines ($QP = 0.4722$ vs 32B, $QP = 0.5833$ vs 72B, and $QP = 0.4167$ vs 120B).
+3. **Foundation for E2 (Query-Dependent Fine-Tuning)**: These empirical baselines establish the exact reference points against which domain specialist fine-tuning in Experiment 2 will be measured.
 
 
 

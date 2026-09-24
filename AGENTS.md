@@ -95,6 +95,12 @@ summary and not the agent's memory of them.
     collapses a compound query to a single node, the runner must fail loudly
     and refuse to proceed to generation. Single-node collapse on compound
     queries is strictly prohibited.
+16. **Mentor Experiment Protocol (E1–E4) Operational Governance.**
+    When executing experiments under the Mentor Experiment Protocol (`mentor_experiment_protocol_source.txt`), the following rules strictly apply:
+    (a) **SLM Pool Sizing:** The SLM pool component constraint is 5–8B parameters per component (supersedes the earlier ≤5B rule for this new protocol only; both constraints coexist as separate tracked lineages, and the validity of prior ≤5B results is preserved).
+    (b) **Fairness Constraint Pre-Flight Check:** The baseline LLM parameter count must exceed the SLM pool's *combined* parameter sum participating in the comparison (sum(P_SLM) < P_Baseline). This must be asserted and verified before execution against all comparative baseline tiers.
+    (c) **Dual-Framework Independent Judging:** Both the established 1–5 criteria-based framework (Correctness, Completeness, Coherence) and the new 1–10 holistic framework must be evaluated and logged independently for every judge trial. Never convert or map scores from one framework into the other.
+    (d) **First-Class Draw Accounting:** Draws (QS = QL) are a distinct, first-class outcome category and must be logged and reported separately. Never fold draws into win or loss counts.
 
 ## Skills available in this project
 
@@ -103,9 +109,11 @@ summary and not the agent's memory of them.
 | `anti-hallucination-guardrails` | Any time the agent is about to state a metric, spec, or model detail |
 | `slm-pipeline-architecture` | Building/modifying decomposer, router, pool, orchestrator, aggregator |
 | `baseline-model-runner` | Setting up or running the LLM baseline |
-| `eval-dataset-builder` | Building the stratified query set / gold DAGs |
+| `multi-llm-baseline-pool` | Setting up multi-tier baseline ladders and pre-flight fairness assertions |
+| `llm-judge-blind-eval` | Symmetrical double-blind judging under 1-5 and 1-10 protocols with draw accounting |
+| `eval-dataset-builder` | Building the stratified query set / gold DAGs / multi-domain benchmark sets |
 | `experiment-instrumentation` | Any code that runs a pipeline or baseline call and needs to log |
-| `statistical-analysis` | Computing CIs, non-inferiority tests, crossover plots, decomposition accuracy |
+| `statistical-analysis` | Computing CIs, dual Quality Proximity metrics, non-inferiority tests |
 
 ## Antigravity settings recommended for this project
 

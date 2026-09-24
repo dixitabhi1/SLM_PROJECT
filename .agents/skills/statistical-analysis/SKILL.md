@@ -70,3 +70,15 @@ something to back-justify after the dataset already exists.
 - A result where latency/cost win clearly but quality trails on hard
   subtasks is, per the PRD, "a realistic and still-valid outcome" —
   write it up as such rather than reframing it as an unqualified win.
+- **Dual-Metric Quality Proximity Reporting (Mandatory under Mentor Protocol):**
+  Every experimental results table under E1–E4 must present both Quality Proximity
+  metrics side by side, never blended or converted:
+  1. Criteria Quality Proximity: $P_{\text{criteria}} = [1 - (|Q_S - Q_L| / 4.0)] \times 100\%$ (based on 1–5 CQS).
+  2. Holistic Quality Proximity: $QP_{\text{holistic}} = 1 - (|Q_S - Q_L| / 9.0)$ (based on 1–10 holistic judge scores).
+- **Three-Outcome Win/Draw/Loss Reporting:**
+  Win-rate metrics must report three independent rates per baseline tier:
+  1. LLM Win Rate ($Q_L > Q_S$)
+  2. SLM Win Rate ($Q_S > Q_L$)
+  3. Draw Rate ($Q_S = Q_L$)
+  Draws are a first-class outcome category; never fold draws into wins or losses.
+

@@ -65,3 +65,12 @@ When implementing the rubric scoring step:
       marking when it was frozen
 - [ ] Rubric spec (pre-registered, versioned) separate from any scoring
       code, so the rubric itself is auditable
+
+## Multi-Domain Requirement (Mentor Protocol E1–E4)
+
+- The experiments under the Mentor Protocol cannot be restricted to single-domain queries.
+- Prior single-domain-heavy sets (such as the earlier v2 pilot) do NOT satisfy this protocol
+  without supplementing with genuine multi-domain queries (2-domain, 3+-domain compound DAGs).
+- Multi-domain queries are mandatory to evaluate whether the SLM pool and skill-matching
+  mechanism effectively decompose, route, and aggregate when a query spans multiple capabilities.
+

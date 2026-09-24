@@ -58,3 +58,14 @@ just once at setup.
   baseline model resolves to a distinct `api_model_name`/endpoint that does
   NOT collide with any other baseline and does NOT collide with any pool
   specialist or aggregator. Refuse to execute if two baselines share an endpoint.
+- **Mentor Protocol Four-Tier Ladder:**
+  Standard baseline ladder for E1–E4:
+  1. ~20B tier: `openai/gpt-oss-20b` (Groq API)
+  2. ~32B tier: `gemini-2.5-flash` (Gemini API)
+  3. ~72B tier: `Qwen/Qwen2.5-72B-Instruct` (HF Router API)
+  4. ~120B tier: `openai/gpt-oss-120b` (Groq API)
+- **Fairness Constraint Check:**
+  Before each experiment run, verify that `baseline_params > combined_pool_params`
+  across all tiers participating in the comparison. Also perform live availability
+  pings to confirm all endpoints are active and responsive before running.
+

@@ -1,0 +1,215 @@
+{
+  "experiment": "E1",
+  "description": "Fixed 5\u20138B SLM Pool (No Fine-Tuning) vs 4-Tier Non-Fine-Tuned Baseline Ladder",
+  "timestamp": "2026-09-24 12:05:33",
+  "total_queries": 8,
+  "total_trials": 64,
+  "fairness_assertion": "PASSED across all 4 tiers (combined 15.64B < 20B/32B/72B/120B)",
+  "roster_distinctness_assertion": "PASSED (0 model collisions)",
+  "tiers": {
+    "b20": {
+      "baseline_model": "openai/gpt-oss-20b",
+      "baseline_params_b": 20.0,
+      "trials_count": 16,
+      "audit": {
+        "concordance_rate_pct": 100.0,
+        "truncation_count": 10,
+        "swap_consistency_criteria_pct": 75.0,
+        "swap_consistency_holistic_pct": 75.0
+      },
+      "criteria_framework_1_to_5": {
+        "slm_mean_cqs": 2.0,
+        "llm_mean_cqs": 3.1042,
+        "mean_delta_q": -1.1042,
+        "delta_q_95ci": [
+          -1.7865,
+          -0.4219
+        ],
+        "p_mean_pct": 64.0637,
+        "p_mean_95ci": [
+          52.6326,
+          75.4949
+        ],
+        "slm_wins": 4,
+        "llm_wins": 11,
+        "draws": 1,
+        "slm_win_rate_pct": 25.0,
+        "llm_win_rate_pct": 68.75,
+        "draw_rate_pct": 6.25
+      },
+      "holistic_framework_1_to_10": {
+        "slm_mean_score": 2.1875,
+        "llm_mean_score": 4.8125,
+        "mean_delta_q": -2.625,
+        "delta_q_95ci": [
+          -4.1177,
+          -1.1323
+        ],
+        "qp_overall": 0.6389,
+        "qp_overall_95ci": [
+          0.5215,
+          0.7563
+        ],
+        "slm_wins": 4,
+        "llm_wins": 12,
+        "draws": 0,
+        "slm_win_rate_pct": 25.0,
+        "llm_win_rate_pct": 75.0,
+        "draw_rate_pct": 0.0
+      }
+    },
+    "b32": {
+      "baseline_model": "gemini-2.5-flash",
+      "baseline_params_b": 32.0,
+      "trials_count": 16,
+      "audit": {
+        "concordance_rate_pct": 100.0,
+        "truncation_count": 8,
+        "swap_consistency_criteria_pct": 87.5,
+        "swap_consistency_holistic_pct": 87.5
+      },
+      "criteria_framework_1_to_5": {
+        "slm_mean_cqs": 1.9583,
+        "llm_mean_cqs": 4.1042,
+        "mean_delta_q": -2.1458,
+        "delta_q_95ci": [
+          -2.5182,
+          -1.7735
+        ],
+        "p_mean_pct": 46.3531,
+        "p_mean_95ci": [
+          37.0448,
+          55.6615
+        ],
+        "slm_wins": 0,
+        "llm_wins": 15,
+        "draws": 1,
+        "slm_win_rate_pct": 0.0,
+        "llm_win_rate_pct": 93.75,
+        "draw_rate_pct": 6.25
+      },
+      "holistic_framework_1_to_10": {
+        "slm_mean_score": 2.0,
+        "llm_mean_score": 6.75,
+        "mean_delta_q": -4.75,
+        "delta_q_95ci": [
+          -5.6728,
+          -3.8272
+        ],
+        "qp_overall": 0.4722,
+        "qp_overall_95ci": [
+          0.3697,
+          0.5747
+        ],
+        "slm_wins": 0,
+        "llm_wins": 15,
+        "draws": 1,
+        "slm_win_rate_pct": 0.0,
+        "llm_win_rate_pct": 93.75,
+        "draw_rate_pct": 6.25
+      }
+    },
+    "b72": {
+      "baseline_model": "Qwen/Qwen2.5-72B-Instruct",
+      "baseline_params_b": 72.7,
+      "trials_count": 16,
+      "audit": {
+        "concordance_rate_pct": 100.0,
+        "truncation_count": 1,
+        "swap_consistency_criteria_pct": 87.5,
+        "swap_consistency_holistic_pct": 87.5
+      },
+      "criteria_framework_1_to_5": {
+        "slm_mean_cqs": 2.0417,
+        "llm_mean_cqs": 3.75,
+        "mean_delta_q": -1.7083,
+        "delta_q_95ci": [
+          -2.1843,
+          -1.2324
+        ],
+        "p_mean_pct": 57.2906,
+        "p_mean_95ci": [
+          45.3912,
+          69.1901
+        ],
+        "slm_wins": 0,
+        "llm_wins": 15,
+        "draws": 1,
+        "slm_win_rate_pct": 0.0,
+        "llm_win_rate_pct": 93.75,
+        "draw_rate_pct": 6.25
+      },
+      "holistic_framework_1_to_10": {
+        "slm_mean_score": 2.3125,
+        "llm_mean_score": 6.0625,
+        "mean_delta_q": -3.75,
+        "delta_q_95ci": [
+          -4.859,
+          -2.641
+        ],
+        "qp_overall": 0.5833,
+        "qp_overall_95ci": [
+          0.4601,
+          0.7066
+        ],
+        "slm_wins": 0,
+        "llm_wins": 15,
+        "draws": 1,
+        "slm_win_rate_pct": 0.0,
+        "llm_win_rate_pct": 93.75,
+        "draw_rate_pct": 6.25
+      }
+    },
+    "b120": {
+      "baseline_model": "openai/gpt-oss-120b",
+      "baseline_params_b": 120.0,
+      "trials_count": 16,
+      "audit": {
+        "concordance_rate_pct": 100.0,
+        "truncation_count": 6,
+        "swap_consistency_criteria_pct": 87.5,
+        "swap_consistency_holistic_pct": 87.5
+      },
+      "criteria_framework_1_to_5": {
+        "slm_mean_cqs": 1.8958,
+        "llm_mean_cqs": 4.1875,
+        "mean_delta_q": -2.2917,
+        "delta_q_95ci": [
+          -2.7163,
+          -1.8671
+        ],
+        "p_mean_pct": 42.7088,
+        "p_mean_95ci": [
+          32.0935,
+          53.324
+        ],
+        "slm_wins": 0,
+        "llm_wins": 15,
+        "draws": 1,
+        "slm_win_rate_pct": 0.0,
+        "llm_win_rate_pct": 93.75,
+        "draw_rate_pct": 6.25
+      },
+      "holistic_framework_1_to_10": {
+        "slm_mean_score": 1.875,
+        "llm_mean_score": 7.125,
+        "mean_delta_q": -5.25,
+        "delta_q_95ci": [
+          -6.2701,
+          -4.2299
+        ],
+        "qp_overall": 0.4167,
+        "qp_overall_95ci": [
+          0.3033,
+          0.53
+        ],
+        "slm_wins": 0,
+        "llm_wins": 15,
+        "draws": 1,
+        "slm_win_rate_pct": 0.0,
+        "llm_win_rate_pct": 93.75,
+        "draw_rate_pct": 6.25
+      }
+    }
+  }
+}
