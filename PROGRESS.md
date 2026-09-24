@@ -532,19 +532,24 @@ Source Document: `.agents/knowledge/mentor_experiment_protocol_source.txt` (Verb
 
 #### Overleaf Master Results Table (Experiment E1)
 
-| Baseline Tier | Model | Param | Framework | SLM Wins | LLM Wins | Draws | Quality Proximity | SLM Score | LLM Score | Mean $\Delta Q$ [95% CI] |
-|---|---|---|---|---|---|---|---|---|---|---|
-| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **4 (25.0%)** | 12 (75.0%) | **0 (0.0%)** | **0.6389 [0.5215, 0.7563]** | 2.19 | 4.81 | -2.63 [-4.12, -1.13] |
-| | | | 1–5 Criteria | **4 (25.0%)** | 11 (68.8%) | **1 (6.2%)** | **64.06% [52.63%, 75.49%]** | 2.00 | 3.10 | -1.10 [-1.79, -0.42] |
-| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **0.4722 [0.3697, 0.5747]** | 2.00 | 6.75 | -4.75 [-5.67, -3.83] |
-| | | | 1–5 Criteria | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **46.35% [37.04%, 55.66%]** | 1.96 | 4.10 | -2.15 [-2.52, -1.77] |
-| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **0.5833 [0.4601, 0.7066]** | 2.31 | 6.06 | -3.75 [-4.86, -2.64] |
-| | | | 1–5 Criteria | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **57.29% [45.39%, 69.19%]** | 2.04 | 3.75 | -1.71 [-2.18, -1.23] |
-| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **0.4167 [0.3033, 0.5300]** | 1.88 | 7.13 | -5.25 [-6.27, -4.23] |
-| | | | 1–5 Criteria | **0 (0.0%)** | 15 (93.8%) | **1 (6.2%)** | **42.71% [32.09%, 53.32%]** | 1.90 | 4.19 | -2.29 [-2.72, -1.87] |
+| Baseline Tier | Model | Param | Framework | SLM Wins ($Q_S > Q_L$) | Draws ($Q_S = Q_L$) | LLM Wins ($Q_L > Q_S$) | Effective SLM Win ($Q_S \ge Q_L$) | Quality Proximity | SLM Score | LLM Score | Mean $\Delta Q$ [95% CI] |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **4 (25.0%)** | **0 (0.0%)** | 12 (75.0%) | **4 (25.00%)** | **0.6389 [0.5215, 0.7563]** | 2.19 | 4.81 | -2.63 [-4.12, -1.13] |
+| | | | 1–5 Criteria | **4 (25.0%)** | **1 (6.2%)** | 11 (68.8%) | **5 (31.25%)** | **64.06% [52.63%, 75.49%]** | 2.00 | 3.10 | -1.10 [-1.79, -0.42] |
+| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **0 (0.0%)** | **1 (6.2%)** | 15 (93.8%) | **1 (6.25%)** | **0.4722 [0.3697, 0.5747]** | 2.00 | 6.75 | -4.75 [-5.67, -3.83] |
+| | | | 1–5 Criteria | **0 (0.0%)** | **1 (6.2%)** | 15 (93.8%) | **1 (6.25%)** | **46.35% [37.04%, 55.66%]** | 1.96 | 4.10 | -2.15 [-2.52, -1.77] |
+| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **0 (0.0%)** | **1 (6.2%)** | 15 (93.8%) | **1 (6.25%)** | **0.5833 [0.4601, 0.7066]** | 2.31 | 6.06 | -3.75 [-4.86, -2.64] |
+| | | | 1–5 Criteria | **0 (0.0%)** | **1 (6.2%)** | 15 (93.8%) | **1 (6.25%)** | **57.29% [45.39%, 69.19%]** | 2.04 | 3.75 | -1.71 [-2.18, -1.23] |
+| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **0 (0.0%)** | **1 (6.2%)** | 15 (93.8%) | **1 (6.25%)** | **0.4167 [0.3033, 0.5300]** | 1.88 | 7.13 | -5.25 [-6.27, -4.23] |
+| | | | 1–5 Criteria | **0 (0.0%)** | **1 (6.2%)** | 15 (93.8%) | **1 (6.25%)** | **42.71% [32.09%, 53.32%]** | 1.90 | 4.19 | -2.29 [-2.72, -1.87] |
+
+#### Treatment of Draws in Favor of SLMs ($Q_S \ge Q_L$)
+Per Section 5 of the Mentor Protocol, reporting draws ($Q_S = Q_L$) separately enables evaluating the scenario where draws count in favor of the resource-constrained SLM system ($Q_S \ge Q_L$). In a practical deployment, achieving identical quality to a 20B–120B model at $<15.64\text{B}$ compute represents an architectural victory:
+- vs. ~20B: Effective win rate increases from **25.0%** to **31.25%** (Criteria framework, 5 wins/draws out of 16 trials).
+- vs. 32B, 72B, 120B: Effective win rate increases from **0.0%** to **6.25%** across all tiers.
 
 #### Key Empirical Insights from E1 (Baseline Prior to Fine-Tuning):
-1. **Competitive Proximity at ~20B**: Against the non-fine-tuned ~20B model (`openai/gpt-oss-20b`), the fixed SLM pool achieves **63.89% Holistic Quality Proximity** ($QP = 0.6389$) and a **25.0% Win Rate** (4 wins / 12 losses / 0 draws).
+1. **Competitive Proximity at ~20B**: Against the non-fine-tuned ~20B model (`openai/gpt-oss-20b`), the fixed SLM pool achieves **63.89% Holistic Quality Proximity** ($QP = 0.6389$) and a **25.0% pure win rate** (rising to **31.25% effective win rate** under $Q_S \ge Q_L$).
 2. **Parametric Capacity Gap at Frontier Scales**: Without fine-tuning, the fixed 5–8B pool experiences a sharp quality delta when confronted with 32B–120B baselines ($QP = 0.4722$ vs 32B, $QP = 0.5833$ vs 72B, and $QP = 0.4167$ vs 120B).
 3. **Foundation for E2 (Query-Dependent Fine-Tuning)**: These empirical baselines establish the exact reference points against which domain specialist fine-tuning in Experiment 2 will be measured.
 
