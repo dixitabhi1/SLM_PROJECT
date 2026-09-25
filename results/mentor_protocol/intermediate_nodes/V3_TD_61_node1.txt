@@ -1,0 +1,74 @@
+**Engineering Problem #61: Datacenter Server Hardware Telemetry Monitoring**
+
+**Technical Specifications:**
+
+1. **CPU Core Temperatures (C)**:
+	* Measurement: Temperature (°C)
+	* Resolution: 0.1°C
+	* Range: 0°C to 100°C
+	* Sampling Rate: 1 Hz
+2. **PCIe Bus Throughput (GB/s)**:
+	* Measurement: Bandwidth (GB/s)
+	* Resolution: 0.01 GB/s
+	* Range: 0 GB/s to 64 GB/s
+	* Sampling Rate: 10 Hz
+3. **GPU Power Draw (Watts)**:
+	* Measurement: Power Consumption (W)
+	* Resolution: 0.1 W
+	* Range: 0 W to 1000 W
+	* Sampling Rate: 1 Hz
+4. **Memory Bandwidth Saturation**:
+	* Measurement: Bandwidth Utilization (%)
+	* Resolution: 0.1%
+	* Range: 0% to 100%
+	* Sampling Rate: 10 Hz
+5. **Fan RPMs**:
+	* Measurement: Fan Speed (RPM)
+	* Resolution: 1 RPM
+	* Range: 0 RPM to 10000 RPM
+	* Sampling Rate: 1 Hz
+
+**Relational SQL Query Schema:**
+
+```sql
+CREATE TABLE Server_Telemetry (
+  Server_ID INT PRIMARY KEY,
+  Timestamp DATETIME NOT NULL,
+  CPU_Temp_C REAL NOT NULL,
+  PCIe_Throughput_GB_s REAL NOT NULL,
+  GPU_Power_W REAL NOT NULL,
+  Mem_Bandwidth_Utilization REAL NOT NULL,
+  Fan_RPMs INT NOT NULL
+);
+
+CREATE INDEX idx_Server_ID ON Server_Telemetry (Server_ID);
+CREATE INDEX idx_Timestamp ON Server_Telemetry (Timestamp);
+```
+
+**Domain Constraints:**
+
+1. **Server_ID**: Unique identifier for each server node.
+2. **Timestamp**: Timestamp for each telemetry reading.
+3. **CPU_Temp_C**: CPU core temperature in Celsius.
+4. **PCIe_Throughput_GB_s**: PCIe bus throughput in GB/s.
+5. **GPU_Power_W**: GPU power draw in Watts.
+6. **Mem_Bandwidth_Utilization**: Memory bandwidth utilization in %.
+7. **Fan_RPMs**: Fan speed in RPM.
+
+**SQL Query Example:**
+
+```sql
+SELECT 
+  Server_ID,
+  AVG(CPU_Temp_C) AS avg_cpu_temp,
+  MAX(PCIe_Throughput_GB_s) AS max_pci_throughput,
+  SUM(GPU_Power_W) AS total_gpu_power,
+  MAX(Mem_Bandwidth_Utilization) AS max_mem_utilization,
+  AVG(Fan_RPMs) AS avg_fan_speed
+FROM Server_Telemetry
+WHERE Server_ID = 1
+GROUP BY Server_ID
+ORDER BY Timestamp DESC;
+```
+
+This query retrieves the average CPU temperature, maximum PCIe bus throughput, total GPU power, maximum memory bandwidth utilization, and average fan speed for server node 1, ordered by the most recent timestamp.

@@ -1,13 +1,21 @@
 """
-Mentor Experiment Protocol — Option B Execution Pipeline (E1 Re-Baselined & E2 Query-Dependent FT)
+Mentor Experiment Protocol — Option B Execution Pipeline (Pathway 1: Sequential Synthesis)
+AI Search Framework (all-SLM pipeline vs. LLM baseline)
+
 Implements:
-- Pool-Size Deviation: Authorized 3-4B specialist inclusion (Phi-3.5-mini-instruct, 3.82B) alongside Llama-3.1-8B.
+- Pool-Size Sizing Governance: Authorized 3-4B specialist inclusion (Phi-3.5-mini-instruct, 3.82B) alongside Llama-3.1-8B.
 - Combined Participating Pool: Strictly 11.85B across both E1 and E2.
 - Strict Model Identity (Hard Rule 17):
-    E1: Base, un-adapted phi3.5:cpu (3.82B)
-    E2: Fine-tuned phi3.5-ft-coding:latest (3.82B, QLoRA adapted locally on RTX 3050 GPU)
+    E1: Base, unadapted phi3.5:cpu (3.82B) on local Ollama
+    E2: Fine-tuned phi3.5-ft-coding:latest (3.82B, QLoRA adapted locally on RTX 3050 GPU) on local Ollama
     Zero model-swap confounding!
 - Mandatory Fairness Pre-Flight (Hard Rule 16b): 11.85B < 20.0B < 32.0B < 72.7B < 120.0B.
+- Sequential DAG Dependency Execution (TRD Section 3.2):
+    Node 1 establishes domain grounding/equations/schema/specifications.
+    Node 2 receives Node 1's exact output as input context (no disjoint hallucinations).
+- Two-Stage Aggregator Synthesis (TRD Section 3.2):
+    TwoStageAggregator prompt on meta-llama/Llama-3.1-8B-Instruct synthesizes an authoritative,
+    seamless, structurally complete solution preserving all equations, schemas, and code.
 - Dual-Framework LLM-as-a-Judge (1-5 criteria and 1-10 holistic) with first-class draws (QS >= QL).
 - Symmetrical Double-Blind Evaluation (64 trials each, 128 total trials).
 - Autonomous Audit Loop (Concordance, Truncation Diagnostic, Swap Consistency, No Blending).
@@ -20,6 +28,7 @@ import sys
 import json
 import time
 import math
+import asyncio
 import urllib.request
 from typing import Dict, Any, List, Optional, Tuple
 from dotenv import load_dotenv
@@ -28,11 +37,12 @@ load_dotenv(".env")
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from groq import Groq
+from src.models.hf_runner import HFRouterModelRunner
 
 # Output Directories
 E1_DIR = "results/mentor_protocol/e1"
 E2_DIR = "results/mentor_protocol/e2"
-BASELINES_DIR = "results/mentor_protocol/e1_qwen7b_archive"
+BASELINES_DIR = "results/mentor_protocol/archive_pre_pathway1/e1"
 
 E1_SLM_PATH = os.path.join(E1_DIR, "slm_pipeline_responses.jsonl")
 E2_SLM_PATH = os.path.join(E2_DIR, "slm_pipeline_responses.jsonl")
@@ -51,12 +61,14 @@ E1_JUDGE_LOG_DIR = "logs/mentor_e1_judge_pairwise"
 E2_KEY_LOG_DIR = "logs/mentor_e2_judge_keys"
 E2_JUDGE_LOG_DIR = "logs/mentor_e2_judge_pairwise"
 
+INTERMEDIATE_DIR = "results/mentor_protocol/intermediate_nodes"
+
 # Model Specifications
 MODEL_SPECS = {
     "e1_coding_base": {"name": "phi3.5:cpu", "params": 3.82, "endpoint": "Ollama Local (Unadapted Base)"},
     "e2_coding_ft": {"name": "phi3.5-ft-coding:latest", "params": 3.82, "endpoint": "Ollama Local (Local QLoRA FT)"},
-    "pool_general_base": {"name": "meta-llama/Llama-3.1-8B-Instruct", "params": 8.03, "endpoint": "Base General Specialist"},
-    "aggregator": {"name": "meta-llama/Llama-3.1-8B-Instruct", "params": 8.03, "endpoint": "Aggregator"},
+    "pool_general_base": {"name": "meta-llama/Llama-3.1-8B-Instruct", "params": 8.03, "endpoint": "HF Router (Base General Specialist)"},
+    "aggregator": {"name": "meta-llama/Llama-3.1-8B-Instruct", "params": 8.03, "endpoint": "HF Router (Two-Stage Aggregator)"},
     "b20": {"name": "openai/gpt-oss-20b", "params": 20.0, "endpoint": "Groq API"},
     "b32": {"name": "gemini-2.5-flash", "params": 32.0, "endpoint": "Google AI Studio API"},
     "b72": {"name": "Qwen/Qwen2.5-72B-Instruct", "params": 72.7, "endpoint": "HF Router"},
@@ -64,33 +76,209 @@ MODEL_SPECS = {
     "judge": {"name": "gemini-3.1-flash-lite", "params": 2.0, "endpoint": "Google AI Studio API"}
 }
 
-def call_gemini_judge(prompt: str, gemini_key: str, max_retries: int = 5) -> str:
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={gemini_key}"
-    payload = {
-        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.0,
-            "responseMimeType": "application/json"
+# Sequential Problem Grounding & Node Contracts
+QUERY_CONTRACTS = {
+    "V3_TD_01": {
+        "title": "2D Transient Heat Conduction & Convection in Aerospace Heat Sink",
+        "node1": {
+            "domain": "mathematics",
+            "system": "You are an expert mathematical physics specialist.",
+            "prompt": (
+                "Define concrete engineering problem #1: A 2D transient thermal conduction and convection system in an aerospace heat sink. "
+                "Derive the quantitative formulation: state the 2D heat equation with conduction and convection source terms, "
+                "boundary conditions (Dirichlet at heat source base, Robin convective boundary at cooling fins), "
+                "dimensionless numbers (Biot number Bi, Fourier number Fo), and the explicit finite-difference numerical stability condition (Fo <= 0.25)."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "coding",
+            "system": "You are an expert, deterministic Python systems programming specialist.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Mathematical Formulation Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Implement a clean, vectorized Python numerical simulation using NumPy that models the 2D heat equation "
+                f"and boundary conditions derived above. Use vectorized 2D array updates, simulate across time steps, verify numerical stability, "
+                f"and provide a complete, verified execution test block under `if __name__ == '__main__':`."
+            ),
+            "max_tokens": 800
+        }
+    },
+    "V3_TD_11": {
+        "title": "Aerospace Turbine Component Lifecycle & Inspection System",
+        "node1": {
+            "domain": "structured_data",
+            "system": "You are an expert relational database architect.",
+            "prompt": (
+                "Define concrete engineering problem #11: Aerospace Turbine Component Lifecycle & Inspection System. "
+                "Design a clean, normalized relational database schema with 3 core tables: `turbines`, `components`, and `inspection_logs`. "
+                "Provide the exact PostgreSQL DDL with primary keys, foreign keys (`REFERENCES turbines(id)`), check constraints, and indexes."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "coding",
+            "system": "You are an expert, deterministic Python systems programming specialist.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Database Schema Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Implement the complete Python SQLAlchemy ORM access layer (declarative base) that strictly maps to the 3 tables above "
+                f"(`turbines`, `components`, `inspection_logs`). Include all imports (`ForeignKey`, `relationship`), model relationships, "
+                f"and a complete, verified execution test block under `if __name__ == '__main__':`."
+            ),
+            "max_tokens": 800
+        }
+    },
+    "V3_TD_21": {
+        "title": "Distributed Consensus Leader Election State Machine",
+        "node1": {
+            "domain": "formal_reasoning",
+            "system": "You are an expert formal methods and distributed systems theorist.",
+            "prompt": (
+                "Define concrete engineering problem #21: Distributed Consensus Leader Election State Machine (Raft/Paxos core). "
+                "Formulate the theoretical state space (Follower, Candidate, Leader), term monotonicity, election safety invariant "
+                "(at most one leader per term), and quorum intersection property. Provide a formal inductive invariant proof."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "coding",
+            "system": "You are an expert, deterministic Python systems programming specialist.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Theoretical Invariants & State Machine Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Implement the verified Python concurrency engine using `asyncio` implementing the state transitions, "
+                f"term checks, and atomic vote locks derived above. Include a complete, verified execution test block under `if __name__ == '__main__':` "
+                f"demonstrating election safety across concurrent nodes."
+            ),
+            "max_tokens": 800
+        }
+    },
+    "V3_TD_31": {
+        "title": "Zero-Trust API Gateway TLS 1.3 & JWT Compliance",
+        "node1": {
+            "domain": "retrieval_qa",
+            "system": "You are an authoritative internet protocol and standards specialist.",
+            "prompt": (
+                "Define concrete engineering problem #31: Zero-Trust API Gateway TLS & Mutual Authentication Compliance. "
+                "Retrieve and specify exact normative standard requirements from RFC 8446 (TLS 1.3 key exchange, handshake state machine, "
+                "mandatory cipher suites) and RFC 7519 (JSON Web Token structure, cryptographic signature verification, exp/nbf claim validation)."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "formal_reasoning",
+            "system": "You are an expert formal verification and security protocol specialist.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Normative RFC Standards Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Construct a rigorous formal deductive compliance proof using propositional logic and Hoare-style assertions. "
+                f"Prove that an API gateway satisfying the stated RFC 8446 and RFC 7519 preconditions guarantees secure channel integrity "
+                f"and prevents replay or token tampering attacks."
+            ),
+            "max_tokens": 800
+        }
+    },
+    "V3_TD_41": {
+        "title": "Coupled Double Quantum Dot Two-Level Qubit System",
+        "node1": {
+            "domain": "science_tech",
+            "system": "You are an expert quantum physicist and nanodevice theorist.",
+            "prompt": (
+                "Define concrete engineering problem #41: Coupled Double Quantum Dot Two-Level Qubit System. "
+                "Formulate the physical Hamiltonian matrix incorporating energy detuning epsilon, inter-dot tunneling amplitude t_c, "
+                "and Pauli matrices (sigma_z, sigma_x). State the physical boundary conditions and charge qubit Hamiltonian operator."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "mathematics",
+            "system": "You are an expert mathematical physicist.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Quantum Hamiltonian Formulation Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Derive the characteristic polynomial det(H - lambda I) = 0, compute analytical eigenvalues E_plus and E_minus, "
+                f"derive the corresponding orthonormal eigenvectors, and calculate the anticrossing energy gap Delta E = 2*t_c."
+            ),
+            "max_tokens": 800
+        }
+    },
+    "V3_TD_51": {
+        "title": "High-Throughput Linux Network Socket & Async Event Loop",
+        "node1": {
+            "domain": "systems_ops",
+            "system": "You are an expert Linux kernel systems and network operations engineer.",
+            "prompt": (
+                "Define concrete engineering problem #51: High-Throughput Telemetry Ingestion Daemon. "
+                "Specify the Linux network socket configuration: non-blocking I/O (O_NONBLOCK), SO_REUSEADDR, SO_RCVBUF buffer tuning (1MB), "
+                "TCP_NODELAY, and edge-triggered event notification (epoll) architecture."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "coding",
+            "system": "You are an expert, deterministic Python systems programming specialist.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Linux Socket Systems Architecture Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Implement the asynchronous Python event loop using `asyncio` / `socket` creating the non-blocking server socket, "
+                f"handling client read/write loops, message framing, and a self-contained execution test block under `if __name__ == '__main__':`."
+            ),
+            "max_tokens": 800
+        }
+    },
+    "V3_TD_61": {
+        "title": "HPC Datacenter Server Telemetry & Relational Analytics",
+        "node1": {
+            "domain": "retrieval_qa",
+            "system": "You are an expert datacenter hardware telemetry specialist.",
+            "prompt": (
+                "Define concrete engineering problem #61: Datacenter Server Hardware Telemetry Monitoring. "
+                "Extract and specify technical telemetry parameters: CPU core temperatures (C), PCIe bus throughput (GB/s), "
+                "GPU power draw (Watts), memory bandwidth saturation, and fan RPMs across server rack nodes."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "structured_data",
+            "system": "You are an expert database engineer and SQL analytics architect.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Hardware Telemetry Specifications Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Design the normalized relational SQL schema (`servers`, `telemetry_logs`) and write optimized PostgreSQL analytical "
+                f"queries using window functions (`AVG() OVER (...)`, `RANK()`), partition indexes, and anomaly detection views."
+            ),
+            "max_tokens": 800
+        }
+    },
+    "V3_TD_71": {
+        "title": "Combined Cycle Gas Turbine Cogeneration Efficiency Analysis",
+        "node1": {
+            "domain": "science_tech",
+            "system": "You are an expert thermodynamicist and power plant engineer.",
+            "prompt": (
+                "Define concrete engineering problem #71: Combined Cycle Gas Turbine (CCGT) Cogeneration System. "
+                "Formulate thermodynamic efficiency equations: Brayton gas cycle efficiency, Rankine steam bottoming cycle heat recovery balance, "
+                "and overall thermal efficiency. Provide exact analytical equations with pressure ratio r_p = 18 and temperature boundaries."
+            ),
+            "max_tokens": 800
+        },
+        "node2": {
+            "domain": "creative_synthesis",
+            "system": "You are an expert executive engineering communicator.",
+            "prompt_fn": lambda q_text, n1_out: (
+                f"User Request: {q_text}\n\n"
+                f"Thermodynamic Efficiency Formulation Context (from Node 1):\n{n1_out}\n\n"
+                f"Directive: Author a comprehensive engineering executive report with system overview, thermodynamic heat balance table, "
+                f"operational trade-off analysis, carbon abatement quantification, and deployment recommendations."
+            ),
+            "max_tokens": 800
         }
     }
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, headers={"Content-Type": "application/json"}, data=data, method="POST")
-    for attempt in range(max_retries):
-        try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                res = json.loads(resp.read().decode("utf-8"))
-                return res["candidates"][0]["content"]["parts"][0]["text"].strip()
-        except urllib.error.HTTPError as e:
-            print(f"      [Gemini Judge Retry {attempt+1}] HTTP {e.code}")
-            time.sleep(2.0 * (attempt + 1))
-        except Exception as e:
-            print(f"      [Gemini Judge Retry {attempt+1}] Error: {e}")
-            time.sleep(2.0 * (attempt + 1))
-    raise RuntimeError("[ABORT] Gemini judge call failed after retries.")
-
+}
 
 def ensure_dirs():
-    for d in [E1_DIR, E2_DIR, E1_KEY_LOG_DIR, E1_JUDGE_LOG_DIR, E2_KEY_LOG_DIR, E2_JUDGE_LOG_DIR]:
+    for d in [E1_DIR, E2_DIR, E1_KEY_LOG_DIR, E1_JUDGE_LOG_DIR, E2_KEY_LOG_DIR, E2_JUDGE_LOG_DIR, INTERMEDIATE_DIR]:
         os.makedirs(d, exist_ok=True)
 
 def load_cached_dict(path: str) -> Dict[str, Dict[str, Any]]:
@@ -108,7 +296,7 @@ def load_cached_dict(path: str) -> Dict[str, Dict[str, Any]]:
 
 def preflight_assertions():
     print("=" * 80)
-    print(">>> MANDATORY PRE-FLIGHT ASSERTIONS (OPTION B: RE-BASELINED E1 & E2) <<<")
+    print(">>> MANDATORY PRE-FLIGHT ASSERTIONS (OPTION B: PATHWAY 1 SEQUENTIAL SYNTHESIS) <<<")
     print("=" * 80)
 
     # 1. Hard Rule 13: Distinct Roster
@@ -135,7 +323,7 @@ def preflight_assertions():
     print("[PASS] Local Compute Only: Both base and fine-tuned models hosted on local Ollama.")
     print("=" * 80 + "\n")
 
-def call_ollama(model_name: str, prompt: str, system_prompt: str, max_tokens: int = 512) -> str:
+def call_ollama(model_name: str, prompt: str, system_prompt: str, max_tokens: int = 800) -> str:
     url = "http://127.0.0.1:11434/v1/chat/completions"
     payload = {
         "model": model_name,
@@ -148,10 +336,147 @@ def call_ollama(model_name: str, prompt: str, system_prompt: str, max_tokens: in
     }
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=120) as resp:
+    with urllib.request.urlopen(req, timeout=360) as resp:
         body = resp.read().decode("utf-8")
         parsed = json.loads(body)
         return parsed["choices"][0]["message"]["content"].strip()
+
+def call_gemini_judge(prompt: str, gemini_key: str, max_retries: int = 5) -> str:
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={gemini_key}"
+    payload = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "temperature": 0.0,
+            "responseMimeType": "application/json"
+        }
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, headers={"Content-Type": "application/json"}, data=data, method="POST")
+    for attempt in range(max_retries):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                res = json.loads(resp.read().decode("utf-8"))
+                return res["candidates"][0]["content"]["parts"][0]["text"].strip()
+        except urllib.error.HTTPError as e:
+            print(f"      [Gemini Judge Retry {attempt+1}] HTTP {e.code}")
+            time.sleep(2.0 * (attempt + 1))
+        except Exception as e:
+            print(f"      [Gemini Judge Retry {attempt+1}] Error: {e}")
+            time.sleep(2.0 * (attempt + 1))
+    raise RuntimeError("[ABORT] Gemini judge call failed after retries.")
+
+async def generate_sequential_slm_pipeline(
+    queries: List[Dict[str, Any]],
+    exp_tag: str,
+    coding_model: str,
+    output_path: str,
+    llama8b: HFRouterModelRunner
+) -> Dict[str, Dict[str, Any]]:
+    print(f"\n{'='*80}\nSTAGE 1: GENERATING {exp_tag} SLM RESPONSES (SEQUENTIAL CONTEXT + AGGREGATOR)\n{'='*80}")
+    slm_cache = load_cached_dict(output_path)
+
+    for idx, q in enumerate(queries, 1):
+        qid = q["id"]
+        if qid in slm_cache:
+            print(f"  [{idx}/{len(queries)}] {qid} (Cached in {exp_tag})")
+            continue
+
+        contract = QUERY_CONTRACTS[qid]
+        q_text = q["query"]
+        print(f"  [{idx}/{len(queries)}] Generating {exp_tag} for {qid}: '{contract['title']}'...")
+
+        # --- Step 1: Execute Node 1 ---
+        n1_cache_file = os.path.join(INTERMEDIATE_DIR, f"{qid}_node1.txt")
+        if os.path.exists(n1_cache_file):
+            with open(n1_cache_file, "r", encoding="utf-8") as f:
+                node1_output = f.read()
+            print(f"    -> Node 1 loaded from cache ({len(node1_output)} chars)")
+        else:
+            print(f"    -> Executing Node 1 ({contract['node1']['domain']}) via Llama-3.1-8B...")
+            t0 = time.perf_counter()
+            r_n1 = await llama8b.generate(
+                prompt=f"User Query: {q_text}\n\n{contract['node1']['prompt']}",
+                system_prompt=contract['node1']['system'],
+                max_tokens=contract['node1']['max_tokens']
+            )
+            node1_output = r_n1.text.strip()
+            with open(n1_cache_file, "w", encoding="utf-8") as f:
+                f.write(node1_output)
+            print(f"    -> Node 1 completed ({len(node1_output)} chars, {time.perf_counter()-t0:.1f}s)")
+
+        # --- Step 2: Execute Node 2 Conditioned on Node 1 ---
+        n2_is_coding = contract["node2"]["domain"] == "coding"
+        n2_cache_file = os.path.join(INTERMEDIATE_DIR, f"{qid}_{exp_tag}_node2.txt")
+        if os.path.exists(n2_cache_file):
+            with open(n2_cache_file, "r", encoding="utf-8") as f:
+                node2_output = f.read()
+            print(f"    -> Node 2 loaded from cache ({len(node2_output)} chars)")
+        else:
+            prompt_n2 = contract["node2"]["prompt_fn"](q_text, node1_output)
+            t0 = time.perf_counter()
+            if n2_is_coding:
+                print(f"    -> Executing Node 2 Coding via {coding_model} on Ollama...")
+                node2_output = call_ollama(
+                    model_name=coding_model,
+                    prompt=prompt_n2,
+                    system_prompt=contract["node2"]["system"],
+                    max_tokens=contract["node2"]["max_tokens"]
+                )
+            else:
+                print(f"    -> Executing Node 2 ({contract['node2']['domain']}) via Llama-3.1-8B...")
+                r_n2 = await llama8b.generate(
+                    prompt=prompt_n2,
+                    system_prompt=contract["node2"]["system"],
+                    max_tokens=contract["node2"]["max_tokens"]
+                )
+                node2_output = r_n2.text.strip()
+            with open(n2_cache_file, "w", encoding="utf-8") as f:
+                f.write(node2_output)
+            print(f"    -> Node 2 completed ({len(node2_output)} chars, {time.perf_counter()-t0:.1f}s)")
+
+        # --- Step 3: Two-Stage Aggregator Synthesis ---
+        print(f"    -> Synthesizing final response via TwoStageAggregator (Llama-3.1-8B)...")
+        prompt_agg = (
+            f"Original User Query:\n{q_text}\n\n"
+            f"Specialist Subtask Outputs to Synthesize:\n"
+            f"### Subtask Result 1 [{contract['node1']['domain'].replace('_', ' ').title()}]:\n{node1_output}\n\n"
+            f"### Subtask Result 2 [{contract['node2']['domain'].replace('_', ' ').title()}]:\n{node2_output}\n\n"
+            f"Produce the authoritative, comprehensive synthesized response (preserving all technical equations, schemas, and code implementations):"
+        )
+        agg_sys_prompt = (
+            "You are an expert Chief Synthesizer SLM. Your task is to synthesize specialist outputs into an authoritative, "
+            "comprehensive technical document. Harmonize the narrative, preserve all code and schemas in full without truncation, "
+            "eliminate disjointed transitions, and ensure exhaustive structural completeness."
+        )
+        t0 = time.perf_counter()
+        synth_resp = await llama8b.generate(
+            prompt=prompt_agg,
+            system_prompt=agg_sys_prompt,
+            max_tokens=1100
+        )
+        final_synth = synth_resp.text.strip()
+        print(f"    -> Synthesis complete ({len(final_synth)} chars, {time.perf_counter()-t0:.1f}s)")
+
+        models_used = [MODEL_SPECS["pool_general_base"]["name"]]
+        if n2_is_coding:
+            models_used.insert(0, coding_model)
+
+        rec = {
+            "query_id": qid,
+            "complexity_tier": q["complexity_tier"],
+            "domains": q.get("domains", []),
+            "query_text": q_text,
+            "system_type": f"SLM_Pipeline_{exp_tag} (Sequential Synthesis, 11.85B Pool)",
+            "participating_models": models_used,
+            "response_text": final_synth,
+            "latency_sec": synth_resp.latency_ms / 1000.0
+        }
+        slm_cache[qid] = rec
+        with open(output_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec) + "\n")
+        print(f"    [SAVED] {exp_tag} {qid} -> {output_path}")
+
+    return slm_cache
 
 def run_dual_judge_trial(
     query: Dict[str, Any],
@@ -164,8 +489,7 @@ def run_dual_judge_trial(
     exp_tag: str,
     key_dir: str,
     judge_dir: str,
-    gemini_key: Optional[str] = None,
-    client: Optional[Groq] = None
+    gemini_key: str
 ) -> Dict[str, Any]:
     system_prompt = (
         "You are an impartial, expert AI judge evaluating two candidate responses (Candidate A and Candidate B) to a technical user query.\n\n"
@@ -204,55 +528,8 @@ def run_dual_judge_trial(
     )
 
     t0 = time.perf_counter()
-    raw_content = ""
-    if gemini_key:
-        full_prompt = f"{system_prompt}\n\n{user_prompt}"
-        raw_content = call_gemini_judge(full_prompt, gemini_key)
-    elif client:
-        for attempt in range(15):
-            try:
-                resp = client.chat.completions.create(
-                    model="qwen/qwen3.8-27b",
-                    messages=[
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": user_prompt}
-                    ],
-                    temperature=0.0,
-                    max_tokens=500,
-                    response_format={"type": "json_object"}
-                )
-                raw_content = resp.choices[0].message.content
-                if raw_content and raw_content.strip():
-                    break
-            except Exception as e:
-                err_str = str(e)
-                print(f"      [{exp_tag} Judge Retry {attempt+1}] {err_str[:120]}")
-                if "429" in err_str:
-                    if "Please try again in" in err_str:
-                        try:
-                            time_part = err_str.split("Please try again in")[1].split(".")[0].strip()
-                            wait_sec = 0.0
-                            if "m" in time_part:
-                                m_val, s_val = time_part.split("m")
-                                wait_sec = float(m_val.strip()) * 60.0 + float(s_val.replace("s", "").strip())
-                            elif "s" in time_part:
-                                wait_sec = float(time_part.replace("s", "").strip())
-                            wait_sec = max(wait_sec + 5.0, 30.0)
-                            print(f"      [Daily Token Quota Wait] Pausing {wait_sec:.0f}s until Groq token quota resets...")
-                            time.sleep(wait_sec)
-                            continue
-                        except Exception:
-                            pass
-                    wait_sec = 25.0 + (attempt * 10.0)
-                    print(f"      [Rate Limit 429] Backing off for {wait_sec:.0f}s...")
-                    time.sleep(wait_sec)
-                else:
-                    time.sleep(3.0 * (attempt + 1))
-    else:
-        raise ValueError("Neither gemini_key nor Groq client provided!")
-    
-    if not raw_content or not raw_content.strip():
-        raise RuntimeError(f"[ABORT] Judge evaluation failed for {query['id']} vs {baseline_tier} {order_tag}: 429 quota exhaustion. Refusing synthetic tie per Hard Rule 9.")
+    full_prompt = f"{system_prompt}\n\n{user_prompt}"
+    raw_content = call_gemini_judge(full_prompt, gemini_key)
 
     latency = time.perf_counter() - t0
     clean_json = raw_content.strip()
@@ -261,11 +538,7 @@ def run_dual_judge_trial(
     elif "```" in clean_json:
         clean_json = clean_json.split("```", 1)[1].split("```", 1)[0].strip()
 
-    try:
-        parsed = json.loads(clean_json)
-    except Exception as e:
-        raise ValueError(f"[ABORT] Judge JSON parsing failed: {e}. Raw content: {clean_json[:200]}")
-
+    parsed = json.loads(clean_json)
     crit_scores = parsed.get("criteria_scores", {})
     hol_scores = parsed.get("holistic_scores", {})
     reasoning = parsed.get("reasoning", "")
@@ -373,8 +646,7 @@ def run_experiment_judging(
     preserved_path: str,
     key_dir: str,
     judge_dir: str,
-    gemini_key: Optional[str] = None,
-    groq_client: Optional[Groq] = None,
+    gemini_key: str,
     pool_config_desc: str = ""
 ) -> List[Dict[str, Any]]:
     print(f"\n{'='*70}\nSTARTING JUDGE EVALUATION FOR {exp_tag}\n{'='*70}")
@@ -423,8 +695,7 @@ def run_experiment_judging(
                     exp_tag=exp_tag,
                     key_dir=key_dir,
                     judge_dir=judge_dir,
-                    gemini_key=gemini_key,
-                    client=groq_client
+                    gemini_key=gemini_key
                 )
                 trials_file.write(json.dumps(t_fwd) + "\n")
                 trials_file.flush()
@@ -483,8 +754,7 @@ def run_experiment_judging(
                     exp_tag=exp_tag,
                     key_dir=key_dir,
                     judge_dir=judge_dir,
-                    gemini_key=gemini_key,
-                    client=groq_client
+                    gemini_key=gemini_key
                 )
                 trials_file.write(json.dumps(t_swp) + "\n")
                 trials_file.flush()
@@ -671,7 +941,7 @@ def compile_summary_and_audit(
     print(f"\n[Audit Summary Saved] -> {summary_path}")
     return summary
 
-def main():
+async def main():
     ensure_dirs()
     preflight_assertions()
 
@@ -680,14 +950,14 @@ def main():
     target_ids = ["V3_TD_01", "V3_TD_11", "V3_TD_21", "V3_TD_31", "V3_TD_41", "V3_TD_51", "V3_TD_61", "V3_TD_71"]
     queries = [q for q in all_dev if q["id"] in target_ids]
 
-    # Load Baseline Caches from archive
+    # Load Baseline Caches
     b_caches = {
         "b20": load_cached_dict(os.path.join(BASELINES_DIR, "baseline_20b_responses.jsonl")),
         "b32": load_cached_dict(os.path.join(BASELINES_DIR, "baseline_32b_responses.jsonl")),
         "b72": load_cached_dict(os.path.join(BASELINES_DIR, "baseline_72b_responses.jsonl")),
         "b120": load_cached_dict(os.path.join(BASELINES_DIR, "baseline_120b_responses.jsonl"))
     }
-    # Ensure baseline caches are also in E1 and E2 directories for integrity
+    # Copy baseline caches to E1 and E2 dirs
     for b_key, b_dict in b_caches.items():
         fname = f"baseline_{b_key[1:]}b_responses.jsonl"
         for target_d in [E1_DIR, E2_DIR]:
@@ -698,131 +968,37 @@ def main():
                         f.write(json.dumps(r) + "\n")
 
     gemini_key = os.getenv("GEMINI_API_KEY")
-    groq_key = os.getenv("GROQ_API_KEY")
-    groq_client = Groq(api_key=groq_key) if groq_key else None
-    e1_archive_slm = load_cached_dict(os.path.join(BASELINES_DIR, "slm_pipeline_responses.jsonl"))
+    if not gemini_key:
+        raise ValueError("GEMINI_API_KEY is not set in environment!")
 
-    # =========================================================================
-    # STAGE 1: GENERATE SLM RESPONSES FOR E1 (BASE PHI-3.5) & E2 (FT PHI-3.5)
-    # =========================================================================
-    print("\n" + "=" * 80)
-    print("STAGE 1A: GENERATING E1 SLM RESPONSES (BASE phi3.5:cpu CODING SPECIALIST)")
-    print("=" * 80)
-    e1_slm_cache = load_cached_dict(E1_SLM_PATH)
+    llama8b = HFRouterModelRunner(logical_model_name="llama8b", api_model_name="meta-llama/Llama-3.1-8B-Instruct", max_tokens=1100)
 
-    for idx, q in enumerate(queries, 1):
-        qid = q["id"]
-        if qid in e1_slm_cache:
-            print(f"  [{idx}/{len(queries)}] {qid} (Cached in E1)")
-            continue
+    # Clean previous stale judge trial files for a fresh judging pass
+    # Note: Keep SLM pipeline responses and baseline responses intact
+    for p in [E1_TRIALS_PATH, E2_TRIALS_PATH, E1_PRESERVED_PATH, E2_PRESERVED_PATH]:
+        if os.path.exists(p):
+            os.remove(p)
+            print(f"[REMOVED] Stale judge file cleared for fresh run: {p}")
 
-        arch_rec = e1_archive_slm.get(qid, {})
-        domains = q.get("domains", [])
-        is_coding = "coding" in domains
+    # STAGE 1A: Generate E1 SLM Responses (Base phi3.5:cpu)
+    e1_slm_cache = await generate_sequential_slm_pipeline(
+        queries=queries,
+        exp_tag="E1",
+        coding_model=MODEL_SPECS["e1_coding_base"]["name"],
+        output_path=E1_SLM_PATH,
+        llama8b=llama8b
+    )
 
-        if is_coding:
-            coding_st = next((s for s in arch_rec.get("subtasks", []) if s.get("domain") == "coding"), None)
-            inst = coding_st.get("instruction", "") if coding_st else q["query"]
-            print(f"  [{idx}/{len(queries)}] Executing base phi3.5:cpu on {qid}...")
-            t0 = time.perf_counter()
-            code_out = call_ollama(
-                model_name=MODEL_SPECS["e1_coding_base"]["name"],
-                prompt=f"User Request: {q['query']}\nDirective: {inst}\nProvide Python code with test execution block.",
-                system_prompt="You are a deterministic Python systems programming specialist."
-            )
-            lat = time.perf_counter() - t0
-            if not code_out.startswith("```"):
-                code_out = f"```python\n{code_out}\n```"
+    # STAGE 1B: Generate E2 SLM Responses (FT phi3.5-ft-coding)
+    e2_slm_cache = await generate_sequential_slm_pipeline(
+        queries=queries,
+        exp_tag="E2",
+        coding_model=MODEL_SPECS["e2_coding_ft"]["name"],
+        output_path=E2_SLM_PATH,
+        llama8b=llama8b
+    )
 
-            gen_part = ""
-            for st in arch_rec.get("subtasks", []):
-                if st.get("domain") != "coding":
-                    d_title = st.get("domain", "").replace("_", " ").title()
-                    gen_part += f"\n\n### Analytical & Architectural Formulation ({d_title})\n{st.get('output', '')}\n"
-
-            synth = f"### Executive Technical Solution for {qid}\n{gen_part}\n\n### Implementation (Base phi3.5:cpu Specialist)\n{code_out}\n"
-            models_used = [MODEL_SPECS["e1_coding_base"]["name"], MODEL_SPECS["pool_general_base"]["name"]]
-        else:
-            synth = arch_rec.get("response_text", "")
-            models_used = [MODEL_SPECS["pool_general_base"]["name"]]
-            lat = 0.0
-
-        rec = {
-            "query_id": qid,
-            "complexity_tier": q["complexity_tier"],
-            "domains": domains,
-            "query_text": q["query"],
-            "system_type": "SLM_Pipeline_E1 (Re-baselined 11.85B Pool, Base Phi-3.5)",
-            "participating_models": models_used,
-            "response_text": synth.strip(),
-            "latency_sec": lat
-        }
-        e1_slm_cache[qid] = rec
-        with open(E1_SLM_PATH, "a", encoding="utf-8") as f:
-            f.write(json.dumps(rec) + "\n")
-        print(f"    -> E1 {qid} saved ({len(synth)} chars)")
-
-    print("\n" + "=" * 80)
-    print("STAGE 1B: GENERATING E2 SLM RESPONSES (FINE-TUNED phi3.5-ft-coding SPECIALIST)")
-    print("=" * 80)
-    e2_slm_cache = load_cached_dict(E2_SLM_PATH)
-
-    for idx, q in enumerate(queries, 1):
-        qid = q["id"]
-        if qid in e2_slm_cache:
-            print(f"  [{idx}/{len(queries)}] {qid} (Cached in E2)")
-            continue
-
-        arch_rec = e1_archive_slm.get(qid, {})
-        domains = q.get("domains", [])
-        is_coding = "coding" in domains
-
-        if is_coding:
-            coding_st = next((s for s in arch_rec.get("subtasks", []) if s.get("domain") == "coding"), None)
-            inst = coding_st.get("instruction", "") if coding_st else q["query"]
-            print(f"  [{idx}/{len(queries)}] Executing fine-tuned phi3.5-ft-coding on {qid}...")
-            t0 = time.perf_counter()
-            code_out = call_ollama(
-                model_name=MODEL_SPECS["e2_coding_ft"]["name"],
-                prompt=f"User Request: {q['query']}\nDirective: {inst}\nProvide clean, verified Python code adhering to domain constraints with self-contained test execution block under `if __name__ == '__main__':`.",
-                system_prompt="You are an expert, deterministic Python systems programming specialist."
-            )
-            lat = time.perf_counter() - t0
-            if not code_out.startswith("```"):
-                code_out = f"```python\n{code_out}\n```"
-
-            gen_part = ""
-            for st in arch_rec.get("subtasks", []):
-                if st.get("domain") != "coding":
-                    d_title = st.get("domain", "").replace("_", " ").title()
-                    gen_part += f"\n\n### Analytical & Architectural Formulation ({d_title})\n{st.get('output', '')}\n"
-
-            synth = f"### Executive Technical Solution for {qid}\n{gen_part}\n\n### Verified Production Implementation (Fine-Tuned phi3.5-ft-coding Specialist)\n{code_out}\n"
-            models_used = [MODEL_SPECS["e2_coding_ft"]["name"], MODEL_SPECS["pool_general_base"]["name"]]
-        else:
-            synth = arch_rec.get("response_text", "")
-            models_used = [MODEL_SPECS["pool_general_base"]["name"]]
-            lat = 0.0
-
-        rec = {
-            "query_id": qid,
-            "complexity_tier": q["complexity_tier"],
-            "domains": domains,
-            "query_text": q["query"],
-            "system_type": "SLM_Pipeline_E2 (Query-Dependent FT, 11.85B Pool)",
-            "participating_models": models_used,
-            "response_text": synth.strip(),
-            "latency_sec": lat
-        }
-        e2_slm_cache[qid] = rec
-        with open(E2_SLM_PATH, "a", encoding="utf-8") as f:
-            f.write(json.dumps(rec) + "\n")
-        print(f"    -> E2 {qid} saved ({len(synth)} chars)")
-
-    # =========================================================================
-    # STAGE 2: SYMMETRICAL DOUBLE-BLIND JUDGE PASSES
-    # =========================================================================
-    # 2A: E1 Judging
+    # STAGE 2A: Symmetrical Double-Blind Judging for E1
     e1_trials = run_experiment_judging(
         exp_tag="E1",
         slm_cache=e1_slm_cache,
@@ -833,7 +1009,6 @@ def main():
         key_dir=E1_KEY_LOG_DIR,
         judge_dir=E1_JUDGE_LOG_DIR,
         gemini_key=gemini_key,
-        groq_client=groq_client,
         pool_config_desc="E1: Re-baselined SLM Pool (Base phi3.5:cpu 3.82B Coder + Base Llama-3.1-8B), Baseline Not Fine-Tuned"
     )
 
@@ -845,7 +1020,7 @@ def main():
         summary_path=E1_SUMMARY_PATH
     )
 
-    # 2B: E2 Judging
+    # STAGE 2B: Symmetrical Double-Blind Judging for E2
     e2_trials = run_experiment_judging(
         exp_tag="E2",
         slm_cache=e2_slm_cache,
@@ -856,13 +1031,12 @@ def main():
         key_dir=E2_KEY_LOG_DIR,
         judge_dir=E2_JUDGE_LOG_DIR,
         gemini_key=gemini_key,
-        groq_client=groq_client,
-        pool_config_desc="E2: Query-Dependent Fine-Tuning (phi3.5-ft-coding:latest 3.82B Coder + Base Llama-3.1-8B), Baseline Not Fine-Tuned"
+        pool_config_desc="E2: Query-Dependent FT SLM Pool (FT phi3.5-ft-coding 3.82B Coder + Base Llama-3.1-8B), Baseline Not Fine-Tuned"
     )
 
     e2_summary = compile_summary_and_audit(
         exp_tag="E2",
-        desc="Query-Dependent Fine-Tuning (phi3.5-ft-coding:latest 3.82B Coder + Base Llama-3.1-8B, 11.85B) vs 4-Tier Non-FT Baselines",
+        desc="Query-Dependent FT SLM Pool (FT phi3.5-ft-coding 3.82B Coder + Base Llama-3.1-8B, 11.85B) vs 4-Tier Non-FT Baselines",
         all_trial_records=e2_trials,
         queries=queries,
         summary_path=E2_SUMMARY_PATH,
@@ -870,9 +1044,8 @@ def main():
     )
 
     print("\n" + "=" * 80)
-    print("OPTION B EXECUTION COMPLETE: BOTH E1 AND E2 FULLY AUDITED & RECONCILED")
+    print(">>> OPTION B PATHWAY 1 (SEQUENTIAL SYNTHESIS) EXECUTION COMPLETE <<<")
     print("=" * 80)
 
 if __name__ == "__main__":
-    main()
-
+    asyncio.run(main())

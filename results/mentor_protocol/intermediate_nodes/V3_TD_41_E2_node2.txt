@@ -1,0 +1,100 @@
+To derive the characteristic polynomial and compute the eigenvalues, we need to follow these steps:
+
+**Step 1: Derive the characteristic polynomial**
+
+The characteristic polynomial is given by:
+
+det(H - λI) = 0
+
+where H is the Hamiltonian matrix, λ is the eigenvalue, and I is the identity matrix.
+
+The Hamiltonian matrix is:
+
+H = [E_c - E_j, t_c]
+[t_c, E_c - E_j]
+
+We can write the characteristic polynomial as:
+
+det(H - λI) = det([E_c - E_j - λ, t_c]
+[t_c, E_c - E_j - λ]) = 0
+
+Expanding the determinant, we get:
+
+(E_c - E_j - λ)^2 - t_c^2 = 0
+
+This is the characteristic polynomial of the Hamiltonian matrix.
+
+**Step 2: Compute the eigenvalues**
+
+To compute the eigenvalues, we need to solve the characteristic equation:
+
+(E_c - E_j - λ)^2 - t_c^2 = 0
+
+Expanding the equation, we get:
+
+E_c^2 - 2E_c(E_j + λ) + (E_j + λ)^2 - t_c^2 = 0
+
+Rearranging the terms, we get:
+
+(E_c - E_j - λ)^2 = t_c^2
+
+Taking the square root of both sides, we get:
+
+E_c - E_j - λ = ±t_c
+
+Solving for λ, we get:
+
+λ = E_c - E_j ± t_c
+
+These are the eigenvalues of the Hamiltonian matrix.
+
+**Step 3: Derive the corresponding orthonormal eigenvectors**
+
+To derive the orthonormal eigenvectors, we need to solve the time-independent Schrödinger equation:
+
+H |ψ⟩ = E |ψ⟩
+
+where |ψ⟩ is the wave function of the system, and E is the energy eigenvalue.
+
+The Hamiltonian matrix is:
+
+H = [E_c - E_j, t_c]
+[t_c, E_c - E_j]
+
+We can write the time-independent Schrödinger equation as:
+
+[E_c - E_j] |ψ_1⟩ + t_c |ψ_2⟩ = E |ψ_1⟩
+t_c |ψ_1⟩ + [E_c - E_j] |ψ_2⟩ = E |ψ_2⟩
+
+Solving for |ψ_1⟩ and |ψ_2⟩, we get:
+
+|ψ_1⟩ = [1, 0]
+|ψ_2⟩ = [0, 1]
+
+These are the orthonormal eigenvectors of the Hamiltonian matrix.
+
+**Step 4: Calculate the anticrossing energy gap**
+
+The anticrossing energy gap is given by:
+
+ΔE = 2*t_c
+
+This is the energy gap between the two eigenstates.
+
+**Conclusion**
+
+In conclusion, we have derived the characteristic polynomial, computed the eigenvalues, derived the corresponding orthonormal eigenvectors, and calculated the anticrossing energy gap. The eigenvalues are:
+
+E_+ = E_c - E_j + t_c
+E_- = E_c - E_j - t_c
+
+The orthonormal eigenvectors are:
+
+|ψ_+⟩ = [1, 0]
+|ψ_-⟩ = [0, 1]
+
+The anticrossing energy gap is:
+
+ΔE = 2*t_c
+
+These results provide a complete description of the quantum Hamiltonian for the coupled double quantum dot system.

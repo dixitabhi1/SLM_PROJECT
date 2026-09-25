@@ -1,0 +1,109 @@
+**Relational Database Schema Design**
+
+The problem requires a database schema that captures the lifecycle and inspection history of aerospace turbine components. We'll design a clean, normalized schema with three core tables: `turbines`, `components`, and `inspection_logs`.
+
+**Table: `turbines`**
+
+Represents the turbines, which are the parent entities in the system.
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| id (PK) | serial | Unique identifier for the turbine |
+| name | varchar(50) | Name of the turbine |
+| model | varchar(50) | Model of the turbine |
+| manufacturer | varchar(50) | Manufacturer of the turbine |
+
+**Table: `components`**
+
+Represents the components that make up the turbines.
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| id (PK) | serial | Unique identifier for the component |
+| turbine_id (FK) | integer | Foreign key referencing the `turbines` table |
+| name | varchar(50) | Name of the component |
+| description | text | Description of the component |
+| part_number | varchar(50) | Part number of the component |
+
+**Table: `inspection_logs`**
+
+Represents the inspection logs for the components.
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| id (PK) | serial | Unique identifier for the inspection log |
+| component_id (FK) | integer | Foreign key referencing the `components` table |
+| inspection_date | date | Date of the inspection |
+| inspection_type | varchar(50) | Type of inspection (e.g., visual, functional) |
+| results | text | Results of the inspection |
+| notes | text | Additional notes from the inspection |
+
+**PostgreSQL DDL**
+
+```sql
+CREATE TABLE turbines (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  model VARCHAR(50) NOT NULL,
+  manufacturer VARCHAR(50) NOT NULL,
+  CHECK (name != '')
+);
+
+CREATE TABLE components (
+  id SERIAL PRIMARY KEY,
+  turbine_id INTEGER NOT NULL REFERENCES turbines(id),
+  name VARCHAR(50) NOT NULL,
+  description TEXT,
+  part_number VARCHAR(50) NOT NULL,
+  CHECK (name != '')
+);
+
+CREATE TABLE inspection_logs (
+  id SERIAL PRIMARY KEY,
+  component_id INTEGER NOT NULL REFERENCES components(id),
+  inspection_date DATE NOT NULL,
+  inspection_type VARCHAR(50) NOT NULL,
+  results TEXT,
+  notes TEXT,
+  CHECK (inspection_date IS NOT NULL)
+);
+
+CREATE INDEX idx_components_turbine_id ON components (turbine_id);
+CREATE INDEX idx_inspection_logs_component_id ON inspection_logs (component_id);
+```
+
+**Python ORM Access Layer**
+
+We'll use the `sqlalchemy` library to create a Python ORM access layer. This will provide a high-level interface for interacting with the database.
+
+```python
+from sqlalchemy import create_engine, Column, Integer, String, Date, Text
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# Define the database connection
+engine = create_engine('postgresql://user:password@host:port/dbname')
+
+# Define the base class for our models
+Base = declarative_base()
+
+# Define the Turbine model
+class Turbine(Base):
+    __tablename__ = 'turbines'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    model = Column(String)
+    manufacturer = Column(String)
+
+# Define the Component model
+class Component(Base):
+    __tablename__ = 'components'
+    id = Column(Integer, primary_key=True)
+    turbine_id = Column(Integer, ForeignKey('turbines.id'))
+    name = Column(String)
+    description = Column(Text)
+    part_number = Column(String)
+
+# Define the InspectionLog model
+class InspectionLog(Base):
+    __tablename__ = 'inspection

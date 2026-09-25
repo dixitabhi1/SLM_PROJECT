@@ -1,0 +1,31 @@
+```python
+import asyncio
+import sys
+from typing import Dict, List, NamedTuple
+
+class NodeState(NamedTuple):
+    id: int
+    role: str
+    term: int
+    votes_received: List[int]
+
+async def leader_election(nodes: List[Dict[str, int]]) -> int:
+    max_term = 0
+    candidate = None
+    for node in nodes:
+        if node["role"] == "candidate" and node["term"] > max_term:
+            max_term = node["term"]
+            candidate = node["id"]
+    return candidate
+
+if __name__ == "__main__":
+    # Initial state: [{"id": 1, "role": "follower", "term": 1}, {"id": 2, "role": "follower", "term": 1}]
+    tasks = [
+        asyncio.create_task(election_step(node["id"], "follower", 1))
+        for node in [{"id": 1, "role": "follower", "term": 1}, {"id": 2, "role": "follower", "term": 1}]
+    ]
+    leader = asyncio.run(asyncio.gather(*tasks))
+    print(f"Elected leader: {leader}")
+    assert leader[0] == 2
+    print("Safe leader election verified. PASS.")
+```

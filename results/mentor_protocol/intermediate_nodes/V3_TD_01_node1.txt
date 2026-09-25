@@ -1,0 +1,87 @@
+**Engineering Problem #1: 2D Transient Thermal Conduction and Convection in an Aerospace Heat Sink**
+
+**Quantitative Formulation:**
+
+The 2D transient thermal conduction and convection system can be described by the following heat equation:
+
+∂T/∂t = α (∂²T/∂x² + ∂²T/∂y²) + h_c (T - T_∞)
+
+where:
+
+* T(x,y,t) is the temperature at position (x,y) and time t
+* α is the thermal diffusivity of the material
+* h_c is the convective heat transfer coefficient
+* T_∞ is the ambient temperature
+* ∂²T/∂x² and ∂²T/∂y² are the second derivatives of temperature with respect to x and y, respectively
+
+**Boundary Conditions:**
+
+* Dirichlet boundary condition at the heat source base: T(x,y,t) = T_base
+* Robin convective boundary condition at the cooling fins: -k (∂T/∂n) = h_c (T - T_∞)
+
+where:
+
+* k is the thermal conductivity of the material
+* n is the unit normal vector to the boundary
+
+**Dimensionless Numbers:**
+
+* Biot number (Bi): Bi = h_c L / k, where L is the characteristic length
+* Fourier number (Fo): Fo = α t / L², where t is the time
+
+**Explicit Finite-Difference Numerical Stability Condition:**
+
+The explicit finite-difference method is conditionally stable, and the stability condition is given by:
+
+Fo ≤ 0.25
+
+This means that the time step Δt must be smaller than or equal to 0.25 times the characteristic time scale α L² / k.
+
+**Vectorized Python Simulation:**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+L = 1.0  # characteristic length
+T_base = 100.0  # heat source temperature
+T_inf = 20.0  # ambient temperature
+h_c = 10.0  # convective heat transfer coefficient
+k = 1.0  # thermal conductivity
+alpha = 0.1  # thermal diffusivity
+Fo = 0.25  # Fourier number
+
+# Grid size
+N_x = 100
+N_y = 100
+
+# Grid spacing
+dx = L / (N_x - 1)
+dy = L / (N_y - 1)
+
+# Time step
+dt = Fo * dx**2 / alpha
+
+# Time array
+t = np.arange(0, 10, dt)
+
+# Initialize temperature array
+T = np.zeros((N_x, N_y, len(t)))
+
+# Set initial condition
+T[:, :, 0] = T_base
+
+# Set boundary conditions
+T[0, :, :] = T_inf  # Dirichlet boundary condition at the heat source base
+T[-1, :, :] = T_inf  # Robin convective boundary condition at the cooling fins
+
+# Set convective boundary condition at the cooling fins
+for i in range(N_x):
+    T[-1, i, :] = T_inf + (T[-1, i, 0] - T_inf) * (1 - np.exp(-h_c * dt / k))
+
+# Explicit finite-difference method
+for n in range(1, len(t)):
+    for i in range(1, N_x - 1):
+        for j in range(1, N_y - 1):
+            T[i, j, n] = T[i, j, n-1] + alpha * dt * (T[i+1, j, n-1] - 2 * T[i, j, n-1] + T[i-1, j, n

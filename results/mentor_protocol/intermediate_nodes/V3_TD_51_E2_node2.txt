@@ -1,0 +1,34 @@
+```python
+import socket
+import sys
+import asyncio
+
+HOST = '127.0.0.1'
+PORT = 8080
+BUFSIZ = 1024
+
+async def handle_client(reader, writer):
+    data = await reader.read(BUFSIZ)
+    print(f"Received: {data.decode().strip()}")
+    writer.write(b'Hello from Python socket server!')
+    await writer.drain()
+    writer.close()
+    await writer.wait_closed()
+    print("Client connection closed.")
+
+async def create_server():
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_PASSCRED, 1)
+    server.bind((HOST, PORT))
+    server.listen(5)
+    print(f"Server listening on {HOST}:{PORT}")
+    tasks = [handle_client(reader, writer) for _, writer in server.getsocknames()]
+    await asyncio.gather(*tasks)
+    server.close()
+    await server.wait_closed()
+    print("Server shutdown complete.")
+
+if __name__ == '__main__':
+    asyncio.run(create_server())
+```

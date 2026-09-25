@@ -1,7 +1,7 @@
 {
   "experiment": "E2",
-  "description": "Query-Dependent Fine-Tuning (phi3.5-ft-coding:latest 3.82B Coder + Base Llama-3.1-8B, 11.85B) vs 4-Tier Non-FT Baselines",
-  "timestamp": "2026-09-25 06:21:43",
+  "description": "Query-Dependent FT SLM Pool (FT phi3.5-ft-coding 3.82B Coder + Base Llama-3.1-8B, 11.85B) vs 4-Tier Non-FT Baselines",
+  "timestamp": "2026-09-26 01:07:32",
   "total_queries": 8,
   "total_trials": 64,
   "fairness_assertion": "PASSED across all 4 tiers (combined 11.85B < 20B/32B/72B/120B)",
@@ -14,52 +14,52 @@
       "trials_count": 16,
       "audit": {
         "concordance_rate_pct": 100.0,
-        "truncation_count": 8,
-        "swap_consistency_criteria_pct": 87.5,
-        "swap_consistency_holistic_pct": 87.5
+        "truncation_count": 7,
+        "swap_consistency_criteria_pct": 75.0,
+        "swap_consistency_holistic_pct": 75.0
       },
       "criteria_framework_1_to_5": {
-        "slm_mean_cqs": 2.1458,
-        "llm_mean_cqs": 4.2708,
-        "mean_delta_q": -2.125,
+        "slm_mean_cqs": 2.8542,
+        "llm_mean_cqs": 3.7917,
+        "mean_delta_q": -0.9375,
         "delta_q_95ci": [
-          -2.7224,
-          -1.5276
+          -2.0979,
+          0.2229
         ],
-        "p_mean_pct": 42.7081,
+        "p_mean_pct": 46.355,
         "p_mean_95ci": [
-          33.5549,
-          51.8613
+          34.6675,
+          58.0425
         ],
-        "slm_wins": 1,
-        "llm_wins": 15,
+        "slm_wins": 4,
+        "llm_wins": 12,
         "draws": 0,
-        "effective_slm_wins": 1,
-        "slm_win_rate_pct": 6.25,
-        "effective_win_rate_pct": 6.25,
-        "matched_delta_q_gain_vs_e1": 0.0208
+        "effective_slm_wins": 4,
+        "slm_win_rate_pct": 25.0,
+        "effective_win_rate_pct": 25.0,
+        "matched_delta_q_gain_vs_e1": 0.0625
       },
       "holistic_framework_1_to_10": {
-        "slm_mean_score": 2.8125,
-        "llm_mean_score": 7.5625,
-        "mean_delta_q": -4.75,
+        "slm_mean_score": 4.375,
+        "llm_mean_score": 6.5,
+        "mean_delta_q": -2.125,
         "delta_q_95ci": [
-          -6.033,
-          -3.467
+          -4.6,
+          0.35
         ],
-        "qp_overall": 0.4305,
+        "qp_overall": 0.4722,
         "qp_overall_95ci": [
-          0.35,
-          0.5111
+          0.3818,
+          0.5626
         ],
-        "slm_wins": 1,
-        "llm_wins": 15,
+        "slm_wins": 4,
+        "llm_wins": 12,
         "draws": 0,
-        "effective_slm_wins": 1,
-        "slm_win_rate_pct": 6.25,
-        "effective_win_rate_pct": 6.25,
-        "matched_delta_q_gain_vs_e1": 0.0625,
-        "matched_qp_gain_vs_e1": 0.0069
+        "effective_slm_wins": 4,
+        "slm_win_rate_pct": 25.0,
+        "effective_win_rate_pct": 25.0,
+        "matched_delta_q_gain_vs_e1": 0.0,
+        "matched_qp_gain_vs_e1": -0.0417
       }
     },
     "b32": {
@@ -68,52 +68,52 @@
       "trials_count": 16,
       "audit": {
         "concordance_rate_pct": 100.0,
-        "truncation_count": 5,
-        "swap_consistency_criteria_pct": 100.0,
+        "truncation_count": 6,
+        "swap_consistency_criteria_pct": 87.5,
         "swap_consistency_holistic_pct": 100.0
       },
       "criteria_framework_1_to_5": {
-        "slm_mean_cqs": 2.125,
-        "llm_mean_cqs": 4.3125,
-        "mean_delta_q": -2.1875,
+        "slm_mean_cqs": 3.4375,
+        "llm_mean_cqs": 3.4792,
+        "mean_delta_q": -0.0417,
         "delta_q_95ci": [
-          -2.505,
-          -1.87
+          -1.027,
+          0.9436
         ],
-        "p_mean_pct": 45.3113,
+        "p_mean_pct": 60.4169,
         "p_mean_95ci": [
-          37.3746,
-          53.2479
+          48.8964,
+          71.9374
         ],
-        "slm_wins": 0,
-        "llm_wins": 16,
-        "draws": 0,
-        "effective_slm_wins": 0,
-        "slm_win_rate_pct": 0.0,
-        "effective_win_rate_pct": 0.0,
-        "matched_delta_q_gain_vs_e1": -0.0208
+        "slm_wins": 6,
+        "llm_wins": 9,
+        "draws": 1,
+        "effective_slm_wins": 7,
+        "slm_win_rate_pct": 37.5,
+        "effective_win_rate_pct": 43.75,
+        "matched_delta_q_gain_vs_e1": -0.2292
       },
       "holistic_framework_1_to_10": {
-        "slm_mean_score": 2.8125,
-        "llm_mean_score": 7.4375,
-        "mean_delta_q": -4.625,
+        "slm_mean_score": 5.5,
+        "llm_mean_score": 5.875,
+        "mean_delta_q": -0.375,
         "delta_q_95ci": [
-          -5.2665,
-          -3.9835
+          -2.487,
+          1.737
         ],
-        "qp_overall": 0.4861,
+        "qp_overall": 0.6111,
         "qp_overall_95ci": [
-          0.4148,
-          0.5574
+          0.5121,
+          0.7102
         ],
-        "slm_wins": 0,
-        "llm_wins": 16,
+        "slm_wins": 6,
+        "llm_wins": 10,
         "draws": 0,
-        "effective_slm_wins": 0,
-        "slm_win_rate_pct": 0.0,
-        "effective_win_rate_pct": 0.0,
-        "matched_delta_q_gain_vs_e1": 0.0,
-        "matched_qp_gain_vs_e1": 0.0
+        "effective_slm_wins": 6,
+        "slm_win_rate_pct": 37.5,
+        "effective_win_rate_pct": 37.5,
+        "matched_delta_q_gain_vs_e1": -0.625,
+        "matched_qp_gain_vs_e1": 0.0416
       }
     },
     "b72": {
@@ -122,52 +122,52 @@
       "trials_count": 16,
       "audit": {
         "concordance_rate_pct": 100.0,
-        "truncation_count": 7,
-        "swap_consistency_criteria_pct": 100.0,
-        "swap_consistency_holistic_pct": 100.0
+        "truncation_count": 10,
+        "swap_consistency_criteria_pct": 87.5,
+        "swap_consistency_holistic_pct": 87.5
       },
       "criteria_framework_1_to_5": {
-        "slm_mean_cqs": 2.0,
-        "llm_mean_cqs": 4.2708,
-        "mean_delta_q": -2.2708,
+        "slm_mean_cqs": 3.1667,
+        "llm_mean_cqs": 3.5833,
+        "mean_delta_q": -0.4167,
         "delta_q_95ci": [
-          -2.59,
-          -1.9517
+          -1.353,
+          0.5197
         ],
-        "p_mean_pct": 43.2294,
+        "p_mean_pct": 61.4588,
         "p_mean_95ci": [
-          35.251,
-          51.2078
+          50.0099,
+          72.9076
         ],
-        "slm_wins": 0,
-        "llm_wins": 16,
+        "slm_wins": 5,
+        "llm_wins": 11,
         "draws": 0,
-        "effective_slm_wins": 0,
-        "slm_win_rate_pct": 0.0,
-        "effective_win_rate_pct": 0.0,
-        "matched_delta_q_gain_vs_e1": -0.0208
+        "effective_slm_wins": 5,
+        "slm_win_rate_pct": 31.25,
+        "effective_win_rate_pct": 31.25,
+        "matched_delta_q_gain_vs_e1": -0.1667
       },
       "holistic_framework_1_to_10": {
-        "slm_mean_score": 2.5625,
-        "llm_mean_score": 7.5,
-        "mean_delta_q": -4.9375,
+        "slm_mean_score": 4.9375,
+        "llm_mean_score": 6.0625,
+        "mean_delta_q": -1.125,
         "delta_q_95ci": [
-          -5.5361,
-          -4.3389
+          -3.1267,
+          0.8767
         ],
-        "qp_overall": 0.4514,
+        "qp_overall": 0.6111,
         "qp_overall_95ci": [
-          0.3849,
-          0.5179
+          0.5194,
+          0.7028
         ],
-        "slm_wins": 0,
-        "llm_wins": 16,
+        "slm_wins": 5,
+        "llm_wins": 11,
         "draws": 0,
-        "effective_slm_wins": 0,
-        "slm_win_rate_pct": 0.0,
-        "effective_win_rate_pct": 0.0,
-        "matched_delta_q_gain_vs_e1": -0.1875,
-        "matched_qp_gain_vs_e1": -0.0208
+        "effective_slm_wins": 5,
+        "slm_win_rate_pct": 31.25,
+        "effective_win_rate_pct": 31.25,
+        "matched_delta_q_gain_vs_e1": -0.625,
+        "matched_qp_gain_vs_e1": -0.0556
       }
     },
     "b120": {
@@ -176,52 +176,52 @@
       "trials_count": 16,
       "audit": {
         "concordance_rate_pct": 100.0,
-        "truncation_count": 4,
-        "swap_consistency_criteria_pct": 100.0,
-        "swap_consistency_holistic_pct": 100.0
+        "truncation_count": 6,
+        "swap_consistency_criteria_pct": 87.5,
+        "swap_consistency_holistic_pct": 75.0
       },
       "criteria_framework_1_to_5": {
-        "slm_mean_cqs": 1.9583,
-        "llm_mean_cqs": 4.75,
-        "mean_delta_q": -2.7917,
+        "slm_mean_cqs": 2.8125,
+        "llm_mean_cqs": 4.4375,
+        "mean_delta_q": -1.625,
         "delta_q_95ci": [
-          -3.1854,
-          -2.3979
+          -2.3837,
+          -0.8664
         ],
-        "p_mean_pct": 30.2081,
+        "p_mean_pct": 51.04,
         "p_mean_95ci": [
-          20.3649,
-          40.0514
+          39.4766,
+          62.6034
         ],
-        "slm_wins": 0,
-        "llm_wins": 16,
+        "slm_wins": 1,
+        "llm_wins": 15,
         "draws": 0,
-        "effective_slm_wins": 0,
-        "slm_win_rate_pct": 0.0,
-        "effective_win_rate_pct": 0.0,
-        "matched_delta_q_gain_vs_e1": 0.0416
+        "effective_slm_wins": 1,
+        "slm_win_rate_pct": 6.25,
+        "effective_win_rate_pct": 6.25,
+        "matched_delta_q_gain_vs_e1": 0.1042
       },
       "holistic_framework_1_to_10": {
-        "slm_mean_score": 2.4375,
-        "llm_mean_score": 8.5625,
-        "mean_delta_q": -6.125,
+        "slm_mean_score": 4.3125,
+        "llm_mean_score": 7.75,
+        "mean_delta_q": -3.4375,
         "delta_q_95ci": [
-          -6.9923,
-          -5.2577
+          -5.1552,
+          -1.7198
         ],
-        "qp_overall": 0.3194,
+        "qp_overall": 0.5208,
         "qp_overall_95ci": [
-          0.2231,
-          0.4158
+          0.4156,
+          0.6261
         ],
-        "slm_wins": 0,
-        "llm_wins": 16,
+        "slm_wins": 2,
+        "llm_wins": 14,
         "draws": 0,
-        "effective_slm_wins": 0,
-        "slm_win_rate_pct": 0.0,
-        "effective_win_rate_pct": 0.0,
-        "matched_delta_q_gain_vs_e1": 0.0,
-        "matched_qp_gain_vs_e1": 0.0
+        "effective_slm_wins": 2,
+        "slm_win_rate_pct": 12.5,
+        "effective_win_rate_pct": 12.5,
+        "matched_delta_q_gain_vs_e1": 0.375,
+        "matched_qp_gain_vs_e1": 0.0277
       }
     }
   }

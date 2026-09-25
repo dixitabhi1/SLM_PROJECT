@@ -1,0 +1,69 @@
+To implement the asynchronous Python event loop using `asyncio` and `socket` for the high-throughput telemetry ingestion daemon, we'll follow these steps:
+
+1. Create a non-blocking server socket using `asyncio`.
+2. Handle client read/write loops with proper message framing.
+3. Write a self-contained execution test block.
+
+Here's the Python code:
+
+```python
+import asyncio
+import socket
+import struct
+
+# Constants
+HOST = '0.0.0.0'
+PORT = 8080
+BUFFER_SIZE = 1024
+
+# Message framing structure
+HEADER_STRUCT = '!2xI'  # 2 unsigned integers (big-endian)
+HEADER_SIZE = struct.calcsize(HEADER_STRUCT)
+
+async def handle_client(reader, writer):
+    while True:
+        header_data = await reader.read(HEADER_SIZE)
+        if not header_data:
+            break
+
+        (length,) = struct.unpack(HEADER_STRUCT, header_data)
+        message = await reader.read(length)
+
+        # Process the received data
+        print(f'Received: {message.decode()}')
+
+        # Send a response back
+        response = 'ACK'
+        header = struct.pack(HEADER_STRUCT, len(response))
+        writer.write(header + response.encode())
+
+        await writer.drain()
+
+    writer.close()
+
+async def serve_client(host, port):
+    server = await asyncio.start_server(handle_client, host, port, family=socket.AF_INET, flags=socket.SO_REUSEADDR, proto=socket.IPPROTO_TCP)
+
+    async with server:
+        await server.serve_forever()
+
+async def main():
+    await serve_client(HOST, PORT)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+This code creates an asynchronous server that listens on the specified host and port. It uses `asyncio` to handle multiple client connections concurrently. The `handle_client` function reads incoming data, processes it, and sends a response back. The `serve_client` function starts the server and serves clients indefinitely.
+
+To test the execution, simply run the script, and it will start listening for incoming connections. You can send data to the server using a tool like `nc` (netcat):
+
+```
+nc localhost 8080
+```
+
+This will send data to the server, and you should see the server's output in the console.
+
+Note: This code assumes that the incoming data is properly framed with a header containing the message length. If the incoming data is not framed, you may need to modify the code to handle unframed data.
+
+Additionally, this code does not include error handling, connection management, or data processing, which should be implemented for a production-ready daemon. You may also want to consider using `asyncio.StreamReader` and `asyncio.StreamWriter` instead of `socket` for better integration with `asyncio`.

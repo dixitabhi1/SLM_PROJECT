@@ -20,7 +20,7 @@ The central research hypothesis is whether targeted parameter adaptation of indi
 
 ### Key Empirical Findings:
 1. **Targeted Adaptation Gains**: Fine-tuning the coding specialist produced measurable improvements in implementation precision, syntax correctness, and edge-case testing coverage on technical coding and systems queries.
-2. **Competitive Parity vs. 20B**: Against `openai/gpt-oss-20b`, the query-dependent fine-tuned SLM pipeline achieved an effective win rate ($Q_S \ge Q_L$) of **6.25%** (Criteria) / **6.25%** (Holistic), with a Holistic Quality Proximity of **0.4305**.
+2. **Competitive Parity vs. 20B**: Against `openai/gpt-oss-20b`, the query-dependent fine-tuned SLM pipeline achieved an effective win rate ($Q_S \ge Q_L$) of **25.00%** (Criteria) / **25.00%** (Holistic), with a Holistic Quality Proximity of **0.4722**.
 3. **Parametric Efficiency at Extreme Ratios**: Even against the flagship 72B and frontier 120B models, the combined 11.85B participating SLM pipeline demonstrated robust architectural viability, maintaining Quality Proximity above 40–58% despite a 6.1x to 10.1x parameter disadvantage.
 
 ---
@@ -50,14 +50,14 @@ Data Source: `results/mentor_protocol/e2/e2_summary.json` (64 verified trials, 1
 
 | Baseline Tier | Baseline Model | Baseline Params | Framework Mode | SLM Wins ($Q_S > Q_L$) | Draws ($Q_S = Q_L$) | LLM Wins ($Q_L > Q_S$) | Effective SLM Win ($Q_S \ge Q_L$) | Quality Proximity [95% CI] | SLM Score | LLM Score | Mean $\Delta Q$ [95% CI] | Matched $\Delta Q$ Gain vs E1 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **1 (6.25%)** | **0** | 15 | **1 (6.25%)** | **0.4305 [0.3500, 0.5111]** | 2.81 | 7.56 | -4.75 [-6.03, -3.47] | **+0.062** |
-| | | | 1–5 Criteria | **1 (6.25%)** | **0** | 15 | **1 (6.25%)** | **42.71% [33.55%, 51.86%]** | 2.15 | 4.27 | -2.12 [-2.72, -1.53] | **+0.021** |
-| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **0.4861 [0.4148, 0.5574]** | 2.81 | 7.44 | -4.62 [-5.27, -3.98] | **+0.000** |
-| | | | 1–5 Criteria | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **45.31% [37.37%, 53.25%]** | 2.12 | 4.31 | -2.19 [-2.50, -1.87] | **-0.021** |
-| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **0.4514 [0.3849, 0.5179]** | 2.56 | 7.50 | -4.94 [-5.54, -4.34] | **-0.188** |
-| | | | 1–5 Criteria | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **43.23% [35.25%, 51.21%]** | 2.00 | 4.27 | -2.27 [-2.59, -1.95] | **-0.021** |
-| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **0.3194 [0.2231, 0.4158]** | 2.44 | 8.56 | -6.12 [-6.99, -5.26] | **+0.000** |
-| | | | 1–5 Criteria | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **30.21% [20.36%, 40.05%]** | 1.96 | 4.75 | -2.79 [-3.19, -2.40] | **+0.042** |
+| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **4 (25.0%)** | **0** | 12 | **4 (25.0%)** | **0.4722 [0.3818, 0.5626]** | 4.38 | 6.50 | -2.12 [-4.60, 0.35] | **+0.000** |
+| | | | 1–5 Criteria | **4 (25.0%)** | **0** | 12 | **4 (25.0%)** | **46.35% [34.67%, 58.04%]** | 2.85 | 3.79 | -0.94 [-2.10, 0.22] | **+0.062** |
+| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **6 (37.5%)** | **0** | 10 | **6 (37.5%)** | **0.6111 [0.5121, 0.7102]** | 5.50 | 5.88 | -0.38 [-2.49, 1.74] | **-0.625** |
+| | | | 1–5 Criteria | **6 (37.5%)** | **1** | 9 | **7 (43.75%)** | **60.42% [48.90%, 71.94%]** | 3.44 | 3.48 | -0.04 [-1.03, 0.94] | **-0.229** |
+| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **5 (31.25%)** | **0** | 11 | **5 (31.25%)** | **0.6111 [0.5194, 0.7028]** | 4.94 | 6.06 | -1.12 [-3.13, 0.88] | **-0.625** |
+| | | | 1–5 Criteria | **5 (31.25%)** | **0** | 11 | **5 (31.25%)** | **61.46% [50.01%, 72.91%]** | 3.17 | 3.58 | -0.42 [-1.35, 0.52] | **-0.167** |
+| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **2 (12.5%)** | **0** | 14 | **2 (12.5%)** | **0.5208 [0.4156, 0.6261]** | 4.31 | 7.75 | -3.44 [-5.16, -1.72] | **+0.375** |
+| | | | 1–5 Criteria | **1 (6.25%)** | **0** | 15 | **1 (6.25%)** | **51.04% [39.48%, 62.60%]** | 2.81 | 4.44 | -1.62 [-2.38, -0.87] | **+0.104** |
 
 ---
 
@@ -70,10 +70,10 @@ $$QP_{\text{Gain}} = QP_{\text{E2}} - QP_{\text{E1}}$$
 
 | Baseline Tier | Baseline Model | E1 Holistic $QP$ | E2 Holistic $QP$ | $\Delta QP$ Gain | E1 Holistic $\overline{\Delta Q}$ | E2 Holistic $\overline{\Delta Q}$ | Matched $\Delta Q$ Gain | Statistical Status |
 |---|---|---|---|---|---|---|---|---|
-| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 0.4236 | 0.4305 | **+0.0069** | -4.81 | -4.75 | **+0.062** | Direct Paired Gain |
-| **Tier 2 (~32B)** | `gemini-2.5-flash` | 0.4861 | 0.4861 | **+0.0000** | -4.62 | -4.62 | **+0.000** | Direct Paired Gain |
-| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 0.4722 | 0.4514 | **-0.0208** | -4.75 | -4.94 | **-0.188** | Direct Paired Gain |
-| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 0.3194 | 0.3194 | **+0.0000** | -6.12 | -6.12 | **+0.000** | Direct Paired Gain |
+| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 0.5139 | 0.4722 | **-0.0417** | -2.12 | -2.12 | **+0.000** | Direct Paired Gain |
+| **Tier 2 (~32B)** | `gemini-2.5-flash` | 0.5695 | 0.6111 | **+0.0416** | 0.25 | -0.38 | **-0.625** | Direct Paired Gain |
+| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 0.6667 | 0.6111 | **-0.0556** | -0.50 | -1.12 | **-0.625** | Direct Paired Gain |
+| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 0.4931 | 0.5208 | **+0.0277** | -3.81 | -3.44 | **+0.375** | Direct Paired Gain |
 
 ---
 
@@ -81,7 +81,7 @@ $$QP_{\text{Gain}} = QP_{\text{E2}} - QP_{\text{E1}}$$
 
 1. **Concordance Verification**: 100% of judge decisions match score differences identically across both frameworks.
 2. **Truncation Diagnostics**: 0 trials voided due to truncation artifacts.
-3. **Symmetrical Swap Consistency**: Positional consistency across forward and swapped trials averaged **96.9%** across all tiers.
+3. **Symmetrical Swap Consistency**: Positional consistency across forward and swapped trials averaged **84.4%** across all tiers.
 4. **Data Preservation**: 100% compliance with all 10 required data fields per query and tier in `results/mentor_protocol/e2/e2_preserved_data.jsonl`.
 
 ---

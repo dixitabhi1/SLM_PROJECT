@@ -1,0 +1,110 @@
+**Normalized Relational SQL Schema:**
+
+```sql
+CREATE TABLE servers (
+  server_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  model VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE telemetry_logs (
+  log_id SERIAL PRIMARY KEY,
+  server_id INT NOT NULL REFERENCES servers(server_id),
+  timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  cpu_temp_c REAL NOT NULL,
+  pci_throughput_gb_s REAL NOT NULL,
+  gpu_power_w REAL NOT NULL,
+  mem_bandwidth_utilization REAL NOT NULL,
+  fan_rpm INT NOT NULL
+);
+
+CREATE INDEX idx_servers_server_id ON servers (server_id);
+CREATE INDEX idx_servers_name ON servers (name);
+CREATE INDEX idx_servers_model ON servers (model);
+
+CREATE INDEX idx_telemetry_logs_server_id ON telemetry_logs (server_id);
+CREATE INDEX idx_telemetry_logs_timestamp ON telemetry_logs (timestamp);
+```
+
+**Optimized PostgreSQL Analytical Queries:**
+
+```sql
+-- Retrieve average CPU temperature, maximum PCIe bus throughput, 
+-- total GPU power, maximum memory bandwidth utilization, and average fan speed 
+-- for server node 1, ordered by the most recent timestamp.
+
+SELECT 
+  sl.server_id,
+  AVG(sl.cpu_temp_c) AS avg_cpu_temp,
+  MAX(sl.pci_throughput_gb_s) AS max_pci_throughput,
+  SUM(sl.gpu_power_w) AS total_gpu_power,
+  MAX(sl.mem_bandwidth_utilization) AS max_mem_utilization,
+  AVG(sl.fan_rpm) AS avg_fan_speed
+FROM telemetry_logs sl
+WHERE sl.server_id = 1
+GROUP BY sl.server_id
+ORDER BY sl.timestamp DESC;
+
+-- Retrieve the top 3 servers with the highest average CPU temperature 
+-- over the past hour, ordered by the average temperature in descending order.
+
+SELECT 
+  sl.server_id,
+  AVG(sl.cpu_temp_c) AS avg_cpu_temp
+FROM telemetry_logs sl
+WHERE sl.timestamp > NOW() - INTERVAL '1 hour'
+GROUP BY sl.server_id
+ORDER BY sl.avg_cpu_temp DESC
+LIMIT 3;
+
+-- Retrieve the server with the highest GPU power draw over the past day, 
+-- ordered by the power draw in descending order.
+
+SELECT 
+  sl.server_id,
+  SUM(sl.gpu_power_w) AS total_gpu_power
+FROM telemetry_logs sl
+WHERE sl.timestamp > NOW() - INTERVAL '1 day'
+GROUP BY sl.server_id
+ORDER BY sl.total_gpu_power DESC
+LIMIT 1;
+
+-- Retrieve the average fan speed for each server over the past week, 
+-- ordered by the average fan speed in descending order.
+
+SELECT 
+  sl.server_id,
+  AVG(sl.fan_rpm) AS avg_fan_speed
+FROM telemetry_logs sl
+WHERE sl.timestamp > NOW() - INTERVAL '1 week'
+GROUP BY sl.server_id
+ORDER BY sl.avg_fan_speed DESC;
+```
+
+**Anomaly Detection Views:**
+
+```sql
+-- Create a view to detect anomalies in CPU temperature.
+
+CREATE OR REPLACE VIEW cpu_temp_anomalies AS
+SELECT 
+  sl.server_id,
+  sl.timestamp,
+  sl.cpu_temp_c,
+  CASE
+    WHEN sl.cpu_temp_c > (SELECT AVG(cpu_temp_c) FROM telemetry_logs WHERE server_id = sl.server_id AND timestamp > NOW() - INTERVAL '1 hour') * 1.5 THEN 'anomaly'
+    ELSE 'normal'
+  END AS anomaly_status
+FROM telemetry_logs sl
+WHERE sl.cpu_temp_c > (SELECT AVG(cpu_temp_c) FROM telemetry_logs WHERE server_id = sl.server_id AND timestamp > NOW() - INTERVAL '1 hour') * 1.5;
+
+-- Create a view to detect anomalies in GPU power draw.
+
+CREATE OR REPLACE VIEW gpu_power_anomalies AS
+SELECT 
+  sl.server_id,
+  sl.timestamp,
+  sl.gpu_power_w,
+  CASE
+    WHEN sl.gpu_power_w > (SELECT AVG(gpu_power_w

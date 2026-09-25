@@ -1,0 +1,75 @@
+Here is the complete Python SQLAlchemy ORM access layer that maps to the three tables (`turbines`, `components`, `inspection_logs`) and includes all necessary imports, model relationships, and a test block for execution:
+
+```python
+from sqlalchemy import create_engine, Column, Integer, String, Date, Text
+from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.exc import NoResultFound
+
+# Define the database connection
+engine = create_engine('postgresql://user:password@host:port/dbname')
+
+# Define the base class for our models
+Base = declarative_base()
+
+# Define the Turbine model
+class Turbine(Base):
+    __tablename__ = 'turbines'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    model = Column(String)
+    manufacturer = Column(String)
+    components = relationship("Component", back_populates="turbine")
+
+# Define the Component model
+class Component(Base):
+    __tablename__ = 'components'
+    id = Column(Integer, primary_key=True)
+    turbine_id = Column(Integer, ForeignKey('turbines.id'))
+    name = Column(String)
+    description = Column(Text)
+    part_number = Column(String)
+    turbine = relationship("Turbine", back_populates="components")
+
+# Define the InspectionLog model
+class InspectionLog(Base):
+    __tablename__ = 'inspection_logs'
+    id = Column(Integer, primary_key=True)
+    component_id = Column(Integer, ForeignKey('components.id'))
+    inspection_date = Column(Date, nullable=False)
+    inspection_type = Column(String)
+    results = Column(Text)
+    notes = Column(Text)
+    component = relationship("Component", back_populates="inspection_logs")
+
+# Define the Component model with back_populates for bidirectional relationship
+Component.inspection_logs = relationship("InspectionLog", back_populates="component")
+
+# Create all tables in the engine
+Base.metadata.create_all(engine)
+
+# Create a sessionmaker
+Session = sessionmaker(bind=engine)
+
+# Create a session
+session = Session()
+
+# Test block
+if __name__ == '__main__':
+    # Create a turbine
+    turbine = Turbine(name='Turbine A', model='Model X', manufacturer='Manufacturer Y')
+    session.add(turbine)
+
+    # Create a component
+    component = Component(turbine_id=turbine.id, name='Component 1', description='First component', part_number='C1')
+    session.add(component)
+
+    # Create an inspection log
+    inspection_log = InspectionLog(component_id=component.id, inspection_date='2022-01-01', inspection_type='Visual', results='No issues found', notes='Inspector: John Doe')
+    session.add(inspection_log)
+
+    # Commit changes
+    session.commit()
+
+    # Query and print turbine details
+    turbine = session.query(Turbine).filter_by(name='Turbine A').

@@ -1,0 +1,33 @@
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def simulate_heat_conduction(L=1.0, T_base=100.0, T_inf=20.0, h_c=10.0, k=1.0, alpha=0.1, Fo=0.25, N_x=100, N_y=100, max_time=10.0):
+    dx = L / (N_x - 1)
+    dy = L / (N_y - 1)
+    dt = Fo * dx**2 / alpha
+    if dt > max_time:
+        raise ValueError("Time step too large, stability condition not met.")
+
+    T = np.full((N_x, N_y), T_inf)
+    T[0, :] = T_base
+
+    for _ in np.arange(0, max_time, dt):
+        T_new = T.copy()
+        T_new[1:-1, 1:-1] = T[1:-1, 1:-1] + alpha * dt * (
+            (T[2:, 1:-1] - 2 * T[1:-1, 1:-1] + T[:-2, 1:-1]) / dx**2 +
+            (T[1:-1, 2:] - 2 * T[1:-1, 1:-1] + T[1:-1, :-2]) / dy**2
+        )
+        # Robin condition at cooling fins
+        T_new[-1, :] = T_inf + (T_new[-1, :] - T_inf) * (1 - np.exp(-h_c * dt / k))
+        T[...] = T_new
+
+    return T
+
+if __name__ == '__main__':
+    T_final = simulate_heat_conduction()
+    plt.imshow(T_final, origin='lower', cmap='coolwarm', extent=[0, 1, 0, 1])
+    plt.colorbar()
+    plt.title('2D Transient Thermal Conduction with Convection')
+    plt.show()
+```

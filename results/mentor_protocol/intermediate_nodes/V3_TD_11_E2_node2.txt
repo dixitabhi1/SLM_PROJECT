@@ -1,0 +1,56 @@
+```python
+from sqlalchemy import create_engine, Column, Integer, String, Date, Text, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, relationship
+
+Base = declarative_base()
+
+class Turbine(Base):
+    __tablename__ = 'turbines'
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    model = Column(String, nullable=False)
+    manufacturer = Column(String, nullable=False)
+    components = relationship("Component", back_populates="turbine")
+
+class Component(Base):
+    __tablename__ = 'components'
+    id = Column(Integer, primary_key=True)
+    turbine_id = Column(Integer, ForeignKey('turbines.id'))
+    name = Column(String, nullable=False)
+    description = Column(String)
+    part_number = Column(String, unique=True)
+    turbine = relationship("Turbine", back_populates="components")
+
+class InspectionLog(Base):
+    __tablename__ = 'inspection_logs'
+    id = Column(Integer, primary_key=True)
+    component_id = Column(Integer, ForeignKey('components.id'))
+    inspection_date = Column(Date, nullable=False)
+    inspection_type = Column(String, nullable=False)
+    results = Column(String)
+    notes = Column(String)
+    component = relationship("Component", back_populates="logs")
+
+# Create all tables in the database
+engine = create_engine('postgresql://user:password@localhost/testdb')
+Base.metadata.create_all(engine)
+
+# Verification block
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# Add a turbine and components
+turbine = Turbine(id=1, name='TurbineA', model='XZ-3', manufacturer='AeroTech')
+comp1 = Component(id=1, turbine_id=1, name='Composite Wing', part_number='CW-001')
+comp2 = Component(id=2, turbine_id=1, name='Composite Nacelle', part_number='CN-002')
+
+session.add_all([turbine, comp1, comp2])
+session.commit()
+
+# Query and verify relationships
+assert turbine.components[0].id == comp1.id
+assert turbine.components[1].id == comp2.id
+
+session.close()
+print("SQLAlch You are asked to write a Python class implementing a secure socket connection with deterministic socket I/O execution, timeout handling, and comprehensive socket graceful shutdown code under UNITY constraints.

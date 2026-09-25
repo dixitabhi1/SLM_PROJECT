@@ -1,0 +1,60 @@
+Here is a vectorized Python simulation using NumPy that models the 2D heat equation and boundary conditions for the aerospace heat sink problem. The simulation uses the explicit finite-difference method and ensures numerical stability by adhering to the stability condition.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def simulate_heat_sink(L, T_base, T_inf, h_c, k, alpha, Fo, N_x, N_y, dt, total_time):
+    # Grid size
+    dx = L / (N_x - 1)
+    dy = L / (N_y - 1)
+
+    # Time step
+    dt = Fo * dx**2 / alpha
+
+    # Time array
+    t = np.arange(0, total_time, dt)
+
+    # Initialize temperature array
+    T = np.zeros((N_x, N_y, len(t)))
+
+    # Set initial condition
+    T[:, :, 0] = T_base
+
+    # Set boundary conditions
+    T[0, :, :] = T_inf  # Dirichlet boundary condition at the heat source base
+    T[-1, :, :] = T_inf  # Robin convective boundary condition at the cooling fins
+
+    # Set convective boundary condition at the cooling fins
+    for i in range(N_x):
+        T[-1, i, :] = T_inf + (T[-1, i, 0] - T_inf) * (1 - np.exp(-h_c * dt / k))
+
+    # Explicit finite-difference method
+    for n in range(1, len(t)):
+        T[1:-1, 1:-1, n] = (T[1:-1, 1:-1, n-1] +
+                            alpha * dt * (
+                                (T[2:, 1:-1, n-1] - 2 * T[1:-1, 1:-1, n-1] + T[:-2, 1:-1, n-1]) / dx**2 +
+                                (T[1:-1, 2:, n-1] - 2 * T[1:-1, 1:-1, n-1] + T[1:-1, :-2, n-1]) / dy**2
+                            ))
+
+    return T
+
+if __name__ == '__main__':
+    # Parameters
+    L = 1.0  # characteristic length
+    T_base = 100.0  # heat source temperature
+    T_inf = 20.0  # ambient temperature
+    h_c = 10.0  # convective heat transfer coefficient
+    k = 1.0  # thermal conductivity
+    alpha = 0.1  # thermal diffusivity
+    Fo = 0.25  # Fourier number
+    N_x = 100
+    N_y = 100
+    total_time = 5.0  # total simulation time
+
+    # Run simulation
+    T = simulate_heat_sink(L, T_base, Tdict['T_inf'], h_c, k, alpha, Fo, N_x, N_y, dt, total_time)
+
+    # Plot results
+    plt.figure(figsize=(10, 8))
+    plt.imshow(T[:, :

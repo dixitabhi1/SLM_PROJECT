@@ -20,8 +20,8 @@ The core objective of Experiment 1 (E1) is to establish an un-adapted empirical 
 All evaluations are conducted under double-blind symmetrical presentation (Forward and Swapped positions) on canonical multi-domain two-domain queries spanning diverse technical domain pairings. Dual-framework judging evaluates both the established 1–5 criteria-based framework and the 1–10 holistic framework independently, with equality cases retained as a distinct, first-class Draw outcome.
 
 ### Key Empirical Findings:
-- **Baseline Quality Proximity**: Against the non-fine-tuned ~20B baseline, the fixed SLM pool achieves **0.4236 Holistic Quality Proximity** and an effective win rate ($Q_S \ge Q_L$) of **6.25%**.
-- **Parametric Scale Gradient**: Against 32B, 72B, and 120B baselines, the fixed SLM pool without domain fine-tuning encounters a clear parametric ceiling, achieving **0.4861**, **0.4722**, and **0.3194** Holistic Quality Proximity respectively.
+- **Baseline Quality Proximity**: Against the non-fine-tuned ~20B baseline, the fixed SLM pool achieves **0.5139 Holistic Quality Proximity** and an effective win rate ($Q_S \ge Q_L$) of **31.25%**.
+- **Parametric Scale Gradient**: Against 32B, 72B, and 120B baselines, the fixed SLM pool without domain fine-tuning encounters a clear parametric ceiling, achieving **0.5695**, **0.6667**, and **0.4931** Holistic Quality Proximity respectively.
 - **Methodological Baseline Established**: These 64 audited trials form the permanent, unperturbed control baseline against which Experiment 2 (Query-Dependent Specialist Fine-Tuning) is compared.
 
 ---
@@ -52,14 +52,14 @@ Data Source: `results/mentor_protocol/e1/e1_summary.json` (64 verified trials, 1
 
 | Baseline Tier | Baseline Model | Baseline Params | Framework Mode | SLM Wins ($Q_S > Q_L$) | Draws ($Q_S = Q_L$) | LLM Wins ($Q_L > Q_S$) | Effective SLM Win ($Q_S \ge Q_L$) | Quality Proximity [95% CI] | SLM Score | LLM Score | Mean $\Delta Q$ [95% CI] |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **1 (6.25%)** | **0** | 15 | **1 (6.25%)** | **0.4236 [0.3421, 0.5051]** | 2.81 | 7.62 | -4.81 [-6.11, -3.52] |
-| | | | 1–5 Criteria | **1 (6.25%)** | **0** | 15 | **1 (6.25%)** | **42.19% [32.95%, 51.42%]** | 2.17 | 4.31 | -2.15 [-2.75, -1.54] |
-| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **0.4861 [0.4148, 0.5574]** | 2.81 | 7.44 | -4.62 [-5.27, -3.98] |
-| | | | 1–5 Criteria | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **45.83% [37.57%, 54.10%]** | 2.15 | 4.31 | -2.17 [-2.50, -1.84] |
-| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **0.4722 [0.4130, 0.5314]** | 2.56 | 7.31 | -4.75 [-5.28, -4.22] |
-| | | | 1–5 Criteria | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **43.75% [35.56%, 51.94%]** | 1.98 | 4.23 | -2.25 [-2.58, -1.92] |
-| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **0.3194 [0.2231, 0.4158]** | 2.44 | 8.56 | -6.12 [-6.99, -5.26] |
-| | | | 1–5 Criteria | **0 (0.0%)** | **0** | 16 | **0 (0.0%)** | **29.17% [18.91%, 39.42%]** | 1.94 | 4.77 | -2.83 [-3.24, -2.42] |
+| **Tier 1 (~20B)** | `openai/gpt-oss-20b` | 20.0B | **1–10 Holistic** | **5 (31.25%)** | **0** | 11 | **5 (31.25%)** | **0.5139 [0.3977, 0.6300]** | 4.44 | 6.56 | -2.12 [-4.47, 0.22] |
+| | | | 1–5 Criteria | **3 (18.75%)** | **2** | 11 | **5 (31.25%)** | **51.04% [36.11%, 65.98%]** | 2.88 | 3.88 | -1.00 [-2.10, 0.10] |
+| **Tier 2 (~32B)** | `gemini-2.5-flash` | 32.0B | **1–10 Holistic** | **8 (50.0%)** | **0** | 8 | **8 (50.0%)** | **0.5695 [0.4807, 0.6583]** | 6.19 | 5.94 | 0.25 [-2.02, 2.52] |
+| | | | 1–5 Criteria | **8 (50.0%)** | **0** | 8 | **8 (50.0%)** | **54.69% [45.96%, 63.41%]** | 3.62 | 3.44 | 0.19 [-0.86, 1.24] |
+| **Tier 3 (~72B)** | `Qwen/Qwen2.5-72B-Instruct` | 72.7B | **1–10 Holistic** | **5 (31.25%)** | **1** | 10 | **6 (37.5%)** | **0.6667 [0.5586, 0.7748]** | 5.44 | 5.94 | -0.50 [-2.40, 1.40] |
+| | | | 1–5 Criteria | **5 (31.25%)** | **0** | 11 | **5 (31.25%)** | **63.54% [50.79%, 76.29%]** | 3.27 | 3.52 | -0.25 [-1.19, 0.69] |
+| **Tier 4 (~120B)** | `openai/gpt-oss-120b` | 120.0B | **1–10 Holistic** | **1 (6.25%)** | **0** | 15 | **1 (6.25%)** | **0.4931 [0.3941, 0.5920]** | 4.19 | 8.00 | -3.81 [-5.45, -2.17] |
+| | | | 1–5 Criteria | **1 (6.25%)** | **0** | 15 | **1 (6.25%)** | **48.44% [37.53%, 59.34%]** | 2.79 | 4.52 | -1.73 [-2.49, -0.97] |
 
 ### 3.1 Treatment of Draws in Favor of SLMs ($Q_S \ge Q_L$)
 Per Section 5 of the Mentor Experiment Protocol (`mentor_experiment_protocol_source.txt`), reporting draws ($Q_S = Q_L$) separately enables evaluating the scenario where draws are credited in favor of the resource-constrained pipeline ($Q_S \ge Q_L$). In a practical deployment, if an entirely local pipeline delivers identical judged quality to a 20B–120B monolithic cloud model at a fraction of the compute and dollar cost, parity represents an architectural victory for the SLM system.
