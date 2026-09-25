@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_21",
+  "experiment": "E1",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "forward",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    },
+    "Candidate B": {
+      "correctness": 4,
+      "completeness": 3,
+      "coherence": 5
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 1,
+    "Candidate B": 6
+  },
+  "primary_differentiator": "Candidate B provides a rigorous, domain-specific formalization and logical structure, whereas Candidate A provides nonsensical mathematical notation and an incomplete, non-functional code snippet.",
+  "reasoning": "Candidate A fails on all fronts. It invents a vague problem, uses mathematically incoherent notation (e.g., defining Determinism and Stability with identical, trivial logical expressions that do not represent those concepts), and provides a Python code block that is merely a comment describing what it *would* do, rather than actual code. It does not implement a concurrency engine. Candidate B, while also forced to assume a domain due to the undefined 'Problem #21', selects a plausible complex system (chemical reactor control) and correctly identifies relevant physical and control constraints. It begins a rigorous formal definition of state invariants using appropriate mathematical notation. Although the response is cut off before providing the full implementation, the analytical depth, logical structure, and technical accuracy of the provided portion are vastly superior to Candidate A's hallucinated and broken output.",
+  "status": "SUCCESS"
+}

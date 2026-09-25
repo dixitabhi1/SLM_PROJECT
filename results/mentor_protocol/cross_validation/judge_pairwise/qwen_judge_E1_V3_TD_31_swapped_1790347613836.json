@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_31",
+  "experiment": "E1",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 4,
+      "completeness": 3,
+      "coherence": 5
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 2,
+      "coherence": 3
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 6,
+    "Candidate B": 2
+  },
+  "primary_differentiator": "Domain accuracy and logical rigor vs. hallucinated formalism",
+  "reasoning": "Candidate A correctly identifies that 'Regulatory RFC Standards' is a category error (RFCs are IETF internet standards, not chemical/pharmaceutical regulations) and proposes a logical adaptation by defining a hypothetical pharmaceutical context. It provides a structured, coherent framework for a deductive proof, although it cuts off before completing the specific proof steps. Candidate B fails significantly by accepting the premise without correction, providing empty set-theoretic placeholders (R={RFC-1...}, P={C-1...}) that contain no actual content, and claiming 'mathematical verification' without providing any logic. Furthermore, Candidate B provides a broken, non-executable code snippet in Haskell that uses set notation syntax which is invalid in that language. Candidate A is far superior in technical rigor and honesty about the constraints of the query.",
+  "status": "SUCCESS"
+}

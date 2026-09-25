@@ -61,8 +61,33 @@ MODEL_SPECS = {
     "b32": {"name": "gemini-2.5-flash", "params": 32.0, "endpoint": "Google AI Studio API"},
     "b72": {"name": "Qwen/Qwen2.5-72B-Instruct", "params": 72.7, "endpoint": "HF Router"},
     "b120": {"name": "openai/gpt-oss-120b", "params": 120.0, "endpoint": "Groq API"},
-    "judge": {"name": "qwen/qwen3.8-27b", "params": 27.0, "endpoint": "Groq API"}
+    "judge": {"name": "gemini-3.1-flash-lite", "params": 2.0, "endpoint": "Google AI Studio API"}
 }
+
+def call_gemini_judge(prompt: str, gemini_key: str, max_retries: int = 5) -> str:
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={gemini_key}"
+    payload = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "temperature": 0.0,
+            "responseMimeType": "application/json"
+        }
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, headers={"Content-Type": "application/json"}, data=data, method="POST")
+    for attempt in range(max_retries):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                res = json.loads(resp.read().decode("utf-8"))
+                return res["candidates"][0]["content"]["parts"][0]["text"].strip()
+        except urllib.error.HTTPError as e:
+            print(f"      [Gemini Judge Retry {attempt+1}] HTTP {e.code}")
+            time.sleep(2.0 * (attempt + 1))
+        except Exception as e:
+            print(f"      [Gemini Judge Retry {attempt+1}] Error: {e}")
+            time.sleep(2.0 * (attempt + 1))
+    raise RuntimeError("[ABORT] Gemini judge call failed after retries.")
+
 
 def ensure_dirs():
     for d in [E1_DIR, E2_DIR, E1_KEY_LOG_DIR, E1_JUDGE_LOG_DIR, E2_KEY_LOG_DIR, E2_JUDGE_LOG_DIR]:
@@ -129,7 +154,6 @@ def call_ollama(model_name: str, prompt: str, system_prompt: str, max_tokens: in
         return parsed["choices"][0]["message"]["content"].strip()
 
 def run_dual_judge_trial(
-    client: Groq,
     query: Dict[str, Any],
     candidate_a_text: str,
     candidate_b_text: str,
@@ -139,7 +163,9 @@ def run_dual_judge_trial(
     baseline_tier: str,
     exp_tag: str,
     key_dir: str,
-    judge_dir: str
+    judge_dir: str,
+    gemini_key: Optional[str] = None,
+    client: Optional[Groq] = None
 ) -> Dict[str, Any]:
     system_prompt = (
         "You are an impartial, expert AI judge evaluating two candidate responses (Candidate A and Candidate B) to a technical user query.\n\n"
@@ -179,45 +205,51 @@ def run_dual_judge_trial(
 
     t0 = time.perf_counter()
     raw_content = ""
-    for attempt in range(15):
-        try:
-            resp = client.chat.completions.create(
-                model="qwen/qwen3.8-27b",
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                temperature=0.0,
-                max_tokens=500,
-                response_format={"type": "json_object"}
-            )
-            raw_content = resp.choices[0].message.content
-            if raw_content and raw_content.strip():
-                break
-        except Exception as e:
-            err_str = str(e)
-            print(f"      [{exp_tag} Judge Retry {attempt+1}] {err_str[:120]}")
-            if "429" in err_str:
-                if "Please try again in" in err_str:
-                    try:
-                        time_part = err_str.split("Please try again in")[1].split(".")[0].strip()
-                        wait_sec = 0.0
-                        if "m" in time_part:
-                            m_val, s_val = time_part.split("m")
-                            wait_sec = float(m_val.strip()) * 60.0 + float(s_val.replace("s", "").strip())
-                        elif "s" in time_part:
-                            wait_sec = float(time_part.replace("s", "").strip())
-                        wait_sec = max(wait_sec + 5.0, 30.0)
-                        print(f"      [Daily Token Quota Wait] Pausing {wait_sec:.0f}s until Groq token quota resets...")
-                        time.sleep(wait_sec)
-                        continue
-                    except Exception:
-                        pass
-                wait_sec = 25.0 + (attempt * 10.0)
-                print(f"      [Rate Limit 429] Backing off for {wait_sec:.0f}s...")
-                time.sleep(wait_sec)
-            else:
-                time.sleep(3.0 * (attempt + 1))
+    if gemini_key:
+        full_prompt = f"{system_prompt}\n\n{user_prompt}"
+        raw_content = call_gemini_judge(full_prompt, gemini_key)
+    elif client:
+        for attempt in range(15):
+            try:
+                resp = client.chat.completions.create(
+                    model="qwen/qwen3.8-27b",
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                    temperature=0.0,
+                    max_tokens=500,
+                    response_format={"type": "json_object"}
+                )
+                raw_content = resp.choices[0].message.content
+                if raw_content and raw_content.strip():
+                    break
+            except Exception as e:
+                err_str = str(e)
+                print(f"      [{exp_tag} Judge Retry {attempt+1}] {err_str[:120]}")
+                if "429" in err_str:
+                    if "Please try again in" in err_str:
+                        try:
+                            time_part = err_str.split("Please try again in")[1].split(".")[0].strip()
+                            wait_sec = 0.0
+                            if "m" in time_part:
+                                m_val, s_val = time_part.split("m")
+                                wait_sec = float(m_val.strip()) * 60.0 + float(s_val.replace("s", "").strip())
+                            elif "s" in time_part:
+                                wait_sec = float(time_part.replace("s", "").strip())
+                            wait_sec = max(wait_sec + 5.0, 30.0)
+                            print(f"      [Daily Token Quota Wait] Pausing {wait_sec:.0f}s until Groq token quota resets...")
+                            time.sleep(wait_sec)
+                            continue
+                        except Exception:
+                            pass
+                    wait_sec = 25.0 + (attempt * 10.0)
+                    print(f"      [Rate Limit 429] Backing off for {wait_sec:.0f}s...")
+                    time.sleep(wait_sec)
+                else:
+                    time.sleep(3.0 * (attempt + 1))
+    else:
+        raise ValueError("Neither gemini_key nor Groq client provided!")
     
     if not raw_content or not raw_content.strip():
         raise RuntimeError(f"[ABORT] Judge evaluation failed for {query['id']} vs {baseline_tier} {order_tag}: 429 quota exhaustion. Refusing synthetic tie per Hard Rule 9.")
@@ -341,8 +373,9 @@ def run_experiment_judging(
     preserved_path: str,
     key_dir: str,
     judge_dir: str,
-    groq_client: Groq,
-    pool_config_desc: str
+    gemini_key: Optional[str] = None,
+    groq_client: Optional[Groq] = None,
+    pool_config_desc: str = ""
 ) -> List[Dict[str, Any]]:
     print(f"\n{'='*70}\nSTARTING JUDGE EVALUATION FOR {exp_tag}\n{'='*70}")
     existing_trials = set()
@@ -380,7 +413,18 @@ def run_experiment_judging(
                 cur += 1
                 print(f"  [{cur}/{total_trials}] {exp_tag} Judging {qid} vs {b_key.upper()} [FORWARD]...")
                 t_fwd = run_dual_judge_trial(
-                    groq_client, q, slm_text, b_text, slm_sys_id, b_sys_id, "forward", b_key, exp_tag, key_dir, judge_dir
+                    query=q,
+                    candidate_a_text=slm_text,
+                    candidate_b_text=b_text,
+                    candidate_a_sys=slm_sys_id,
+                    candidate_b_sys=b_sys_id,
+                    order_tag="forward",
+                    baseline_tier=b_key,
+                    exp_tag=exp_tag,
+                    key_dir=key_dir,
+                    judge_dir=judge_dir,
+                    gemini_key=gemini_key,
+                    client=groq_client
                 )
                 trials_file.write(json.dumps(t_fwd) + "\n")
                 trials_file.flush()
@@ -429,7 +473,18 @@ def run_experiment_judging(
                 cur += 1
                 print(f"  [{cur}/{total_trials}] {exp_tag} Judging {qid} vs {b_key.upper()} [SWAPPED]...")
                 t_swp = run_dual_judge_trial(
-                    groq_client, q, b_text, slm_text, b_sys_id, slm_sys_id, "swapped", b_key, exp_tag, key_dir, judge_dir
+                    query=q,
+                    candidate_a_text=b_text,
+                    candidate_b_text=slm_text,
+                    candidate_a_sys=b_sys_id,
+                    candidate_b_sys=slm_sys_id,
+                    order_tag="swapped",
+                    baseline_tier=b_key,
+                    exp_tag=exp_tag,
+                    key_dir=key_dir,
+                    judge_dir=judge_dir,
+                    gemini_key=gemini_key,
+                    client=groq_client
                 )
                 trials_file.write(json.dumps(t_swp) + "\n")
                 trials_file.flush()
@@ -642,7 +697,9 @@ def main():
                     for r in b_dict.values():
                         f.write(json.dumps(r) + "\n")
 
-    groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    gemini_key = os.getenv("GEMINI_API_KEY")
+    groq_key = os.getenv("GROQ_API_KEY")
+    groq_client = Groq(api_key=groq_key) if groq_key else None
     e1_archive_slm = load_cached_dict(os.path.join(BASELINES_DIR, "slm_pipeline_responses.jsonl"))
 
     # =========================================================================
@@ -775,6 +832,7 @@ def main():
         preserved_path=E1_PRESERVED_PATH,
         key_dir=E1_KEY_LOG_DIR,
         judge_dir=E1_JUDGE_LOG_DIR,
+        gemini_key=gemini_key,
         groq_client=groq_client,
         pool_config_desc="E1: Re-baselined SLM Pool (Base phi3.5:cpu 3.82B Coder + Base Llama-3.1-8B), Baseline Not Fine-Tuned"
     )
@@ -797,6 +855,7 @@ def main():
         preserved_path=E2_PRESERVED_PATH,
         key_dir=E2_KEY_LOG_DIR,
         judge_dir=E2_JUDGE_LOG_DIR,
+        gemini_key=gemini_key,
         groq_client=groq_client,
         pool_config_desc="E2: Query-Dependent Fine-Tuning (phi3.5-ft-coding:latest 3.82B Coder + Base Llama-3.1-8B), Baseline Not Fine-Tuned"
     )

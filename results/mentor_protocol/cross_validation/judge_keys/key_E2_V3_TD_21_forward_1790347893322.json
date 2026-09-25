@@ -1,0 +1,8 @@
+{
+  "query_id": "V3_TD_21",
+  "experiment": "E2",
+  "order_tag": "forward",
+  "candidate_a": "SLM_Pipeline_E2",
+  "candidate_b": "gemini-2.5-flash",
+  "timestamp": 1790347893322
+}

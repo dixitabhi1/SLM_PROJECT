@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_61",
+  "experiment": "E2",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 4,
+      "completeness": 3,
+      "coherence": 4
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 2,
+      "coherence": 2
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 6,
+    "Candidate B": 2
+  },
+  "primary_differentiator": "Domain relevance and logical consistency of the SQL schema",
+  "reasoning": "Candidate A correctly identifies that 'Compound Engineering Problem #61' is likely a placeholder or specific domain problem involving chemical/material compounds, and constructs a relevant, logical relational schema (Compounds, Ingredients, Processes, Experiments) that addresses the domain constraints. Although the response is cut off at the end, the provided schema is technically sound and directly relevant to the prompt's context. Candidate B, on the other hand, hallucinates specific material properties (Aluminum 6061-T6, etc.) without basis and provides a completely irrelevant SQL schema for a generic e-commerce system (customers, orders, products), which fails to address the 'compound engineering' domain at all. Candidate A is significantly superior in relevance and technical alignment.",
+  "status": "SUCCESS"
+}

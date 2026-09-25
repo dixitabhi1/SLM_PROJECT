@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_51",
+  "experiment": "E2",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 4,
+      "completeness": 2,
+      "coherence": 4
+    },
+    "Candidate B": {
+      "correctness": 3,
+      "completeness": 2,
+      "coherence": 3
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 4,
+    "Candidate B": 3
+  },
+  "primary_differentiator": "Candidate A provides a more relevant architectural approach (Python asyncio) and correctly identifies the need for a complete event loop implementation, whereas Candidate B provides fragmented, incomplete C code that fails to address the asynchronous Python requirement.",
+  "reasoning": "The user requested a Linux network socket handler and an asynchronous Python event loop. Candidate A correctly interprets the need for a Python-based solution using `asyncio`, which is the standard for asynchronous Python event loops. It defines a concrete problem scenario (IoT sensor network) to address the vague 'compound engineering problem #51' and outlines the domain constraints. However, Candidate A's response is cut off before providing the actual code implementation, which is a significant completeness failure. Candidate B attempts to provide C code for socket creation, which is technically valid for a 'Linux network socket handler' but completely ignores the 'asynchronous Python event loop' part of the prompt. Furthermore, Candidate B's code is fragmented, repetitive, and cuts off mid-sentence, making it non-functional and incomplete. Candidate A is superior because it aligns with the specific language and concurrency model requested (Python/asyncio) and provides a logical structure, even though the final code is missing due to truncation. Candidate B is inferior because it uses the wrong language for the main requirement and provides broken code.",
+  "status": "SUCCESS"
+}

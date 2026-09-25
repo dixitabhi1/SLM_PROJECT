@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_11",
+  "experiment": "E1",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 2,
+      "completeness": 1,
+      "coherence": 3
+    },
+    "Candidate B": {
+      "correctness": 3,
+      "completeness": 2,
+      "coherence": 4
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 2,
+    "Candidate B": 4
+  },
+  "primary_differentiator": "Candidate B provides a complete, albeit generic, implementation, whereas Candidate A is an incomplete fragment that fails to provide the requested code.",
+  "reasoning": "Candidate A fails significantly because it does not provide the requested implementation. It stops mid-sentence in the planning phase ('2. Bracket Design') and never presents the SQL schema or Python code. While its reasoning for defining the problem is logical, the output is useless as a solution. Candidate B provides a complete, executable (conceptually) solution with SQL schema and Python ORM code. However, Candidate B completely ignores the specific domain of 'compound engineering problem #11' and instead implements a generic 'users and orders' schema. This is a major failure in addressing the specific user query constraints (domain constraints of engineering). Nevertheless, Candidate B is superior because it actually delivers the requested artifacts (schema + code), whereas Candidate A delivers nothing but a truncated thought process. Candidate B's code is technically sound for the generic domain it chose, though it uses deprecated SQLAlchemy patterns (declarative_base import path) and lacks the specific engineering domain logic requested.",
+  "status": "SUCCESS"
+}

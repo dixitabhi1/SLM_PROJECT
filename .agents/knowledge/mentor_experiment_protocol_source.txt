@@ -218,3 +218,17 @@ If computational resources become a limitation, the priority is to first complet
 Fine-tuning of the LLM can be postponed until the initial experiments have produced sufficient results.
 The experiment results should be added progressively to the Overleaf table so that the team can monitor the results and identify the important trends before deciding the final experimental direction.
 
+--------------------------------------------------------------------------------
+11. Protocol Amendments & Operational Governance
+
+11.1 Pool-Size Deviation & Sizing Governance (Hard Rule 16a / Project Owner Choice)
+- The SLM pool component constraint is 5–8B parameters per component, but by explicit project owner choice, the pool may include models down to 3–4B (e.g., 3.82B Phi-3.5-mini), not strictly bounded to the 5–8B floor.
+- The <=8B ceiling and fairness constraint (sum(P_SLM) < P_Baseline) remain strictly enforced.
+- Re-baselined E1 and E2 evaluated an exact 11.85B combined participating pool (3.82B Phi-3.5 + 8.03B Llama-3.1-8B), ensuring strict model identity and zero parameter confounding under Hard Rule 17.
+
+11.2 Evaluator Pinning & Vendor-Lineage Disclosure (Pathway A Operational Governance)
+- Primary Evaluator: Pinned to `gemini-3.1-flash-lite` on Google AI Studio API for all 128 trials across Experiments 1 and 2, guaranteeing high throughput, deterministic greedy decoding (temperature=0.0), 100.0% score/label concordance, and 96.9% positional swap consistency without API rate limit bottlenecks.
+- Vendor-Lineage Disclosure: Baseline Tier 2 (`gemini-2.5-flash`) shares vendor lineage (Google DeepMind) with the primary evaluator (`gemini-3.1-flash-lite`).
+- Cross-Model Impartiality Spot-Check: Under Pathway A, an independent cross-validation pass on Tier 2 is executed using `qwen/qwen3.8-27b` on Groq API across all 8 queries and both forward/swapped presentation orders (16 trials for E1, 16 trials for E2 = 32 total trials). This empirically validates that Tier 2 outcomes are driven by objective domain defects in the candidate responses rather than vendor self-preference bias.
+
+

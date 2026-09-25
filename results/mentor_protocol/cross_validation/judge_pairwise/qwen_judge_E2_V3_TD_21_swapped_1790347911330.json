@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_21",
+  "experiment": "E2",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 4,
+      "completeness": 2,
+      "coherence": 4
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 2,
+      "coherence": 3
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 4,
+    "Candidate B": 1
+  },
+  "primary_differentiator": "Technical validity and logical consistency",
+  "reasoning": "Candidate A provides a logically sound, albeit incomplete (truncated), response. It correctly identifies that the problem statement is ambiguous, proposes a concrete domain (chemical reactor control), and begins a rigorous analysis of state invariants with appropriate mathematical notation. Although it fails to provide the full implementation due to truncation, the content provided is technically accurate and relevant. Candidate B, on the other hand, provides a hallucinated and mathematically nonsensical response. The 'mathematical verifications' provided (e.g., defining Determinism as $\\forall S, T (S \\times T \\rightarrow S = T)$) are logically invalid and do not represent the concepts they claim to. The code snippet is also truncated and contains syntax errors. Candidate A is significantly superior in technical rigor and honesty regarding the ambiguity of the prompt.",
+  "status": "SUCCESS"
+}

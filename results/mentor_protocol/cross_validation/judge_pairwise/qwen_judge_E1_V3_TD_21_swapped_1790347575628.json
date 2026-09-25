@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_21",
+  "experiment": "E1",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 4,
+      "completeness": 2,
+      "coherence": 4
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 1,
+      "coherence": 2
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 4,
+    "Candidate B": 1
+  },
+  "primary_differentiator": "Technical rigor and logical consistency vs. hallucinated formalism and broken code",
+  "reasoning": "Candidate A correctly identifies that 'Compound Engineering Problem #21' is undefined and proposes a plausible, complex domain (chemical reactor control) to demonstrate the requested analysis. It provides a structured, logically sound beginning to the invariant analysis, although it cuts off before providing the implementation. Candidate B fails on multiple levels: it hallucinates a specific problem definition, provides mathematically nonsensical 'invariants' (e.g., claiming Determinism is equivalent to Consistency with the same formula, and using invalid set theory notation for non-interference), and provides a Python code block that is not valid code (it contains natural language text inside the code fence). Candidate A is significantly superior in technical quality and honesty about the ambiguity of the prompt.",
+  "status": "SUCCESS"
+}

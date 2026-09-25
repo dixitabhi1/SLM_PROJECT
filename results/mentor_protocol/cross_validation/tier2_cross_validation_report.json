@@ -1,0 +1,160 @@
+{
+  "timestamp": "2026-09-25 20:25:37",
+  "baseline_evaluated": "gemini-2.5-flash (32.0B)",
+  "evaluator_models": {
+    "primary": "gemini-3.1-flash-lite",
+    "cross_validation": "qwen/qwen3.8-27b"
+  },
+  "experiments": {
+    "E1": {
+      "trials_count": 16,
+      "verdict_agreement_rate_pct": 93.75,
+      "qwen_swap_consistency_pct": 87.5,
+      "qwen_outcomes": {
+        "slm_wins": 1,
+        "draws": 0,
+        "llm_wins": 15,
+        "slm_win_rate_pct": 6.25,
+        "slm_mean_holistic": 1.875,
+        "llm_mean_holistic": 6.0,
+        "mean_delta_q": -4.125,
+        "mean_qp_holistic": 0.5139,
+        "slm_mean_cqs": 1.875,
+        "llm_mean_cqs": 3.875,
+        "mean_p_criteria_pct": 46.88
+      },
+      "gemini_outcomes": {
+        "slm_wins": 0,
+        "draws": 0,
+        "llm_wins": 16,
+        "slm_win_rate_pct": 0.0,
+        "slm_mean_holistic": 2.8125,
+        "llm_mean_holistic": 7.4375
+      },
+      "delta_holistic_95ci": [
+        -5.3838,
+        -2.8662
+      ],
+      "qp_holistic_95ci": [
+        0.4061,
+        0.6217
+      ]
+    },
+    "E2": {
+      "trials_count": 16,
+      "verdict_agreement_rate_pct": 93.75,
+      "qwen_swap_consistency_pct": 87.5,
+      "qwen_outcomes": {
+        "slm_wins": 1,
+        "draws": 0,
+        "llm_wins": 15,
+        "slm_win_rate_pct": 6.25,
+        "slm_mean_holistic": 1.875,
+        "llm_mean_holistic": 6.0,
+        "mean_delta_q": -4.125,
+        "mean_qp_holistic": 0.5139,
+        "slm_mean_cqs": 1.9167,
+        "llm_mean_cqs": 3.875,
+        "mean_p_criteria_pct": 47.92
+      },
+      "gemini_outcomes": {
+        "slm_wins": 0,
+        "draws": 0,
+        "llm_wins": 16,
+        "slm_win_rate_pct": 0.0,
+        "slm_mean_holistic": 2.8125,
+        "llm_mean_holistic": 7.4375
+      },
+      "delta_holistic_95ci": [
+        -5.3838,
+        -2.8662
+      ],
+      "qp_holistic_95ci": [
+        0.4061,
+        0.6217
+      ]
+    }
+  },
+  "qualitative_defect_alignment": [
+    {
+      "query_id": "V3_TD_01",
+      "domains": [
+        "coding",
+        "mathematics"
+      ],
+      "qwen_primary_differentiator": "Candidate B provides a coherent, mathematically sound formulation for a defined problem, whereas Candidate A presents physically nonsensical equations (e.g., applying Dittus-Boelter to a solid wall) and fails to provide the requested Python simulation.",
+      "qwen_reasoning_summary": "Candidate A is fundamentally flawed. It invents a problem statement and then provides a derivation that is physically incorrect (treating the heat exchanger wall as a fluid with Reynolds and Prandtl numbers in a convective heat transfer coefficient e",
+      "gemini_reasoning_summary": "Candidate A hallucinates a problem definition and provides physically incorrect equations (e.g., calculating a wall convective coefficient using fluid properties as if it were a fluid, and an incorrect pressure formula). Candidate B correctly identif"
+    },
+    {
+      "query_id": "V3_TD_11",
+      "domains": [
+        "coding",
+        "structured_data"
+      ],
+      "qwen_primary_differentiator": "Relevance to the specific domain (Engineering) and depth of constraint analysis",
+      "qwen_reasoning_summary": "Candidate A fails to address the specific domain of 'compound engineering problem #11', instead providing a generic e-commerce schema (Users/Orders) which is irrelevant to the prompt. It also contains minor code issues (e.g., using string for date in",
+      "gemini_reasoning_summary": "Candidate A ignored the specific 'compound engineering problem' context, providing a generic user/order schema instead. Candidate B correctly identified that the prompt referred to a specific (though hypothetical) engineering domain, defined the prob"
+    },
+    {
+      "query_id": "V3_TD_21",
+      "domains": [
+        "formal_reasoning",
+        "coding"
+      ],
+      "qwen_primary_differentiator": "Candidate B provides a rigorous, domain-specific formalization and logical structure, whereas Candidate A provides nonsensical mathematical notation and an incomplete, non-functional code snippet.",
+      "qwen_reasoning_summary": "Candidate A fails on all fronts. It invents a vague problem, uses mathematically incoherent notation (e.g., defining Determinism and Stability with identical, trivial logical expressions that do not represent those concepts), and provides a Python co",
+      "gemini_reasoning_summary": "Candidate A provides a hallucinated, mathematically nonsensical set of equations (e.g., S*T -> S=T) and fails to provide the requested implementation code. Candidate B correctly identifies that the problem is undefined, provides a reasonable domain-s"
+    },
+    {
+      "query_id": "V3_TD_31",
+      "domains": [
+        "retrieval_qa",
+        "formal_reasoning"
+      ],
+      "qwen_primary_differentiator": "Technical accuracy and logical validity vs. hallucinated/tautological content",
+      "qwen_reasoning_summary": "Candidate A fails completely. It treats 'RFC' as a generic placeholder for any rule, ignoring the specific technical meaning of RFCs (IETF standards) and the domain of 'compound engineering' (likely chemical/pharmaceutical). It provides no actual pro",
+      "gemini_reasoning_summary": "Candidate A provides a hallucinated, abstract template that fails to address the ambiguity of the prompt, essentially repeating the user's terms without providing actual content. Candidate B correctly identifies the category error in the prompt (RFCs"
+    },
+    {
+      "query_id": "V3_TD_41",
+      "domains": [
+        "science_tech",
+        "mathematics"
+      ],
+      "qwen_primary_differentiator": "Mathematical correctness and handling of undefined problem parameters",
+      "qwen_reasoning_summary": "Candidate A provides a fundamentally incorrect solution. It claims the eigenvectors of a general 2x2 matrix are the standard basis vectors [1,0] and [0,1], which is only true if the matrix is diagonal (b=c=0). For the example provided (a=1, b=2, c=3,",
+      "gemini_reasoning_summary": "Candidate A hallucinates a solution to a non-existent problem, providing mathematically incorrect eigenvector derivations (it assumes the basis is always the identity, which is only true for diagonal matrices). Candidate B correctly identifies that t"
+    },
+    {
+      "query_id": "V3_TD_51",
+      "domains": [
+        "systems_ops",
+        "coding"
+      ],
+      "qwen_primary_differentiator": "Completeness and structural integrity of the solution",
+      "qwen_reasoning_summary": "Candidate A provides a fragmented, repetitive, and incomplete C code snippet that cuts off mid-sentence and fails to implement the requested Python asynchronous event loop entirely. It does not address the 'compound engineering problem' constraints e",
+      "gemini_reasoning_summary": "Candidate A failed to address the Python asynchronous event loop requirement entirely and provided an incomplete, cut-off C code snippet. Candidate B acknowledged the ambiguity of the prompt, defined a reasonable scope for the 'compound engineering p"
+    },
+    {
+      "query_id": "V3_TD_61",
+      "domains": [
+        "structured_data",
+        "retrieval_qa"
+      ],
+      "qwen_primary_differentiator": "Domain relevance and logical consistency of the SQL schema",
+      "qwen_reasoning_summary": "Candidate A fails significantly by providing a generic e-commerce SQL schema (customers, orders, products) that is completely unrelated to the 'compound engineering' domain specified in the prompt. It also presents arbitrary, unverified physical prop",
+      "gemini_reasoning_summary": "Candidate A provides a generic e-commerce schema that has no relation to the 'engineering problem' requested, and the response is cut off. Candidate B acknowledges the ambiguity of the prompt, makes reasonable assumptions about the domain, and provid"
+    },
+    {
+      "query_id": "V3_TD_71",
+      "domains": [
+        "creative_synthesis",
+        "science_tech"
+      ],
+      "qwen_primary_differentiator": "Technical accuracy and logical validity vs. hallucinated and physically impossible specifications",
+      "qwen_reasoning_summary": "Candidate A fails catastrophically on correctness. It hallucinates a specific problem definition (HEV) that was not provided in the prompt. More critically, it presents physically impossible and mathematically nonsensical specifications: a 12V batter",
+      "gemini_reasoning_summary": "Candidate A provides a hallucinated, physically impossible solution (e.g., a 12V system with 120kW power output would require 10,000 Amps, and the equations provided are dimensionally inconsistent and nonsensical). Candidate B correctly identifies th"
+    }
+  ]
+}

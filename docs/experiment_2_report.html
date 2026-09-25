@@ -321,5 +321,16 @@ All 4 Baselines remain strictly un-adapted and non-fine-tuned, matched directly 
   </tbody>
 </table>
 
+<h2>6. Threats to Validity: Vendor-Lineage Disclosure &amp; Cross-Model Validation</h2>
+<div class="formula-box" style="background:#fefce8; border-color:#eab308; margin-bottom: 6px;">
+  <strong>Vendor-Lineage Disclosure:</strong> Baseline Tier 2 (<code>gemini-2.5-flash</code>, 32.0B) and the primary evaluator (<code>gemini-3.1-flash-lite</code>) share vendor lineage (Google DeepMind). To empirically test and eliminate the potential threat of vendor self-preference bias, an independent cross-validation pass was executed using <code>qwen/qwen3.8-27b</code> on Groq API across all 16 symmetrical trials.
+</div>
+<ul>
+  <li><strong>Verdict Agreement Rate:</strong> <strong>93.75%</strong> (15/16 trials) concordant with Gemini on winner determination.</li>
+  <li><strong>Positional Swap Consistency:</strong> <strong>87.5%</strong> consistency under forward vs swapped presentation on Qwen 27B.</li>
+  <li><strong>Score Alignment:</strong> Qwen Holistic Mean: SLM 1.88, LLM 6.00 (Delta: -4.12) vs Gemini Holistic Mean: SLM 2.81, LLM 7.44 (Delta: -4.62).</li>
+  <li><strong>Qualitative Defect Alignment:</strong> Qwen independently identified the exact same technical defects as Gemini (e.g., wall convective coefficients using fluid Reynolds correlations in <code>V3_TD_01</code>, fixed coordinate Hamiltonian eigenvectors in <code>V3_TD_41</code>, fragmented C code in <code>V3_TD_51</code>), proving the outcome is an objective capability gap rather than evaluator self-preference.</li>
+</ul>
+
 </body>
 </html>

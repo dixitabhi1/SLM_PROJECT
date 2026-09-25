@@ -1,0 +1,25 @@
+{
+  "query_id": "V3_TD_71",
+  "experiment": "E1",
+  "judge_model": "qwen/qwen3.8-27b",
+  "order_tag": "swapped",
+  "criteria_scores": {
+    "Candidate A": {
+      "correctness": 4,
+      "completeness": 3,
+      "coherence": 5
+    },
+    "Candidate B": {
+      "correctness": 1,
+      "completeness": 2,
+      "coherence": 2
+    }
+  },
+  "holistic_scores": {
+    "Candidate A": 6,
+    "Candidate B": 1
+  },
+  "primary_differentiator": "Technical accuracy and logical consistency",
+  "reasoning": "Candidate A correctly identifies that the specific problem definition is missing and provides a rigorous, structured framework for analyzing thermodynamic efficiency models, covering fundamental laws, specific efficiency metrics (Carnot, Isentropic, Exergetic), and practical constraints. Although it cuts off at the end, the content provided is technically sound and professionally structured. Candidate B hallucinates a specific system (HEV) and provides physically impossible and mathematically incorrect specifications (e.g., a 12V battery pack delivering 120kW, which would require 10,000A current; incorrect acceleration and fuel economy formulas). Candidate B's response is fundamentally flawed and useless for engineering purposes.",
+  "status": "SUCCESS"
+}
